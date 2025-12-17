@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chain-of-Thought (CoT) | Модуль 3</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 11 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 3</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item active" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Chain-of-Thought (CoT)
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Tree of Thoughts (ToT)
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Self-Consistency
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          ReAct
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика CoT
+        </a>
+
+        <a href="lesson-6.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">6</span>
+          Практика продвинутые
+        </a>
+
+        <a href="lesson-7.html" class="nav-item" data-lesson="7">
+          <span class="nav-item-number">7</span>
+          Role Prompting
+        </a>
+
+        <a href="lesson-8.html" class="nav-item" data-lesson="8">
+          <span class="nav-item-number">8</span>
+          Step-Back Prompting
+        </a>
+
+        <a href="lesson-9.html" class="nav-item" data-lesson="9">
+          <span class="nav-item-number">9</span>
+          Contrastive + Meta
+        </a>
+
+        <a href="lesson-10.html" class="nav-item" data-lesson="10">
+          <span class="nav-item-number">10</span>
+          Практика новых техник
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="11">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 3</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Chain-of-Thought</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <!-- Lesson Header -->
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 1</span>
+            <span class="lesson-duration">⏱ 30 минут</span>
+          </div>
+          <h1 class="lesson-title">🔗 Chain-of-Thought (CoT)</h1>
+          <div class="lesson-objectives">
+            <h4>Цели урока:</h4>
+            <ul>
+              <li>Понять, что такое Chain-of-Thought</li>
+              <li>Научиться активировать пошаговое рассуждение</li>
+              <li>Увидеть разницу между обычным и CoT промптингом</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Время:</strong> 30 минут (15 теория + 15 демонстрация)</p>
+            <p><strong>Совет:</strong> Начните с простой математической задачи. Покажите один и тот же промпт с CoT и без — разница будет очевидна.</p>
+          </div>
+        </div>
+
+        <!-- What is CoT -->
+        <div class="card">
+          <div class="card-header">Что такое Chain-of-Thought?</div>
+          <div class="card-body">
+            <p><strong>Chain-of-Thought (CoT)</strong> — это техника промптинга, которая заставляет модель показать процесс своего мышления, рассуждая пошагово.</p>
+
+            <div class="alert alert-info">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Аналогия:</strong> Представьте, что вы решаете задачу по математике. Вместо того чтобы сразу написать ответ, вы показываете все шаги: формулу, подстановку значений, вычисления, результат. CoT делает то же самое с AI.
+              </div>
+            </div>
+
+            <h4>Почему это работает?</h4>
+            <ul>
+              <li>Модель "думает вслух" и меньше ошибается</li>
+              <li>Легче найти ошибку в рассуждении</li>
+              <li>Ответы более структурированные и полные</li>
+              <li>Повышает точность на сложных задачах на 20-50%</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- How to Activate -->
+        <div class="card">
+          <div class="card-header">Как активировать CoT?</div>
+          <div class="card-body">
+            <p>Добавьте одну из этих фраз в промпт:</p>
+
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">Ключевые фразы</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>"Рассуждай пошагово"
+"Покажи каждый шаг своего решения"
+"Объясни логику рассуждения"
+"Let's think step by step"
+"Давай решим это последовательно"</code></pre>
+            </div>
+
+            <div class="alert alert-success">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> Можно также попросить модель показать конкретные шаги: "Шаг 1: ..., Шаг 2: ..., и т.д."
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison -->
+        <div class="card">
+          <div class="card-header">Сравнение: БЕЗ CoT vs С CoT</div>
+          <div class="card-body">
+            <h4>Задача: Турнир по теннису</h4>
+            <p><em>Компания из 20 человек решила организовать турнир по теннису. Каждый должен сыграть с каждым ровно один раз. Сколько всего матчей?</em></p>
+
+            <div class="comparison">
+              <div class="comparison-item bad">
+                <div class="comparison-header">
+                  <span>❌</span>
+                  <span>БЕЗ CoT</span>
+                </div>
+                <div class="code-block">
+                  <pre><code>Промпт: "Компания из 20 человек играет в теннис. Каждый с каждым один раз. Сколько матчей?"
+
+Ответ: "190 матчей"</code></pre>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.875rem;">Только ответ, без объяснения. Невозможно проверить логику.</p>
+              </div>
+
+              <div class="comparison-item good">
+                <div class="comparison-header">
+                  <span>✅</span>
+                  <span>С CoT</span>
+                </div>
+                <div class="code-block">
+                  <pre><code>Промпт: "Реши пошагово: Компания из 20 человек играет в теннис. Каждый с каждым один раз. Сколько матчей?"
+
+Ответ:
+"Шаг 1: Определим формулу
+Это задача на сочетания: C(n,2)
+
+Шаг 2: Подставим значения
+n = 20, формула: n(n-1)/2
+
+Шаг 3: Вычислим
+20 × 19 / 2 = 380 / 2 = 190
+
+Ответ: 190 матчей"</code></pre>
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.875rem;">Виден весь процесс решения, легко проверить.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CoT Template -->
+        <div class="card">
+          <div class="card-header">Шаблон CoT промпта</div>
+          <div class="card-body">
+            <div class="prompt-example">
+              <div class="prompt-example-header">
+                <span>📝</span>
+                <span>Универсальный шаблон</span>
+              </div>
+              <pre>[Описание задачи]
+
+Реши эту задачу, рассуждая пошагово:
+
+1. Что нам дано?
+2. Что нужно найти?
+3. Какой метод/формулу использовать?
+4. Пошаговое решение
+5. Проверка ответа
+6. Финальный ответ
+
+Важно: Покажи каждый шаг своего рассуждения.</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- When to Use -->
+        <div class="card">
+          <div class="card-header">Когда использовать CoT?</div>
+          <div class="card-body">
+            <div class="alert alert-success">
+              <div>
+                <strong>✅ Идеально для:</strong>
+                <ul style="margin: 0.5rem 0 0 1rem;">
+                  <li>Математических задач</li>
+                  <li>Логических головоломок</li>
+                  <li>Анализа данных</li>
+                  <li>Принятия решений</li>
+                  <li>Задач с несколькими шагами</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="alert alert-warning" style="margin-top: 1rem;">
+              <div>
+                <strong>⚠️ Не нужен для:</strong>
+                <ul style="margin: 0.5rem 0 0 1rem;">
+                  <li>Простых вопросов ("Какая столица Франции?")</li>
+                  <li>Генерации текста без анализа</li>
+                  <li>Перевода</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Examples Section -->
+        <div class="card">
+          <div class="card-header">💼 Примеры из бизнеса</div>
+          <div class="card-body">
+            <p>CoT особенно полезен для бизнес-задач, где важна точность расчётов и прозрачность логики.</p>
+
+            <!-- HR Example -->
+            <div class="example-card">
+              <div class="example-header">
+                <span class="domain-badge domain-hr">HR</span>
+                <h4>Расчёт полной стоимости найма сотрудника</h4>
+              </div>
+              <div class="example-body">
+                <div class="example-task">
+                  <h5>📋 Задача:</h5>
+                  <p>Компания хочет нанять middle-разработчика с зарплатой $2500/мес. Рассчитай полную стоимость найма за первый год, учитывая все расходы.</p>
+                </div>
+
+                <div class="example-prompt">
+                  <h5>💬 Промпт с CoT:</h5>
+                  <pre>Рассчитай полную стоимость найма middle-разработчика с зарплатой $2500/мес за первый год.
+
+Рассуждай пошагово:
+1. Определи все категории затрат на сотрудника
+2. Рассчитай каждую категорию отдельно
+3. Учти скрытые расходы (налоги, оборудование, онбординг)
+4. Просуммируй и сделай вывод
+
+Покажи каждый шаг расчёта.</pre>
+                </div>
+
+                <div class="example-result">
+                  <h5>✅ Результат:</h5>
+                  <p><strong>Шаг 1: Категории затрат</strong></p>
+                  <ul>
+                    <li>Базовая зарплата</li>
+                    <li>Налоги и отчисления (~34%)</li>
+                    <li>Рекрутинг (агентство или внутренние затраты)</li>
+                    <li>Оборудование (ноутбук, софт)</li>
+                    <li>Онбординг (время менторов)</li>
+                  </ul>
+                  <p style="margin-top: 0.75rem;"><strong>Шаг 2: Расчёт</strong></p>
+                  <ul>
+                    <li>Зарплата: $2500 × 12 = $30,000</li>
+                    <li>Налоги (34%): $10,200</li>
+                    <li>Рекрутинг: ~$2,500</li>
+                    <li>Оборудование: ~$2,000</li>
+                    <li>Онбординг: ~$1,500</li>
+                  </ul>
+                  <p style="margin-top: 0.75rem;"><strong>Итого: $46,200/год</strong> (на 54% больше базовой зарплаты)</p>
+                </div>
+
+                <div class="example-analysis">
+                  <h5>🔍 Почему CoT помог:</h5>
+                  <p>Без пошагового анализа легко забыть про налоги и скрытые расходы. CoT показал, что реальная стоимость сотрудника на 54% выше его зарплаты — критически важная информация для бюджетирования.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sales Example -->
+            <div class="example-card">
+              <div class="example-header">
+                <span class="domain-badge domain-sales">Продажи</span>
+                <h4>Расчёт воронки продаж</h4>
+              </div>
+              <div class="example-body">
+                <div class="example-task">
+                  <h5>📋 Задача:</h5>
+                  <p>Отдел маркетинга привлёк 1000 лидов. Конверсия в квалификацию — 20%, в встречу — 30% от квалифицированных, в сделку — 25% от встреч. Средний чек — $5000. Какая ожидаемая выручка?</p>
+                </div>
+
+                <div class="example-prompt">
+                  <h5>💬 Промпт с CoT:</h5>
+                  <pre>Рассчитай ожидаемую выручку из воронки продаж.
+
+Исходные данные:
+- 1000 лидов
+- Конверсия в квалификацию: 20%
+- Конверсия в встречу: 30% от квалифицированных
+- Конверсия в сделку: 25% от встреч
+- Средний чек: $5000
+
+Рассуждай пошагово, показывая каждый этап воронки.</pre>
+                </div>
+
+                <div class="example-result">
+                  <h5>✅ Результат:</h5>
+                  <p><strong>Пошаговый расчёт воронки:</strong></p>
+                  <ul>
+                    <li><strong>Этап 1:</strong> 1000 лидов × 20% = 200 квалифицированных</li>
+                    <li><strong>Этап 2:</strong> 200 × 30% = 60 встреч</li>
+                    <li><strong>Этап 3:</strong> 60 × 25% = 15 сделок</li>
+                    <li><strong>Выручка:</strong> 15 × $5000 = <strong>$75,000</strong></li>
+                  </ul>
+                  <p style="margin-top: 0.75rem;"><strong>Общая конверсия:</strong> 15/1000 = 1.5%</p>
+                </div>
+
+                <div class="example-analysis">
+                  <h5>🔍 Почему CoT помог:</h5>
+                  <p>Пошаговый расчёт показал узкие места воронки. Видно, что самое большое падение — на этапе квалификации (80% потерь). Это подсказывает, где нужна оптимизация.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Marketing Example -->
+            <div class="example-card">
+              <div class="example-header">
+                <span class="domain-badge domain-marketing">Маркетинг</span>
+                <h4>Расчёт ROI рекламной кампании</h4>
+              </div>
+              <div class="example-body">
+                <div class="example-task">
+                  <h5>📋 Задача:</h5>
+                  <p>Бюджет рекламы — $5000. CPM (стоимость 1000 показов) — $10. CTR — 2%. Конверсия сайта — 3%. Средний чек — $100. Рассчитай ROI кампании.</p>
+                </div>
+
+                <div class="example-prompt">
+                  <h5>💬 Промпт с CoT:</h5>
+                  <pre>Рассчитай ROI рекламной кампании.
+
+Данные:
+- Бюджет: $5000
+- CPM: $10
+- CTR: 2%
+- Конверсия сайта: 3%
+- Средний чек: $100
+
+Рассуждай пошагово:
+1. Сколько показов за бюджет?
+2. Сколько кликов (по CTR)?
+3. Сколько покупок (по конверсии)?
+4. Какая выручка?
+5. Какой ROI?</pre>
+                </div>
+
+                <div class="example-result">
+                  <h5>✅ Результат:</h5>
+                  <ul>
+                    <li><strong>Шаг 1:</strong> Показы = $5000 / $10 × 1000 = 500,000 показов</li>
+                    <li><strong>Шаг 2:</strong> Клики = 500,000 × 2% = 10,000 кликов</li>
+                    <li><strong>Шаг 3:</strong> Покупки = 10,000 × 3% = 300 покупок</li>
+                    <li><strong>Шаг 4:</strong> Выручка = 300 × $100 = $30,000</li>
+                    <li><strong>Шаг 5:</strong> ROI = ($30,000 - $5000) / $5000 × 100% = <strong>500%</strong></li>
+                  </ul>
+                  <p style="margin-top: 0.75rem;"><strong>CPA (стоимость привлечения):</strong> $5000 / 300 = $16.67</p>
+                </div>
+
+                <div class="example-analysis">
+                  <h5>🔍 Почему CoT помог:</h5>
+                  <p>Пошаговый расчёт позволяет менять параметры и видеть эффект. Например, если увеличить CTR с 2% до 3%, выручка вырастет до $45,000, а ROI — до 800%.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Customer Service Example -->
+            <div class="example-card">
+              <div class="example-header">
+                <span class="domain-badge domain-service">Сервис</span>
+                <h4>Расчёт нагрузки службы поддержки</h4>
+              </div>
+              <div class="example-body">
+                <div class="example-task">
+                  <h5>📋 Задача:</h5>
+                  <p>Служба поддержки получает 500 тикетов в день. Среднее время обработки — 15 минут. Оператор работает 8 часов с 80% эффективностью. Сколько операторов нужно?</p>
+                </div>
+
+                <div class="example-prompt">
+                  <h5>💬 Промпт с CoT:</h5>
+                  <pre>Рассчитай необходимое количество операторов поддержки.
+
+Данные:
+- Тикетов в день: 500
+- Среднее время обработки: 15 минут
+- Рабочий день: 8 часов
+- Эффективность оператора: 80%
+
+Рассуждай пошагово:
+1. Сколько минут нужно на все тикеты?
+2. Сколько минут работает один оператор?
+3. Сколько операторов требуется?</pre>
+                </div>
+
+                <div class="example-result">
+                  <h5>✅ Результат:</h5>
+                  <ul>
+                    <li><strong>Шаг 1:</strong> Общее время = 500 × 15 мин = 7500 минут</li>
+                    <li><strong>Шаг 2:</strong> Рабочее время оператора = 8ч × 60 мин × 80% = 384 минуты</li>
+                    <li><strong>Шаг 3:</strong> Операторов = 7500 / 384 = 19.5 → <strong>20 операторов</strong></li>
+                  </ul>
+                  <p style="margin-top: 0.75rem;"><strong>Проверка:</strong> 20 операторов × 384 мин = 7680 мин (запас 180 мин на пиковые нагрузки)</p>
+                </div>
+
+                <div class="example-analysis">
+                  <h5>🔍 Почему CoT помог:</h5>
+                  <p>Без пошагового расчёта легко забыть учесть эффективность 80% (перерывы, совещания). Это изменило ответ с 16 до 20 операторов — разница в 4 человека и ~$120,000/год в расходах.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Interactive Demo -->
+        <div class="demo-container" data-technique="cot">
+          <div class="demo-header">
+            <div class="demo-title">
+              <span>🧪</span>
+              <span>Попробуйте сами</span>
+            </div>
+          </div>
+          <p>Введите промпт и проверьте, содержит ли он элементы CoT:</p>
+          <textarea class="demo-input" placeholder="Введите ваш промпт здесь...">Реши задачу пошагово: В магазине было 150 яблок. Продали 40%, затем привезли ещё 30 яблок. Сколько яблок в магазине?</textarea>
+          <button class="btn btn-primary demo-run-btn">Проверить промпт</button>
+          <div class="demo-output" style="margin-top: 1rem;"></div>
+        </div>
+
+        <!-- Quiz -->
+        <div class="quiz">
+          <div class="quiz-header">
+            <div class="quiz-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <path d="M12 17h.01"/>
+              </svg>
+            </div>
+            <h3 class="quiz-title">Проверьте себя</h3>
+          </div>
+          <p class="quiz-question">Какая фраза лучше всего активирует Chain-of-Thought?</p>
+          <div class="quiz-options">
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>"Дай короткий ответ"</span>
+            </div>
+            <div class="quiz-option" data-correct="true">
+              <span class="quiz-option-marker"></span>
+              <span>"Рассуждай пошагово, покажи каждый шаг"</span>
+            </div>
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>"Ответь одним словом"</span>
+            </div>
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>"Просто скажи результат"</span>
+            </div>
+          </div>
+          <div class="quiz-feedback">
+            <span class="quiz-feedback-text"></span>
+          </div>
+          <div class="quiz-actions">
+            <button class="btn btn-primary quiz-check-btn">Проверить</button>
+            <button class="btn btn-secondary quiz-next-btn hidden">Далее</button>
+            <button class="btn btn-secondary quiz-reset-btn hidden">Попробовать снова</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
+          <div class="card-body">
+            <h3>📌 Итоги урока</h3>
+            <ul>
+              <li><strong>CoT</strong> — техника пошагового рассуждения</li>
+              <li><strong>Активация:</strong> "Рассуждай пошагово", "Покажи процесс"</li>
+              <li><strong>Польза:</strong> повышает точность на 20-50%</li>
+              <li><strong>Когда:</strong> математика, логика, анализ, сложные задачи</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="index.html" class="nav-arrow nav-arrow-prev">
+            <span>←</span>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Главная</div>
+            </div>
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="1">
+            Отметить как пройденный
+          </button>
+          <a href="lesson-2.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Tree of Thoughts</div>
+            </div>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

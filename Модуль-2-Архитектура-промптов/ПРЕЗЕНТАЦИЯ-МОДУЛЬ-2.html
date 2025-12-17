@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Модуль 2: Архитектура эффективных промптов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* Режим презентации */
+        .presentation-mode {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Режим преподавателя */
+        .presenter-mode {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .presenter-mode.active {
+            display: grid;
+            grid-template-columns: 60% 40%;
+            grid-template-rows: 70% 30%;
+        }
+
+        /* Панель навигации */
+        .nav-bar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .nav-bar h3 {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .nav-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-controls button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .nav-controls button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .slide-counter {
+            font-size: 1.2em;
+            font-weight: bold;
+            background: rgba(0,0,0,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        /* Контейнер слайдов */
+        .slides-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+            min-height: 500px;
+            background: white;
+            color: #333;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            animation: slideIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Стили слайдов */
+        .slide h1 {
+            font-size: 2.8em;
+            color: #667eea;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .slide h2 {
+            font-size: 2em;
+            color: #667eea;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .slide h3 {
+            font-size: 1.5em;
+            color: #764ba2;
+            margin: 20px 0 15px 0;
+        }
+
+        .slide p {
+            font-size: 1.3em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .slide ul, .slide ol {
+            font-size: 1.3em;
+            line-height: 2;
+            margin-left: 40px;
+        }
+
+        /* Титульный слайд */
+        .title-slide {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .title-slide h1 {
+            font-size: 3.5em;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .title-slide .subtitle {
+            font-size: 1.8em;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+
+        .title-slide .module-info {
+            font-size: 1.3em;
+            opacity: 0.8;
+        }
+
+        /* Компоненты */
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .component-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .component-card h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .component-card p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+
+        /* Примеры кода */
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 25px;
+            border-radius: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 1em;
+            overflow-x: auto;
+            margin: 20px 0;
+            line-height: 1.6;
+            white-space: pre-wrap;
+        }
+
+        /* Сравнение плохой/хороший */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .bad-example {
+            background: #fee2e2;
+            border-left: 5px solid #ef4444;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .bad-example h3 {
+            color: #dc2626;
+        }
+
+        .good-example {
+            background: #dcfce7;
+            border-left: 5px solid #22c55e;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .good-example h3 {
+            color: #16a34a;
+        }
+
+        /* Фреймворки */
+        .framework-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 3px solid #667eea;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+
+        .framework-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .framework-items {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px 20px;
+            font-size: 1.2em;
+        }
+
+        .framework-letter {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .framework-desc {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Таблица сравнения */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+
+        .comparison-table th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* Чек-лист */
+        .checklist {
+            background: #f0fdf4;
+            padding: 25px;
+            border-radius: 15px;
+            border: 2px solid #22c55e;
+        }
+
+        .checklist-item {
+            padding: 12px 0;
+            font-size: 1.2em;
+            border-bottom: 1px solid #bbf7d0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            width: 30px;
+            height: 30px;
+            background: #22c55e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Режим преподавателя - стили */
+        .presenter-current-slide {
+            background: #1a1a2e;
+            padding: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .presenter-current-slide h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 0.9em;
+        }
+
+        .presenter-current-slide .slide {
+            transform: scale(0.65);
+            transform-origin: top left;
+            margin: 0;
+            width: 150%;
+        }
+
+        .presenter-notes {
+            background: #16213e;
+            padding: 25px;
+            overflow-y: auto;
+            border-left: 3px solid #667eea;
+        }
+
+        .presenter-notes h4 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .presenter-notes .notes-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        .presenter-notes .notes-content p {
+            margin-bottom: 15px;
+        }
+
+        .presenter-notes .notes-content strong {
+            color: #667eea;
+        }
+
+        .presenter-notes .notes-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .presenter-notes .notes-content li {
+            margin-bottom: 8px;
+        }
+
+        .presenter-notes .tip {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .presenter-notes .warning {
+            background: rgba(239, 68, 68, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ef4444;
+        }
+
+        .presenter-preview {
+            grid-column: span 2;
+            background: #0f0f23;
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            align-items: center;
+        }
+
+        .preview-slide {
+            min-width: 180px;
+            height: 120px;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            border: 3px solid transparent;
+        }
+
+        .preview-slide:hover {
+            transform: scale(1.05);
+            border-color: #667eea;
+        }
+
+        .preview-slide.active {
+            border-color: #667eea;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+
+        /* Таймер */
+        .timer {
+            background: rgba(0,0,0,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+        }
+
+        /* Горячие клавиши */
+        .hotkeys-hint {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 15px 20px;
+            border-radius: 10px;
+            font-size: 0.9em;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .hotkeys-hint:hover {
+            opacity: 1;
+        }
+
+        .hotkeys-hint kbd {
+            background: #667eea;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        /* Highlight */
+        .highlight {
+            background: linear-gradient(120deg, #ffd700 0%, #ffec8b 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #333;
+        }
+
+        /* Анимации для элементов */
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Иконки */
+        .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        /* Прогресс-бар */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Режим презентации -->
+    <div class="presentation-mode" id="presentationMode">
+        <div class="nav-bar">
+            <h3>Модуль 2: Архитектура эффективных промптов</h3>
+            <div class="nav-controls">
+                <div class="timer" id="timer">00:00:00</div>
+                <button onclick="toggleMode()">Режим преподавателя (P)</button>
+                <button onclick="prevSlide()">Назад</button>
+                <span class="slide-counter" id="slideCounter">1 / 15</span>
+                <button onclick="nextSlide()">Вперед</button>
+            </div>
+        </div>
+
+        <div class="slides-container">
+            <!-- Слайд 1: Титульный -->
+            <div class="slide title-slide active" data-notes="slide1">
+                <h1>АРХИТЕКТУРА ЭФФЕКТИВНЫХ ПРОМПТОВ</h1>
+                <p class="subtitle">Модуль 2: От хаоса к системе</p>
+                <p class="module-info">BelHard Academy | Курс: Промпт-инжиниринг 2.0</p>
+                <div style="margin-top: 60px; opacity: 0.8;">
+                    <p>Продолжительность: 3 часа</p>
+                    <p>Практика: 60% времени</p>
+                </div>
+            </div>
+
+            <!-- Слайд 2: Проблема -->
+            <div class="slide" data-notes="slide2">
+                <h2>Проблема: Почему промпты не работают?</h2>
+                <div class="bad-example" style="margin-top: 30px;">
+                    <h3>Типичный промпт новичка:</h3>
+                    <div class="code-block">Напиши статью про маркетинг</div>
+                </div>
+                <div style="margin-top: 30px;">
+                    <h3>Что получаем:</h3>
+                    <ul>
+                        <li>Общий, размытый текст</li>
+                        <li>Не под нашу аудиторию</li>
+                        <li>Без конкретики и примеров</li>
+                        <li>Модель угадывает наши намерения</li>
+                    </ul>
+                </div>
+                <p style="margin-top: 30px; font-size: 1.5em; color: #667eea; text-align: center;">
+                    <strong>Промпт = рецепт. Без деталей повар приготовит "что-то".</strong>
+                </p>
+            </div>
+
+            <!-- Слайд 3: 4 компонента -->
+            <div class="slide" data-notes="slide3">
+                <h2>4 компонента эффективного промпта</h2>
+                <div class="components-grid">
+                    <div class="component-card">
+                        <h3>1. РОЛЬ (Who)</h3>
+                        <p>Кем должна быть модель?</p>
+                        <p style="opacity: 0.9; font-size: 0.95em;">Пример: "Ты - эксперт по контент-маркетингу"</p>
+                    </div>
+                    <div class="component-card">
+                        <h3>2. КОНТЕКСТ (What)</h3>
+                        <p>Что модель должна знать?</p>
+                        <p style="opacity: 0.9; font-size: 0.95em;">Пример: "Аудитория: маркетологи B2B"</p>
+                    </div>
+                    <div class="component-card">
+                        <h3>3. ИНСТРУКЦИЯ (How)</h3>
+                        <p>Что конкретно делать?</p>
+                        <p style="opacity: 0.9; font-size: 0.95em;">Пример: "Напиши статью на 1000 слов"</p>
+                    </div>
+                    <div class="component-card">
+                        <h3>4. ФОРМАТ (Output)</h3>
+                        <p>Как должен выглядеть результат?</p>
+                        <p style="opacity: 0.9; font-size: 0.95em;">Пример: "JSON с полями..."</p>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; text-align: center; font-size: 1.3em;">
+                    <span class="highlight">РОЛЬ -> КОНТЕКСТ -> ИНСТРУКЦИЯ -> ФОРМАТ</span>
+                </p>
+            </div>
+
+            <!-- Слайд 4: Хороший промпт -->
+            <div class="slide" data-notes="slide4">
+                <h2>Хороший промпт: все 4 компонента</h2>
+                <div class="good-example">
+                    <div class="code-block" style="background: #1e1e1e; color: #d4d4d4;">Ты - эксперт по контент-маркетингу с 10-летним опытом в B2B.
+
+Контекст:
+- Аудитория: маркетологи в B2B-компаниях, возраст 28-40 лет
+- Цель статьи: привлечь на платный вебинар по email-маркетингу
+- Тон: экспертный, но дружелюбный
+
+Задача:
+Напиши статью на тему "5 стратегий email-маркетинга для B2B в 2024 году"
+
+Формат:
+- Объем: 1000-1200 слов
+- Структура: введение + 5 стратегий + призыв к действию
+- Стиль: без воды, с конкретными примерами</div>
+                </div>
+                <p style="margin-top: 20px; color: #16a34a; font-size: 1.2em;">
+                    <strong>Результат:</strong> Качественная статья точно по ТЗ
+                </p>
+            </div>
+
+            <!-- Слайд 5: Обзор фреймворков -->
+            <div class="slide" data-notes="slide5">
+                <h2>4 фреймворка промптинга</h2>
+                <p style="font-size: 1.2em; margin-bottom: 30px;">Фреймворки - это готовые структуры. Как рецепты: заполнил пункты - получил результат.</p>
+                <table class="comparison-table">
+                    <tr>
+                        <th>Фреймворк</th>
+                        <th>Для чего</th>
+                        <th>Когда использовать</th>
+                    </tr>
+                    <tr>
+                        <td><strong>RISEN</strong></td>
+                        <td>Бизнес-задачи</td>
+                        <td>Анализ, планы, отчеты</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CRISPE</strong></td>
+                        <td>Креатив</td>
+                        <td>Слоганы, идеи, концепции</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CREATE</strong></td>
+                        <td>Контент</td>
+                        <td>Статьи, гайды, документация</td>
+                    </tr>
+                    <tr>
+                        <td><strong>RTF</strong></td>
+                        <td>Быстрые задачи</td>
+                        <td>Списки, шаблоны, простые тексты</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Слайд 6: RISEN -->
+            <div class="slide" data-notes="slide6">
+                <h2>Фреймворк RISEN - для бизнес-задач</h2>
+                <div class="framework-box">
+                    <div class="framework-items">
+                        <div class="framework-letter">R</div>
+                        <div class="framework-desc"><strong>Role</strong> - Кто ты? (роль эксперта)</div>
+                        <div class="framework-letter">I</div>
+                        <div class="framework-desc"><strong>Input</strong> - Входные данные (что у нас есть)</div>
+                        <div class="framework-letter">S</div>
+                        <div class="framework-desc"><strong>Steps</strong> - Шаги (что делать пошагово)</div>
+                        <div class="framework-letter">E</div>
+                        <div class="framework-desc"><strong>Expectation</strong> - Ожидание (какой результат)</div>
+                        <div class="framework-letter">N</div>
+                        <div class="framework-desc"><strong>Narrowing</strong> - Уточнение (ограничения)</div>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;"><strong>Идеально для:</strong> анализа данных, планирования, стратегии, работы с числами</p>
+            </div>
+
+            <!-- Слайд 7: CRISPE -->
+            <div class="slide" data-notes="slide7">
+                <h2>Фреймворк CRISPE - для креатива</h2>
+                <div class="framework-box">
+                    <div class="framework-items">
+                        <div class="framework-letter">C</div>
+                        <div class="framework-desc"><strong>Capacity</strong> - Роль (кто ты)</div>
+                        <div class="framework-letter">R</div>
+                        <div class="framework-desc"><strong>Insight</strong> - Инсайт (ключевая идея/проблема)</div>
+                        <div class="framework-letter">I</div>
+                        <div class="framework-desc"><strong>Statement</strong> - Утверждение (что донести)</div>
+                        <div class="framework-letter">S</div>
+                        <div class="framework-desc"><strong>Personality</strong> - Стиль (каким тоном)</div>
+                        <div class="framework-letter">P</div>
+                        <div class="framework-desc"><strong>Experiment</strong> - Варианты (попробуй разные)</div>
+                        <div class="framework-letter">E</div>
+                        <div class="framework-desc"><strong>Expectation</strong> - Результат</div>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;"><strong>Фишка:</strong> Буква P - просите несколько вариантов, модель покажет разные подходы</p>
+            </div>
+
+            <!-- Слайд 8: CREATE -->
+            <div class="slide" data-notes="slide8">
+                <h2>Фреймворк CREATE - для контента</h2>
+                <div class="framework-box">
+                    <div class="framework-items">
+                        <div class="framework-letter">C</div>
+                        <div class="framework-desc"><strong>Character</strong> - Персонаж (от чьего лица)</div>
+                        <div class="framework-letter">R</div>
+                        <div class="framework-desc"><strong>Request</strong> - Запрос (что создать)</div>
+                        <div class="framework-letter">E</div>
+                        <div class="framework-desc"><strong>Examples</strong> - Примеры (образцы стиля)</div>
+                        <div class="framework-letter">A</div>
+                        <div class="framework-desc"><strong>Adjustments</strong> - Корректировки (тон, стиль)</div>
+                        <div class="framework-letter">T</div>
+                        <div class="framework-desc"><strong>Type</strong> - Тип вывода (формат)</div>
+                        <div class="framework-letter">E</div>
+                        <div class="framework-desc"><strong>Extras</strong> - Дополнительно (особые требования)</div>
+                    </div>
+                </div>
+                <p style="margin-top: 20px;"><strong>Фишка:</strong> Примеры (E) - покажите модели образцы, она скопирует стиль!</p>
+            </div>
+
+            <!-- Слайд 9: RTF -->
+            <div class="slide" data-notes="slide9">
+                <h2>Фреймворк RTF - для быстрых задач</h2>
+                <div class="framework-box" style="max-width: 600px; margin: 30px auto;">
+                    <div class="framework-items">
+                        <div class="framework-letter">R</div>
+                        <div class="framework-desc"><strong>Role</strong> - Кто ты?</div>
+                        <div class="framework-letter">T</div>
+                        <div class="framework-desc"><strong>Task</strong> - Что сделать?</div>
+                        <div class="framework-letter">F</div>
+                        <div class="framework-desc"><strong>Format</strong> - В каком виде результат?</div>
+                    </div>
+                </div>
+                <div class="code-block" style="max-width: 700px; margin: 30px auto;">R: Ты - HR-специалист
+
+T: Составь список из 10 вопросов для собеседования
+   на позицию junior front-end разработчика
+
+F: Markdown-таблица: Вопрос | Тип | Пример ответа</div>
+                <p style="text-align: center; margin-top: 20px;"><strong>RTF = минимализм.</strong> Когда времени мало - это ваш выбор.</p>
+            </div>
+
+            <!-- Слайд 10: Токены -->
+            <div class="slide" data-notes="slide10">
+                <h2>Токены и ограничения</h2>
+                <div class="comparison" style="gap: 20px;">
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 15px;">
+                        <h3 style="color: #667eea;">Что такое токен?</h3>
+                        <ul style="font-size: 1.1em;">
+                            <li>Токен ~ 0.75 слова (англ.)</li>
+                            <li>Токен ~ 0.5 слова (рус.)</li>
+                            <li>"Привет" = 1 токен</li>
+                            <li>"Искусственный интеллект" = 4 токена</li>
+                        </ul>
+                    </div>
+                    <div style="background: #f8f9fa; padding: 25px; border-radius: 15px;">
+                        <h3 style="color: #667eea;">Лимиты (2024)</h3>
+                        <ul style="font-size: 1.1em;">
+                            <li><strong>ChatGPT:</strong> 40 сообщ./3 часа</li>
+                            <li><strong>Claude:</strong> ~50 сообщ./4 часа</li>
+                            <li><strong>Gemini:</strong> ~60 запросов/мин</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tip" style="background: rgba(102, 126, 234, 0.1); padding: 20px; border-radius: 10px; margin-top: 25px; border-left: 4px solid #667eea;">
+                    <strong>Как экономить токены:</strong> Убирайте лишние слова, не копируйте огромные тексты, разбивайте большие задачи на части
+                </div>
+            </div>
+
+            <!-- Слайд 11: Структурированный вывод -->
+            <div class="slide" data-notes="slide11">
+                <h2>Структурированный вывод (JSON)</h2>
+                <p>Когда результат можно сразу обработать кодом</p>
+                <div class="code-block">Промпт:
+Проанализируй отзыв: "Товар хороший, но доставка медленная.
+Цена приемлемая."
+
+Выдай в JSON:
+{
+  "sentiment": "positive/neutral/negative",
+  "rating": 1-5,
+  "pros": ["список"],
+  "cons": ["список"]
+}
+
+Результат:
+{
+  "sentiment": "neutral",
+  "rating": 3,
+  "pros": ["Хорошее качество", "Приемлемая цена"],
+  "cons": ["Медленная доставка"]
+}</div>
+                <p style="margin-top: 15px;"><strong>Где использовать:</strong> анализ отзывов, классификация, автоматизация, API</p>
+            </div>
+
+            <!-- Слайд 12: 7 правил -->
+            <div class="slide" data-notes="slide12">
+                <h2>7 правил эффективных промптов</h2>
+                <div class="checklist">
+                    <div class="checklist-item"><span class="check-icon">1</span><strong>Будьте специфичны</strong> - "1000 слов" вместо "статью"</div>
+                    <div class="checklist-item"><span class="check-icon">2</span><strong>Используйте примеры</strong> - покажите модели, что хотите</div>
+                    <div class="checklist-item"><span class="check-icon">3</span><strong>Разбивайте сложное</strong> - лучше 3 промпта, чем 1 огромный</div>
+                    <div class="checklist-item"><span class="check-icon">4</span><strong>Указывайте формат</strong> - Markdown, JSON, таблица</div>
+                    <div class="checklist-item"><span class="check-icon">5</span><strong>Итерируйте</strong> - первый результат редко идеален</div>
+                    <div class="checklist-item"><span class="check-icon">6</span><strong>Тестируйте на разных моделях</strong> - ChatGPT vs Claude</div>
+                    <div class="checklist-item"><span class="check-icon">7</span><strong>Создавайте библиотеку</strong> - сохраняйте успешные промпты</div>
+                </div>
+            </div>
+
+            <!-- Слайд 13: Практика -->
+            <div class="slide" data-notes="slide13">
+                <h2>Переходим к практике!</h2>
+                <div style="text-align: center; margin-top: 40px;">
+                    <div style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 60px; border-radius: 20px; font-size: 1.3em;">
+                        <h3 style="color: white; margin-bottom: 25px;">Что будем делать:</h3>
+                        <div style="text-align: left;">
+                            <p>1. Применять фреймворки (30 мин)</p>
+                            <p>2. Создавать промпты с JSON (20 мин)</p>
+                            <p>3. Работать с длинным контекстом (20 мин)</p>
+                            <p>4. Создавать промпт-шаблоны (20 мин)</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 40px; text-align: center; font-size: 1.5em; color: #667eea;">
+                    <strong>60% времени - практика. Вы пишете промпты сами!</strong>
+                </p>
+            </div>
+
+            <!-- Слайд 14: Итоги -->
+            <div class="slide" data-notes="slide14">
+                <h2>Итоги: что мы узнали</h2>
+                <div class="components-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div style="background: #f0f9ff; padding: 25px; border-radius: 15px; border: 2px solid #667eea;">
+                        <h3>4 компонента</h3>
+                        <p style="font-size: 1.1em;">Роль -> Контекст -> Инструкция -> Формат</p>
+                    </div>
+                    <div style="background: #f0f9ff; padding: 25px; border-radius: 15px; border: 2px solid #667eea;">
+                        <h3>4 фреймворка</h3>
+                        <p style="font-size: 1.1em;">RISEN, CRISPE, CREATE, RTF</p>
+                    </div>
+                    <div style="background: #f0f9ff; padding: 25px; border-radius: 15px; border: 2px solid #667eea;">
+                        <h3>Токены и лимиты</h3>
+                        <p style="font-size: 1.1em;">Пишите точно, но коротко</p>
+                    </div>
+                    <div style="background: #f0f9ff; padding: 25px; border-radius: 15px; border: 2px solid #667eea;">
+                        <h3>JSON-вывод</h3>
+                        <p style="font-size: 1.1em;">Для автоматизации и обработки</p>
+                    </div>
+                </div>
+                <p style="margin-top: 30px; text-align: center; font-size: 1.4em;">
+                    <span class="highlight">Создавайте библиотеку промптов - это ваш актив!</span>
+                </p>
+            </div>
+
+            <!-- Слайд 15: Домашнее задание -->
+            <div class="slide title-slide" data-notes="slide15">
+                <h1>Домашнее задание</h1>
+                <div style="text-align: left; max-width: 700px; margin: 40px auto; font-size: 1.2em;">
+                    <p><strong>Цель:</strong> Создать библиотеку из 10 промпт-шаблонов</p>
+                    <br>
+                    <p><strong>Критерии:</strong></p>
+                    <ul style="margin-left: 30px;">
+                        <li>Каждый промпт содержит все 4 компонента</li>
+                        <li>Используются минимум 3 фреймворка</li>
+                        <li>Каждый протестирован на 2 моделях</li>
+                        <li>Документация: что работает лучше и почему</li>
+                    </ul>
+                    <br>
+                    <p><strong>Формат:</strong> Google Doc или Notion</p>
+                </div>
+                <p style="margin-top: 40px; font-size: 1.5em;">Удачи!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Режим преподавателя -->
+    <div class="presenter-mode" id="presenterMode">
+        <div class="presenter-current-slide" id="presenterSlide">
+            <h4>Текущий слайд</h4>
+            <div id="currentSlideClone"></div>
+        </div>
+
+        <div class="presenter-notes" id="presenterNotes">
+            <h4>Заметки преподавателя</h4>
+            <div class="notes-content" id="notesContent"></div>
+        </div>
+
+        <div class="presenter-preview" id="presenterPreview">
+            <!-- Превью слайдов будет добавлено через JS -->
+        </div>
+    </div>
+
+    <div class="hotkeys-hint">
+        <kbd>Space</kbd> / <kbd>->
+        </kbd> Вперед &nbsp;&nbsp;
+        <kbd><-</kbd> Назад &nbsp;&nbsp;
+        <kbd>P</kbd> Режим преподавателя &nbsp;&nbsp;
+        <kbd>F</kbd> Полный экран
+    </div>
+
+    <script>
+        // Состояние презентации
+        let currentSlide = 0;
+        let isPresenterMode = false;
+        let startTime = Date.now();
+
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        // Заметки для преподавателя
+        const presenterNotes = {
+            slide1: `
+                <p><strong>Что говорить:</strong></p>
+                <p>"Доброе утро! Сегодня мы переходим от базовых навыков к архитектуре промптов.</p>
+                <p>На прошлом занятии вы научились общаться с моделями. Сегодня вы научитесь создавать промпты, которые работают <strong>стабильно и предсказуемо</strong>."</p>
+
+                <div class="tip">
+                    <strong>Аналогия дня:</strong> Промпт - это рецепт. Можно сказать повару "Приготовь что-нибудь вкусное" (плохой промпт), а можно дать точный рецепт с ингредиентами, температурой и временем (хороший промпт).
+                </div>
+
+                <p><strong>Озвучьте план:</strong></p>
+                <ul>
+                    <li>4 компонента любого эффективного промпта</li>
+                    <li>4 готовых фреймворка</li>
+                    <li>ПРАКТИКА: минимум 10 промптов своими руками</li>
+                    <li>Готовые шаблоны для работы</li>
+                </ul>
+                <p><strong>"60% времени - это практика. Вы будете писать промпты, тестировать, улучшать."</strong></p>
+            `,
+            slide2: `
+                <p><strong>ДЕМОНСТРАЦИЯ:</strong></p>
+                <ol>
+                    <li>Откройте ChatGPT прямо сейчас</li>
+                    <li>Введите: "Напиши статью про маркетинг"</li>
+                    <li>Покажите результат аудитории</li>
+                </ol>
+
+                <p><strong>Что говорить после демо:</strong></p>
+                <p>"Смотрите, что происходит. Модель выдала что-то, но это НЕ ТО, что мы хотели. Почему?"</p>
+                <ul>
+                    <li>Модель угадывает наши намерения</li>
+                    <li>Какой маркетинг? Для кого? Какая цель?</li>
+                    <li>Это как сказать строителю "Построй дом" без деталей</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>Важно:</strong> Не критикуйте модель! Критикуйте промпт. "Промпт плохой - результат плохой".
+                </div>
+            `,
+            slide3: `
+                <p><strong>Это ГЛАВНЫЙ слайд теории!</strong></p>
+                <p>Проговорите каждый компонент медленно:</p>
+
+                <p><strong>1. РОЛЬ</strong> - "Кем должна быть модель? Эксперт, учитель, консультант? Модель меняет стиль в зависимости от роли."</p>
+
+                <p><strong>2. КОНТЕКСТ</strong> - "Что модель должна знать о ситуации? Без контекста она додумывает сама - и часто неправильно."</p>
+
+                <p><strong>3. ИНСТРУКЦИЯ</strong> - "Что конкретно нужно сделать? Это ядро промпта. Чем точнее, тем лучше."</p>
+
+                <p><strong>4. ФОРМАТ</strong> - "Как должен выглядеть ответ? Текст, список, таблица, JSON?"</p>
+
+                <div class="tip">
+                    <strong>Попросите записать:</strong> "Запишите эту формулу: РОЛЬ -> КОНТЕКСТ -> ИНСТРУКЦИЯ -> ФОРМАТ. Это ваш чек-лист на сегодня."
+                </div>
+            `,
+            slide4: `
+                <p><strong>ДЕМОНСТРАЦИЯ:</strong></p>
+                <ol>
+                    <li>Скопируйте этот промпт в ChatGPT</li>
+                    <li>Покажите результат</li>
+                    <li>Сравните с предыдущим плохим примером</li>
+                </ol>
+
+                <p><strong>Что говорить:</strong></p>
+                <p>"Видите разницу? Все 4 компонента присутствуют:</p>
+                <ul>
+                    <li>Роль: эксперт по контент-маркетингу</li>
+                    <li>Контекст: аудитория, цель, тон</li>
+                    <li>Инструкция: тема и что писать</li>
+                    <li>Формат: структура и объем</li>
+                </ul>
+                <p>Результат получился точным, полезным, готовым к использованию."</p>
+
+                <div class="tip">
+                    <strong>Повторите:</strong> "РОЛЬ -> КОНТЕКСТ -> ИНСТРУКЦИЯ -> ФОРМАТ. Это ваша формула на сегодня."
+                </div>
+            `,
+            slide5: `
+                <p><strong>Что говорить:</strong></p>
+                <p>"Фреймворки - это готовые структуры промптов. Как чек-листы: заполнил пункты - получил результат.</p>
+
+                <p>Я дам вам 4 фреймворка. <strong>Не нужно учить все наизусть.</strong> Нужно понять логику и выбрать 1-2 любимых."</p>
+
+                <div class="tip">
+                    <strong>Аналогия:</strong> "Это как рецепты в кулинарии. Есть рецепт для супа, есть для десерта. Выбираете нужный - следуете структуре."
+                </div>
+
+                <p><strong>Мой совет студентам:</strong></p>
+                <ul>
+                    <li>Начинайте с RTF (простой)</li>
+                    <li>Если задача сложная - переходите на RISEN</li>
+                    <li>Для контента используйте CREATE</li>
+                </ul>
+            `,
+            slide6: `
+                <p><strong>RISEN - для бизнес-задач</strong></p>
+
+                <p>Проговорите каждую букву:</p>
+                <ul>
+                    <li><strong>R</strong>ole - Кто ты? (бизнес-аналитик, маркетолог...)</li>
+                    <li><strong>I</strong>nput - Какие данные есть?</li>
+                    <li><strong>S</strong>teps - Какие шаги выполнить?</li>
+                    <li><strong>E</strong>xpectation - Какой результат нужен?</li>
+                    <li><strong>N</strong>arrowing - Какие ограничения?</li>
+                </ul>
+
+                <p><strong>Когда использовать:</strong></p>
+                <ul>
+                    <li>Нужен анализ данных</li>
+                    <li>Нужен план действий</li>
+                    <li>Работаете с числами и фактами</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>Запомните логику:</strong> Роль -> Данные -> Шаги -> Результат -> Ограничения
+                </div>
+            `,
+            slide7: `
+                <p><strong>CRISPE - для креатива</strong></p>
+
+                <p>Это фреймворк для творческих задач:</p>
+                <ul>
+                    <li><strong>C</strong>apacity - Роль (креативщик, копирайтер...)</li>
+                    <li><strong>R</strong> Insight - Ключевая идея или проблема</li>
+                    <li><strong>I</strong> Statement - Что хотим донести</li>
+                    <li><strong>S</strong> Personality - Стиль подачи</li>
+                    <li><strong>P</strong> Experiment - Попробуй разные варианты!</li>
+                    <li><strong>E</strong>xpectation - Какой результат</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>Фишка CRISPE:</strong> Буква P (Experiment) - всегда просите несколько вариантов! Модель покажет разные подходы, вы выберете лучший.
+                </div>
+
+                <p><strong>Когда использовать:</strong> слоганы, названия, креативные тексты, идеи для контента</p>
+            `,
+            slide8: `
+                <p><strong>CREATE - специально для контента</strong></p>
+
+                <p>Этот фреймворк идеален для статей и документации:</p>
+                <ul>
+                    <li><strong>C</strong>haracter - От чьего лица пишем</li>
+                    <li><strong>R</strong>equest - Что создать</li>
+                    <li><strong>E</strong>xamples - ПРИМЕРЫ СТИЛЯ (мощная техника!)</li>
+                    <li><strong>A</strong>djustments - Корректировки тона</li>
+                    <li><strong>T</strong>ype - Формат вывода</li>
+                    <li><strong>E</strong>xtras - Дополнительные требования</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>Главная фишка CREATE:</strong> Буква E (Examples) - покажите модели образцы вашего стиля. Модель СКОПИРУЕТ манеру письма. Это очень мощная техника для единого корпоративного стиля!
+                </div>
+            `,
+            slide9: `
+                <p><strong>RTF - самый простой фреймворк</strong></p>
+
+                <p>"Когда некогда, когда задача простая - используйте RTF."</p>
+
+                <p>Всего 3 компонента:</p>
+                <ul>
+                    <li><strong>R</strong>ole - Кто ты?</li>
+                    <li><strong>T</strong>ask - Что сделать?</li>
+                    <li><strong>F</strong>ormat - В каком виде?</li>
+                </ul>
+
+                <p><strong>Когда использовать:</strong></p>
+                <ul>
+                    <li>Быстрая задача (5-10 минут)</li>
+                    <li>Простой запрос без сложного контекста</li>
+                    <li>Нужен конкретный результат в конкретном формате</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>Совет:</strong> RTF - это ваш "дефолтный" фреймворк. Если не знаете, с чего начать - начните с RTF.
+                </div>
+            `,
+            slide10: `
+                <p><strong>Объясните токены простым языком:</strong></p>
+                <p>"Токены - это единицы текста, которые модель обрабатывает. Как мегабайты для файлов."</p>
+
+                <p><strong>Почему это важно:</strong></p>
+                <ul>
+                    <li>Бесплатные версии ограничены по токенам</li>
+                    <li>Длинный промпт = больше токенов = быстрее закончится лимит</li>
+                </ul>
+
+                <p><strong>Как экономить:</strong></p>
+                <ul>
+                    <li>Убирайте лишние слова</li>
+                    <li>Не копируйте огромные тексты в контекст</li>
+                    <li>Разбивайте большие задачи на части</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>Пример:</strong><br>
+                    Плохо: "Я работаю в компании, которая занимается разработкой..." (100 токенов)<br>
+                    Хорошо: "Контекст: разработка ПО для B2B. Задача:..." (40 токенов)
+                </div>
+            `,
+            slide11: `
+                <p><strong>ДЕМОНСТРАЦИЯ JSON-вывода:</strong></p>
+                <ol>
+                    <li>Скопируйте промпт из слайда в ChatGPT</li>
+                    <li>Покажите, что модель выдает чистый JSON</li>
+                    <li>Объясните, зачем это нужно</li>
+                </ol>
+
+                <p><strong>Зачем структурированный вывод:</strong></p>
+                <ul>
+                    <li>Можно обработать результат кодом</li>
+                    <li>Легко парсить и анализировать</li>
+                    <li>Стандартизация: всегда один формат</li>
+                </ul>
+
+                <p><strong>Где использовать:</strong></p>
+                <ul>
+                    <li>Анализ отзывов -> JSON</li>
+                    <li>Генерация документации -> Markdown</li>
+                    <li>Экспорт данных -> CSV</li>
+                </ul>
+
+                <div class="tip">
+                    <strong>Важно:</strong> Всегда показывайте модели ПРИМЕР структуры - она скопирует формат точно.
+                </div>
+            `,
+            slide12: `
+                <p><strong>7 правил - это чек-лист для проверки промптов!</strong></p>
+
+                <p>Пройдитесь по каждому правилу:</p>
+                <ol>
+                    <li><strong>Специфичность</strong> - не "статью", а "статью на 1000 слов"</li>
+                    <li><strong>Примеры</strong> - показывайте модели образцы</li>
+                    <li><strong>Разбивайте</strong> - лучше 3 простых промпта, чем 1 огромный</li>
+                    <li><strong>Формат</strong> - всегда указывайте, как должен выглядеть результат</li>
+                    <li><strong>Итерируйте</strong> - первый результат редко идеален</li>
+                    <li><strong>Тестируйте</strong> - ChatGPT и Claude дают разные результаты</li>
+                    <li><strong>Библиотека</strong> - сохраняйте успешные промпты!</li>
+                </ol>
+
+                <div class="tip">
+                    <strong>Особенно важно правило 7!</strong> Скажите: "Создавайте свою библиотеку промптов. Написали хороший промпт - сохранили. Нужна похожая задача - берете шаблон, меняете детали. Это будет ваше домашнее задание."
+                </div>
+            `,
+            slide13: `
+                <p><strong>ПЕРЕХОД К ПРАКТИКЕ!</strong></p>
+
+                <p><strong>Что сказать:</strong></p>
+                <p>"Теория закончена. Теперь вы будете писать промпты сами."</p>
+
+                <p><strong>Как будем работать:</strong></p>
+                <ol>
+                    <li>Я дам вам задание</li>
+                    <li>Вы пишете промпт (10-15 минут)</li>
+                    <li>Тестируете в ChatGPT или Claude</li>
+                    <li>Делимся результатами</li>
+                </ol>
+
+                <p><strong>Правила практики:</strong></p>
+                <ul>
+                    <li>Работаете самостоятельно (можно советоваться с соседом)</li>
+                    <li>Если застряли - поднимите руку, я подойду</li>
+                    <li>Минимум 5 промптов за практику должен написать каждый</li>
+                </ul>
+
+                <div class="warning">
+                    <strong>Не давайте готовых ответов!</strong> Пусть студенты сначала попробуют сами. Помогайте наводящими вопросами.
+                </div>
+            `,
+            slide14: `
+                <p><strong>Быстрый recap перед практикой:</strong></p>
+
+                <p>"Давайте повторим ключевые моменты:"</p>
+                <ol>
+                    <li>Каждый промпт = 4 компонента минимум</li>
+                    <li>Используйте фреймворки как шаблоны</li>
+                    <li>Экономьте токены - пишите точно, но коротко</li>
+                    <li>Просите структурированный вывод, когда нужны данные</li>
+                    <li>Создавайте библиотеку - это ваш актив</li>
+                </ol>
+
+                <div class="tip">
+                    <strong>Спросите:</strong> "Вопросы по теории? Если нет - переходим к практике!"
+                </div>
+
+                <p><strong>После этого слайда:</strong> Перейдите к файлу 03-ПРАКТИКА-ФРЕЙМВОРКИ.md и начните практическое задание.</p>
+            `,
+            slide15: `
+                <p><strong>ДОМАШНЕЕ ЗАДАНИЕ</strong></p>
+
+                <p><strong>Объясните задание:</strong></p>
+                <p>"Ваша задача - создать библиотеку из 10 промпт-шаблонов для разных задач."</p>
+
+                <p><strong>Критерии оценки:</strong></p>
+                <ul>
+                    <li>Каждый промпт содержит все 4 компонента</li>
+                    <li>Используются минимум 3 разных фреймворка</li>
+                    <li>Каждый промпт протестирован на 2 моделях (ChatGPT + Claude)</li>
+                    <li>Студент документирует, какой промпт работает лучше и почему</li>
+                </ul>
+
+                <p><strong>Формат сдачи:</strong> Google Doc или Notion-страница</p>
+
+                <div class="tip">
+                    <strong>Мотивация:</strong> "Эта библиотека - это ваш инструмент. Один раз написали - используете много раз. Это реальная экономия времени в работе."
+                </div>
+
+                <p><strong>Ответьте на вопросы, если есть. Спасибо за внимание!</strong></p>
+            `
+        };
+
+        // Обновление слайда
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Обновление счетчика
+            document.getElementById('slideCounter').textContent = `${currentSlide + 1} / ${totalSlides}`;
+
+            // Обновление прогресс-бара
+            document.getElementById('progressBar').style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
+
+            // Обновление режима преподавателя
+            if (isPresenterMode) {
+                updatePresenterMode();
+            }
+        }
+
+        // Следующий слайд
+        function nextSlide() {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+
+        // Предыдущий слайд
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+
+        // Переход к конкретному слайду
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+
+        // Переключение режима преподавателя
+        function toggleMode() {
+            isPresenterMode = !isPresenterMode;
+
+            if (isPresenterMode) {
+                document.getElementById('presentationMode').style.display = 'none';
+                document.getElementById('presenterMode').classList.add('active');
+                updatePresenterMode();
+                generatePreviewSlides();
+            } else {
+                document.getElementById('presentationMode').style.display = 'flex';
+                document.getElementById('presenterMode').classList.remove('active');
+            }
+        }
+
+        // Обновление режима преподавателя
+        function updatePresenterMode() {
+            // Клонируем текущий слайд
+            const currentSlideElement = slides[currentSlide];
+            const clone = currentSlideElement.cloneNode(true);
+            clone.classList.add('active');
+            clone.style.display = 'block';
+
+            const container = document.getElementById('currentSlideClone');
+            container.innerHTML = '';
+            container.appendChild(clone);
+
+            // Обновляем заметки
+            const slideKey = currentSlideElement.getAttribute('data-notes');
+            const notes = presenterNotes[slideKey] || '<p>Заметки для этого слайда отсутствуют.</p>';
+            document.getElementById('notesContent').innerHTML = notes;
+
+            // Обновляем превью
+            updatePreviewHighlight();
+        }
+
+        // Генерация превью слайдов
+        function generatePreviewSlides() {
+            const container = document.getElementById('presenterPreview');
+            container.innerHTML = '';
+
+            slides.forEach((slide, index) => {
+                const preview = document.createElement('div');
+                preview.className = 'preview-slide' + (index === currentSlide ? ' active' : '');
+                preview.textContent = `Слайд ${index + 1}`;
+                preview.onclick = () => {
+                    goToSlide(index);
+                    updatePresenterMode();
+                };
+                container.appendChild(preview);
+            });
+        }
+
+        // Обновление подсветки превью
+        function updatePreviewHighlight() {
+            const previews = document.querySelectorAll('.preview-slide');
+            previews.forEach((preview, index) => {
+                preview.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        // Таймер
+        function updateTimer() {
+            const elapsed = Date.now() - startTime;
+            const seconds = Math.floor((elapsed / 1000) % 60);
+            const minutes = Math.floor((elapsed / (1000 * 60)) % 60);
+            const hours = Math.floor(elapsed / (1000 * 60 * 60));
+
+            document.getElementById('timer').textContent =
+                `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+            setTimeout(updateTimer, 1000);
+        }
+
+        // Обработка клавиш
+        document.addEventListener('keydown', (e) => {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    prevSlide();
+                    break;
+                case 'p':
+                case 'P':
+                    toggleMode();
+                    break;
+                case 'f':
+                case 'F':
+                    if (document.fullscreenElement) {
+                        document.exitFullscreen();
+                    } else {
+                        document.documentElement.requestFullscreen();
+                    }
+                    break;
+            }
+        });
+
+        // Инициализация
+        updateSlide();
+        updateTimer();
+    </script>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практика: Продвинутые техники | Модуль 3</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 11 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 3</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Chain-of-Thought (CoT)
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Tree of Thoughts (ToT)
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Self-Consistency
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          ReAct
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика CoT
+        </a>
+
+        <a href="lesson-6.html" class="nav-item active" data-lesson="6">
+          <span class="nav-item-number">6</span>
+          Практика продвинутые
+        </a>
+
+        <a href="lesson-7.html" class="nav-item" data-lesson="7">
+          <span class="nav-item-number">7</span>
+          Role Prompting
+        </a>
+
+        <a href="lesson-8.html" class="nav-item" data-lesson="8">
+          <span class="nav-item-number">8</span>
+          Step-Back Prompting
+        </a>
+
+        <a href="lesson-9.html" class="nav-item" data-lesson="9">
+          <span class="nav-item-number">9</span>
+          Contrastive + Meta
+        </a>
+
+        <a href="lesson-10.html" class="nav-item" data-lesson="10">
+          <span class="nav-item-number">10</span>
+          Практика новых техник
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="11">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 3</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Практика продвинутые</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Lesson Header -->
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number" style="background: rgba(16, 185, 129, 0.1); color: var(--accent);">Практика</span>
+            <span class="lesson-duration">⏱ 60 минут</span>
+          </div>
+          <h1 class="lesson-title">🚀 Практика: ToT, Self-Consistency, ReAct</h1>
+          <div class="lesson-objectives">
+            <h4>Цель практики:</h4>
+            <ul>
+              <li>Применить ToT на креативной задаче</li>
+              <li>Использовать Self-Consistency для проверки</li>
+              <li>Создать промпт с ReAct</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Тайминг:</strong></p>
+            <ul style="margin: 0.5rem 0 0 1rem;">
+              <li>0-3 мин: Объяснение</li>
+              <li>3-25 мин: ToT (20 минут)</li>
+              <li>25-40 мин: Self-Consistency (15 минут)</li>
+              <li>40-55 мин: ReAct (15 минут)</li>
+              <li>55-60 мин: Разбор</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Part 1: ToT -->
+        <div class="card">
+          <div class="card-header">🌳 Часть 1: Tree of Thoughts (20 мин)</div>
+          <div class="card-body">
+            <h4>Задача: Стратегия роста Telegram-канала</h4>
+
+            <div class="prompt-example">
+              <div class="prompt-example-header">
+                <span>📝</span>
+                <span>Создайте этот промпт</span>
+              </div>
+              <pre>Придумай 5 разных стратегий для увеличения подписчиков в Telegram-канале на 100% за месяц.
+
+Для каждой стратегии оцени:
+1. Эффективность (насколько поможет, 1-10)
+2. Сложность реализации (время/ресурсы, 1-10)
+3. Стоимость (низкая/средняя/высокая)
+4. Риск (может ли навредить репутации? да/нет)
+
+Затем:
+- Выбери топ-3 стратегии
+- Объясни свой выбор
+- Создай план реализации выбранных стратегий с шагами</pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1rem;">
+              <div>
+                <strong>Что проверять:</strong>
+                <ul style="margin: 0.5rem 0 0 1rem;">
+                  <li>Генерирует ли модель несколько вариантов?</li>
+                  <li>Есть ли оценки для каждого варианта?</li>
+                  <li>Выбран ли лучший вариант с обоснованием?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part 2: Self-Consistency -->
+        <div class="card">
+          <div class="card-header">🎯 Часть 2: Self-Consistency (15 мин)</div>
+          <div class="card-body">
+            <h4>Задача: Сложные проценты</h4>
+
+            <div class="prompt-example">
+              <div class="prompt-example-header">
+                <span>📝</span>
+                <span>Запустите 5 раз</span>
+              </div>
+              <pre>Реши пошагово:
+
+Продажи продукта выросли на 25% в первом квартале, но упали на 10% во втором квартале по сравнению с первым кварталом. В третьем квартале продажи выросли на 15% по сравнению со вторым.
+
+Вопросы:
+1. Как изменились продажи в третьем квартале по сравнению с началом года?
+2. Какая средняя динамика за квартал?
+
+Покажи все вычисления.</pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Инструкция:</h4>
+            <ol>
+              <li>Запустите этот промпт <strong>5 раз</strong> (в новых сессиях)</li>
+              <li>Запишите все ответы</li>
+              <li>Сравните: совпадают ли они?</li>
+              <li>Выберите ответ, который встречается чаще</li>
+            </ol>
+
+            <table style="width: 100%; margin-top: 1rem;">
+              <thead>
+                <tr>
+                  <th>Запуск</th>
+                  <th>Ответ Q1-Q3</th>
+                  <th>Заметки</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td></td><td></td></tr>
+                <tr><td>2</td><td></td><td></td></tr>
+                <tr><td>3</td><td></td><td></td></tr>
+                <tr><td>4</td><td></td><td></td></tr>
+                <tr><td>5</td><td></td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Part 3: ReAct -->
+        <div class="card">
+          <div class="card-header">🔄 Часть 3: ReAct (15 мин)</div>
+          <div class="card-body">
+            <h4>Задача: Оптимизация конверсии</h4>
+
+            <div class="prompt-example">
+              <div class="prompt-example-header">
+                <span>📝</span>
+                <span>Создайте этот промпт</span>
+              </div>
+              <pre>Создай план улучшения конверсии лендинга с 2% до 5%, используя ReAct.
+
+Текущая ситуация:
+- Конверсия: 2%
+- Цель: 5%
+- Бюджет: $10,000
+
+Действуй циклами:
+
+Цикл 1:
+Thought: Проанализируй текущий лендинг (что не работает?)
+Action: Предложи одно улучшение
+Observation: Оцени ожидаемый эффект на конверсию
+
+Цикл 2:
+Thought: Что ещё можно улучшить?
+Action: Следующее улучшение
+Observation: Оцени влияние
+
+Повтори 4-5 циклов.
+
+В конце:
+- Резюмируй все улучшения
+- Оцени итоговую конверсию
+- Распредели бюджет $10,000</pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1rem;">
+              <div>
+                <strong>Что проверять:</strong>
+                <ul style="margin: 0.5rem 0 0 1rem;">
+                  <li>Есть ли циклы Thought → Action → Observation?</li>
+                  <li>Итеративно улучшается решение?</li>
+                  <li>Есть ли финальное резюме?</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="card" style="margin-top: 2rem;">
+          <div class="card-header">✅ Чек-лист выполнения</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-adv-1"></span>
+                <span class="checklist-text">Создал промпт с ToT (несколько вариантов + выбор)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-adv-2"></span>
+                <span class="checklist-text">Применил Self-Consistency (5 запусков + сравнение)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-adv-3"></span>
+                <span class="checklist-text">Создал промпт с ReAct (циклы Thought-Action-Observation)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-adv-4"></span>
+                <span class="checklist-text">Протестировал все промпты</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-adv-5"></span>
+                <span class="checklist-text">Документировал результаты</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
+          <div class="card-body">
+            <h3>📌 Итоги практики</h3>
+            <ul>
+              <li><strong>ToT</strong> — даёт варианты и помогает выбрать лучший</li>
+              <li><strong>Self-Consistency</strong> — повышает уверенность в ответе</li>
+              <li><strong>ReAct</strong> — подходит для динамических задач с итерациями</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Комбинируйте техники для максимального эффекта!</strong></p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-5.html" class="nav-arrow nav-arrow-prev">
+            <span>←</span>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Практика CoT</div>
+            </div>
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="6">
+            Отметить как пройденный
+          </button>
+          <a href="project.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Домашнее задание</div>
+            </div>
+            <span>→</span>
+          </a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
