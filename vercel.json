@@ -1,0 +1,7 @@
+{
+  "name": "prompt-engineering-course",
+  "version": 2,
+  "buildCommand": null,
+  "installCommand": null,
+  "outputDirectory": "."
+}
