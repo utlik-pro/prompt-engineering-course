@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модуль 4: Обучение на примерах</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 7 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 4</div>
+
+        <a href="index.html" class="nav-item active">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Zero/Few/Many-shot
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          In-Context Learning
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Prompt Ensembling
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Практика: Few-shot
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика: Классификация
+        </a>
+
+        <a href="lesson-6.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">6</span>
+          Практика: Комплексная
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="7">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 4</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Главная</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1 class="hero-title">Обучение на примерах</h1>
+          <p class="hero-subtitle">
+            Научитесь обучать AI на примерах вместо инструкций.<br>
+            Few-shot prompting — одна из самых мощных техник.
+          </p>
+        </section>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Общая продолжительность модуля:</strong> ~3 часа (6 уроков + домашнее задание)</p>
+            <p><strong>Рекомендация:</strong> 70% времени отводите на практику. Студенты должны создать минимум 5 работающих Few-shot промптов.</p>
+            <p><strong>Ключевая цель:</strong> Студенты понимают разницу между Zero-shot, Few-shot и Many-shot, и умеют подбирать качественные примеры.</p>
+          </div>
+        </div>
+
+        <!-- Info Alert -->
+        <div class="alert alert-info">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Что вы изучите в этом модуле:</strong>
+            <ul style="margin: 0.5rem 0 0 1rem;">
+              <li><strong>Zero-shot prompting</strong> — без примеров, только инструкция</li>
+              <li><strong>Few-shot prompting</strong> — 2-10 примеров для обучения</li>
+              <li><strong>Many-shot prompting</strong> — десятки примеров для максимальной точности</li>
+              <li><strong>In-Context Learning</strong> — как модель "обучается" в контексте</li>
+              <li><strong>Prompt Ensembling</strong> — комбинирование нескольких промптов</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Key Message -->
+        <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); border: 2px solid var(--primary);">
+          <div class="card-body" style="text-align: center;">
+            <h3 style="margin-bottom: 0.5rem;">💡 Главная мысль модуля</h3>
+            <p style="font-size: 1.125rem; margin: 0; color: var(--text-primary);">
+              "Вместо того, чтобы объяснять AI, ЧТО делать словами —<br>
+              покажите КАК делать на примерах."
+            </p>
+          </div>
+        </div>
+
+        <!-- Lesson Cards -->
+        <h2 style="margin: 2rem 0 1rem;">Уроки модуля</h2>
+
+        <div class="lesson-cards">
+          <!-- Lesson 1 -->
+          <a href="lesson-1.html" class="lesson-card">
+            <div class="lesson-card-number">1</div>
+            <h3 class="lesson-card-title">Zero-shot vs Few-shot vs Many-shot</h3>
+            <p class="lesson-card-desc">
+              Три подхода к промптингу: без примеров, с несколькими примерами и с большим количеством примеров.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 25 мин</span>
+              <span>•</span>
+              <span>Базовые концепции</span>
+            </div>
+          </a>
+
+          <!-- Lesson 2 -->
+          <a href="lesson-2.html" class="lesson-card">
+            <div class="lesson-card-number">2</div>
+            <h3 class="lesson-card-title">In-Context Learning (ICL)</h3>
+            <p class="lesson-card-desc">
+              Как модель "обучается" прямо в промпте без изменения весов. Принципы и механизмы.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 20 мин</span>
+              <span>•</span>
+              <span>Теория ICL</span>
+            </div>
+          </a>
+
+          <!-- Lesson 3 -->
+          <a href="lesson-3.html" class="lesson-card">
+            <div class="lesson-card-number">3</div>
+            <h3 class="lesson-card-title">Prompt Ensembling и подбор примеров</h3>
+            <p class="lesson-card-desc">
+              Комбинирование промптов и золотые правила подбора качественных примеров.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 25 мин</span>
+              <span>•</span>
+              <span>Продвинутые техники</span>
+            </div>
+          </a>
+
+          <!-- Practice 1 -->
+          <a href="lesson-4.html" class="lesson-card" style="border-color: var(--accent);">
+            <div class="lesson-card-number" style="background: var(--accent);">4</div>
+            <h3 class="lesson-card-title">Практика: Базовые Few-shot</h3>
+            <p class="lesson-card-desc">
+              Создание Few-shot промптов для генерации текстов и описаний продуктов.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 30 мин</span>
+              <span>•</span>
+              <span>Hands-on</span>
+            </div>
+          </a>
+
+          <!-- Practice 2 -->
+          <a href="lesson-5.html" class="lesson-card" style="border-color: var(--accent);">
+            <div class="lesson-card-number" style="background: var(--accent);">5</div>
+            <h3 class="lesson-card-title">Практика: Классификация</h3>
+            <p class="lesson-card-desc">
+              Few-shot для классификации: тональность отзывов, категоризация email, приоритизация.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 35 мин</span>
+              <span>•</span>
+              <span>Классификация</span>
+            </div>
+          </a>
+
+          <!-- Practice 3 -->
+          <a href="lesson-6.html" class="lesson-card" style="border-color: var(--accent);">
+            <div class="lesson-card-number" style="background: var(--accent);">6</div>
+            <h3 class="lesson-card-title">Практика: Комплексная</h3>
+            <p class="lesson-card-desc">
+              Извлечение данных, форматирование и создание универсальных промптов-шаблонов.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 40 мин</span>
+              <span>•</span>
+              <span>Комплексные задачи</span>
+            </div>
+          </a>
+
+          <!-- Final Project -->
+          <a href="project.html" class="lesson-card" style="border-color: var(--primary); border-width: 2px;">
+            <div class="lesson-card-number" style="background: var(--warning);">P</div>
+            <h3 class="lesson-card-title">Домашнее задание</h3>
+            <p class="lesson-card-desc">
+              5 задач на Few-shot prompting для реальных бизнес-кейсов.
+            </p>
+            <div class="lesson-card-meta">
+              <span>Финальное задание</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Techniques Overview -->
+        <h2 style="margin: 2.5rem 0 1rem;">Обзор техник</h2>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">0️⃣</div>
+          <h3 class="technique-card-title">Zero-shot Prompting</h3>
+          <p class="technique-card-desc">
+            Просто даете задачу без примеров. Быстро, но менее точно. Подходит для простых, стандартных задач.
+          </p>
+          <span class="technique-badge">Без примеров</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">🎯</div>
+          <h3 class="technique-card-title">Few-shot Prompting</h3>
+          <p class="technique-card-desc">
+            Показываете 2-10 примеров — модель улавливает паттерн. Точнее, требует подготовки примеров.
+          </p>
+          <span class="technique-badge">2-10 примеров</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">📚</div>
+          <h3 class="technique-card-title">Many-shot Prompting</h3>
+          <p class="technique-card-desc">
+            Загружаете десятки или сотни примеров. Максимальная точность для специфичных задач.
+          </p>
+          <span class="technique-badge">50+ примеров</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">🧠</div>
+          <h3 class="technique-card-title">In-Context Learning</h3>
+          <p class="technique-card-desc">
+            Модель "обучается" прямо в контексте промпта, не меняя веса. Как актер, который сразу входит в роль.
+          </p>
+          <span class="technique-badge">Мгновенное обучение</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">🔀</div>
+          <h3 class="technique-card-title">Prompt Ensembling</h3>
+          <p class="technique-card-desc">
+            Несколько вариаций промпта + комбинирование результатов. Для критически важных задач.
+          </p>
+          <span class="technique-badge">Комбинирование</span>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="card" style="margin-top: 2rem;">
+          <div class="card-header">Быстрый старт</div>
+          <div class="card-body">
+            <p>Для успешного прохождения модуля вам понадобится:</p>
+
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-chatgpt"></span>
+                <span class="checklist-text">Доступ к ChatGPT (для Few-shot экспериментов)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-claude"></span>
+                <span class="checklist-text">Доступ к Claude (для сравнения результатов)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-grok"></span>
+                <span class="checklist-text">Доступ к Grok (X.com) для экспериментов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-notes"></span>
+                <span class="checklist-text">Блокнот для сохранения успешных промптов</span>
+              </li>
+            </ul>
+
+            <div style="margin-top: 1rem;">
+              <a href="lesson-1.html" class="btn btn-primary">Начать обучение →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- When to Use -->
+        <div class="card">
+          <div class="card-header">Когда использовать какую технику?</div>
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Метод</th>
+                  <th>Когда использовать</th>
+                  <th>Пример задачи</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Zero-shot</strong></td>
+                  <td>Простые, стандартные задачи</td>
+                  <td>Перевод, саммаризация</td>
+                </tr>
+                <tr>
+                  <td><strong>Few-shot</strong></td>
+                  <td>Специфичный стиль/формат</td>
+                  <td>Описания в стиле компании</td>
+                </tr>
+                <tr>
+                  <td><strong>Many-shot</strong></td>
+                  <td>Максимальная точность</td>
+                  <td>Медицинская классификация</td>
+                </tr>
+                <tr>
+                  <td><strong>ICL</strong></td>
+                  <td>Извлечение структур</td>
+                  <td>Парсинг данных в JSON</td>
+                </tr>
+                <tr>
+                  <td><strong>Ensembling</strong></td>
+                  <td>Критичные решения</td>
+                  <td>Финансовый анализ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

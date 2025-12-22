@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домашнее задание: Few-shot Prompting | Модуль 4</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 7 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 4</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Zero/Few/Many-shot
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          In-Context Learning
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Prompt Ensembling
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Практика: Few-shot
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика: Классификация
+        </a>
+
+        <a href="lesson-6.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">6</span>
+          Практика: Комплексная
+        </a>
+
+        <a href="project.html" class="nav-item active" data-lesson="7">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 4</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Домашнее задание</span>
+        </div>
+
+        <div class="header-actions">
+          <span class="lesson-time">⏱ 90-120 мин</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <h1>Домашнее задание: Few-shot Prompting</h1>
+
+        <p class="lead">
+          Применение полученных знаний на практике. Пять задач разного уровня сложности для закрепления навыков Few-shot промптинга.
+        </p>
+
+        <!-- Overview Card -->
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-body">
+            <h3>Цель задания</h3>
+            <p>
+              Создать практические Few-shot промпты для реальных бизнес-задач и понять разницу между различными подходами к промптингу.
+            </p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div style="text-align: center; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">5</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">заданий</div>
+              </div>
+              <div style="text-align: center; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">90-120</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">минут</div>
+              </div>
+              <div style="text-align: center; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">100</div>
+                <div style="font-size: 0.9rem; opacity: 0.8;">баллов</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task 1 -->
+        <div class="card">
+          <div class="card-header" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+            Задание 1: Корпоративный стиль (20 баллов)
+          </div>
+          <div class="card-body">
+            <h4>Создать Few-shot промпт для генерации описаний в стиле вашей компании</h4>
+
+            <div class="alert alert-info">
+              <strong>Задача:</strong> Разработать промпт с 3-5 примерами, который научит AI писать в фирменном стиле вашей компании (или выдуманной компании).
+            </div>
+
+            <p><strong>Что нужно сделать:</strong></p>
+            <ol>
+              <li>Выберите компанию (реальную или придумайте свою)</li>
+              <li>Определите характеристики стиля:
+                <ul>
+                  <li>Тон (формальный/дружелюбный/игривый/профессиональный)</li>
+                  <li>Лексика (простая/техническая/образная)</li>
+                  <li>Длина предложений (короткие/средние/длинные)</li>
+                  <li>Использование эмодзи, восклицательных знаков и т.д.</li>
+                </ul>
+              </li>
+              <li>Создайте 3-5 примеров описаний продуктов/услуг в этом стиле</li>
+              <li>Протестируйте промпт на новом продукте</li>
+            </ol>
+
+            <div class="demo-container" style="margin-top: 1rem;">
+              <div class="demo-header">
+                <span class="demo-badge">Пример структуры</span>
+              </div>
+              <div class="demo-content">
+                <div class="prompt-box">
+                  <div class="prompt-label">Шаблон:</div>
+                  <pre>Задача: Написать описание [продукта/услуги] в стиле компании [название].
+
+Стиль компании: [краткое описание tone of voice]
+
+Пример 1:
+Продукт: [название]
+Описание: [текст в нужном стиле]
+
+Пример 2:
+...
+
+---
+
+Теперь напиши описание для:
+Продукт: [новый продукт]</pre>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Критерии оценки:</strong></p>
+            <ul>
+              <li>Четко определенный стиль (5 баллов)</li>
+              <li>Качество и разнообразие примеров (10 баллов)</li>
+              <li>Результат соответствует заданному стилю (5 баллов)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="card">
+          <div class="card-header" style="background: linear-gradient(135deg, #10b981, #059669);">
+            Задание 2: Email-классификатор (20 баллов)
+          </div>
+          <div class="card-body">
+            <h4>Построить классификатор email по 4 категориям с 3 примерами на каждую</h4>
+
+            <div class="alert alert-success">
+              <strong>Задача:</strong> Создать промпт для автоматической сортировки входящих писем по приоритетам и категориям.
+            </div>
+
+            <p><strong>Категории для классификации:</strong></p>
+            <ol>
+              <li><strong>Срочные</strong> — требуют немедленного ответа</li>
+              <li><strong>Важные</strong> — нужен ответ в течение дня</li>
+              <li><strong>Обычные</strong> — можно обработать позже</li>
+              <li><strong>Информационные</strong> — не требуют ответа</li>
+            </ol>
+
+            <p><strong>Что нужно сделать:</strong></p>
+            <ol>
+              <li>Создать по 3 примера email для каждой категории (всего 12 примеров)</li>
+              <li>Каждый пример должен включать:
+                <ul>
+                  <li>Тему письма</li>
+                  <li>Краткое содержание или первые строки</li>
+                  <li>Категорию</li>
+                </ul>
+              </li>
+              <li>Протестировать на 3-5 новых письмах</li>
+              <li>Убедиться, что классификация работает корректно</li>
+            </ol>
+
+            <div class="demo-container" style="margin-top: 1rem;">
+              <div class="demo-header">
+                <span class="demo-badge demo-badge-success">Пример структуры</span>
+              </div>
+              <div class="demo-content">
+                <div class="prompt-box">
+                  <div class="prompt-label">Шаблон:</div>
+                  <pre>Классифицируй email по категориям: Срочные, Важные, Обычные, Информационные.
+
+Тема: "URGENT: Production down"
+Текст: "Our main server is not responding..."
+Категория: Срочные
+
+Тема: "Встреча завтра в 10:00"
+Текст: "Напоминаю о встрече с клиентом..."
+Категория: Важные
+
+[еще 10 примеров...]
+
+---
+
+Классифицируй:
+Тема: [тема письма]
+Текст: [начало письма]
+Категория: ?</pre>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Критерии оценки:</strong></p>
+            <ul>
+              <li>Полнота примеров (3 на категорию) (8 баллов)</li>
+              <li>Качество и реалистичность примеров (8 баллов)</li>
+              <li>Точность классификации на тестовых данных (4 балла)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="card">
+          <div class="card-header" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
+            Задание 3: Извлечение данных в JSON (25 баллов)
+          </div>
+          <div class="card-body">
+            <h4>Разработать промпт для извлечения структурированных данных из текста</h4>
+
+            <div class="alert alert-warning">
+              <strong>Задача:</strong> Создать Few-shot промпт, который извлекает информацию из неструктурированного текста и возвращает её в формате JSON.
+            </div>
+
+            <p><strong>Сценарий:</strong> Извлечение информации о вакансиях из описаний</p>
+
+            <p><strong>Целевая JSON-структура:</strong></p>
+            <pre style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; overflow-x: auto;"><code>{
+  "position": "название должности",
+  "company": "название компании",
+  "location": "город/удаленка",
+  "salary": {
+    "min": число,
+    "max": число,
+    "currency": "валюта"
+  },
+  "requirements": ["требование1", "требование2"],
+  "experience_years": число
+}</code></pre>
+
+            <p><strong>Что нужно сделать:</strong></p>
+            <ol>
+              <li>Создать 4-5 примеров:
+                <ul>
+                  <li>Входной текст (описание вакансии)</li>
+                  <li>Выходной JSON (извлеченные данные)</li>
+                </ul>
+              </li>
+              <li>Примеры должны охватывать разные случаи:
+                <ul>
+                  <li>С указанием зарплаты и без</li>
+                  <li>Удаленная работа и офис</li>
+                  <li>Разное количество требований</li>
+                  <li>Разные форматы записи опыта</li>
+                </ul>
+              </li>
+              <li>Протестировать на 2-3 новых описаниях</li>
+              <li>Проверить валидность получаемого JSON</li>
+            </ol>
+
+            <div class="demo-container" style="margin-top: 1rem;">
+              <div class="demo-header">
+                <span class="demo-badge" style="background: #f59e0b;">Пример</span>
+              </div>
+              <div class="demo-content">
+                <div class="prompt-box">
+                  <div class="prompt-label">Входной текст:</div>
+                  <pre>Ищем Senior Python разработчика в Минск. Зарплата от 3000$ до 5000$.
+Требования: Python, Django, PostgreSQL, 5+ лет опыта.</pre>
+                </div>
+                <div class="result-box">
+                  <div class="result-label">Выходной JSON:</div>
+                  <pre><code>{
+  "position": "Senior Python Developer",
+  "company": null,
+  "location": "Минск",
+  "salary": {
+    "min": 3000,
+    "max": 5000,
+    "currency": "USD"
+  },
+  "requirements": ["Python", "Django", "PostgreSQL"],
+  "experience_years": 5
+}</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Критерии оценки:</strong></p>
+            <ul>
+              <li>Корректность JSON-структуры (8 баллов)</li>
+              <li>Разнообразие edge cases в примерах (10 баллов)</li>
+              <li>Точность извлечения на тестовых данных (7 баллов)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="card">
+          <div class="card-header" style="background: linear-gradient(135deg, #ec4899, #db2777);">
+            Задание 4: Сравнение Zero-shot vs Few-shot (20 баллов)
+          </div>
+          <div class="card-body">
+            <h4>Сравнить Zero-shot и Few-shot на одной задаче, описать разницу</h4>
+
+            <div class="alert" style="background: rgba(236, 72, 153, 0.1); border-color: #ec4899;">
+              <strong>Задача:</strong> Провести эксперимент и задокументировать различия в результатах.
+            </div>
+
+            <p><strong>Что нужно сделать:</strong></p>
+            <ol>
+              <li>Выберите одну из задач:
+                <ul>
+                  <li>Генерация заголовков для статей</li>
+                  <li>Классификация тональности отзывов (позитив/негатив/нейтрал)</li>
+                  <li>Создание кратких резюме текстов</li>
+                  <li>Перевод технических терминов</li>
+                </ul>
+              </li>
+              <li>Создайте Zero-shot промпт</li>
+              <li>Протестируйте на 5 примерах, запишите результаты</li>
+              <li>Создайте Few-shot промпт с 3-4 примерами</li>
+              <li>Протестируйте на тех же 5 примерах</li>
+              <li>Напишите сравнительный анализ</li>
+            </ol>
+
+            <p><strong>Структура анализа:</strong></p>
+            <div style="background: var(--bg-primary); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+              <h5>Шаблон для отчета:</h5>
+              <ul style="list-style: none; padding: 0;">
+                <li><strong>1. Выбранная задача:</strong> [описание]</li>
+                <li><strong>2. Zero-shot промпт:</strong> [текст промпта]</li>
+                <li><strong>3. Few-shot промпт:</strong> [текст промпта с примерами]</li>
+                <li><strong>4. Результаты тестирования:</strong>
+                  <ul>
+                    <li>Тест 1: Zero-shot [...] vs Few-shot [...]</li>
+                    <li>Тест 2: ...</li>
+                    <li>...</li>
+                  </ul>
+                </li>
+                <li><strong>5. Анализ различий:</strong>
+                  <ul>
+                    <li>Качество результатов</li>
+                    <li>Консистентность</li>
+                    <li>Соответствие ожиданиям</li>
+                  </ul>
+                </li>
+                <li><strong>6. Выводы:</strong> Когда какой подход лучше использовать</li>
+              </ul>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Критерии оценки:</strong></p>
+            <ul>
+              <li>Корректность обоих промптов (6 баллов)</li>
+              <li>Качество тестирования (5 баллов)</li>
+              <li>Глубина анализа различий (6 баллов)</li>
+              <li>Практические выводы (3 балла)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="card">
+          <div class="card-header" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed);">
+            Задание 5: Универсальный шаблон (15 баллов)
+          </div>
+          <div class="card-body">
+            <h4>Создать универсальный Few-shot шаблон для повторяющейся задачи</h4>
+
+            <div class="alert" style="background: rgba(139, 92, 246, 0.1); border-color: #8b5cf6;">
+              <strong>Задача:</strong> Разработать переиспользуемый шаблон промпта для регулярной рабочей задачи.
+            </div>
+
+            <p><strong>Что нужно сделать:</strong></p>
+            <ol>
+              <li>Выберите задачу, которую выполняете регулярно (или придумайте):
+                <ul>
+                  <li>Написание отчетов</li>
+                  <li>Ответы на типовые вопросы клиентов</li>
+                  <li>Создание постов для соцсетей</li>
+                  <li>Форматирование документов</li>
+                  <li>Генерация тестовых данных</li>
+                </ul>
+              </li>
+              <li>Создайте шаблон с:
+                <ul>
+                  <li>Местами для подстановки переменных (отмечены [PLACEHOLDER])</li>
+                  <li>3-4 базовыми примерами</li>
+                  <li>Четкими инструкциями</li>
+                  <li>Описанием формата вывода</li>
+                </ul>
+              </li>
+              <li>Напишите инструкцию по использованию шаблона</li>
+              <li>Покажите 2-3 примера применения шаблона</li>
+            </ol>
+
+            <div class="demo-container" style="margin-top: 1rem;">
+              <div class="demo-header">
+                <span class="demo-badge" style="background: #8b5cf6;">Пример структуры</span>
+              </div>
+              <div class="demo-content">
+                <div class="prompt-box">
+                  <div class="prompt-label">Шаблон:</div>
+                  <pre>/* === ШАБЛОН: [НАЗВАНИЕ ЗАДАЧИ] === */
+
+ЗАДАЧА: [описание что делает шаблон]
+
+ФОРМАТ ВЫВОДА: [как должен выглядеть результат]
+
+ПРИМЕРЫ:
+
+Входные данные: [данные примера 1]
+Результат: [вывод примера 1]
+
+Входные данные: [данные примера 2]
+Результат: [вывод примера 2]
+
+[еще примеры...]
+
+---
+
+ИСПОЛЬЗОВАНИЕ:
+1. Замените [ПЕРЕМЕННАЯ_1] на [что подставить]
+2. Замените [ПЕРЕМЕННАЯ_2] на [что подставить]
+3. Запустите промпт
+
+---
+
+ТЕКУЩИЕ ДАННЫЕ:
+Входные данные: [ПЕРЕМЕННАЯ_1]
+[ПЕРЕМЕННАЯ_2]: [значение]
+Результат: ?</pre>
+                </div>
+              </div>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Критерии оценки:</strong></p>
+            <ul>
+              <li>Универсальность и переиспользуемость (5 баллов)</li>
+              <li>Качество примеров (5 баллов)</li>
+              <li>Понятность инструкции (3 балла)</li>
+              <li>Демонстрация применения (2 балла)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Submission Checklist -->
+        <div class="card" style="border: 2px solid var(--primary);">
+          <div class="card-header" style="background: linear-gradient(135deg, var(--primary), #7C3AED);">
+            Чек-лист перед сдачей
+          </div>
+          <div class="card-body">
+            <div style="display: grid; gap: 0.75rem;">
+              <label style="display: flex; align-items: start; gap: 0.75rem; padding: 0.75rem; background: var(--bg-primary); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 0.25rem;">
+                <span>
+                  <strong>Задание 1:</strong> Создан Few-shot промпт для корпоративного стиля с 3-5 примерами
+                </span>
+              </label>
+
+              <label style="display: flex; align-items: start; gap: 0.75rem; padding: 0.75rem; background: var(--bg-primary); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 0.25rem;">
+                <span>
+                  <strong>Задание 2:</strong> Построен email-классификатор с 12 примерами (3 на каждую категорию)
+                </span>
+              </label>
+
+              <label style="display: flex; align-items: start; gap: 0.75rem; padding: 0.75rem; background: var(--bg-primary); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 0.25rem;">
+                <span>
+                  <strong>Задание 3:</strong> Разработан промпт для извлечения данных в JSON с 4-5 примерами
+                </span>
+              </label>
+
+              <label style="display: flex; align-items: start; gap: 0.75rem; padding: 0.75rem; background: var(--bg-primary); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 0.25rem;">
+                <span>
+                  <strong>Задание 4:</strong> Проведено сравнение Zero-shot vs Few-shot с анализом
+                </span>
+              </label>
+
+              <label style="display: flex; align-items: start; gap: 0.75rem; padding: 0.75rem; background: var(--bg-primary); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 0.25rem;">
+                <span>
+                  <strong>Задание 5:</strong> Создан универсальный шаблон с инструкцией по использованию
+                </span>
+              </label>
+
+              <label style="display: flex; align-items: start; gap: 0.75rem; padding: 0.75rem; background: var(--bg-primary); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 0.25rem;">
+                <span>
+                  Все промпты протестированы на реальных данных
+                </span>
+              </label>
+
+              <label style="display: flex; align-items: start; gap: 0.75rem; padding: 0.75rem; background: var(--bg-primary); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 0.25rem;">
+                <span>
+                  Приложены примеры входных данных и результатов
+                </span>
+              </label>
+
+              <label style="display: flex; align-items: start; gap: 0.75rem; padding: 0.75rem; background: var(--bg-primary); border-radius: 8px; cursor: pointer;">
+                <input type="checkbox" style="margin-top: 0.25rem;">
+                <span>
+                  Документ оформлен читабельно с понятной структурой
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div class="card">
+          <div class="card-header">Критерии оценивания</div>
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Задание</th>
+                  <th>Баллы</th>
+                  <th>Что проверяется</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Корпоративный стиль</strong></td>
+                  <td>20</td>
+                  <td>Четкость стиля, качество примеров, соответствие результата</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Email-классификатор</strong></td>
+                  <td>20</td>
+                  <td>Полнота примеров, реалистичность, точность классификации</td>
+                </tr>
+                <tr>
+                  <td><strong>3. Извлечение в JSON</strong></td>
+                  <td>25</td>
+                  <td>Корректность JSON, edge cases, точность извлечения</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Сравнение подходов</strong></td>
+                  <td>20</td>
+                  <td>Качество эксперимента, глубина анализа, выводы</td>
+                </tr>
+                <tr>
+                  <td><strong>5. Универсальный шаблон</strong></td>
+                  <td>15</td>
+                  <td>Переиспользуемость, качество примеров, инструкция</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr style="font-weight: bold; background: var(--bg-primary);">
+                  <td>ИТОГО</td>
+                  <td>100</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+
+            <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: 8px;">
+              <h5 style="margin: 0 0 0.5rem 0;">Шкала оценок:</h5>
+              <ul style="margin: 0;">
+                <li><strong>90-100 баллов:</strong> Отлично — все задания выполнены качественно</li>
+                <li><strong>75-89 баллов:</strong> Хорошо — есть небольшие недочеты</li>
+                <li><strong>60-74 балла:</strong> Удовлетворительно — выполнены базовые требования</li>
+                <li><strong>Менее 60 баллов:</strong> Требуется доработка</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <div class="card">
+          <div class="card-header">Быстрая справка: Few-shot формулы</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <!-- Formula 1 -->
+              <div style="padding: 1rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid #6366f1;">
+                <h5 style="margin: 0 0 0.5rem 0;">Базовая структура Few-shot</h5>
+                <pre style="margin: 0; white-space: pre-wrap; font-size: 0.9rem;">Задача: [описание задачи]
+
+Пример 1:
+Входные данные: [данные]
+Результат: [ожидаемый вывод]
+
+Пример 2:
+Входные данные: [данные]
+Результат: [ожидаемый вывод]
+
+---
+
+Входные данные: [новые данные]
+Результат: ?</pre>
+              </div>
+
+              <!-- Formula 2 -->
+              <div style="padding: 1rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid #10b981;">
+                <h5 style="margin: 0 0 0.5rem 0;">Классификация</h5>
+                <pre style="margin: 0; white-space: pre-wrap; font-size: 0.9rem;">Классифицируй [объект] по категориям: [список категорий].
+
+[Объект 1]: [описание]
+Категория: [категория]
+
+[Объект 2]: [описание]
+Категория: [категория]
+
+---
+
+[Новый объект]: [описание]
+Категория: ?</pre>
+              </div>
+
+              <!-- Formula 3 -->
+              <div style="padding: 1rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid #f59e0b;">
+                <h5 style="margin: 0 0 0.5rem 0;">Генерация в стиле</h5>
+                <pre style="margin: 0; white-space: pre-wrap; font-size: 0.9rem;">Задача: [тип контента] в стиле [описание стиля].
+
+Пример стиля 1: [текст-пример]
+Пример стиля 2: [текст-пример]
+Пример стиля 3: [текст-пример]
+
+---
+
+Создай [тип контента] для: [входные данные]</pre>
+              </div>
+
+              <!-- Formula 4 -->
+              <div style="padding: 1rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid #ec4899;">
+                <h5 style="margin: 0 0 0.5rem 0;">Извлечение данных</h5>
+                <pre style="margin: 0; white-space: pre-wrap; font-size: 0.9rem;">Извлеки [тип данных] из текста в формате JSON.
+
+Структура JSON:
+{
+  "поле1": "тип",
+  "поле2": "тип"
+}
+
+Текст: [пример текста 1]
+JSON: {извлеченные данные}
+
+Текст: [пример текста 2]
+JSON: {извлеченные данные}
+
+---
+
+Текст: [новый текст]
+JSON: ?</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            Советы по выполнению
+          </div>
+          <div class="teacher-note-content">
+            <ul>
+              <li><strong>Начните с простого:</strong> Сначала сделайте Zero-shot версию, потом улучшайте примерами</li>
+              <li><strong>Разнообразие примеров:</strong> Каждый пример должен показывать разные аспекты задачи</li>
+              <li><strong>Тестируйте:</strong> Пробуйте промпт на edge cases — необычных, граничных ситуациях</li>
+              <li><strong>Итерируйте:</strong> Если результат не устраивает, улучшайте примеры, а не добавляйте больше инструкций</li>
+              <li><strong>Документируйте:</strong> Записывайте, что работает и что нет — это ценный опыт</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-6.html" class="nav-arrow nav-arrow-prev">
+            <span>←</span>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Практика: Комплексная</div>
+            </div>
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="7">
+            Отметить как пройденный
+          </button>
+          <a href="index.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Завершить</div>
+              <div class="nav-arrow-title">Вернуться на главную</div>
+            </div>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

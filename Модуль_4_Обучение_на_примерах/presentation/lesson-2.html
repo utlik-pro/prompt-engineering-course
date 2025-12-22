@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 2: In-Context Learning | Модуль 4</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 7 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 4</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Zero/Few/Many-shot</a>
+        <a href="lesson-2.html" class="nav-item active" data-lesson="2"><span class="nav-item-number">2</span>In-Context Learning</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Prompt Ensembling</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Практика: Few-shot</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Практика: Классификация</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Практика: Комплексная</a>
+        <a href="project.html" class="nav-item" data-lesson="7"><span class="nav-item-number">P</span>Домашнее задание</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+    <div class="overlay"></div>
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 4</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 2: In-Context Learning</span>
+        </div>
+        <div class="header-actions"><span class="lesson-time">⏱ 20 мин</span></div>
+      </header>
+
+      <div class="content">
+        <h1>In-Context Learning (ICL)</h1>
+        <p class="lead">Как модель "обучается" прямо в промпте без изменения весов нейросети.</p>
+
+        <!-- Key Concept -->
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-body">
+            <h3>🧠 Что такое ICL?</h3>
+            <p style="font-size: 1.1rem;"><strong>In-Context Learning</strong> — способность модели "обучаться" на примерах прямо в контексте промпта, не изменяя веса нейросети.</p>
+          </div>
+        </div>
+
+        <!-- Metaphor -->
+        <div class="alert alert-info">
+          <h4>🎬 Метафора</h4>
+          <p><strong>Обычное обучение ML</strong> = университет (годы обучения, изменение личности)</p>
+          <p><strong>In-Context Learning</strong> = инструктаж актёра перед съёмкой (минуты, временная роль)</p>
+        </div>
+
+        <!-- How ICL Works -->
+        <h2>Как работает ICL</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; text-align: center; margin: 2rem 0;">
+          <div class="card" style="padding: 1rem;">
+            <div style="font-size: 2rem;">📝</div>
+            <p style="font-size: 0.85rem; margin: 0.5rem 0 0 0;"><strong>Примеры</strong><br>в промпте</p>
+          </div>
+          <div class="card" style="padding: 1rem;">
+            <div style="font-size: 2rem;">🔍</div>
+            <p style="font-size: 0.85rem; margin: 0.5rem 0 0 0;"><strong>Модель</strong><br>видит паттерн</p>
+          </div>
+          <div class="card" style="padding: 1rem;">
+            <div style="font-size: 2rem;">⚡</div>
+            <p style="font-size: 0.85rem; margin: 0.5rem 0 0 0;"><strong>Применяет</strong><br>к новой задаче</p>
+          </div>
+          <div class="card" style="padding: 1rem;">
+            <div style="font-size: 2rem;">✅</div>
+            <p style="font-size: 0.85rem; margin: 0.5rem 0 0 0;"><strong>Результат</strong><br>в том же стиле</p>
+          </div>
+        </div>
+
+        <!-- 4 Principles -->
+        <h2>4 принципа эффективного ICL</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div class="card-body">
+              <h4>1. Разнообразие</h4>
+              <p>Примеры должны покрывать разные случаи и сценарии</p>
+            </div>
+          </div>
+          <div class="card" style="border-top: 4px solid #6366f1;">
+            <div class="card-body">
+              <h4>2. Качество</h4>
+              <p>Примеры без ошибок — модель учится и на ошибках тоже</p>
+            </div>
+          </div>
+          <div class="card" style="border-top: 4px solid #f59e0b;">
+            <div class="card-body">
+              <h4>3. Формат</h4>
+              <p>Примеры в том же формате, что и ожидаемый результат</p>
+            </div>
+          </div>
+          <div class="card" style="border-top: 4px solid #ec4899;">
+            <div class="card-body">
+              <h4>4. Порядок</h4>
+              <p>От простых примеров к сложным для лучшего усвоения</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Demo -->
+        <h2>Демонстрация: Извлечение данных в JSON</h2>
+
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge demo-badge-success">ICL в действии</span>
+            <span class="demo-title">Парсинг вакансий</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт с примерами:</div>
+              <pre>Извлеки информацию из описания вакансии в JSON.
+
+Пример 1:
+Текст: "TechCorp ищет Python разработчика, опыт от 3 лет. Зарплата 150-200k, удаленка."
+JSON: {"company": "TechCorp", "position": "Python разработчик", "experience": "3+ лет", "salary": "150-200k", "format": "удаленка"}
+
+Пример 2:
+Текст: "Требуется дизайнер UI/UX в офис в Минске. Опыт от года. До 100k."
+JSON: {"company": "не указана", "position": "UI/UX дизайнер", "experience": "1+ год", "salary": "до 100k", "format": "офис, Минск"}
+
+---
+Текст: "StartupXYZ приглашает фулстек (React + Node.js). Опыт 2+ года. Гибрид. До 180k."</pre>
+            </div>
+            <div class="result-box" style="background: rgba(16, 185, 129, 0.1); border-color: #10b981;">
+              <div class="result-label">Результат:</div>
+              <pre style="background: transparent; padding: 0;">{"company": "StartupXYZ", "position": "фулстек разработчик", "experience": "2+ года", "salary": "до 180k", "format": "гибрид"}</pre>
+              <p style="color: #10b981; font-size: 0.9rem; margin-top: 0.5rem;">✅ Модель научилась формату JSON и обработке отсутствующих данных</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Business Examples -->
+        <h2>Бизнес-примеры ICL</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-hr">HR</span>
+            <h4>Извлечение навыков из резюме</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>💬 ICL промпт:</h5>
+              <pre>Извлеки технические навыки из описания опыта.
+
+Опыт: "Разрабатывал микросервисы на Go, использовал PostgreSQL и Redis"
+Навыки: Go, PostgreSQL, Redis, микросервисы
+
+Опыт: "Создавал React приложения с TypeScript, настраивал CI/CD в GitLab"
+Навыки: React, TypeScript, CI/CD, GitLab
+
+---
+Опыт: "Писал бэкенд на Python/Django, интегрировал с Elasticsearch и Kafka"
+Навыки: ?</pre>
+            </div>
+            <div class="example-result">
+              <h5>✅ Результат:</h5>
+              <p><strong>Python, Django, Elasticsearch, Kafka, бэкенд</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-sales">Продажи</span>
+            <h4>Определение стадии сделки</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>💬 ICL промпт:</h5>
+              <pre>Определи стадию сделки по описанию коммуникации.
+
+Описание: "Клиент запросил презентацию продукта"
+Стадия: Квалификация
+
+Описание: "Обсуждаем условия контракта, клиент просит скидку"
+Стадия: Переговоры
+
+Описание: "Клиент подписал договор, ждём оплату"
+Стадия: Закрытие
+
+---
+Описание: "Провели демо, клиент сказал 'нужно подумать', попросил кейсы"
+Стадия: ?</pre>
+            </div>
+            <div class="example-result">
+              <h5>✅ Результат:</h5>
+              <p><strong>Оценка / Рассмотрение предложения</strong></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-marketing">Маркетинг</span>
+            <h4>Извлечение метрик из отчётов</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>💬 ICL промпт:</h5>
+              <pre>Извлеки ключевые метрики из текста отчёта.
+
+Текст: "В Q3 выручка выросла на 23% до $4.2M, привлекли 1500 новых клиентов"
+Метрики: {"revenue_growth": "23%", "revenue": "$4.2M", "new_customers": 1500}
+
+Текст: "Конверсия сайта улучшилась с 2.1% до 3.4%, bounce rate снизился до 45%"
+Метрики: {"conversion_before": "2.1%", "conversion_after": "3.4%", "bounce_rate": "45%"}
+
+---
+Текст: "CAC снизился на 18% до $45, LTV вырос до $380, ROI рекламы 340%"
+Метрики: ?</pre>
+            </div>
+            <div class="example-result">
+              <h5>✅ Результат:</h5>
+              <pre style="background: var(--bg-secondary); padding: 0.5rem; border-radius: 4px;">{"cac_reduction": "18%", "cac": "$45", "ltv": "$380", "roas": "340%"}</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-service">Клиентский сервис</span>
+            <h4>Извлечение проблемы и продукта</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>💬 ICL промпт:</h5>
+              <pre>Извлеки продукт и проблему из обращения клиента.
+
+Обращение: "Купил наушники XM5, левый наушник не работает после недели использования"
+Результат: {"product": "наушники XM5", "issue": "левый наушник не работает", "duration": "неделя"}
+
+Обращение: "Подписка Premium не активировалась после оплаты вчера"
+Результат: {"product": "подписка Premium", "issue": "не активировалась после оплаты", "duration": "1 день"}
+
+---
+Обращение: "Приложение вылетает при открытии камеры, началось после обновления"
+Результат: ?</pre>
+            </div>
+            <div class="example-result">
+              <h5>✅ Результат:</h5>
+              <pre style="background: var(--bg-secondary); padding: 0.5rem; border-radius: 4px;">{"product": "приложение", "issue": "вылетает при открытии камеры", "trigger": "после обновления"}</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Important Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            Важный нюанс
+          </div>
+          <div class="teacher-note-content">
+            <p>Исследования показывают: даже <strong>случайные метки</strong> в примерах могут улучшить результат, если <strong>структура правильная</strong>. Но мы рекомендуем использовать качественные примеры для надёжности.</p>
+          </div>
+        </div>
+
+        <!-- Quiz -->
+        <div class="card">
+          <div class="card-header">🎯 Проверьте понимание</div>
+          <div class="card-body">
+            <div class="quiz-container" data-quiz="lesson2">
+              <div class="quiz-question">
+                <h4>Вопрос 1: Что происходит с весами модели при ICL?</h4>
+                <div class="quiz-options" data-correct="2">
+                  <label class="quiz-option"><input type="radio" name="q1" value="1"><span>Веса изменяются на основе примеров</span></label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="2"><span>Веса не изменяются — модель работает в контексте</span></label>
+                  <label class="quiz-option"><input type="radio" name="q1" value="3"><span>Веса сбрасываются после каждого промпта</span></label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+              <div class="quiz-question">
+                <h4>Вопрос 2: Какой порядок примеров лучше для ICL?</h4>
+                <div class="quiz-options" data-correct="1">
+                  <label class="quiz-option"><input type="radio" name="q2" value="1"><span>От простых к сложным</span></label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="2"><span>От сложных к простым</span></label>
+                  <label class="quiz-option"><input type="radio" name="q2" value="3"><span>Случайный порядок</span></label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+              <div class="quiz-question">
+                <h4>Вопрос 3: ICL лучше всего подходит для:</h4>
+                <div class="quiz-options" data-correct="3">
+                  <label class="quiz-option"><input type="radio" name="q3" value="1"><span>Простого перевода текста</span></label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="2"><span>Генерации случайных чисел</span></label>
+                  <label class="quiz-option"><input type="radio" name="q3" value="3"><span>Извлечения структурированных данных по шаблону</span></label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+            </div>
+            <button class="btn btn-primary check-quiz-btn" style="margin-top: 1.5rem;">Проверить ответы</button>
+          </div>
+        </div>
+
+        <!-- Key Takeaways -->
+        <div class="card" style="border: 2px solid var(--primary);">
+          <div class="card-header" style="background: linear-gradient(135deg, var(--primary), #7C3AED);">📌 Ключевые выводы</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">🧠</span>
+                <div><strong>ICL = обучение без обучения</strong><p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Модель понимает паттерн из примеров, не меняя веса</p></div>
+              </div>
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">📊</span>
+                <div><strong>Идеально для извлечения данных</strong><p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Парсинг в JSON, извлечение сущностей, структурирование</p></div>
+              </div>
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">✨</span>
+                <div><strong>Качество примеров критично</strong><p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Разнообразные, качественные, в правильном формате</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-1.html" class="nav-arrow nav-arrow-prev"><span>←</span><div><div class="nav-arrow-label">Назад</div><div class="nav-arrow-title">Zero/Few/Many-shot</div></div></a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="2">Отметить как пройденный</button>
+          <a href="lesson-3.html" class="nav-arrow nav-arrow-next"><div><div class="nav-arrow-label">Далее</div><div class="nav-arrow-title">Prompt Ensembling</div></div><span>→</span></a>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
