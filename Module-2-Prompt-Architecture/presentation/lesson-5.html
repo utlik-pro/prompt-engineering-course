@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 5: Практика шаблонов | Модуль 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 2</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Фреймворки промптинга</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Structured Outputs</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Промпт-шаблоны</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Форматирование вывода</a>
+        <a href="lesson-5.html" class="nav-item active" data-lesson="5"><span class="nav-item-number">5</span>Практика шаблонов</a>
+        <a href="project.html" class="nav-item" data-lesson="6"><span class="nav-item-number">P</span>Домашнее задание</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a><span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 2</a><span class="breadcrumb-separator">/</span><span>Урок 5</span>
+        </div>
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="hero">
+          <div class="hero-badge">Урок 5 — Практика</div>
+          <h1 class="hero-title">Практика шаблонов</h1>
+          <p class="hero-subtitle">Создаём библиотеку промптов для реальных бизнес-задач</p>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin: 0;">В этом уроке вы создадите 5 профессиональных шаблонов промптов, используя фреймворки и техники из предыдущих уроков.</p>
+          </div>
+        </div>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Формат:</strong> Практический воркшоп. Каждый студент создаёт шаблоны под свою профессию/отрасль. Время: ~8 минут на задание.</p>
+          </div>
+        </div>
+
+        <h2>Задание 1: Шаблон для HR</h2>
+
+        <div class="card">
+          <div class="card-header">Генератор описаний вакансий</div>
+          <div class="card-body">
+            <p><strong>Задача:</strong> Создайте шаблон для генерации описаний вакансий.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Переменные для включения:</strong>
+              <ul style="margin: 0.5rem 0 0 1rem;">
+                <li>Название должности</li>
+                <li>Отдел/команда</li>
+                <li>Уровень (junior/middle/senior)</li>
+                <li>Формат работы (офис/удалёнка/гибрид)</li>
+                <li>Ключевые навыки (список)</li>
+              </ul>
+            </div>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример решения</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header"><span>job_description.template</span><button class="code-copy-btn">Копировать</button></div>
+                    <pre><code># Шаблон: Описание вакансии
+
+[ROLE] Ты — HR-специалист с опытом в IT-рекрутинге.
+
+[INSTRUCTIONS]
+Напиши привлекательное описание вакансии:
+- Должность: {{position}}
+- Отдел: {{department}}
+- Уровень: {{level}}
+- Формат: {{work_format}}
+
+[REQUIREMENTS]
+Ключевые навыки: {{skills}}
+
+[FORMAT]
+1. Заголовок с эмодзи
+2. О компании (2 предложения)
+3. Что предстоит делать (5-7 пунктов)
+4. Требования (обязательные + желательные)
+5. Мы предлагаем (5-6 пунктов)
+6. CTA для отклика
+
+[TONE] Дружелюбный, но профессиональный</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Задание 2: Шаблон для маркетинга</h2>
+
+        <div class="card">
+          <div class="card-header">Генератор рекламных текстов</div>
+          <div class="card-body">
+            <p><strong>Задача:</strong> Создайте универсальный шаблон для рекламных объявлений.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Переменные:</strong> продукт, УТП, целевая аудитория, платформа (Google/Facebook/Instagram), бюджет тона (агрессивный/мягкий)
+            </div>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример решения</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header"><span>ad_copy.template</span><button class="code-copy-btn">Копировать</button></div>
+                    <pre><code># Шаблон: Рекламный текст (CRISPE)
+
+[CAPACITY & ROLE]
+Ты — performance-маркетолог с опытом в {{platform}}.
+
+[INSIGHT]
+Продукт: {{product}}
+УТП: {{utp}}
+Целевая аудитория: {{audience}}
+
+[STATEMENT]
+Создай 3 варианта рекламного объявления для {{platform}}.
+
+[PERSONALITY]
+Тон: {{tone}}
+
+[EXPERIMENT]
+Для каждого варианта используй разный подход:
+1. Фокус на боли клиента
+2. Фокус на выгоде
+3. Социальное доказательство
+
+Формат для {{platform}}:
+- Заголовок: до {{title_limit}} символов
+- Описание: до {{desc_limit}} символов
+- CTA: 2-3 слова</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Задание 3: Шаблон для продаж</h2>
+
+        <div class="card">
+          <div class="card-header">Генератор коммерческих предложений</div>
+          <div class="card-body">
+            <p><strong>Задача:</strong> Создайте шаблон для персонализированных КП.</p>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример решения</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header"><span>commercial_proposal.template</span><button class="code-copy-btn">Копировать</button></div>
+                    <pre><code># Шаблон: Коммерческое предложение (RISEN)
+
+[ROLE]
+Ты — опытный sales-менеджер в сфере {{industry}}.
+
+[INSTRUCTIONS]
+Напиши персонализированное КП для:
+- Компания: {{client_company}}
+- Контакт: {{contact_name}}, {{contact_position}}
+- Их проблема: {{pain_point}}
+
+[STEPS]
+1. Персонализированное приветствие
+2. Демонстрация понимания их проблемы
+3. Наше решение ({{our_product}})
+4. Конкретные выгоды (3-5 пунктов с цифрами)
+5. Кейс похожего клиента
+6. Условия и цены
+7. Следующий шаг (CTA)
+
+[END GOAL]
+КП, которое приведёт к встрече.
+
+[NARROWING]
+- Длина: 1 страница
+- Без технического жаргона
+- Фокус на ROI</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Задание 4: Шаблон для аналитики</h2>
+
+        <div class="card">
+          <div class="card-header">Анализатор данных</div>
+          <div class="card-body">
+            <p><strong>Задача:</strong> Создайте шаблон для анализа данных с JSON-выводом.</p>
+
+            <div class="accordion">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример решения</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header"><span>data_analysis.template</span><button class="code-copy-btn">Копировать</button></div>
+                    <pre><code># Шаблон: Анализ данных
+
+Проанализируй следующие данные:
+
+{{data}}
+
+Верни результат в JSON:
+{
+  "summary": "краткое резюме",
+  "key_metrics": {
+    "{{metric_1}}": значение,
+    "{{metric_2}}": значение
+  },
+  "trends": ["тренд 1", "тренд 2"],
+  "anomalies": ["аномалия, если есть"],
+  "recommendations": ["рекомендация 1", "рекомендация 2"],
+  "confidence": число от 0 до 1
+}
+
+Отвечай ТОЛЬКО валидным JSON.</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Задание 5: Ваш собственный шаблон</h2>
+
+        <div class="card" style="border-left: 4px solid var(--success);">
+          <div class="card-header">Свободное задание</div>
+          <div class="card-body">
+            <p><strong>Задача:</strong> Создайте шаблон для задачи из вашей профессиональной области.</p>
+
+            <div style="padding: 1rem; background: var(--surface); border-radius: 8px; margin-top: 1rem;">
+              <strong>Требования:</strong>
+              <ul style="margin: 0.5rem 0 0 1rem;">
+                <li>Используйте один из фреймворков (RISEN, CRISPE, CREATE)</li>
+                <li>Минимум 5 переменных</li>
+                <li>Укажите формат вывода</li>
+                <li>Добавьте документацию к шаблону</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <h2>Чек-лист практики</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item"><span class="checklist-checkbox" data-id="l5-task-1"></span><span class="checklist-text">Задание 1: HR-шаблон создан</span></li>
+              <li class="checklist-item"><span class="checklist-checkbox" data-id="l5-task-2"></span><span class="checklist-text">Задание 2: Маркетинг-шаблон создан</span></li>
+              <li class="checklist-item"><span class="checklist-checkbox" data-id="l5-task-3"></span><span class="checklist-text">Задание 3: Продажи-шаблон создан</span></li>
+              <li class="checklist-item"><span class="checklist-checkbox" data-id="l5-task-4"></span><span class="checklist-text">Задание 4: Аналитика-шаблон создан</span></li>
+              <li class="checklist-item"><span class="checklist-checkbox" data-id="l5-task-5"></span><span class="checklist-text">Задание 5: Свой шаблон создан</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); border-left: 4px solid var(--success);">
+          <div class="card-header">Отлично!</div>
+          <div class="card-body">
+            <p>Вы создали библиотеку из 5 профессиональных шаблонов. Теперь переходите к домашнему заданию для закрепления.</p>
+          </div>
+        </div>
+
+        <div class="lesson-nav">
+          <a href="lesson-4.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="5">Завершить урок</button>
+          <a href="project.html" class="btn btn-secondary nav-arrow-next">
+            Домашнее задание
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

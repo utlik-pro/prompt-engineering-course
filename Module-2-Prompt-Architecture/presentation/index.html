@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модуль 2: Архитектура эффективных промптов</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 2</div>
+
+        <a href="index.html" class="nav-item active">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Фреймворки промптинга
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Structured Outputs
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Промпт-шаблоны
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Форматирование вывода
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика шаблонов
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Модуль 2</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <h1 class="hero-title">Архитектура эффективных промптов</h1>
+          <p class="hero-subtitle">Фреймворки RISEN, CRISPE, CREATE. Structured outputs, JSON mode и промпт-шаблоны</p>
+        </div>
+
+        <!-- Module Overview -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <div class="card-header">О модуле</div>
+          <div class="card-body">
+            <p>В этом модуле вы изучите профессиональные фреймворки для создания промптов, научитесь получать структурированные ответы и создавать переиспользуемые шаблоны.</p>
+            <div style="display: flex; gap: 2rem; margin-top: 1rem; flex-wrap: wrap;">
+              <div>
+                <strong>Продолжительность:</strong><br>
+                3 академических часа
+              </div>
+              <div>
+                <strong>Уроков:</strong><br>
+                5 уроков + проект
+              </div>
+              <div>
+                <strong>Фокус:</strong><br>
+                Фреймворки, JSON, шаблоны
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Grid -->
+        <h2>Уроки модуля</h2>
+
+        <div class="lesson-cards">
+          <a href="lesson-1.html" class="lesson-card">
+            <div class="lesson-card-number">1</div>
+            <h3 class="lesson-card-title">Фреймворки промптинга</h3>
+            <p class="lesson-card-desc">RISEN, CRISPE, CREATE — профессиональные методологии создания промптов</p>
+            <div class="lesson-card-meta">35 минут</div>
+          </a>
+
+          <a href="lesson-2.html" class="lesson-card">
+            <div class="lesson-card-number">2</div>
+            <h3 class="lesson-card-title">Structured Outputs</h3>
+            <p class="lesson-card-desc">JSON mode, схемы данных и получение структурированных ответов от AI</p>
+            <div class="lesson-card-meta">30 минут</div>
+          </a>
+
+          <a href="lesson-3.html" class="lesson-card">
+            <div class="lesson-card-number">3</div>
+            <h3 class="lesson-card-title">Промпт-шаблоны</h3>
+            <p class="lesson-card-desc">Создание переиспользуемых шаблонов с переменными и плейсхолдерами</p>
+            <div class="lesson-card-meta">30 минут</div>
+          </a>
+
+          <a href="lesson-4.html" class="lesson-card">
+            <div class="lesson-card-number">4</div>
+            <h3 class="lesson-card-title">Форматирование вывода</h3>
+            <p class="lesson-card-desc">Markdown, таблицы, списки — контроль формата ответов AI</p>
+            <div class="lesson-card-meta">25 минут</div>
+          </a>
+
+          <a href="lesson-5.html" class="lesson-card">
+            <div class="lesson-card-number">5</div>
+            <h3 class="lesson-card-title">Практика шаблонов</h3>
+            <p class="lesson-card-desc">Создаём библиотеку промптов для реальных бизнес-задач</p>
+            <div class="lesson-card-meta">40 минут</div>
+          </a>
+
+          <a href="project.html" class="lesson-card">
+            <div class="lesson-card-number">P</div>
+            <h3 class="lesson-card-title">Домашнее задание</h3>
+            <p class="lesson-card-desc">Создание корпоративной библиотеки промптов с документацией</p>
+            <div class="lesson-card-meta">60 минут</div>
+          </a>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="card" style="margin-top: 2rem;">
+          <div class="card-header">Цели обучения</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="m2-obj-1"></span>
+                <span class="checklist-text">Освоить фреймворки RISEN, CRISPE, CREATE</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="m2-obj-2"></span>
+                <span class="checklist-text">Научиться получать структурированные ответы (JSON)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="m2-obj-3"></span>
+                <span class="checklist-text">Создавать переиспользуемые шаблоны промптов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="m2-obj-4"></span>
+                <span class="checklist-text">Контролировать формат вывода AI</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

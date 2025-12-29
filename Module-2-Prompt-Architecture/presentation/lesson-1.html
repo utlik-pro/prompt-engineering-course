@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 1: Фреймворки промптинга | Модуль 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 2</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item active" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Фреймворки промптинга
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Structured Outputs
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Промпт-шаблоны
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Форматирование вывода
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика шаблонов
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 2</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 1</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-badge">Урок 1</div>
+          <h1 class="hero-title">Фреймворки промптинга</h1>
+          <p class="hero-subtitle">RISEN, CRISPE, CREATE — профессиональные методологии создания промптов</p>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="card">
+          <div class="card-header">Цели урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l1-obj-1"></span>
+                <span class="checklist-text">Изучить фреймворк RISEN</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l1-obj-2"></span>
+                <span class="checklist-text">Освоить методологию CRISPE</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l1-obj-3"></span>
+                <span class="checklist-text">Понять фреймворк CREATE</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l1-obj-4"></span>
+                <span class="checklist-text">Научиться выбирать подходящий фреймворк</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Introduction -->
+        <h2>Зачем нужны фреймворки?</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <p>Фреймворки — это структурированные шаблоны для создания промптов. Они помогают:</p>
+            <ul style="padding-left: 1.5rem; margin-top: 1rem;">
+              <li>Не забывать важные элементы промпта</li>
+              <li>Получать более качественные и предсказуемые результаты</li>
+              <li>Стандартизировать работу команды</li>
+              <li>Быстрее создавать эффективные промпты</li>
+            </ul>
+
+            <div class="info-box" style="margin-top: 1.5rem;">
+              <strong>В Модуле 1</strong> мы изучили формулу CRAFT. Теперь познакомимся с тремя продвинутыми фреймворками: RISEN, CRISPE и CREATE.
+            </div>
+          </div>
+        </div>
+
+        <!-- RISEN Framework -->
+        <h2>Фреймворк RISEN</h2>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Акцент:</strong> RISEN отлично подходит для задач, где важна пошаговая структура и чёткий конечный результат. Особенно полезен для сложных аналитических задач.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">RISEN = Role + Instructions + Steps + End goal + Narrowing</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--primary);">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">R</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Role (Роль)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Определите экспертную роль AI</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Ты — опытный бизнес-аналитик с 10-летним стажем в консалтинге"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--primary);">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">I</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Instructions (Инструкции)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Чёткое описание задачи</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Проанализируй финансовые показатели компании и выяви ключевые проблемы"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--primary);">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">S</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Steps (Шаги)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Последовательность действий</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"1. Изучи данные 2. Найди аномалии 3. Определи причины 4. Предложи решения"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--primary);">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">E</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">End goal (Конечная цель)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Желаемый результат</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Результат: отчёт с рекомендациями для руководства"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--primary);">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">N</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Narrowing (Ограничения)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Рамки и ограничения</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Ограничения: только на основе предоставленных данных, не более 500 слов"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RISEN Example -->
+        <div class="card" style="margin-top: 1rem;">
+          <div class="card-header">Пример промпта по RISEN</div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span>RISEN: Анализ конкурентов</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>[ROLE]
+Ты — маркетинговый аналитик с опытом работы в FMCG-секторе.
+
+[INSTRUCTIONS]
+Проведи конкурентный анализ для нового бренда энергетических напитков,
+выходящего на рынок СНГ.
+
+[STEPS]
+1. Определи топ-5 конкурентов на рынке
+2. Проанализируй их ценовое позиционирование
+3. Выяви сильные и слабые стороны каждого
+4. Найди незанятые ниши
+5. Сформулируй рекомендации по позиционированию
+
+[END GOAL]
+Отчёт с конкретными рекомендациями по выходу на рынок.
+
+[NARROWING]
+- Фокус на рынке России и Беларуси
+- Ценовой сегмент: средний и выше среднего
+- Целевая аудитория: 18-35 лет
+- Формат: структурированный отчёт с таблицами</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRISPE Framework -->
+        <h2>Фреймворк CRISPE</h2>
+
+        <div class="card">
+          <div class="card-header">CRISPE = Capacity + Role + Insight + Statement + Personality + Experiment</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--success);">
+                <div style="min-width: 50px; height: 50px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.1rem;">CR</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Capacity & Role (Возможности и Роль)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Кем должен выступать AI и какими компетенциями обладать</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Ты — UX-дизайнер с опытом в e-commerce и знанием психологии пользователей"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--success);">
+                <div style="min-width: 50px; height: 50px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">I</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Insight (Контекст)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Фоновая информация и данные для работы</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Наш интернет-магазин имеет высокий показатель отказов на странице оформления заказа (78%)"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--success);">
+                <div style="min-width: 50px; height: 50px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">S</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Statement (Задача)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Что именно нужно сделать</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Предложи 5 изменений в дизайне checkout-страницы для снижения отказов"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--success);">
+                <div style="min-width: 50px; height: 50px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">P</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Personality (Стиль)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Тон и манера ответа</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Отвечай структурированно, с конкретными примерами и обоснованием каждого решения"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--success);">
+                <div style="min-width: 50px; height: 50px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">E</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Experiment (Эксперимент)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Просьба предложить альтернативы или варианты</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Для каждого изменения предложи также альтернативный вариант"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRISPE Example -->
+        <div class="card" style="margin-top: 1rem;">
+          <div class="card-header">Пример промпта по CRISPE</div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span>CRISPE: Улучшение UX</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>[CAPACITY & ROLE]
+Ты — senior UX-дизайнер с 8-летним опытом в e-commerce.
+Специализируешься на оптимизации воронки продаж.
+
+[INSIGHT]
+Данные о нашем интернет-магазине электроники:
+- Конверсия в корзину: 12%
+- Конверсия из корзины в оплату: 22% (проблема!)
+- Средний чек: 15 000 руб.
+- 70% трафика — мобильные устройства
+- Основная причина отказа: "слишком сложно"
+
+[STATEMENT]
+Разработай план редизайна страницы оформления заказа
+для повышения конверсии минимум на 30%.
+
+[PERSONALITY]
+Отвечай как консультант, представляющий отчёт клиенту:
+структурированно, с данными и best practices.
+
+[EXPERIMENT]
+Предложи 3 варианта решения: быстрый (1 неделя),
+средний (1 месяц) и комплексный (3 месяца).</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- CREATE Framework -->
+        <h2>Фреймворк CREATE</h2>
+
+        <div class="card">
+          <div class="card-header">CREATE = Character + Request + Examples + Adjustments + Type + Extras</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--warning);">
+                <div style="min-width: 50px; height: 50px; background: var(--warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">C</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Character (Персонаж)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Роль или персона AI</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--warning);">
+                <div style="min-width: 50px; height: 50px; background: var(--warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">R</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Request (Запрос)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Что нужно сделать</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--warning);">
+                <div style="min-width: 50px; height: 50px; background: var(--warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">E</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Examples (Примеры)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Образцы желаемого результата</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--warning);">
+                <div style="min-width: 50px; height: 50px; background: var(--warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">A</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Adjustments (Корректировки)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Специфические требования и ограничения</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--warning);">
+                <div style="min-width: 50px; height: 50px; background: var(--warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">T</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Type (Тип вывода)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Формат результата</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid var(--warning);">
+                <div style="min-width: 50px; height: 50px; background: var(--warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">E</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Extras (Дополнительно)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Дополнительные инструкции</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CREATE Example -->
+        <div class="card" style="margin-top: 1rem;">
+          <div class="card-header">Пример промпта по CREATE</div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span>CREATE: Генерация контента</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>[CHARACTER]
+Ты — копирайтер digital-агентства, специализирующийся
+на B2B-контенте для IT-компаний.
+
+[REQUEST]
+Напиши серию из 5 постов для LinkedIn о преимуществах
+облачных решений для среднего бизнеса.
+
+[EXAMPLES]
+Вот пример поста в нужном стиле:
+"🚀 Миграция в облако — это не расходы, а инвестиции.
+Компании, перешедшие на cloud-решения, экономят до 30%
+на IT-инфраструктуре. Но главное преимущество — гибкость..."
+
+[ADJUSTMENTS]
+- Длина каждого поста: 150-200 слов
+- Начинать с emoji
+- Включить 1-2 статистики
+- Заканчивать вопросом или CTA
+
+[TYPE]
+5 готовых постов, разделённых линиями.
+Каждый пост с заголовком-темой.
+
+[EXTRAS]
+- Избегай технического жаргона
+- Фокус на бизнес-ценности, не на технологиях
+- Добавь 2-3 хэштега к каждому посту</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison -->
+        <h2>Сравнение фреймворков</h2>
+
+        <div class="card">
+          <div class="card-body" style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; min-width: 600px;">
+              <thead>
+                <tr style="background: var(--surface);">
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Фреймворк</th>
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Лучше всего для</th>
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Особенность</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong style="color: var(--primary);">RISEN</strong></td>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);">Аналитические задачи, исследования</td>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);">Акцент на пошаговости и ограничениях</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong style="color: var(--success);">CRISPE</strong></td>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);">Консалтинг, экспертные задачи</td>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);">Фокус на контексте и экспериментах</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem;"><strong style="color: var(--warning);">CREATE</strong></td>
+                  <td style="padding: 1rem;">Креативный контент, копирайтинг</td>
+                  <td style="padding: 1rem;">Примеры и гибкие настройки</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <h2>Проверьте себя</h2>
+
+        <div class="quiz-container" data-quiz="frameworks">
+          <div class="quiz-question" data-question="1">
+            <div class="question-text">Что означает буква "N" в фреймворке RISEN?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Notes (Заметки)</div>
+              <div class="quiz-option" data-correct="true">Narrowing (Ограничения)</div>
+              <div class="quiz-option" data-correct="false">Next steps (Следующие шаги)</div>
+              <div class="quiz-option" data-correct="false">Naming (Наименование)</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="2">
+            <div class="question-text">Какой фреймворк включает элемент "Experiment"?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">RISEN</div>
+              <div class="quiz-option" data-correct="true">CRISPE</div>
+              <div class="quiz-option" data-correct="false">CREATE</div>
+              <div class="quiz-option" data-correct="false">Все перечисленные</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="3">
+            <div class="question-text">Для какой задачи лучше использовать CREATE?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Финансовый анализ</div>
+              <div class="quiz-option" data-correct="false">Научное исследование</div>
+              <div class="quiz-option" data-correct="true">Написание маркетингового контента</div>
+              <div class="quiz-option" data-correct="false">Аудит безопасности</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-results">
+            <div class="quiz-score"></div>
+            <button class="btn btn-primary quiz-retry-btn">Пройти ещё раз</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+          <div class="card-header">Итоги урока</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li><strong>RISEN</strong> — для аналитики с чёткими шагами и ограничениями</li>
+              <li><strong>CRISPE</strong> — для экспертных задач с контекстом и альтернативами</li>
+              <li><strong>CREATE</strong> — для креативного контента с примерами</li>
+              <li>Фреймворки можно комбинировать и адаптировать</li>
+              <li>Выбирайте фреймворк в зависимости от типа задачи</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="index.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            К оглавлению
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="1">
+            Завершить урок
+          </button>
+          <a href="lesson-2.html" class="btn btn-secondary nav-arrow-next">
+            Следующий урок
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

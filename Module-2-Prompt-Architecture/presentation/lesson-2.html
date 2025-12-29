@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 2: Structured Outputs | Модуль 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 2</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Фреймворки промптинга
+        </a>
+
+        <a href="lesson-2.html" class="nav-item active" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Structured Outputs
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Промпт-шаблоны
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Форматирование вывода
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика шаблонов
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 2</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 2</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-badge">Урок 2</div>
+          <h1 class="hero-title">Structured Outputs</h1>
+          <p class="hero-subtitle">JSON mode, схемы данных и получение структурированных ответов от AI</p>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="card">
+          <div class="card-header">Цели урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l2-obj-1"></span>
+                <span class="checklist-text">Понять, что такое структурированный вывод</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l2-obj-2"></span>
+                <span class="checklist-text">Научиться запрашивать JSON-ответы</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l2-obj-3"></span>
+                <span class="checklist-text">Освоить создание схем данных</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l2-obj-4"></span>
+                <span class="checklist-text">Применить на практике</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- What is Structured Output -->
+        <h2>Что такое структурированный вывод?</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="info-box" style="font-size: 1.1rem;">
+              <strong>Structured Output</strong> — это ответ AI в заранее определённом формате (JSON, XML, CSV), который можно легко парсить и использовать в других приложениях.
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+              <div style="padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px; border-left: 4px solid var(--danger);">
+                <strong style="color: var(--danger);">Обычный ответ:</strong>
+                <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Компания Apple была основана в 1976 году Стивом Джобсом, Стивом Возняком и Рональдом Уэйном. Штаб-квартира находится в Купертино, Калифорния.</p>
+              </div>
+              <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border-left: 4px solid var(--success);">
+                <strong style="color: var(--success);">Структурированный ответ:</strong>
+                <pre style="margin: 0.5rem 0 0 0; font-size: 0.85rem; background: transparent;">{
+  "company": "Apple",
+  "founded": 1976,
+  "founders": ["Стив Джобс", "Стив Возняк", "Рональд Уэйн"],
+  "headquarters": "Купертино, CA"
+}</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why Use Structured Outputs -->
+        <h2>Зачем нужен структурированный вывод?</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--primary); font-size: 1.5rem;">1.</span>
+                <div>
+                  <strong>Интеграция с приложениями</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">JSON легко парсится и используется в коде</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--primary); font-size: 1.5rem;">2.</span>
+                <div>
+                  <strong>Автоматизация</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Можно строить пайплайны обработки данных</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--primary); font-size: 1.5rem;">3.</span>
+                <div>
+                  <strong>Предсказуемость</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Всегда получаете данные в ожидаемом формате</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--primary); font-size: 1.5rem;">4.</span>
+                <div>
+                  <strong>Валидация</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Можно проверять корректность ответа по схеме</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JSON Mode -->
+        <h2>JSON Mode в AI-платформах</h2>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Демонстрация:</strong> Покажите разницу между обычным промптом и промптом с запросом JSON. Студенты часто удивляются, насколько чётко AI следует схеме.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Как запросить JSON</div>
+          <div class="card-body">
+            <div class="tabs">
+              <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="basic-json">Базовый запрос</button>
+                <button class="tab-btn" data-tab="schema-json">Со схемой</button>
+                <button class="tab-btn" data-tab="example-json">С примером</button>
+              </div>
+
+              <div class="tab-content active" id="basic-json">
+                <div class="code-block">
+                  <div class="code-header">
+                    <span>Простой запрос JSON</span>
+                    <button class="code-copy-btn">Копировать</button>
+                  </div>
+                  <pre><code>Проанализируй текст и верни результат в формате JSON.
+
+Текст: "iPhone 15 Pro Max стоит 159 990 рублей и имеет
+камеру 48 МП с 5x оптическим зумом."
+
+Ответь ТОЛЬКО валидным JSON, без пояснений.</code></pre>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-muted);">AI сам определит структуру. Подходит для простых задач.</p>
+              </div>
+
+              <div class="tab-content" id="schema-json">
+                <div class="code-block">
+                  <div class="code-header">
+                    <span>Запрос с описанием схемы</span>
+                    <button class="code-copy-btn">Копировать</button>
+                  </div>
+                  <pre><code>Проанализируй текст и верни JSON со следующей структурой:
+
+{
+  "product_name": "название товара (string)",
+  "price": цена в рублях (number),
+  "currency": "RUB",
+  "features": ["массив ключевых характеристик"]
+}
+
+Текст: "iPhone 15 Pro Max стоит 159 990 рублей и имеет
+камеру 48 МП с 5x оптическим зумом."
+
+Ответь ТОЛЬКО валидным JSON.</code></pre>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Вы контролируете структуру. Лучший вариант для большинства задач.</p>
+              </div>
+
+              <div class="tab-content" id="example-json">
+                <div class="code-block">
+                  <div class="code-header">
+                    <span>Запрос с примером</span>
+                    <button class="code-copy-btn">Копировать</button>
+                  </div>
+                  <pre><code>Проанализируй текст и верни JSON.
+
+Пример вывода:
+{
+  "product_name": "Samsung Galaxy S24",
+  "price": 89990,
+  "currency": "RUB",
+  "features": ["камера 50 МП", "8K видео"]
+}
+
+Текст для анализа: "iPhone 15 Pro Max стоит 159 990 рублей
+и имеет камеру 48 МП с 5x оптическим зумом."
+
+Ответь в таком же формате JSON.</code></pre>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-muted);">Few-shot подход. AI точно следует примеру.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical Examples -->
+        <h2>Практические примеры</h2>
+
+        <div class="accordion open-first">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Извлечение данных из текста</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Извлечение контактов</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Извлеки контактную информацию из текста и верни JSON:
+
+{
+  "name": "имя контакта",
+  "email": "email или null",
+  "phone": "телефон или null",
+  "company": "компания или null",
+  "position": "должность или null"
+}
+
+Текст:
+"Добрый день! Меня зовут Александр Петров, я руководитель
+отдела маркетинга в компании TechSolutions. Можете связаться
+со мной по email: a.petrov@techsolutions.ru или по телефону
++7 (495) 123-45-67."
+
+Верни ТОЛЬКО JSON.</code></pre>
+              </div>
+
+              <div style="margin-top: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <strong>Ожидаемый результат:</strong>
+                <pre style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">{
+  "name": "Александр Петров",
+  "email": "a.petrov@techsolutions.ru",
+  "phone": "+7 (495) 123-45-67",
+  "company": "TechSolutions",
+  "position": "руководитель отдела маркетинга"
+}</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Анализ отзывов</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Анализ отзыва клиента</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Проанализируй отзыв клиента и верни JSON:
+
+{
+  "sentiment": "positive" | "negative" | "neutral",
+  "score": число от 1 до 5,
+  "topics": ["список затронутых тем"],
+  "pros": ["плюсы, если упомянуты"],
+  "cons": ["минусы, если упомянуты"],
+  "action_required": true | false,
+  "summary": "краткое резюме в 1 предложение"
+}
+
+Отзыв:
+"Заказывал диван, доставили через 3 недели вместо обещанных 5 дней!
+Качество самого дивана отличное, мягкий и удобный. Но сервис
+ужасный — никто не предупредил о задержке, на звонки не отвечали."
+
+Верни ТОЛЬКО JSON.</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Генерация структурированного контента</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Генерация FAQ</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Создай 5 вопросов FAQ для интернет-магазина электроники.
+Верни результат в формате JSON:
+
+{
+  "faq": [
+    {
+      "id": 1,
+      "question": "вопрос",
+      "answer": "ответ (2-3 предложения)",
+      "category": "доставка" | "оплата" | "гарантия" | "возврат"
+    }
+  ]
+}
+
+Требования:
+- Минимум по одному вопросу из каждой категории
+- Ответы должны быть конкретными и полезными
+- Язык: русский
+
+Верни ТОЛЬКО JSON.</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Массовая обработка данных</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Классификация списка товаров</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Классифицируй товары по категориям и верни JSON:
+
+{
+  "items": [
+    {
+      "name": "название товара",
+      "category": "категория",
+      "subcategory": "подкатегория",
+      "price_segment": "budget" | "mid" | "premium"
+    }
+  ],
+  "statistics": {
+    "total": число товаров,
+    "by_category": {"категория": количество}
+  }
+}
+
+Товары:
+1. iPhone 15 Pro - 129990 руб
+2. Xiaomi Redmi Note 12 - 15990 руб
+3. AirPods Pro 2 - 24990 руб
+4. Samsung Galaxy Tab S9 - 89990 руб
+5. Logitech MX Master 3 - 8990 руб
+
+Верни ТОЛЬКО JSON.</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Practices -->
+        <h2>Лучшие практики</h2>
+
+        <div class="card">
+          <div class="card-header">Советы по работе с JSON</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">1</div>
+                <div>
+                  <strong>Всегда указывайте "Верни ТОЛЬКО JSON"</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Без этого AI может добавить пояснения, которые сломают парсинг</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">2</div>
+                <div>
+                  <strong>Указывайте типы данных в схеме</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">"price": число (number), "name": строка (string)</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">3</div>
+                <div>
+                  <strong>Определяйте допустимые значения для enum</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">"status": "active" | "inactive" | "pending"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">4</div>
+                <div>
+                  <strong>Указывайте, что делать с отсутствующими данными</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">"email": "email или null, если не найден"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white;">5</div>
+                <div>
+                  <strong>Приводите пример для сложных структур</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">AI лучше следует конкретному примеру, чем абстрактной схеме</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Common Errors -->
+        <div class="card" style="border-left: 4px solid var(--danger);">
+          <div class="card-header">Частые ошибки</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li style="margin-bottom: 0.75rem;"><strong>Не указан формат вывода</strong> — AI добавляет текстовые пояснения</li>
+              <li style="margin-bottom: 0.75rem;"><strong>Слишком сложная схема</strong> — AI путается в вложенности</li>
+              <li style="margin-bottom: 0.75rem;"><strong>Не указаны типы данных</strong> — числа приходят как строки</li>
+              <li><strong>Нет обработки null</strong> — AI выдумывает данные вместо null</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <h2>Проверьте себя</h2>
+
+        <div class="quiz-container" data-quiz="json">
+          <div class="quiz-question" data-question="1">
+            <div class="question-text">Какую фразу важно добавить в конце промпта для получения чистого JSON?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">"Спасибо!"</div>
+              <div class="quiz-option" data-correct="true">"Верни ТОЛЬКО JSON"</div>
+              <div class="quiz-option" data-correct="false">"Формат: JSON"</div>
+              <div class="quiz-option" data-correct="false">"Отвечай кратко"</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="2">
+            <div class="question-text">Как лучше указать, что поле может отсутствовать?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Не упоминать поле в схеме</div>
+              <div class="quiz-option" data-correct="true">"поле": "значение или null"</div>
+              <div class="quiz-option" data-correct="false">Использовать пустую строку ""</div>
+              <div class="quiz-option" data-correct="false">Использовать 0</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="3">
+            <div class="question-text">Какой подход лучше для сложных JSON-структур?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Описать словами</div>
+              <div class="quiz-option" data-correct="false">Использовать только типы данных</div>
+              <div class="quiz-option" data-correct="true">Привести конкретный пример</div>
+              <div class="quiz-option" data-correct="false">Не указывать структуру</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-results">
+            <div class="quiz-score"></div>
+            <button class="btn btn-primary quiz-retry-btn">Пройти ещё раз</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+          <div class="card-header">Итоги урока</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li>Structured Outputs позволяют получать данные в машиночитаемом формате</li>
+              <li>Всегда указывайте "Верни ТОЛЬКО JSON" для чистого вывода</li>
+              <li>Описывайте схему с типами данных и примерами</li>
+              <li>Указывайте, что делать с отсутствующими данными (null)</li>
+              <li>Приводите примеры для сложных структур</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-1.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="2">
+            Завершить урок
+          </button>
+          <a href="lesson-3.html" class="btn btn-secondary nav-arrow-next">
+            Следующий урок
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

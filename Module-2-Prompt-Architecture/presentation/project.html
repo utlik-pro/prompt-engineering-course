@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домашнее задание | Модуль 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 2</div>
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>
+          Главная
+        </a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Фреймворки промптинга</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Structured Outputs</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Промпт-шаблоны</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Форматирование вывода</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Практика шаблонов</a>
+        <a href="project.html" class="nav-item active" data-lesson="6"><span class="nav-item-number">P</span>Домашнее задание</a>
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 2</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Домашнее задание</span>
+        </div>
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="hero">
+          <div class="hero-badge">Практический проект</div>
+          <h1 class="hero-title">Корпоративная библиотека промптов</h1>
+          <p class="hero-subtitle">Создание профессиональной коллекции шаблонов для бизнеса</p>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Описание проекта</div>
+          <div class="card-body">
+            <p>Создайте <strong>библиотеку из 8 профессиональных промптов</strong> для компании, работающей в выбранной вами отрасли. Каждый промпт должен:</p>
+            <ul style="padding-left: 1.5rem; margin: 1rem 0;">
+              <li>Использовать один из изученных фреймворков (RISEN, CRISPE или CREATE)</li>
+              <li>Запрашивать структурированный вывод (JSON, таблица или форматированный список)</li>
+              <li>Быть шаблоном с переменными для повторного использования</li>
+              <li>Включать документацию по использованию</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>Требования к библиотеке</h2>
+
+        <div class="card">
+          <div class="card-header">8 обязательных промптов по категориям</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <strong>1. HR / Управление персоналом</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Подбор кандидатов, составление описания вакансий, оценка резюме</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #06B6D4;">
+                <strong>2. Маркетинг</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Создание контента, анализ аудитории, планирование кампаний</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>3. Продажи</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Коммерческие предложения, скрипты звонков, работа с возражениями</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <strong>4. Клиентский сервис</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Ответы на жалобы, FAQ, шаблоны коммуникации</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <strong>5. Аналитика</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Анализ данных, отчёты, прогнозирование</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #EC4899;">
+                <strong>6. Операционная деятельность</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Процедуры, чек-листы, инструкции</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #6366F1;">
+                <strong>7. Стратегия / Планирование</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">SWOT-анализ, планы развития, бизнес-модели</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #84CC16;">
+                <strong>8. Обучение / Развитие</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Учебные материалы, тесты, программы onboarding</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Формат каждого промпта</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span>Шаблон документации промпта</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>## Название промпта
+**Категория:** [HR/Маркетинг/Продажи/...]
+**Фреймворк:** [RISEN/CRISPE/CREATE]
+**Формат вывода:** [JSON/Таблица/Список/Markdown]
+
+### Назначение
+Краткое описание, для чего используется промпт (1-2 предложения)
+
+### Переменные
+- `{{variable_1}}` — описание переменной
+- `{{variable_2}}` — описание переменной
+- `{{variable_3}}` — описание переменной
+
+### Промпт
+```
+[Полный текст промпта с переменными]
+```
+
+### Пример использования
+**Входные данные:**
+- variable_1: "значение"
+- variable_2: "значение"
+
+**Ожидаемый результат:**
+[Пример того, что должен вернуть AI]
+
+### Советы по использованию
+- Совет 1
+- Совет 2</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <h2>Пример выполнения</h2>
+
+        <div class="accordion open-first">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Пример: HR-промпт для анализа резюме</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Документация промпта</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>## Анализатор резюме кандидатов
+**Категория:** HR / Подбор персонала
+**Фреймворк:** RISEN
+**Формат вывода:** JSON
+
+### Назначение
+Автоматизированный анализ резюме кандидата с оценкой
+соответствия требованиям вакансии и рекомендациями по собеседованию.
+
+### Переменные
+- `{{job_title}}` — название вакансии
+- `{{requirements}}` — ключевые требования к кандидату
+- `{{resume_text}}` — текст резюме кандидата
+- `{{company_values}}` — ценности компании (опционально)
+
+### Промпт
+```
+**Role:** Ты опытный HR-специалист с 10-летним стажем в IT-рекрутинге.
+
+**Instructions:** Проанализируй резюме кандидата на позицию {{job_title}}.
+
+**Steps:**
+1. Оцени соответствие hard skills требованиям
+2. Проанализируй опыт работы и достижения
+3. Выяви потенциальные риски (gaps, частая смена работы)
+4. Сформулируй вопросы для собеседования
+
+**End goal:** Предоставь структурированную оценку кандидата.
+
+**Narrowing:** Верни ответ в JSON-формате:
+{
+  "candidate_name": "имя из резюме",
+  "match_score": 0-100,
+  "skills_analysis": {
+    "matched": ["навык1", "навык2"],
+    "missing": ["навык3"],
+    "bonus": ["навык4"]
+  },
+  "experience_summary": "краткий анализ опыта",
+  "red_flags": ["риск1"] или [],
+  "interview_questions": ["вопрос1", "вопрос2", "вопрос3"],
+  "recommendation": "hire/maybe/reject",
+  "reasoning": "обоснование рекомендации"
+}
+
+**Требования к вакансии:**
+{{requirements}}
+
+**Резюме кандидата:**
+{{resume_text}}
+```
+
+### Пример использования
+**Входные данные:**
+- job_title: "Senior Python Developer"
+- requirements: "Python 5+ лет, Django, PostgreSQL, опыт с микросервисами"
+- resume_text: "[текст резюме]"
+
+**Ожидаемый результат:**
+```json
+{
+  "candidate_name": "Иван Петров",
+  "match_score": 85,
+  "skills_analysis": {
+    "matched": ["Python 6 лет", "Django", "PostgreSQL"],
+    "missing": ["микросервисы - опыт не указан явно"],
+    "bonus": ["FastAPI", "Docker", "AWS"]
+  },
+  "experience_summary": "Сильный бэкенд-разработчик с опытом в финтех...",
+  "red_flags": [],
+  "interview_questions": [
+    "Расскажите о вашем опыте работы с микросервисной архитектурой",
+    "Какой самый сложный проект на Django вы реализовали?",
+    "Как вы оптимизировали производительность PostgreSQL?"
+  ],
+  "recommendation": "hire",
+  "reasoning": "Кандидат превышает требования по основным навыкам..."
+}
+```
+
+### Советы по использованию
+- Копируйте резюме без форматирования (plain text)
+- Добавляйте ценности компании для оценки cultural fit
+- Используйте результат как основу, а не финальное решение</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Пример: Маркетинг-промпт для анализа конкурентов</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>Документация промпта</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>## Анализатор конкурентного контента
+**Категория:** Маркетинг / Конкурентный анализ
+**Фреймворк:** CRISPE
+**Формат вывода:** Markdown с таблицами
+
+### Назначение
+Глубокий анализ контент-стратегии конкурента с выявлением
+сильных сторон и возможностей для дифференциации.
+
+### Переменные
+- `{{competitor_name}}` — название конкурента
+- `{{competitor_content}}` — примеры контента конкурента
+- `{{our_brand}}` — название нашего бренда
+- `{{our_audience}}` — описание нашей целевой аудитории
+
+### Промпт
+```
+**Capacity:** Ты — senior контент-стратег с опытом работы
+в топовых digital-агентствах. Специализация: конкурентный
+анализ и контент-маркетинг в B2B.
+
+**Role:** Проведи экспертный анализ контент-стратегии конкурента.
+
+**Insight:** Наша компания {{our_brand}} конкурирует за аудиторию
+{{our_audience}}. Нам важно понять, что работает у конкурента,
+и найти незанятые ниши.
+
+**Statement:** Проанализируй контент {{competitor_name}} и дай
+рекомендации по дифференциации нашей стратегии.
+
+**Personality:** Будь аналитичным, но практичным. Избегай общих
+фраз — давай конкретные, применимые рекомендации.
+
+**Experiment:** Представь результат в следующем формате:
+
+## Анализ контента {{competitor_name}}
+
+### Ключевые метрики
+| Параметр | Оценка | Комментарий |
+|----------|--------|-------------|
+| Частота публикаций | X/неделю | ... |
+| Основные форматы | ... | ... |
+| Tone of voice | ... | ... |
+| Вовлечённость | ... | ... |
+
+### Сильные стороны (что копировать)
+1. ...
+2. ...
+3. ...
+
+### Слабые стороны (наши возможности)
+1. ...
+2. ...
+3. ...
+
+### Рекомендации для {{our_brand}}
+1. **[Название тактики]:** Описание + пример реализации
+2. ...
+3. ...
+
+### Контент-идеи для дифференциации
+- Идея 1
+- Идея 2
+- Идея 3
+
+**Контент конкурента для анализа:**
+{{competitor_content}}
+```
+
+### Советы по использованию
+- Собирайте 5-10 примеров контента конкурента
+- Включайте посты с высоким engagement
+- Обновляйте анализ раз в квартал</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Критерии оценки</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--surface);">
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Критерий</th>
+                  <th style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--border);">Баллы</th>
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Описание</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><strong>Количество</strong></td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">16</td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">8 промптов × 2 балла</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><strong>Использование фреймворков</strong></td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">24</td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Правильное применение RISEN/CRISPE/CREATE (3 балла × 8)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><strong>Структурированный вывод</strong></td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">16</td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">JSON, таблицы, форматированные списки (2 балла × 8)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><strong>Переменные и шаблонизация</strong></td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">16</td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Логичные переменные, удобство переиспользования (2 балла × 8)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><strong>Документация</strong></td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">16</td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Полнота описания, примеры, советы (2 балла × 8)</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><strong>Практическая ценность</strong></td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">12</td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Реальная применимость в бизнесе (бонусные баллы)</td>
+                </tr>
+                <tr style="background: var(--surface);">
+                  <td style="padding: 0.75rem;"><strong>ИТОГО</strong></td>
+                  <td style="padding: 0.75rem; text-align: center;"><strong>100</strong></td>
+                  <td style="padding: 0.75rem;"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h2>Бонусные задания</h2>
+
+        <div class="card">
+          <div class="card-header">Дополнительные баллы (+20)</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(6, 182, 212, 0.1)); border-radius: 8px;">
+                <strong>+5 баллов:</strong> Цепочка промптов
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Создайте последовательность из 2-3 промптов, где выход одного является входом для другого</p>
+              </div>
+
+              <div style="padding: 1rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(132, 204, 22, 0.1)); border-radius: 8px;">
+                <strong>+5 баллов:</strong> Мультимодальный промпт
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Промпт для анализа изображений (для Claude, GPT-4V) с бизнес-применением</p>
+              </div>
+
+              <div style="padding: 1rem; background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(239, 68, 68, 0.1)); border-radius: 8px;">
+                <strong>+5 баллов:</strong> Промпт с условной логикой
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Используйте конструкции IF/THEN для разных сценариев в одном промпте</p>
+              </div>
+
+              <div style="padding: 1rem; background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(99, 102, 241, 0.1)); border-radius: 8px;">
+                <strong>+5 баллов:</strong> Тестирование и версионирование
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-secondary);">Покажите 2-3 версии одного промпта с анализом улучшений</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h2>Чек-лист готовности</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l6-check-1"></span>
+                <span class="checklist-text">Выбрана отрасль для библиотеки</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l6-check-2"></span>
+                <span class="checklist-text">Созданы все 8 промптов по категориям</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l6-check-3"></span>
+                <span class="checklist-text">Каждый промпт использует фреймворк (RISEN/CRISPE/CREATE)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l6-check-4"></span>
+                <span class="checklist-text">Все промпты запрашивают структурированный вывод</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l6-check-5"></span>
+                <span class="checklist-text">Промпты оформлены как шаблоны с переменными</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l6-check-6"></span>
+                <span class="checklist-text">Добавлена документация по формату</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l6-check-7"></span>
+                <span class="checklist-text">Включены примеры использования</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l6-check-8"></span>
+                <span class="checklist-text">Промпты протестированы в AI-системе</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));">
+          <div class="card-header">Формат сдачи</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li><strong>Формат:</strong> Google Doc, Notion или Markdown-файл</li>
+              <li><strong>Структура:</strong> Оглавление + 8 промптов с документацией</li>
+              <li><strong>Дедлайн:</strong> До начала следующего занятия</li>
+              <li><strong>Способ сдачи:</strong> Ссылка в чат или на email преподавателя</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lesson-nav">
+          <a href="lesson-5.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15,18 9,12 15,6"/></svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="6">Завершить модуль</button>
+          <a href="../../index.html" class="btn btn-secondary">
+            К списку модулей
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,18 15,12 9,6"/></svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

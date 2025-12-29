@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 3: Промпт-шаблоны | Модуль 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 2</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Фреймворки промптинга
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Structured Outputs
+        </a>
+
+        <a href="lesson-3.html" class="nav-item active" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Промпт-шаблоны
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Форматирование вывода
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика шаблонов
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 2</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 3</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-badge">Урок 3</div>
+          <h1 class="hero-title">Промпт-шаблоны</h1>
+          <p class="hero-subtitle">Создание переиспользуемых шаблонов с переменными и плейсхолдерами</p>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="card">
+          <div class="card-header">Цели урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l3-obj-1"></span>
+                <span class="checklist-text">Понять концепцию промпт-шаблонов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l3-obj-2"></span>
+                <span class="checklist-text">Научиться создавать шаблоны с переменными</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l3-obj-3"></span>
+                <span class="checklist-text">Освоить условную логику в шаблонах</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l3-obj-4"></span>
+                <span class="checklist-text">Создать библиотеку шаблонов</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- What are Templates -->
+        <h2>Что такое промпт-шаблоны?</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="info-box" style="font-size: 1.1rem;">
+              <strong>Промпт-шаблон</strong> — это заготовка промпта с переменными (плейсхолдерами), которые заполняются конкретными данными перед отправкой.
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <strong>Шаблон:</strong>
+                <pre style="margin: 0.5rem 0 0 0; font-size: 0.9rem; background: transparent;">Напиши {{тип_текста}} для {{компания}}
+о {{тема}}. Длина: {{длина}} слов.
+Тон: {{тон}}.</pre>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <strong>Заполненный промпт:</strong>
+                <pre style="margin: 0.5rem 0 0 0; font-size: 0.9rem; background: transparent;">Напиши пресс-релиз для Apple
+о новом iPhone 16. Длина: 300 слов.
+Тон: профессиональный.</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Benefits -->
+        <h2>Преимущества шаблонов</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <div class="card">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">x10</div>
+              <strong>Скорость</strong>
+              <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.9rem;">Создание промптов за секунды вместо минут</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">100%</div>
+              <strong>Консистентность</strong>
+              <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.9rem;">Одинаковое качество каждый раз</p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">Team</div>
+              <strong>Масштабируемость</strong>
+              <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.9rem;">Легко делиться с командой</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Variable Syntax -->
+        <h2>Синтаксис переменных</h2>
+
+        <div class="card">
+          <div class="card-header">Популярные форматы плейсхолдеров</div>
+          <div class="card-body">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--surface);">
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Формат</th>
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Пример</th>
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Где используется</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><code>{{переменная}}</code></td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><code>{{company_name}}</code></td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Mustache, Handlebars</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><code>{переменная}</code></td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><code>{company_name}</code></td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Python f-strings</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><code>[ПЕРЕМЕННАЯ]</code></td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);"><code>[COMPANY_NAME]</code></td>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Простой текст</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem;"><code>&lt;переменная&gt;</code></td>
+                  <td style="padding: 0.75rem;"><code>&lt;company_name&gt;</code></td>
+                  <td style="padding: 0.75rem;">XML-стиль</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="info-box" style="margin-top: 1rem;">
+              <strong>Рекомендация:</strong> Используйте <code>{{двойные_скобки}}</code> — они хорошо выделяются и редко встречаются в обычном тексте.
+            </div>
+          </div>
+        </div>
+
+        <!-- Template Examples -->
+        <h2>Примеры шаблонов</h2>
+
+        <div class="accordion open-first">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаблон для email-рассылки</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>email_campaign.template</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code># Шаблон: Email-рассылка
+
+## Переменные:
+- {{company}} — название компании
+- {{product}} — продукт/услуга
+- {{discount}} — размер скидки
+- {{deadline}} — дедлайн акции
+- {{audience}} — целевая аудитория
+- {{tone}} — тон (дружелюбный/профессиональный/срочный)
+
+## Промпт:
+
+Ты — email-маркетолог компании {{company}}.
+
+Напиши продающее письмо для email-рассылки:
+- Продукт: {{product}}
+- Скидка: {{discount}}
+- Акция действует до: {{deadline}}
+- Целевая аудитория: {{audience}}
+
+Формат:
+1. Тема письма (до 50 символов)
+2. Прехедер (до 90 символов)
+3. Основной текст (150-200 слов)
+4. CTA-кнопка (2-4 слова)
+
+Тон: {{tone}}</code></pre>
+              </div>
+
+              <div style="margin-top: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <strong>Пример заполнения:</strong>
+                <ul style="margin: 0.5rem 0 0 1rem; font-size: 0.9rem;">
+                  <li>company: TechShop</li>
+                  <li>product: наушники Sony WH-1000XM5</li>
+                  <li>discount: 25%</li>
+                  <li>deadline: 31 декабря</li>
+                  <li>audience: любители музыки 25-45 лет</li>
+                  <li>tone: дружелюбный</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаблон для анализа конкурентов</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>competitor_analysis.template</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code># Шаблон: Анализ конкурентов
+
+## Переменные:
+- {{my_company}} — моя компания
+- {{industry}} — отрасль
+- {{competitors}} — список конкурентов
+- {{focus_areas}} — на что обратить внимание
+- {{output_format}} — формат вывода
+
+## Промпт:
+
+Ты — бизнес-аналитик с опытом в {{industry}}.
+
+Проведи конкурентный анализ для компании {{my_company}}.
+
+Конкуренты для анализа:
+{{competitors}}
+
+Особое внимание удели:
+{{focus_areas}}
+
+Структура отчёта:
+1. Обзор рынка (2-3 предложения)
+2. Таблица сравнения конкурентов
+3. Сильные стороны каждого конкурента
+4. Слабые стороны и возможности
+5. Рекомендации для {{my_company}}
+
+Формат вывода: {{output_format}}</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаблон для генерации контента</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="code-block">
+                <div class="code-header">
+                  <span>content_generator.template</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code># Шаблон: Генератор контента
+
+## Переменные:
+- {{content_type}} — тип (пост/статья/скрипт)
+- {{platform}} — платформа (Instagram/LinkedIn/YouTube)
+- {{topic}} — тема
+- {{keywords}} — ключевые слова (опционально)
+- {{length}} — длина
+- {{cta}} — призыв к действию
+
+## Промпт:
+
+Создай {{content_type}} для {{platform}}.
+
+Тема: {{topic}}
+
+{{#if keywords}}
+Включи ключевые слова: {{keywords}}
+{{/if}}
+
+Требования:
+- Длина: {{length}}
+- Призыв к действию: {{cta}}
+- Добавь релевантные эмодзи
+- Включи 3-5 хэштегов
+
+Стиль: соответствующий {{platform}}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conditional Logic -->
+        <h2>Условная логика в шаблонах</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <p>Иногда нужно включать или исключать части промпта в зависимости от условий:</p>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-header">
+                <span>Условные блоки</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>Напиши описание товара для {{product_name}}.
+
+{{#if has_discount}}
+ВАЖНО: Товар со скидкой {{discount}}%!
+Подчеркни выгоду покупки сейчас.
+{{/if}}
+
+{{#if is_new}}
+Это НОВИНКА! Сделай акцент на инновационности.
+{{/if}}
+
+{{#if has_reviews}}
+Упомяни, что товар имеет рейтинг {{rating}}
+на основе {{review_count}} отзывов.
+{{else}}
+Не упоминай отзывы.
+{{/if}}
+
+Целевая аудитория: {{audience}}</code></pre>
+            </div>
+
+            <div class="info-box" style="margin-top: 1rem;">
+              <strong>Совет:</strong> Даже если вы не используете программный шаблонизатор, можно использовать эту логику вручную — просто удаляйте ненужные блоки перед отправкой.
+            </div>
+          </div>
+        </div>
+
+        <!-- Template Documentation -->
+        <h2>Документирование шаблонов</h2>
+
+        <div class="card">
+          <div class="card-header">Структура документации шаблона</div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span>template_documentation.md</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code># Название шаблона
+
+## Описание
+Краткое описание назначения шаблона.
+
+## Когда использовать
+- Сценарий 1
+- Сценарий 2
+
+## Переменные
+
+| Переменная | Тип | Обязательная | Описание | Пример |
+|------------|-----|--------------|----------|--------|
+| {{company}} | string | Да | Название компании | "Apple" |
+| {{tone}} | enum | Нет | Тон текста | "professional" |
+
+## Допустимые значения
+- tone: "professional", "friendly", "urgent"
+- length: "short", "medium", "long"
+
+## Примеры использования
+[Примеры заполненных промптов]
+
+## История изменений
+- v1.0 — Начальная версия
+- v1.1 — Добавлен параметр tone</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="card" style="border-left: 4px solid var(--success);">
+          <div class="card-header">Лучшие практики</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li style="margin-bottom: 0.75rem;"><strong>Используйте понятные имена переменных</strong> — <code>{{customer_name}}</code> лучше чем <code>{{cn}}</code></li>
+              <li style="margin-bottom: 0.75rem;"><strong>Добавляйте значения по умолчанию</strong> — на случай, если переменная не заполнена</li>
+              <li style="margin-bottom: 0.75rem;"><strong>Документируйте каждый шаблон</strong> — описание, переменные, примеры</li>
+              <li style="margin-bottom: 0.75rem;"><strong>Версионируйте шаблоны</strong> — отслеживайте изменения</li>
+              <li><strong>Тестируйте с разными входными данными</strong> — убедитесь, что шаблон работает во всех сценариях</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+          <div class="card-header">Итоги урока</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li>Промпт-шаблоны экономят время и обеспечивают консистентность</li>
+              <li>Используйте <code>{{двойные_скобки}}</code> для переменных</li>
+              <li>Добавляйте условную логику для гибкости</li>
+              <li>Документируйте шаблоны для команды</li>
+              <li>Тестируйте шаблоны с разными данными</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-2.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="3">
+            Завершить урок
+          </button>
+          <a href="lesson-4.html" class="btn btn-secondary nav-arrow-next">
+            Следующий урок
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
