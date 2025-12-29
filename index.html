@@ -575,24 +575,16 @@
         </div>
       </div>
 
-      <!-- Module 6 -->
-      <div class="module-card locked" data-module="6">
-        <div class="lock-overlay">
-          <div class="lock-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-            </svg>
-          </div>
-        </div>
+      <!-- Module 6 - UNLOCKED -->
+      <a href="Module-6-Agent-Systems-Automation/presentation/index.html" class="module-card active" data-module="6">
         <div class="card-header">
           <div class="module-number">6</div>
-          <div class="module-status status-locked">
+          <div class="module-status status-available">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22,4 12,14.01 9,11.01"/>
             </svg>
-            Закрыт
+            Доступен
           </div>
         </div>
         <h3 class="module-title">Агентные системы и автоматизация</h3>
@@ -607,7 +599,7 @@
           </span>
           <span class="card-tag">Агенты, n8n</span>
         </div>
-      </div>
+      </a>
 
       <!-- Module 7 -->
       <div class="module-card locked" data-module="7">
@@ -761,7 +753,7 @@
   <script>
     // Configuration
     const STORAGE_KEY = 'promptEngineering_completedModules';
-    const UNLOCKED_MODULES = [3, 4]; // Modules 3 and 4 are unlocked by default
+    const UNLOCKED_MODULES = [3, 4, 6]; // Modules 3, 4 and 6 are unlocked by default
 
     // Get completed modules from localStorage
     function getCompletedModules() {

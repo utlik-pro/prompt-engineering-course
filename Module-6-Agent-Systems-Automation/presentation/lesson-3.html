@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 3: n8n Автоматизация | Модуль 6</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 6</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Концепция AI агентов
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          ChatGPT & Claude Agents
+        </a>
+
+        <a href="lesson-3.html" class="nav-item active" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          n8n Автоматизация
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Альтернативные платформы
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика: Создание агента
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 6</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 3</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Lesson Header -->
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 3</span>
+            <span class="lesson-duration">60 минут</span>
+          </div>
+          <h1 class="lesson-title">n8n: Автоматизация с AI</h1>
+          <div class="lesson-objectives">
+            <h4>Цели урока:</h4>
+            <ul>
+              <li>Понять что такое n8n и его возможности</li>
+              <li>Освоить типы нодов и компоненты платформы</li>
+              <li>Научиться создавать AI-powered workflows</li>
+              <li>Создать первый автоматизированный процесс</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Время:</strong> 60 минут (20 мин теория + 40 мин практика)</p>
+            <p><strong>Подготовка:</strong> Установите n8n локально или используйте n8n.cloud для демонстрации.</p>
+            <p><strong>Демо:</strong> Покажите создание Telegram бота с AI в реальном времени.</p>
+          </div>
+        </div>
+
+        <!-- What is n8n -->
+        <h2>Что такое n8n?</h2>
+
+        <div class="alert alert-info">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>n8n</strong> — open-source платформа для автоматизации workflows. Позволяет соединять различные сервисы и API без программирования через визуальный drag-and-drop интерфейс.
+          </div>
+        </div>
+
+        <h3>Ключевые особенности</h3>
+
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">🔓</div>
+            <h4 class="technique-card-title">Open Source</h4>
+            <p class="technique-card-desc">Бесплатная платформа с возможностью self-hosting</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🎨</div>
+            <h4 class="technique-card-title">Visual Builder</h4>
+            <p class="technique-card-desc">Drag-and-drop создание без кода</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🔗</div>
+            <h4 class="technique-card-title">200+ Интеграций</h4>
+            <p class="technique-card-desc">Готовые ноды для сервисов</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🤖</div>
+            <h4 class="technique-card-title">AI Nodes</h4>
+            <p class="technique-card-desc">OpenAI, Anthropic, Hugging Face</p>
+          </div>
+        </div>
+
+        <!-- Architecture -->
+        <h2 style="margin-top: 3rem;">Архитектура n8n</h2>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Структура платформы</span>
+          </div>
+          <pre><code>┌─────────────────────────────────────────────────────────┐
+│                    n8n PLATFORM                         │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
+│  │   Trigger   │  │  Processing │  │   Action    │     │
+│  │   Nodes     │  │    Nodes    │  │   Nodes     │     │
+│  │             │  │             │  │             │     │
+│  │ • Webhook   │  │ • Function  │  │ • HTTP      │     │
+│  │ • Schedule  │  │ • Code      │  │ • Email     │     │
+│  │ • Manual    │  │ • AI/ML     │  │ • Database  │     │
+│  │ • Email     │  │ • IF/Switch │  │ • Slack     │     │
+│  └─────────────┘  └─────────────┘  └─────────────┘     │
+│         │                 │                 │          │
+│         └─────────────────┼─────────────────┘          │
+│                           ▼                            │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │              Execution Engine                   │   │
+│  │  • Workflow Engine  • Error Handling           │   │
+│  │  • Retry Logic      • Logging                  │   │
+│  └─────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────┘</code></pre>
+        </div>
+
+        <!-- Node Types -->
+        <h2 style="margin-top: 3rem;">Типы нодов</h2>
+
+        <div class="accordion open-first">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Trigger Nodes (Триггеры)</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Запускают выполнение workflow:</p>
+                <ul>
+                  <li><strong>Manual Trigger</strong> — запуск вручную для тестирования</li>
+                  <li><strong>Webhook</strong> — HTTP запросы как триггер (REST API)</li>
+                  <li><strong>Schedule Trigger</strong> — запуск по расписанию (cron-синтаксис)</li>
+                  <li><strong>Email Trigger</strong> — обработка входящих писем</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Processing Nodes (Обработчики)</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Обрабатывают и трансформируют данные:</p>
+                <ul>
+                  <li><strong>Function Node</strong> — выполнение JavaScript кода</li>
+                  <li><strong>Code Node</strong> — выполнение Python кода</li>
+                  <li><strong>Set Node</strong> — установка значений полей</li>
+                  <li><strong>IF Node</strong> — условная логика и разветвление</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>AI/ML Nodes</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Интеграция с AI сервисами:</p>
+                <ul>
+                  <li><strong>OpenAI</strong> — GPT модели для текста, DALL-E для изображений</li>
+                  <li><strong>Hugging Face</strong> — доступ к различным ML моделям</li>
+                  <li><strong>HTTP Request</strong> — универсальный API для любых AI сервисов</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Action Nodes (Действия)</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Выполняют конечные действия:</p>
+                <ul>
+                  <li><strong>HTTP Request</strong> — отправка HTTP запросов</li>
+                  <li><strong>Email</strong> — отправка писем</li>
+                  <li><strong>Slack</strong> — сообщения в каналы</li>
+                  <li><strong>Google Sheets</strong> — работа с таблицами</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Installation -->
+        <h2 style="margin-top: 3rem;">Установка n8n</h2>
+
+        <div class="comparison">
+          <div class="comparison-item" style="border-color: var(--primary);">
+            <div class="comparison-header" style="color: var(--primary);">Self-hosted (npm)</div>
+            <div class="code-block">
+              <pre><code># Глобальная установка
+npm install n8n -g
+
+# Запуск
+n8n start
+
+# С аутентификацией
+N8N_BASIC_AUTH_ACTIVE=true \
+N8N_BASIC_AUTH_USER=admin \
+N8N_BASIC_AUTH_PASSWORD=password \
+n8n start</code></pre>
+            </div>
+          </div>
+          <div class="comparison-item" style="border-color: var(--accent);">
+            <div class="comparison-header" style="color: var(--accent);">Docker Compose</div>
+            <div class="code-block">
+              <pre><code>version: '3.8'
+services:
+  n8n:
+    image: n8nio/n8n
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+    volumes:
+      - n8n_data:/home/node/.n8n</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-success" style="margin-top: 1.5rem;">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <div>
+            <strong>n8n Cloud</strong> — облачная версия с бесплатным планом: 5 активных workflows, 1000 выполнений/месяц. Регистрация: <a href="https://n8n.io" target="_blank">n8n.io</a>
+          </div>
+        </div>
+
+        <!-- Example 1: Telegram Bot -->
+        <h2 style="margin-top: 3rem;">Пример 1: AI-бот для Telegram</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-automation">Workflow</span>
+            <h4>Telegram бот с GPT</h4>
+          </div>
+          <div class="example-body">
+            <p><strong>Структура workflow:</strong></p>
+            <div class="code-block">
+              <pre><code>Telegram Trigger → OpenAI → Telegram Send Message</code></pre>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Шаг 1: Telegram Trigger</strong></p>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">JSON</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>{
+  "resource": "message",
+  "operation": "getUpdates",
+  "botToken": "YOUR_BOT_TOKEN"
+}</code></pre>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Шаг 2: OpenAI Node</strong></p>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">JSON</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>{
+  "model": "gpt-3.5-turbo",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Ты - полезный ассистент. Отвечай кратко и по делу."
+    },
+    {
+      "role": "user",
+      "content": "{{ $json.message.text }}"
+    }
+  ]
+}</code></pre>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Шаг 3: Telegram Send Message</strong></p>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">JSON</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>{
+  "chatId": "{{ $json.message.chat.id }}",
+  "text": "{{ $json.choices[0].message.content }}"
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2: Data Analysis -->
+        <h2 style="margin-top: 3rem;">Пример 2: Автоматический анализ данных</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-api">Analytics</span>
+            <h4>Еженедельный отчёт с AI</h4>
+          </div>
+          <div class="example-body">
+            <p><strong>Структура:</strong></p>
+            <div class="code-block">
+              <pre><code>Schedule Trigger → Google Sheets → OpenAI → Email</code></pre>
+            </div>
+
+            <div class="prompt-example" style="margin-top: 1.5rem;">
+              <div class="prompt-example-header">Schedule Trigger (Cron)</div>
+              <pre>0 9 * * 1  // Каждый понедельник в 9:00</pre>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>OpenAI Analysis:</strong></p>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">JSON</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>{
+  "model": "gpt-4",
+  "messages": [
+    {
+      "role": "system",
+      "content": "Ты - аналитик данных. Проанализируй данные и создай краткий отчет с выводами и рекомендациями."
+    },
+    {
+      "role": "user",
+      "content": "Проанализируй: {{ JSON.stringify($json) }}"
+    }
+  ]
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 3: Request Processing -->
+        <h2 style="margin-top: 3rem;">Пример 3: Классификация заявок</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-chatgpt">Support</span>
+            <h4>Автоматическая маршрутизация</h4>
+          </div>
+          <div class="example-body">
+            <p><strong>Структура:</strong></p>
+            <div class="code-block">
+              <pre><code>Webhook → Function (Classification) → IF → Email/Slack</code></pre>
+            </div>
+
+            <p style="margin-top: 1.5rem;"><strong>Function Node (классификация):</strong></p>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">JavaScript</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>// Анализ заявки и определение приоритета
+const request = $input.first().json;
+const keywords = request.message.toLowerCase();
+
+let priority = 'low';
+let department = 'general';
+
+// Определение приоритета
+if (keywords.includes('срочно') || keywords.includes('критично')) {
+  priority = 'high';
+} else if (keywords.includes('важно') || keywords.includes('проблема')) {
+  priority = 'medium';
+}
+
+// Определение отдела
+if (keywords.includes('техническая') || keywords.includes('баг')) {
+  department = 'technical';
+} else if (keywords.includes('продажи') || keywords.includes('заказ')) {
+  department = 'sales';
+} else if (keywords.includes('поддержка') || keywords.includes('помощь')) {
+  department = 'support';
+}
+
+return {
+  json: {
+    ...request,
+    priority: priority,
+    department: department,
+    processed_at: new Date().toISOString()
+  }
+};</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Best Practices -->
+        <h2 style="margin-top: 3rem;">Лучшие практики</h2>
+
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">1</div>
+            <h4 class="technique-card-title">Структура</h4>
+            <p class="technique-card-desc">Понятные названия, группировка нодов, комментарии к сложным участкам</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">2</div>
+            <h4 class="technique-card-title">Данные</h4>
+            <p class="technique-card-desc">Set Node для структурирования, валидация входов, очистка полей</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">3</div>
+            <h4 class="technique-card-title">Безопасность</h4>
+            <p class="technique-card-desc">Секреты в Credentials, переменные окружения, ограничение доступа</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">4</div>
+            <h4 class="technique-card-title">Тестирование</h4>
+            <p class="technique-card-desc">Manual Trigger для тестов, проверка всех сценариев</p>
+          </div>
+        </div>
+
+        <!-- Error Handling -->
+        <h3 style="margin-top: 2rem;">Обработка ошибок</h3>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">JavaScript - Error Handler</span>
+            <button class="code-copy-btn">Копировать</button>
+          </div>
+          <pre><code>// Обработка ошибок в workflow
+const error = $input.first().json;
+
+// Формирование уведомления
+return {
+  json: {
+    error: error.message,
+    timestamp: new Date().toISOString(),
+    workflow: '{{ $workflow.name }}',
+    node: '{{ $node.name }}'
+  }
+};</code></pre>
+        </div>
+
+        <!-- Quiz -->
+        <div class="quiz" style="margin-top: 3rem;">
+          <div class="quiz-header">
+            <div class="quiz-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                <path d="M12 17h.01"/>
+              </svg>
+            </div>
+            <h3 class="quiz-title">Проверка знаний</h3>
+          </div>
+          <div class="quiz-question">Какой тип нода используется для запуска workflow по расписанию?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>Webhook Trigger</span>
+            </div>
+            <div class="quiz-option" data-correct="true">
+              <span class="quiz-option-marker"></span>
+              <span>Schedule Trigger</span>
+            </div>
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>Manual Trigger</span>
+            </div>
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>Function Node</span>
+            </div>
+          </div>
+          <div class="quiz-feedback">
+            <div class="quiz-feedback-text"></div>
+          </div>
+          <div class="quiz-actions">
+            <button class="btn btn-primary quiz-check-btn">Проверить</button>
+            <button class="btn btn-secondary quiz-next-btn hidden">Далее</button>
+            <button class="btn btn-secondary quiz-reset-btn hidden">Попробовать снова</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
+          <div class="card-header">Ключевые выводы</div>
+          <div class="card-body">
+            <ul>
+              <li><strong>n8n</strong> — open-source платформа для визуального создания автоматизаций</li>
+              <li><strong>Три типа нодов:</strong> Triggers (запуск), Processing (обработка), Actions (действия)</li>
+              <li><strong>AI интеграция</strong> — OpenAI, Hugging Face, кастомные API через HTTP Request</li>
+              <li><strong>Self-hosted</strong> — полный контроль над данными и безопасностью</li>
+              <li>Комбинируйте AI с другими сервисами для создания мощных автоматизаций</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Mark Complete Button -->
+        <div style="text-align: center; margin: 2rem 0;">
+          <button class="btn btn-primary mark-complete-btn" data-lesson="3">
+            Отметить урок как пройденный
+          </button>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-2.html" class="nav-arrow nav-arrow-prev">
+            <span>←</span>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">ChatGPT & Claude Agents</div>
+            </div>
+          </a>
+          <a href="lesson-4.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Альтернативные платформы</div>
+            </div>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

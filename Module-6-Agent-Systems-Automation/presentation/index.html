@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модуль 6: Агентные системы и автоматизация</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 6</div>
+
+        <a href="index.html" class="nav-item active">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Концепция AI агентов
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          ChatGPT & Claude Agents
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          n8n Автоматизация
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Альтернативные платформы
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Практика: Создание агента
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 6</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Главная</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1 class="hero-title">Агентные системы и автоматизация</h1>
+          <p class="hero-subtitle">
+            Создавайте интеллектуальных AI помощников и автоматизируйте бизнес-процессы.<br>
+            Custom GPTs, Claude Projects, n8n workflows и альтернативные платформы.
+          </p>
+        </section>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Общая продолжительность модуля:</strong> ~3 часа (5 уроков + домашнее задание)</p>
+            <p><strong>Рекомендация:</strong> Демонстрируйте создание агентов в реальном времени. Студенты должны создать минимум 2 агента и 1 workflow.</p>
+            <p><strong>Ключевая цель:</strong> Студенты понимают концепцию AI агентов и умеют создавать их на различных платформах для автоматизации бизнес-задач.</p>
+          </div>
+        </div>
+
+        <!-- Info Alert -->
+        <div class="alert alert-info">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Что вы изучите в этом модуле:</strong>
+            <ul style="margin: 0.5rem 0 0 1rem;">
+              <li><strong>Концепция AI агентов</strong> — типы, компоненты, архитектура</li>
+              <li><strong>Custom GPTs</strong> — создание специализированных агентов в ChatGPT</li>
+              <li><strong>Claude Projects</strong> — работа с долгосрочной памятью и контекстом</li>
+              <li><strong>n8n</strong> — автоматизация workflows с AI интеграцией</li>
+              <li><strong>Альтернативные платформы</strong> — Groq, Gemini, Coze и другие</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Key Message -->
+        <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); border: 2px solid var(--primary);">
+          <div class="card-body" style="text-align: center;">
+            <h3 style="margin-bottom: 0.5rem;">🤖 Главная мысль модуля</h3>
+            <p style="font-size: 1.125rem; margin: 0; color: var(--text-primary);">
+              "AI агенты — это не просто чат-боты, а автономные системы,<br>
+              способные использовать инструменты, принимать решения и выполнять задачи."
+            </p>
+          </div>
+        </div>
+
+        <!-- Lesson Cards -->
+        <h2 style="margin: 2rem 0 1rem;">Уроки модуля</h2>
+
+        <div class="lesson-cards">
+          <!-- Lesson 1 -->
+          <a href="lesson-1.html" class="lesson-card">
+            <div class="lesson-card-number">1</div>
+            <h3 class="lesson-card-title">Концепция AI агентов</h3>
+            <p class="lesson-card-desc">
+              Типы агентов, их компоненты, архитектура. Tool use и Function Calling.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 40 мин</span>
+              <span>•</span>
+              <span>Теория</span>
+            </div>
+          </a>
+
+          <!-- Lesson 2 -->
+          <a href="lesson-2.html" class="lesson-card">
+            <div class="lesson-card-number">2</div>
+            <h3 class="lesson-card-title">ChatGPT & Claude Agents</h3>
+            <p class="lesson-card-desc">
+              Создание Custom GPTs и Claude Projects. Настройка, интеграции, практика.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 45 мин</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 3 -->
+          <a href="lesson-3.html" class="lesson-card">
+            <div class="lesson-card-number">3</div>
+            <h3 class="lesson-card-title">n8n Автоматизация</h3>
+            <p class="lesson-card-desc">
+              Создание workflows, интеграция AI, триггеры и действия. Практические примеры.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 50 мин</span>
+              <span>•</span>
+              <span>Автоматизация</span>
+            </div>
+          </a>
+
+          <!-- Lesson 4 -->
+          <a href="lesson-4.html" class="lesson-card" style="border-color: var(--accent);">
+            <div class="lesson-card-number" style="background: var(--accent);">4</div>
+            <h3 class="lesson-card-title">Альтернативные платформы</h3>
+            <p class="lesson-card-desc">
+              Groq, Google Gemini, Coze, OpenRouter, LangChain и другие инструменты.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 35 мин</span>
+              <span>•</span>
+              <span>Обзор</span>
+            </div>
+          </a>
+
+          <!-- Practice -->
+          <a href="lesson-5.html" class="lesson-card" style="border-color: var(--warning);">
+            <div class="lesson-card-number" style="background: var(--warning);">5</div>
+            <h3 class="lesson-card-title">Практика: Создание агента</h3>
+            <p class="lesson-card-desc">
+              Создание собственного AI агента для решения бизнес-задачи от начала до конца.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 40 мин</span>
+              <span>•</span>
+              <span>Hands-on</span>
+            </div>
+          </a>
+
+          <!-- Final Project -->
+          <a href="project.html" class="lesson-card" style="border-color: var(--primary); border-width: 2px;">
+            <div class="lesson-card-number" style="background: linear-gradient(135deg, var(--primary), var(--accent));">P</div>
+            <h3 class="lesson-card-title">Домашнее задание</h3>
+            <p class="lesson-card-desc">
+              Создание комплексного решения: AI агент + автоматизированный workflow.
+            </p>
+            <div class="lesson-card-meta">
+              <span>Финальное задание</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Platforms Overview -->
+        <h2 style="margin: 2.5rem 0 1rem;">Обзор платформ</h2>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">🎯</div>
+          <h3 class="technique-card-title">ChatGPT Custom GPTs</h3>
+          <p class="technique-card-desc">
+            Создание специализированных агентов с собственными инструкциями, знаниями и интеграциями. Идеально для быстрого прототипирования.
+          </p>
+          <span class="technique-badge">chatgpt.com</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">📚</div>
+          <h3 class="technique-card-title">Claude Projects</h3>
+          <p class="technique-card-desc">
+            Долгосрочные проекты с расширенным контекстом до 200K токенов. Отлично подходит для сложных аналитических задач.
+          </p>
+          <span class="technique-badge">claude.ai</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">⚡</div>
+          <h3 class="technique-card-title">n8n Workflows</h3>
+          <p class="technique-card-desc">
+            Open-source платформа для автоматизации с 200+ интеграциями. Визуальный редактор без программирования.
+          </p>
+          <span class="technique-badge">n8n.io</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">🚀</div>
+          <h3 class="technique-card-title">Groq</h3>
+          <p class="technique-card-desc">
+            Сверхбыстрая инференция LLM (до 300 токенов/сек). Бесплатный tier для экспериментов с open-source моделями.
+          </p>
+          <span class="technique-badge">groq.com</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">🌈</div>
+          <h3 class="technique-card-title">Google Gemini</h3>
+          <p class="technique-card-desc">
+            Мультимодальные агенты с поддержкой текста, изображений, аудио и видео. Function calling из коробки.
+          </p>
+          <span class="technique-badge">gemini.google.com</span>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="card" style="margin-top: 2rem;">
+          <div class="card-header">Быстрый старт</div>
+          <div class="card-body">
+            <p>Для успешного прохождения модуля вам понадобится:</p>
+
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-chatgpt"></span>
+                <span class="checklist-text">Аккаунт ChatGPT (Plus для Custom GPTs)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-claude"></span>
+                <span class="checklist-text">Аккаунт Claude.ai (Pro для Projects)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-n8n"></span>
+                <span class="checklist-text">Установленный n8n (локально или облачно)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-api"></span>
+                <span class="checklist-text">API ключи OpenAI или Anthropic</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-groq"></span>
+                <span class="checklist-text">Аккаунт Groq (бесплатный)</span>
+              </li>
+            </ul>
+
+            <div style="margin-top: 1rem;">
+              <a href="lesson-1.html" class="btn btn-primary">Начать обучение →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="card">
+          <div class="card-header">Сравнение платформ</div>
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Платформа</th>
+                  <th>Тип</th>
+                  <th>Сложность</th>
+                  <th>Лучше всего для</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Custom GPTs</strong></td>
+                  <td>No-code</td>
+                  <td>Низкая</td>
+                  <td>Быстрое прототипирование</td>
+                </tr>
+                <tr>
+                  <td><strong>Claude Projects</strong></td>
+                  <td>No-code</td>
+                  <td>Низкая</td>
+                  <td>Аналитика, большие документы</td>
+                </tr>
+                <tr>
+                  <td><strong>n8n</strong></td>
+                  <td>Low-code</td>
+                  <td>Средняя</td>
+                  <td>Автоматизация процессов</td>
+                </tr>
+                <tr>
+                  <td><strong>Groq API</strong></td>
+                  <td>API</td>
+                  <td>Средняя</td>
+                  <td>Быстрые приложения</td>
+                </tr>
+                <tr>
+                  <td><strong>LangChain</strong></td>
+                  <td>Framework</td>
+                  <td>Высокая</td>
+                  <td>Кастомные агенты</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Agent Architecture -->
+        <div class="card">
+          <div class="card-header">Архитектура AI агента</div>
+          <div class="card-body">
+            <div class="architecture-diagram">
+┌─────────────────────────────────────────────────────────┐
+│                    AI АГЕНТ                             │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
+│  │ Восприятие  │  │ Обработка   │  │ Действие    │     │
+│  │             │  │             │  │             │     │
+│  │ • Текст     │  │ • LLM       │  │ • Ответы    │     │
+│  │ • Файлы    │  │ • Memory    │  │ • API       │     │
+│  │ • API      │  │ • Decision  │  │ • Tools     │     │
+│  └─────────────┘  └─────────────┘  └─────────────┘     │
+│         │                 │                 │          │
+│         └─────────────────┼─────────────────┘          │
+│                           │                            │
+│  ┌─────────────────────────────────────────────────┐   │
+│  │              Система инструментов               │   │
+│  │  • Поиск • Код • Email • БД • Интеграции       │   │
+│  └─────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────┘
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
