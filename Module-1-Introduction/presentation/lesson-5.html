@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 5: Первые промпты | Модуль 1</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 1</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Что такое ИИ
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Карьера в AI
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Обзор платформ
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Основы промптинга
+        </a>
+
+        <a href="lesson-5.html" class="nav-item active" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Первые промпты
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 1</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 5</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-badge">Урок 5 — Практика</div>
+          <h1 class="hero-title">Первые промпты</h1>
+          <p class="hero-subtitle">Практика: создаём первые промпты для разных задач</p>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="card">
+          <div class="card-header">Цели урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-obj-1"></span>
+                <span class="checklist-text">Написать промпты для 5 разных типов задач</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-obj-2"></span>
+                <span class="checklist-text">Применить формулу CRAFT на практике</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-obj-3"></span>
+                <span class="checklist-text">Научиться улучшать промпты итеративно</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-obj-4"></span>
+                <span class="checklist-text">Создать свою первую библиотеку промптов</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Intro -->
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin: 0;">В этом уроке мы переходим от теории к практике. Вы напишете свои первые промпты для 5 типичных сценариев использования AI. Откройте любую AI-платформу (ChatGPT, Claude или Gemini) и выполняйте задания параллельно.</p>
+          </div>
+        </div>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Формат урока:</strong> Практический воркшоп. Студенты работают с реальными AI-платформами. После каждого задания обсудите результаты — у разных студентов будут разные ответы.</p>
+            <p><strong>Время:</strong> ~8 минут на задание + обсуждение.</p>
+          </div>
+        </div>
+
+        <!-- Task 1: Text Generation -->
+        <h2>Задание 1: Генерация текста</h2>
+
+        <div class="card">
+          <div class="card-header">Сценарий: Email для клиента</div>
+          <div class="card-body">
+            <p><strong>Ситуация:</strong> Вы менеджер по работе с клиентами. Клиент недоволен задержкой доставки заказа на 3 дня. Нужно написать извинительное письмо.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Ваша задача:</strong> Напишите промпт для создания извинительного email-письма.
+            </div>
+
+            <div class="accordion" style="margin-top: 1rem;">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример промпта</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header">
+                      <span>Пример промпта</span>
+                      <button class="code-copy-btn">Копировать</button>
+                    </div>
+                    <pre><code>Контекст: Я менеджер по работе с клиентами интернет-магазина электроники.
+Клиент заказал ноутбук, но доставка задержалась на 3 дня из-за
+проблем с логистикой.
+
+Роль: Выступи в роли опытного специалиста по клиентскому сервису.
+
+Задача: Напиши извинительное email-письмо клиенту.
+
+Формат:
+- Тема письма
+- Приветствие
+- Извинение и объяснение причины
+- Компенсация (предложи скидку 10% на следующий заказ)
+- Заключение
+
+Тон: Вежливый, эмпатичный, профессиональный.
+Длина: 150-200 слов.</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+              <strong>Критерии успеха:</strong>
+              <ul style="margin: 0.5rem 0 0 1rem;">
+                <li>Письмо содержит искреннее извинение</li>
+                <li>Указана причина задержки</li>
+                <li>Предложена компенсация</li>
+                <li>Тон профессиональный и эмпатичный</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task 2: Summarization -->
+        <h2>Задание 2: Суммаризация</h2>
+
+        <div class="card">
+          <div class="card-header">Сценарий: Краткое изложение статьи</div>
+          <div class="card-body">
+            <p><strong>Ситуация:</strong> Вам нужно подготовить краткий обзор длинной статьи для руководства. Времени читать полностью нет.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Ваша задача:</strong> Напишите промпт для создания структурированного резюме любой статьи.
+            </div>
+
+            <div class="accordion" style="margin-top: 1rem;">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример промпта</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header">
+                      <span>Пример промпта</span>
+                      <button class="code-copy-btn">Копировать</button>
+                    </div>
+                    <pre><code>Создай структурированное резюме следующей статьи.
+
+Формат вывода:
+1. Заголовок (1 строка)
+2. Главная идея (2-3 предложения)
+3. Ключевые тезисы (3-5 пунктов)
+4. Важные цифры/факты (если есть)
+5. Вывод автора (1-2 предложения)
+
+Ограничения:
+- Общая длина резюме: не более 200 слов
+- Используй маркированные списки
+- Сохрани объективность, не добавляй свои оценки
+
+Статья:
+[вставьте текст статьи]</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+              <strong>Тестовый текст для практики:</strong>
+              <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.9rem;">Найдите любую статью о технологиях на Habr, Medium или в новостях и попробуйте ваш промпт на ней.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task 3: Creative Writing -->
+        <h2>Задание 3: Креативный контент</h2>
+
+        <div class="card">
+          <div class="card-header">Сценарий: Пост для социальных сетей</div>
+          <div class="card-body">
+            <p><strong>Ситуация:</strong> Вы SMM-менеджер кофейни. Нужно написать пост о новом сезонном напитке — тыквенном латте.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Ваша задача:</strong> Напишите промпт для создания вовлекающего поста.
+            </div>
+
+            <div class="accordion" style="margin-top: 1rem;">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример промпта</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header">
+                      <span>Пример промпта</span>
+                      <button class="code-copy-btn">Копировать</button>
+                    </div>
+                    <pre><code>Роль: Ты креативный SMM-менеджер уютной кофейни в центре города.
+
+Задача: Напиши пост для Instagram о запуске нового сезонного напитка —
+тыквенного латте с корицей.
+
+Требования:
+- Длина: 100-150 слов
+- Стиль: тёплый, уютный, вызывающий желание попробовать
+- Включи эмодзи (3-5 штук, уместно)
+- Добавь призыв к действию
+- Предложи 3 хэштега
+
+Дополнительно:
+- Напиток доступен только в октябре-ноябре
+- Цена: 350 рублей
+- Можно добавить взбитые сливки бесплатно
+
+Целевая аудитория: молодые профессионалы 22-35 лет,
+любящие уют и сезонные напитки.</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Task 4: Analysis -->
+        <h2>Задание 4: Анализ и рекомендации</h2>
+
+        <div class="card">
+          <div class="card-header">Сценарий: Анализ конкурентов</div>
+          <div class="card-body">
+            <p><strong>Ситуация:</strong> Вы планируете открыть онлайн-школу английского языка. Нужно проанализировать конкурентное преимущество.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Ваша задача:</strong> Напишите промпт для получения структурированного анализа.
+            </div>
+
+            <div class="accordion" style="margin-top: 1rem;">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример промпта</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header">
+                      <span>Пример промпта</span>
+                      <button class="code-copy-btn">Копировать</button>
+                    </div>
+                    <pre><code>Роль: Ты бизнес-консультант с опытом в EdTech.
+
+Контекст: Я планирую запустить онлайн-школу английского языка
+для взрослых (25-45 лет), с фокусом на бизнес-английский.
+
+Задача: Проведи анализ и дай рекомендации.
+
+Структура ответа:
+1. Основные конкуренты на рынке (3-5 игроков)
+2. Типичные ценовые модели в нише
+3. Какие УТП (уникальные торговые предложения) работают
+4. Потенциальные ниши, которые не заняты
+5. 3 конкретные рекомендации для входа на рынок
+
+Формат: Структурированный отчёт с заголовками и буллитами.
+Длина: 400-500 слов.
+
+Важно: Основывайся на реальных трендах рынка онлайн-образования.</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="warning-box" style="margin-top: 1rem;">
+              <strong>Важно:</strong> AI может не знать актуальных данных о ценах конкурентов. Используйте ответ как отправную точку для собственного исследования.
+            </div>
+          </div>
+        </div>
+
+        <!-- Task 5: Problem Solving -->
+        <h2>Задание 5: Решение проблемы</h2>
+
+        <div class="card">
+          <div class="card-header">Сценарий: Brainstorm идей</div>
+          <div class="card-body">
+            <p><strong>Ситуация:</strong> Команда работает удалённо, и вовлечённость сотрудников упала. Нужны идеи для улучшения командной работы.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Ваша задача:</strong> Напишите промпт для генерации креативных решений.
+            </div>
+
+            <div class="accordion" style="margin-top: 1rem;">
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Показать пример промпта</span>
+                  <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6,9 12,15 18,9"/>
+                  </svg>
+                </div>
+                <div class="accordion-content">
+                  <div class="code-block">
+                    <div class="code-header">
+                      <span>Пример промпта</span>
+                      <button class="code-copy-btn">Копировать</button>
+                    </div>
+                    <pre><code>Роль: Ты HR-консультант с опытом в удалённых командах.
+
+Контекст:
+- IT-компания, 30 сотрудников
+- Полностью удалённая работа уже 2 года
+- Проблема: снижение вовлечённости, люди чувствуют себя изолированными
+- Бюджет на team-building: ограничен
+
+Задача: Предложи 10 идей для повышения вовлечённости удалённой команды.
+
+Требования к идеям:
+- 5 бесплатных/малобюджетных
+- 3 среднего бюджета
+- 2 премиум-идеи
+
+Для каждой идеи укажи:
+- Название
+- Краткое описание (1-2 предложения)
+- Примерные затраты
+- Ожидаемый эффект
+
+Формат: Нумерованный список с подпунктами.</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips for Improvement -->
+        <h2>Как улучшать промпты</h2>
+
+        <div class="card">
+          <div class="card-header">Техника итеративного улучшения</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">1</div>
+                <div>
+                  <strong>Запустите первую версию</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Не пытайтесь написать идеальный промпт сразу. Начните с базовой версии.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">2</div>
+                <div>
+                  <strong>Оцените результат</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Что хорошо? Что не так? Чего не хватает?</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">3</div>
+                <div>
+                  <strong>Уточните в диалоге</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">"Сделай вступление короче", "Добавь больше конкретики", "Измени тон на более формальный"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="min-width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">4</div>
+                <div>
+                  <strong>Сохраните финальную версию</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Когда результат устраивает — сохраните промпт для повторного использования.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Library -->
+        <h2>Создайте свою библиотеку</h2>
+
+        <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+          <div class="card-header">Шаблон для сохранения промптов</div>
+          <div class="card-body">
+            <p>Создайте документ или заметку с вашими лучшими промптами. Рекомендуемая структура:</p>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-header">
+                <span>Шаблон записи в библиотеке</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>## Название промпта
+**Категория:** [текст / анализ / креатив / код]
+**Платформа:** [ChatGPT / Claude / любая]
+**Дата создания:** [дата]
+
+### Промпт:
+[полный текст промпта]
+
+### Когда использовать:
+[описание ситуаций]
+
+### Примечания:
+[что работает хорошо, что можно улучшить]</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practice Checklist -->
+        <h2>Чек-лист практики</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-task-1"></span>
+                <span class="checklist-text">Выполнено задание 1: Email для клиента</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-task-2"></span>
+                <span class="checklist-text">Выполнено задание 2: Суммаризация статьи</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-task-3"></span>
+                <span class="checklist-text">Выполнено задание 3: Пост для соцсетей</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-task-4"></span>
+                <span class="checklist-text">Выполнено задание 4: Анализ конкурентов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-task-5"></span>
+                <span class="checklist-text">Выполнено задание 5: Brainstorm идей</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l5-task-6"></span>
+                <span class="checklist-text">Создана библиотека для сохранения промптов</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); border-left: 4px solid var(--success);">
+          <div class="card-header">Поздравляем!</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin: 0 0 1rem 0;">Вы написали свои первые промпты и сделали важный шаг в освоении промпт-инжиниринга.</p>
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li>Вы применили формулу CRAFT на практике</li>
+              <li>Научились писать промпты для разных типов задач</li>
+              <li>Узнали, как итеративно улучшать результаты</li>
+              <li>Создали основу для личной библиотеки промптов</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-4.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="5">
+            Завершить урок
+          </button>
+          <a href="project.html" class="btn btn-secondary nav-arrow-next">
+            Домашнее задание
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

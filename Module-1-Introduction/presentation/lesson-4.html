@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 4: Основы промптинга | Модуль 1</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 1</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Что такое ИИ
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Карьера в AI
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Обзор платформ
+        </a>
+
+        <a href="lesson-4.html" class="nav-item active" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Основы промптинга
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Первые промпты
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 1</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 4</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-badge">Урок 4</div>
+          <h1 class="hero-title">Основы промптинга</h1>
+          <p class="hero-subtitle">Что такое промпт, структура эффективного запроса и типичные ошибки</p>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="card">
+          <div class="card-header">Цели урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-obj-1"></span>
+                <span class="checklist-text">Понять, что такое промпт и как он работает</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-obj-2"></span>
+                <span class="checklist-text">Изучить структуру эффективного промпта</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-obj-3"></span>
+                <span class="checklist-text">Научиться избегать типичных ошибок</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-obj-4"></span>
+                <span class="checklist-text">Освоить базовые принципы написания промптов</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- What is a Prompt -->
+        <h2>Что такое промпт?</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="info-box" style="font-size: 1.1rem;">
+              <strong>Промпт (prompt)</strong> — это текстовый запрос или инструкция, которую вы отправляете AI-модели для получения ответа.
+            </div>
+
+            <p style="margin-top: 1.5rem;">Промпт — это ваш способ "общения" с AI. Качество промпта напрямую влияет на качество ответа. Чем точнее и понятнее вы сформулируете запрос, тем лучший результат получите.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+              <div style="padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px; border-left: 4px solid var(--danger);">
+                <strong style="color: var(--danger);">Плохой промпт:</strong>
+                <p style="margin: 0.5rem 0 0 0; font-style: italic;">"Напиши текст"</p>
+              </div>
+              <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border-left: 4px solid var(--success);">
+                <strong style="color: var(--success);">Хороший промпт:</strong>
+                <p style="margin: 0.5rem 0 0 0; font-style: italic;">"Напиши продающий текст для email-рассылки о скидках 20% на зимнюю коллекцию одежды. Целевая аудитория — женщины 25-45 лет. Длина — 150 слов."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Structure -->
+        <h2>Структура эффективного промпта</h2>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Ключевой момент:</strong> Используйте аналогию с общением. Представьте, что вы даёте задание новому сотруднику — чем подробнее объясните, тем лучше результат.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Формула CRAFT</div>
+          <div class="card-body">
+            <p>Используйте формулу <strong>CRAFT</strong> для создания эффективных промптов:</p>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">C</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Context (Контекст)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Опишите ситуацию, фон задачи. Кто вы? Для чего нужен результат?</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Я маркетолог в компании по продаже электроники..."</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">R</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Role (Роль)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Назначьте AI определённую роль или экспертизу.</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Выступи в роли опытного копирайтера..."</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">A</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Action (Действие)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Чётко укажите, что нужно сделать.</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Напиши 5 вариантов заголовков для рекламного объявления..."</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">F</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Format (Формат)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Укажите желаемый формат вывода.</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Оформи в виде маркированного списка, каждый пункт — 5-7 слов"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 1.25rem;">T</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Target (Целевая аудитория)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Для кого предназначен результат?</p>
+                  <p style="margin: 0.5rem 0 0 0; font-style: italic; font-size: 0.9rem;">"Целевая аудитория — предприниматели 30-50 лет"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example -->
+        <h2>Пример применения CRAFT</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span>Полный промпт по формуле CRAFT</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>[Контекст]
+Я владелец небольшого интернет-магазина органической косметики.
+Готовлю email-рассылку к 8 марта.
+
+[Роль]
+Выступи в роли опытного email-маркетолога с 10-летним стажем.
+
+[Действие]
+Напиши продающий текст для email-рассылки о праздничной скидке 25%.
+
+[Формат]
+- Тема письма (до 50 символов)
+- Прехедер (до 90 символов)
+- Основной текст (150-200 слов)
+- Call-to-action кнопка (2-4 слова)
+
+[Целевая аудитория]
+Женщины 25-45 лет, заботящиеся о здоровье и экологии.</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Basic Principles -->
+        <h2>Базовые принципы хороших промптов</h2>
+
+        <div class="accordion open-first">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>1. Будьте конкретны</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p>Избегайте расплывчатых формулировок. Чем конкретнее запрос, тем точнее ответ.</p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div style="padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
+                  <strong style="color: var(--danger);">Плохо:</strong>
+                  <p style="margin: 0.5rem 0 0 0;">"Расскажи про маркетинг"</p>
+                </div>
+                <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                  <strong style="color: var(--success);">Хорошо:</strong>
+                  <p style="margin: 0.5rem 0 0 0;">"Объясни 5 ключевых стратегий контент-маркетинга для B2B SaaS-компаний"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>2. Указывайте ограничения</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p>Задавайте рамки: длину текста, количество пунктов, стиль.</p>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div style="padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
+                  <strong style="color: var(--danger);">Плохо:</strong>
+                  <p style="margin: 0.5rem 0 0 0;">"Напиши статью"</p>
+                </div>
+                <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                  <strong style="color: var(--success);">Хорошо:</strong>
+                  <p style="margin: 0.5rem 0 0 0;">"Напиши статью на 500 слов с 3 подзаголовками и кратким выводом"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>3. Давайте примеры</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p>Примеры помогают AI понять, что именно вы хотите получить.</p>
+
+              <div class="code-block" style="margin-top: 1rem;">
+                <div class="code-header">
+                  <span>Промпт с примером</span>
+                </div>
+                <pre><code>Напиши 3 слогана для кофейни в стиле:
+"Начни день с аромата счастья"
+"Кофе, который будит мечты"
+
+Мой слоган должен быть в таком же тёплом,
+уютном стиле, но оригинальным.</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>4. Используйте пошаговые инструкции</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p>Для сложных задач разбивайте запрос на шаги.</p>
+
+              <div class="code-block" style="margin-top: 1rem;">
+                <div class="code-header">
+                  <span>Пошаговый промпт</span>
+                </div>
+                <pre><code>Проанализируй эту бизнес-идею пошагово:
+
+Шаг 1: Определи целевую аудиторию
+Шаг 2: Оцени рыночный потенциал
+Шаг 3: Укажи возможные риски
+Шаг 4: Предложи 3 способа монетизации
+Шаг 5: Дай итоговую оценку от 1 до 10
+
+Бизнес-идея: [описание]</code></pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>5. Итерируйте и уточняйте</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p>Не ожидайте идеального результата с первого раза. Уточняйте и корректируйте.</p>
+
+              <div style="background: var(--surface); padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+                <p style="margin: 0;"><strong>Диалог с AI:</strong></p>
+                <p style="margin: 0.5rem 0 0 0; color: var(--primary);">Вы: "Напиши текст для лендинга"</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">AI: [генерирует текст]</p>
+                <p style="margin: 0.5rem 0 0 0; color: var(--primary);">Вы: "Сделай вступление более эмоциональным"</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">AI: [улучшает вступление]</p>
+                <p style="margin: 0.5rem 0 0 0; color: var(--primary);">Вы: "Добавь больше цифр и фактов в раздел преимуществ"</p>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">AI: [добавляет статистику]</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Common Mistakes -->
+        <h2>Типичные ошибки</h2>
+
+        <div class="card" style="border-left: 4px solid var(--danger);">
+          <div class="card-header">Чего избегать</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--danger); font-size: 1.25rem;">1.</span>
+                <div>
+                  <strong>Слишком общие запросы</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">"Напиши что-нибудь интересное" — AI не знает, что именно вам нужно</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--danger); font-size: 1.25rem;">2.</span>
+                <div>
+                  <strong>Несколько задач в одном промпте</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">"Напиши статью, потом переведи и сделай краткое резюме" — лучше по одной задаче</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--danger); font-size: 1.25rem;">3.</span>
+                <div>
+                  <strong>Противоречивые инструкции</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">"Напиши кратко, но очень подробно" — AI запутается</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--danger); font-size: 1.25rem;">4.</span>
+                <div>
+                  <strong>Ожидание идеала с первого раза</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Промптинг — итеративный процесс, уточняйте и улучшайте</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--danger); font-size: 1.25rem;">5.</span>
+                <div>
+                  <strong>Игнорирование контекста</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Без контекста AI не понимает вашу ситуацию и цели</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <span style="color: var(--danger); font-size: 1.25rem;">6.</span>
+                <div>
+                  <strong>Доверие без проверки</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">AI может ошибаться — всегда проверяйте факты и цифры</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Reference -->
+        <h2>Шпаргалка</h2>
+
+        <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+          <div class="card-header">Чек-лист хорошего промпта</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-check-1"></span>
+                <span class="checklist-text">Указан контекст задачи</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-check-2"></span>
+                <span class="checklist-text">Назначена роль для AI (если нужно)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-check-3"></span>
+                <span class="checklist-text">Чётко описано действие</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-check-4"></span>
+                <span class="checklist-text">Указан желаемый формат вывода</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-check-5"></span>
+                <span class="checklist-text">Определена целевая аудитория</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-check-6"></span>
+                <span class="checklist-text">Заданы ограничения (длина, стиль)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l4-check-7"></span>
+                <span class="checklist-text">Приведены примеры (если нужно)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <h2>Проверьте себя</h2>
+
+        <div class="quiz-container" data-quiz="prompting">
+          <div class="quiz-question" data-question="1">
+            <div class="question-text">Что означает буква "R" в формуле CRAFT?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Result (Результат)</div>
+              <div class="quiz-option" data-correct="true">Role (Роль)</div>
+              <div class="quiz-option" data-correct="false">Reason (Причина)</div>
+              <div class="quiz-option" data-correct="false">Reference (Ссылка)</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="2">
+            <div class="question-text">Какая из ошибок НЕ является типичной при написании промптов?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Слишком общие запросы</div>
+              <div class="quiz-option" data-correct="false">Несколько задач в одном промпте</div>
+              <div class="quiz-option" data-correct="true">Использование примеров</div>
+              <div class="quiz-option" data-correct="false">Противоречивые инструкции</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="3">
+            <div class="question-text">Что лучше делать, если первый ответ AI вас не устроил?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Написать тот же промпт ещё раз</div>
+              <div class="quiz-option" data-correct="false">Сменить AI-платформу</div>
+              <div class="quiz-option" data-correct="true">Уточнить и скорректировать запрос</div>
+              <div class="quiz-option" data-correct="false">Сдаться и написать самому</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-results">
+            <div class="quiz-score"></div>
+            <button class="btn btn-primary quiz-retry-btn">Пройти ещё раз</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+          <div class="card-header">Итоги урока</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li>Промпт — это инструкция для AI, влияющая на качество ответа</li>
+              <li>Формула CRAFT: Context, Role, Action, Format, Target</li>
+              <li>Ключевые принципы: конкретность, ограничения, примеры, итерации</li>
+              <li>Избегайте: общих запросов, противоречий, слепого доверия</li>
+              <li>Промптинг — навык, который развивается с практикой</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-3.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="4">
+            Завершить урок
+          </button>
+          <a href="lesson-5.html" class="btn btn-secondary nav-arrow-next">
+            Следующий урок
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

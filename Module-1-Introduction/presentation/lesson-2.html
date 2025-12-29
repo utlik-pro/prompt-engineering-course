@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 2: Карьера в AI | Модуль 1</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 1</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Что такое ИИ
+        </a>
+
+        <a href="lesson-2.html" class="nav-item active" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Карьера в AI
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Обзор платформ
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Основы промптинга
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Первые промпты
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 1</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 2</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-badge">Урок 2</div>
+          <h1 class="hero-title">Карьера в AI</h1>
+          <p class="hero-subtitle">Профессии будущего, навыки промпт-инженера и возможности на рынке труда</p>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="card">
+          <div class="card-header">Цели урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l2-obj-1"></span>
+                <span class="checklist-text">Узнать о востребованных профессиях в сфере AI</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l2-obj-2"></span>
+                <span class="checklist-text">Понять роль и навыки промпт-инженера</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l2-obj-3"></span>
+                <span class="checklist-text">Оценить перспективы рынка труда в AI</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l2-obj-4"></span>
+                <span class="checklist-text">Составить план развития карьеры</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- AI Revolution Section -->
+        <h2>Революция AI на рынке труда</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <p>Искусственный интеллект трансформирует рынок труда. По данным исследований:</p>
+
+            <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+              <div class="stat-card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05)); padding: 1.5rem; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary);">97M</div>
+                <div style="color: var(--text-muted); margin-top: 0.5rem;">новых рабочих мест к 2025</div>
+              </div>
+              <div class="stat-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); padding: 1.5rem; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 700; color: var(--success);">40%</div>
+                <div style="color: var(--text-muted); margin-top: 0.5rem;">рост спроса на AI-специалистов</div>
+              </div>
+              <div class="stat-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); padding: 1.5rem; border-radius: 12px; text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 700; color: var(--warning);">$375K</div>
+                <div style="color: var(--text-muted); margin-top: 0.5rem;">средняя зарплата AI-инженера в США</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI Professions -->
+        <h2>Профессии в сфере AI</h2>
+
+        <div class="accordion open-first">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Промпт-инженер (Prompt Engineer)</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Что делает:</strong> Создаёт и оптимизирует промпты для получения лучших результатов от AI-систем.</p>
+
+              <div class="info-box" style="margin: 1rem 0;">
+                <strong>Ключевые обязанности:</strong>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                  <li>Разработка эффективных промптов для различных задач</li>
+                  <li>Тестирование и оптимизация взаимодействия с LLM</li>
+                  <li>Создание библиотек промптов для команды</li>
+                  <li>Обучение сотрудников работе с AI</li>
+                </ul>
+              </div>
+
+              <p><strong>Зарплата:</strong> $50K - $150K+ в год (зависит от опыта и компании)</p>
+              <p><strong>Порог входа:</strong> Низкий — идеально для начинающих</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>AI-продуктовый менеджер</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Что делает:</strong> Управляет разработкой AI-продуктов, определяет стратегию и roadmap.</p>
+
+              <div class="info-box" style="margin: 1rem 0;">
+                <strong>Ключевые обязанности:</strong>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                  <li>Определение функций AI-продукта</li>
+                  <li>Работа с командой разработки</li>
+                  <li>Анализ потребностей пользователей</li>
+                  <li>Оценка этических аспектов AI</li>
+                </ul>
+              </div>
+
+              <p><strong>Зарплата:</strong> $100K - $200K+ в год</p>
+              <p><strong>Требования:</strong> Опыт в продуктовом менеджменте + понимание AI</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>AI-тренер / Специалист по данным</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Что делает:</strong> Подготавливает данные для обучения AI, оценивает качество ответов моделей.</p>
+
+              <div class="info-box" style="margin: 1rem 0;">
+                <strong>Ключевые обязанности:</strong>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                  <li>Разметка данных для обучения</li>
+                  <li>Оценка качества ответов AI (RLHF)</li>
+                  <li>Создание датасетов</li>
+                  <li>Выявление ошибок и bias в моделях</li>
+                </ul>
+              </div>
+
+              <p><strong>Зарплата:</strong> $40K - $80K в год</p>
+              <p><strong>Порог входа:</strong> Низкий — часто удалённая работа</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>AI-консультант</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Что делает:</strong> Помогает компаниям внедрять AI-решения и оптимизировать бизнес-процессы.</p>
+
+              <div class="info-box" style="margin: 1rem 0;">
+                <strong>Ключевые обязанности:</strong>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                  <li>Аудит бизнес-процессов</li>
+                  <li>Разработка AI-стратегии</li>
+                  <li>Выбор подходящих AI-инструментов</li>
+                  <li>Обучение персонала</li>
+                </ul>
+              </div>
+
+              <p><strong>Зарплата:</strong> $80K - $180K+ в год или почасовая оплата</p>
+              <p><strong>Требования:</strong> Глубокое понимание AI + бизнес-опыт</p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Machine Learning инженер</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <p><strong>Что делает:</strong> Разрабатывает и внедряет модели машинного обучения.</p>
+
+              <div class="info-box" style="margin: 1rem 0;">
+                <strong>Ключевые обязанности:</strong>
+                <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+                  <li>Проектирование ML-моделей</li>
+                  <li>Обучение и оптимизация моделей</li>
+                  <li>Развёртывание в production</li>
+                  <li>Мониторинг производительности</li>
+                </ul>
+              </div>
+
+              <p><strong>Зарплата:</strong> $120K - $300K+ в год</p>
+              <p><strong>Требования:</strong> Программирование (Python), математика, статистика</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Engineer Skills -->
+        <h2>Навыки промпт-инженера</h2>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Акцент на практичность:</strong> Подчеркните, что промпт-инжиниринг — одна из самых доступных точек входа в AI-индустрию. Не требует программирования или математики на старте.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Необходимые навыки</div>
+          <div class="card-body">
+            <div class="tabs">
+              <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="hard-skills">Hard Skills</button>
+                <button class="tab-btn" data-tab="soft-skills">Soft Skills</button>
+                <button class="tab-btn" data-tab="tools">Инструменты</button>
+              </div>
+
+              <div class="tab-content active" id="hard-skills">
+                <ul style="padding-left: 1.5rem;">
+                  <li><strong>Понимание работы LLM</strong> — как модели генерируют текст, их возможности и ограничения</li>
+                  <li><strong>Техники промптинга</strong> — zero-shot, few-shot, chain-of-thought и другие</li>
+                  <li><strong>Структурирование информации</strong> — умение чётко формулировать задачи</li>
+                  <li><strong>Тестирование и итерация</strong> — систематический подход к улучшению промптов</li>
+                  <li><strong>Основы NLP</strong> — понимание токенизации, контекста, temperature</li>
+                </ul>
+              </div>
+
+              <div class="tab-content" id="soft-skills">
+                <ul style="padding-left: 1.5rem;">
+                  <li><strong>Критическое мышление</strong> — оценка качества ответов AI</li>
+                  <li><strong>Креативность</strong> — нестандартные подходы к решению задач</li>
+                  <li><strong>Коммуникация</strong> — умение объяснять сложные концепции простым языком</li>
+                  <li><strong>Внимание к деталям</strong> — мелочи в промптах сильно влияют на результат</li>
+                  <li><strong>Адаптивность</strong> — AI-сфера быстро меняется</li>
+                </ul>
+              </div>
+
+              <div class="tab-content" id="tools">
+                <ul style="padding-left: 1.5rem;">
+                  <li><strong>ChatGPT</strong> — основной инструмент для работы с GPT-моделями</li>
+                  <li><strong>Claude</strong> — альтернатива от Anthropic с фокусом на безопасность</li>
+                  <li><strong>Gemini</strong> — мультимодальная модель от Google</li>
+                  <li><strong>OpenAI Playground</strong> — тонкая настройка параметров</li>
+                  <li><strong>LangChain / LlamaIndex</strong> — для продвинутых сценариев</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Career Path -->
+        <h2>Путь развития карьеры</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <div class="career-path" style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="career-step" style="display: flex; align-items: flex-start; gap: 1rem;">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">1</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Начинающий (0-6 месяцев)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Изучение основ промптинга, практика с бесплатными инструментами, создание портфолио промптов</p>
+                </div>
+              </div>
+
+              <div style="width: 2px; height: 30px; background: var(--border); margin-left: 24px;"></div>
+
+              <div class="career-step" style="display: flex; align-items: flex-start; gap: 1rem;">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">2</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Junior (6-12 месяцев)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Первые проекты на фрилансе, работа с API, освоение продвинутых техник</p>
+                </div>
+              </div>
+
+              <div style="width: 2px; height: 30px; background: var(--border); margin-left: 24px;"></div>
+
+              <div class="career-step" style="display: flex; align-items: flex-start; gap: 1rem;">
+                <div style="min-width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">3</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Middle (1-2 года)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Работа в компании, создание систем промптов, обучение других</p>
+                </div>
+              </div>
+
+              <div style="width: 2px; height: 30px; background: var(--border); margin-left: 24px;"></div>
+
+              <div class="career-step" style="display: flex; align-items: flex-start; gap: 1rem;">
+                <div style="min-width: 50px; height: 50px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">4</div>
+                <div>
+                  <h4 style="margin: 0 0 0.5rem 0;">Senior / Lead (2+ года)</h4>
+                  <p style="margin: 0; color: var(--text-muted);">Архитектура AI-решений, управление командой, стратегическое планирование</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Job Market -->
+        <h2>Рынок труда</h2>
+
+        <div class="card">
+          <div class="card-header">Где искать работу</div>
+          <div class="card-body">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Платформы для фриланса</h4>
+                <ul style="padding-left: 1.5rem; margin: 0;">
+                  <li>Upwork — много AI-проектов</li>
+                  <li>Fiverr — для начинающих</li>
+                  <li>Toptal — для опытных</li>
+                  <li>Kwork (СНГ)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Вакансии</h4>
+                <ul style="padding-left: 1.5rem; margin: 0;">
+                  <li>LinkedIn — глобальный поиск</li>
+                  <li>Indeed — много AI-позиций</li>
+                  <li>HeadHunter (СНГ)</li>
+                  <li>Хабр Карьера</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">AI-компании</h4>
+                <ul style="padding-left: 1.5rem; margin: 0;">
+                  <li>OpenAI, Anthropic, Google</li>
+                  <li>Scale AI, Appen</li>
+                  <li>AI-стартапы на AngelList</li>
+                  <li>Крупные tech-компании</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips for Success -->
+        <div class="card" style="border-left: 4px solid var(--success);">
+          <div class="card-header">Советы для успешного старта</div>
+          <div class="card-body">
+            <div class="tip-list">
+              <div class="tip-item" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                <span style="font-size: 1.5rem;">1.</span>
+                <div>
+                  <strong>Создайте портфолио</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Соберите примеры своих лучших промптов для разных задач</p>
+                </div>
+              </div>
+              <div class="tip-item" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                <span style="font-size: 1.5rem;">2.</span>
+                <div>
+                  <strong>Практикуйтесь каждый день</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">30 минут практики лучше, чем часы теории</p>
+                </div>
+              </div>
+              <div class="tip-item" style="display: flex; gap: 1rem; margin-bottom: 1rem;">
+                <span style="font-size: 1.5rem;">3.</span>
+                <div>
+                  <strong>Следите за трендами</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">AI-сфера развивается стремительно — будьте в курсе новинок</p>
+                </div>
+              </div>
+              <div class="tip-item" style="display: flex; gap: 1rem;">
+                <span style="font-size: 1.5rem;">4.</span>
+                <div>
+                  <strong>Нетворкинг</strong>
+                  <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Присоединяйтесь к AI-сообществам, посещайте митапы</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <h2>Проверьте себя</h2>
+
+        <div class="quiz-container" data-quiz="career">
+          <div class="quiz-question" data-question="1">
+            <div class="question-text">Какая профессия имеет самый низкий порог входа в AI-индустрию?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Machine Learning инженер</div>
+              <div class="quiz-option" data-correct="true">Промпт-инженер</div>
+              <div class="quiz-option" data-correct="false">AI-исследователь</div>
+              <div class="quiz-option" data-correct="false">Data Scientist</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="2">
+            <div class="question-text">Какой навык НЕ является обязательным для промпт-инженера?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Понимание работы LLM</div>
+              <div class="quiz-option" data-correct="false">Критическое мышление</div>
+              <div class="quiz-option" data-correct="true">Глубокое знание математики</div>
+              <div class="quiz-option" data-correct="false">Умение структурировать информацию</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="3">
+            <div class="question-text">Сколько времени нужно для перехода от начинающего до Junior-уровня?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">1-2 недели</div>
+              <div class="quiz-option" data-correct="true">6-12 месяцев</div>
+              <div class="quiz-option" data-correct="false">3-5 лет</div>
+              <div class="quiz-option" data-correct="false">Невозможно определить</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-results">
+            <div class="quiz-score"></div>
+            <button class="btn btn-primary quiz-retry-btn">Пройти ещё раз</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+          <div class="card-header">Итоги урока</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li>AI создаёт миллионы новых рабочих мест</li>
+              <li>Промпт-инжиниринг — отличная точка входа в индустрию</li>
+              <li>Основные навыки: понимание LLM, критическое мышление, практика</li>
+              <li>Карьерный путь: от начинающего до Senior за 2-3 года</li>
+              <li>Важно: портфолио, постоянное обучение, нетворкинг</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-1.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="2">
+            Завершить урок
+          </button>
+          <a href="lesson-3.html" class="btn btn-secondary nav-arrow-next">
+            Следующий урок
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

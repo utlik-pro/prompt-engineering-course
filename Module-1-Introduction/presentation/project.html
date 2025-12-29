@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Домашнее задание | Модуль 1</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 1</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Что такое ИИ
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Карьера в AI
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Обзор платформ
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Основы промптинга
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Первые промпты
+        </a>
+
+        <a href="project.html" class="nav-item active" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 1</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Домашнее задание</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-badge">Домашнее задание</div>
+          <h1 class="hero-title">Портфолио промптов</h1>
+          <p class="hero-subtitle">Закрепление материала: создание первой коллекции промптов</p>
+        </div>
+
+        <!-- Overview -->
+        <div class="card">
+          <div class="card-header">О задании</div>
+          <div class="card-body">
+            <p>В этом домашнем задании вы создадите своё первое портфолио промптов — коллекцию из 6 промптов для разных задач. Это портфолио станет основой вашей библиотеки, которую вы будете пополнять на протяжении курса.</p>
+
+            <div style="display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap;">
+              <div>
+                <strong>Время выполнения:</strong><br>
+                60-90 минут
+              </div>
+              <div>
+                <strong>Количество заданий:</strong><br>
+                6 промптов
+              </div>
+              <div>
+                <strong>Формат сдачи:</strong><br>
+                Документ (Google Docs / Word / Notion)
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Критерии оценки:</strong></p>
+            <ul style="margin: 0.5rem 0 0 1rem;">
+              <li>Использование формулы CRAFT (или её элементов)</li>
+              <li>Конкретность и чёткость формулировок</li>
+              <li>Указание формата вывода</li>
+              <li>Креативность и практичность промптов</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Рекомендация:</strong> Попросите студентов также приложить результаты работы их промптов (скриншоты или текст ответов AI).</p>
+          </div>
+        </div>
+
+        <!-- Tasks -->
+        <h2>Задания</h2>
+
+        <!-- Task 1 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <span style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">1</span>
+              Промпт для личной задачи
+            </span>
+          </div>
+          <div class="card-body">
+            <p><strong>Задание:</strong> Создайте промпт для решения реальной задачи из вашей жизни или работы.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Примеры:</strong>
+              <ul style="margin: 0.5rem 0 0 1rem;">
+                <li>Составление плана тренировок на неделю</li>
+                <li>Написание резюме или сопроводительного письма</li>
+                <li>Планирование путешествия</li>
+                <li>Составление меню на неделю</li>
+              </ul>
+            </div>
+
+            <p><strong>Требования:</strong></p>
+            <ul style="padding-left: 1.5rem;">
+              <li>Используйте минимум 3 элемента из CRAFT</li>
+              <li>Укажите желаемый формат вывода</li>
+              <li>Промпт должен решать реальную задачу</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 2 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <span style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">2</span>
+              Промпт для обучения
+            </span>
+          </div>
+          <div class="card-body">
+            <p><strong>Задание:</strong> Создайте промпт, который поможет вам изучить что-то новое.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Примеры:</strong>
+              <ul style="margin: 0.5rem 0 0 1rem;">
+                <li>Объяснение сложной концепции простым языком</li>
+                <li>Создание плана изучения нового навыка</li>
+                <li>Генерация тестовых вопросов по теме</li>
+                <li>Получение пошаговой инструкции</li>
+              </ul>
+            </div>
+
+            <p><strong>Требования:</strong></p>
+            <ul style="padding-left: 1.5rem;">
+              <li>AI должен выступать в роли эксперта/преподавателя</li>
+              <li>Укажите ваш текущий уровень знаний</li>
+              <li>Определите желаемый результат обучения</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 3 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <span style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">3</span>
+              Промпт для рабочей задачи
+            </span>
+          </div>
+          <div class="card-body">
+            <p><strong>Задание:</strong> Создайте промпт для типичной рабочей задачи (реальной или гипотетической).</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Примеры:</strong>
+              <ul style="margin: 0.5rem 0 0 1rem;">
+                <li>Написание делового письма</li>
+                <li>Подготовка тезисов для презентации</li>
+                <li>Анализ данных или отчёта</li>
+                <li>Составление технического задания</li>
+              </ul>
+            </div>
+
+            <p><strong>Требования:</strong></p>
+            <ul style="padding-left: 1.5rem;">
+              <li>Укажите контекст рабочей ситуации</li>
+              <li>Определите целевую аудиторию результата</li>
+              <li>Задайте профессиональный тон</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 4 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <span style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">4</span>
+              Промпт для креатива
+            </span>
+          </div>
+          <div class="card-body">
+            <p><strong>Задание:</strong> Создайте промпт для творческой задачи.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Примеры:</strong>
+              <ul style="margin: 0.5rem 0 0 1rem;">
+                <li>Генерация идей для хобби-проекта</li>
+                <li>Написание поздравления или тоста</li>
+                <li>Создание сценария для видео</li>
+                <li>Придумывание названий или слоганов</li>
+              </ul>
+            </div>
+
+            <p><strong>Требования:</strong></p>
+            <ul style="padding-left: 1.5rem;">
+              <li>Задайте творческие ограничения (стиль, тон, длина)</li>
+              <li>Приведите примеры желаемого результата</li>
+              <li>Попросите несколько вариантов на выбор</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 5 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <span style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: var(--primary); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">5</span>
+              Промпт для анализа
+            </span>
+          </div>
+          <div class="card-body">
+            <p><strong>Задание:</strong> Создайте промпт для анализа информации или принятия решения.</p>
+
+            <div class="info-box" style="margin: 1rem 0;">
+              <strong>Примеры:</strong>
+              <ul style="margin: 0.5rem 0 0 1rem;">
+                <li>Сравнение двух вариантов (товаров, решений)</li>
+                <li>SWOT-анализ идеи</li>
+                <li>Оценка рисков</li>
+                <li>Разбор плюсов и минусов</li>
+              </ul>
+            </div>
+
+            <p><strong>Требования:</strong></p>
+            <ul style="padding-left: 1.5rem;">
+              <li>Структурируйте запрос пошагово</li>
+              <li>Попросите обоснование выводов</li>
+              <li>Укажите критерии для анализа</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Task 6 -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header">
+            <span style="display: flex; align-items: center; gap: 0.75rem;">
+              <span style="background: var(--success); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600;">6</span>
+              Улучшение плохого промпта
+            </span>
+          </div>
+          <div class="card-body">
+            <p><strong>Задание:</strong> Возьмите плохой промпт и превратите его в эффективный.</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+              <div style="padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px; border-left: 4px solid var(--danger);">
+                <strong style="color: var(--danger);">Исходный плохой промпт:</strong>
+                <p style="margin: 0.5rem 0 0 0; font-style: italic;">"Напиши что-нибудь про бизнес"</p>
+              </div>
+              <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px; border-left: 4px solid var(--success);">
+                <strong style="color: var(--success);">Ваша задача:</strong>
+                <p style="margin: 0.5rem 0 0 0;">Переписать этот промпт, сделав его конкретным и эффективным</p>
+              </div>
+            </div>
+
+            <p><strong>Требования:</strong></p>
+            <ul style="padding-left: 1.5rem;">
+              <li>Сохраните общую тему (бизнес)</li>
+              <li>Добавьте все элементы CRAFT</li>
+              <li>Объясните, почему ваша версия лучше (2-3 предложения)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Submission Format -->
+        <h2>Формат сдачи</h2>
+
+        <div class="card">
+          <div class="card-header">Структура документа</div>
+          <div class="card-body">
+            <p>Оформите портфолио в виде документа со следующей структурой:</p>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-header">
+                <span>Шаблон портфолио</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code># Портфолио промптов
+## Модуль 1 — Введение в промпт-инжиниринг
+
+**Автор:** [Ваше имя]
+**Дата:** [Дата выполнения]
+
+---
+
+## Промпт 1: Личная задача
+**Название:** [Краткое название]
+**Категория:** Личное
+
+### Промпт:
+[Полный текст промпта]
+
+### Результат:
+[Скриншот или текст ответа AI]
+
+### Комментарий:
+[Что получилось хорошо? Что можно улучшить?]
+
+---
+
+## Промпт 2: Обучение
+[Аналогичная структура]
+
+---
+
+[И так далее для всех 6 промптов]</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <h2>Критерии оценки</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <table style="width: 100%; border-collapse: collapse;">
+              <thead>
+                <tr style="background: var(--surface);">
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Критерий</th>
+                  <th style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--border);">Баллы</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Использование элементов CRAFT</td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">0-20</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Конкретность и чёткость формулировок</td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">0-20</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Указание формата вывода</td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">0-15</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Практичность и применимость</td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">0-20</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Качество результатов (ответов AI)</td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">0-15</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem; border-bottom: 1px solid var(--border);">Оформление и структура</td>
+                  <td style="padding: 0.75rem; text-align: center; border-bottom: 1px solid var(--border);">0-10</td>
+                </tr>
+                <tr style="background: var(--surface); font-weight: 600;">
+                  <td style="padding: 0.75rem;">Итого</td>
+                  <td style="padding: 0.75rem; text-align: center;">100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Checklist -->
+        <h2>Чек-лист выполнения</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="hw1-1"></span>
+                <span class="checklist-text">Промпт 1: Личная задача — готов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="hw1-2"></span>
+                <span class="checklist-text">Промпт 2: Обучение — готов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="hw1-3"></span>
+                <span class="checklist-text">Промпт 3: Рабочая задача — готов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="hw1-4"></span>
+                <span class="checklist-text">Промпт 4: Креатив — готов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="hw1-5"></span>
+                <span class="checklist-text">Промпт 5: Анализ — готов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="hw1-6"></span>
+                <span class="checklist-text">Промпт 6: Улучшение плохого промпта — готов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="hw1-7"></span>
+                <span class="checklist-text">Добавлены результаты (ответы AI) для каждого промпта</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="hw1-8"></span>
+                <span class="checklist-text">Документ оформлен по шаблону</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-header">Советы по выполнению</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li style="margin-bottom: 0.75rem;">Не торопитесь — качество важнее скорости</li>
+              <li style="margin-bottom: 0.75rem;">Тестируйте промпты несколько раз и выбирайте лучшую версию</li>
+              <li style="margin-bottom: 0.75rem;">Если результат не устраивает — итерируйте и улучшайте</li>
+              <li style="margin-bottom: 0.75rem;">Пишите промпты для реальных задач, которые вам полезны</li>
+              <li>Сохраняйте удачные промпты — они пригодятся в будущем</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Completion -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); border-left: 4px solid var(--success);">
+          <div class="card-header">Завершение модуля</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin: 0 0 1rem 0;">После выполнения домашнего задания вы завершите Модуль 1!</p>
+            <p>В следующих модулях вы изучите продвинутые техники промптинга и научитесь создавать сложные системы промптов.</p>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-5.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="6">
+            Завершить модуль
+          </button>
+          <a href="../../index.html" class="btn btn-secondary">
+            К списку модулей
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

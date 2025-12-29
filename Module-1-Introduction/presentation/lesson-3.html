@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 3: Обзор платформ | Модуль 1</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 1</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Что такое ИИ
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Карьера в AI
+        </a>
+
+        <a href="lesson-3.html" class="nav-item active" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Обзор платформ
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Основы промптинга
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Первые промпты
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="../../index.html">Курс</a>
+          <span class="breadcrumb-separator">/</span>
+          <a href="index.html">Модуль 1</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 3</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- Hero Section -->
+        <div class="hero">
+          <div class="hero-badge">Урок 3</div>
+          <h1 class="hero-title">Обзор AI платформ</h1>
+          <p class="hero-subtitle">ChatGPT, Claude, Gemini — сравнение возможностей и бесплатных функций</p>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="card">
+          <div class="card-header">Цели урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l3-obj-1"></span>
+                <span class="checklist-text">Познакомиться с основными AI-платформами</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l3-obj-2"></span>
+                <span class="checklist-text">Понять сильные и слабые стороны каждой</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l3-obj-3"></span>
+                <span class="checklist-text">Научиться выбирать платформу под задачу</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="l3-obj-4"></span>
+                <span class="checklist-text">Зарегистрироваться и начать использовать</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Overview -->
+        <h2>Три главных игрока</h2>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Практическая часть:</strong> Попросите студентов открыть все три платформы и отправить одинаковый запрос для сравнения ответов. Это наглядно покажет различия.</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <!-- ChatGPT Card -->
+          <div class="card" style="border-top: 4px solid #10A37F;">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <div style="width: 50px; height: 50px; background: #10A37F; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                    <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 style="margin: 0;">ChatGPT</h3>
+                  <span style="color: var(--text-muted); font-size: 0.875rem;">OpenAI</span>
+                </div>
+              </div>
+              <p style="color: var(--text-muted);">Самая популярная AI-платформа. Универсальный помощник для текста, кода и анализа.</p>
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                <strong>Модели:</strong> GPT-4o, GPT-4, GPT-3.5
+              </div>
+            </div>
+          </div>
+
+          <!-- Claude Card -->
+          <div class="card" style="border-top: 4px solid #D97757;">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <div style="width: 50px; height: 50px; background: #D97757; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 style="margin: 0;">Claude</h3>
+                  <span style="color: var(--text-muted); font-size: 0.875rem;">Anthropic</span>
+                </div>
+              </div>
+              <p style="color: var(--text-muted);">Фокус на безопасности и этичности. Отлично подходит для длинных текстов и анализа.</p>
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                <strong>Модели:</strong> Claude 3.5 Sonnet, Claude 3 Opus
+              </div>
+            </div>
+          </div>
+
+          <!-- Gemini Card -->
+          <div class="card" style="border-top: 4px solid #4285F4;">
+            <div class="card-body">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #4285F4, #EA4335, #FBBC04, #34A853); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 2L2 7v10l10 5 10-5V7L12 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 style="margin: 0;">Gemini</h3>
+                  <span style="color: var(--text-muted); font-size: 0.875rem;">Google</span>
+                </div>
+              </div>
+              <p style="color: var(--text-muted);">Мультимодальная модель от Google. Интеграция с Google-сервисами и поиском.</p>
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                <strong>Модели:</strong> Gemini Ultra, Pro, Flash
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detailed Comparison -->
+        <h2>Детальное сравнение</h2>
+
+        <div class="card">
+          <div class="card-body" style="overflow-x: auto;">
+            <table class="comparison-table" style="width: 100%; border-collapse: collapse; min-width: 600px;">
+              <thead>
+                <tr style="background: var(--surface);">
+                  <th style="padding: 1rem; text-align: left; border-bottom: 2px solid var(--border);">Характеристика</th>
+                  <th style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--border);">ChatGPT</th>
+                  <th style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--border);">Claude</th>
+                  <th style="padding: 1rem; text-align: center; border-bottom: 2px solid var(--border);">Gemini</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong>Бесплатный доступ</strong></td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да (GPT-3.5)</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да (с лимитами)</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong>Контекстное окно</strong></td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border);">128K токенов</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border);">200K токенов</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border);">1M+ токенов</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong>Работа с изображениями</strong></td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong>Генерация изображений</strong></td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">DALL-E 3</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--text-muted);">Нет</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Imagen</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong>Доступ к интернету</strong></td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да (Plus)</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--text-muted);">Нет</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong>Выполнение кода</strong></td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да (Artifacts)</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да</td>
+                </tr>
+                <tr>
+                  <td style="padding: 1rem;"><strong>Платная подписка</strong></td>
+                  <td style="padding: 1rem; text-align: center;">$20/мес</td>
+                  <td style="padding: 1rem; text-align: center;">$20/мес</td>
+                  <td style="padding: 1rem; text-align: center;">$20/мес</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Platform Deep Dive -->
+        <h2>Подробнее о каждой платформе</h2>
+
+        <div class="accordion">
+          <div class="accordion-item open">
+            <div class="accordion-header">
+              <span>ChatGPT (OpenAI)</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <h4>Сильные стороны:</h4>
+              <ul style="padding-left: 1.5rem;">
+                <li>Самая большая экосистема плагинов и GPTs</li>
+                <li>Отличная генерация кода</li>
+                <li>DALL-E для создания изображений</li>
+                <li>Широкое сообщество и документация</li>
+                <li>Интеграция с интернетом (браузинг)</li>
+              </ul>
+
+              <h4 style="margin-top: 1rem;">Слабые стороны:</h4>
+              <ul style="padding-left: 1.5rem;">
+                <li>Лимиты на бесплатном плане</li>
+                <li>Может "галлюцинировать" факты</li>
+                <li>Дата обучения может быть устаревшей</li>
+              </ul>
+
+              <div class="info-box" style="margin-top: 1rem;">
+                <strong>Лучше всего для:</strong> Генерация кода, креативное письмо, создание изображений, универсальные задачи
+              </div>
+
+              <p style="margin-top: 1rem;"><strong>Регистрация:</strong> <a href="https://chat.openai.com" target="_blank" style="color: var(--primary);">chat.openai.com</a></p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Claude (Anthropic)</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <h4>Сильные стороны:</h4>
+              <ul style="padding-left: 1.5rem;">
+                <li>Огромное контекстное окно (200K токенов)</li>
+                <li>Отличный анализ длинных документов</li>
+                <li>Более "честные" и осторожные ответы</li>
+                <li>Artifacts для создания интерактивного контента</li>
+                <li>Хорошая работа со сложными инструкциями</li>
+              </ul>
+
+              <h4 style="margin-top: 1rem;">Слабые стороны:</h4>
+              <ul style="padding-left: 1.5rem;">
+                <li>Нет доступа к интернету</li>
+                <li>Нет генерации изображений</li>
+                <li>Более строгие ограничения контента</li>
+              </ul>
+
+              <div class="info-box" style="margin-top: 1rem;">
+                <strong>Лучше всего для:</strong> Анализ документов, длинные тексты, сложные рассуждения, код
+              </div>
+
+              <p style="margin-top: 1rem;"><strong>Регистрация:</strong> <a href="https://claude.ai" target="_blank" style="color: var(--primary);">claude.ai</a></p>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Gemini (Google)</span>
+              <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6,9 12,15 18,9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <h4>Сильные стороны:</h4>
+              <ul style="padding-left: 1.5rem;">
+                <li>Интеграция с Google-сервисами (Docs, Gmail, Drive)</li>
+                <li>Актуальная информация из интернета</li>
+                <li>Огромное контекстное окно (до 1M токенов)</li>
+                <li>Мультимодальность "из коробки"</li>
+                <li>Щедрый бесплатный план</li>
+              </ul>
+
+              <h4 style="margin-top: 1rem;">Слабые стороны:</h4>
+              <ul style="padding-left: 1.5rem;">
+                <li>Менее развитая экосистема плагинов</li>
+                <li>Иногда менее точные ответы</li>
+                <li>Ограниченная доступность в некоторых регионах</li>
+              </ul>
+
+              <div class="info-box" style="margin-top: 1rem;">
+                <strong>Лучше всего для:</strong> Поиск информации, работа с Google-сервисами, мультимодальные задачи
+              </div>
+
+              <p style="margin-top: 1rem;"><strong>Регистрация:</strong> <a href="https://gemini.google.com" target="_blank" style="color: var(--primary);">gemini.google.com</a></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Choosing the Right Platform -->
+        <h2>Как выбрать платформу</h2>
+
+        <div class="card">
+          <div class="card-header">Рекомендации по задачам</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #10A37F;">
+                <strong>ChatGPT выбирайте, если:</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                  <li>Нужна генерация изображений</li>
+                  <li>Хотите использовать плагины и GPTs</li>
+                  <li>Требуется доступ к актуальной информации</li>
+                  <li>Работаете с кодом и нужно его выполнять</li>
+                </ul>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #D97757;">
+                <strong>Claude выбирайте, если:</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                  <li>Нужно анализировать большие документы</li>
+                  <li>Требуется детальный и осторожный анализ</li>
+                  <li>Работаете со сложными инструкциями</li>
+                  <li>Важна безопасность и этичность ответов</li>
+                </ul>
+              </div>
+
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #4285F4;">
+                <strong>Gemini выбирайте, если:</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                  <li>Активно используете Google-сервисы</li>
+                  <li>Нужен доступ к актуальной информации из поиска</li>
+                  <li>Работаете с очень большими документами</li>
+                  <li>Хотите бесплатный и щедрый план</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Practical Tips -->
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-header">Практические советы</div>
+          <div class="card-body">
+            <ol style="padding-left: 1.5rem;">
+              <li style="margin-bottom: 1rem;">
+                <strong>Используйте несколько платформ</strong>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Для важных задач проверяйте ответы на 2-3 платформах</p>
+              </li>
+              <li style="margin-bottom: 1rem;">
+                <strong>Зарегистрируйтесь везде</strong>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Бесплатные планы позволяют пробовать без оплаты</p>
+              </li>
+              <li style="margin-bottom: 1rem;">
+                <strong>Экспериментируйте с одинаковыми промптами</strong>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Это поможет понять различия в ответах</p>
+              </li>
+              <li>
+                <strong>Следите за обновлениями</strong>
+                <p style="margin: 0.25rem 0 0 0; color: var(--text-muted);">Платформы быстро развиваются и добавляют новые функции</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Other Platforms -->
+        <h2>Другие платформы</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <p>Помимо "большой тройки" существуют и другие полезные инструменты:</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <strong>Perplexity AI</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.875rem;">AI-поисковик с цитированием источников</p>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <strong>Microsoft Copilot</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.875rem;">GPT-4 бесплатно + интеграция с Bing</p>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <strong>Mistral Le Chat</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.875rem;">Европейская альтернатива, быстрая и бесплатная</p>
+              </div>
+              <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
+                <strong>DeepSeek</strong>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.875rem;">Отличная модель для кода</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <h2>Проверьте себя</h2>
+
+        <div class="quiz-container" data-quiz="platforms">
+          <div class="quiz-question" data-question="1">
+            <div class="question-text">Какая платформа имеет самое большое контекстное окно?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">ChatGPT</div>
+              <div class="quiz-option" data-correct="false">Claude</div>
+              <div class="quiz-option" data-correct="true">Gemini</div>
+              <div class="quiz-option" data-correct="false">Все одинаковые</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="2">
+            <div class="question-text">Какая платформа НЕ имеет встроенной генерации изображений?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">ChatGPT</div>
+              <div class="quiz-option" data-correct="true">Claude</div>
+              <div class="quiz-option" data-correct="false">Gemini</div>
+              <div class="quiz-option" data-correct="false">Все имеют</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="3">
+            <div class="question-text">Для анализа большого документа (100+ страниц) лучше выбрать:</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">ChatGPT (GPT-3.5)</div>
+              <div class="quiz-option" data-correct="true">Claude или Gemini</div>
+              <div class="quiz-option" data-correct="false">Perplexity</div>
+              <div class="quiz-option" data-correct="false">Ни одну из них</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-results">
+            <div class="quiz-score"></div>
+            <button class="btn btn-primary quiz-retry-btn">Пройти ещё раз</button>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
+          <div class="card-header">Итоги урока</div>
+          <div class="card-body">
+            <ul style="padding-left: 1.5rem; margin: 0;">
+              <li><strong>ChatGPT</strong> — универсальный выбор с плагинами и генерацией изображений</li>
+              <li><strong>Claude</strong> — для длинных документов и сложных рассуждений</li>
+              <li><strong>Gemini</strong> — для интеграции с Google и актуальной информации</li>
+              <li>Все три платформы имеют бесплатные планы</li>
+              <li>Лучше использовать несколько платформ параллельно</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-2.html" class="btn btn-secondary nav-arrow-prev">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            Предыдущий урок
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="3">
+            Завершить урок
+          </button>
+          <a href="lesson-4.html" class="btn btn-secondary nav-arrow-next">
+            Следующий урок
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,18 15,12 9,6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
