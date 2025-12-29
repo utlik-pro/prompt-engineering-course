@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 1: ChatGPT Images (DALL-E 3) | Модуль 5</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 7 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 5</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item active" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          ChatGPT Images
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Grok Aurora
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Gemini Imagen
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Nanabanana
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Sora 2 (Видео)
+        </a>
+
+        <a href="lesson-6.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">6</span>
+          Практика: Генерация
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="7">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 5</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 1: ChatGPT Images</span>
+        </div>
+
+        <div class="header-actions">
+          <span class="lesson-time">⏱ 35 мин</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <h1>ChatGPT Images (DALL-E 3)</h1>
+
+        <p class="lead">
+          Самый популярный и доступный генератор изображений, интегрированный в ChatGPT. Работает на модели DALL-E 3.
+        </p>
+
+        <!-- Key Concept -->
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-body">
+            <h3>💡 Главная идея</h3>
+            <p style="font-size: 1.1rem; margin: 0;">
+              <strong>ChatGPT Images понимает контекст разговора</strong> — вы можете просить изменения и уточнения в диалоговом режиме, как будто общаетесь с дизайнером.
+            </p>
+          </div>
+        </div>
+
+        <!-- Access -->
+        <h2>Как получить доступ</h2>
+
+        <div class="alert alert-info">
+          <strong>Способы доступа к ChatGPT Images:</strong>
+          <ul style="margin: 0.5rem 0 0 1rem;">
+            <li><strong>chatgpt.com/images</strong> — прямой доступ к генератору</li>
+            <li><strong>ChatGPT Plus/Pro</strong> — через обычный чат ChatGPT</li>
+            <li><strong>API</strong> — для разработчиков (DALL-E 3 API)</li>
+          </ul>
+        </div>
+
+        <!-- Features -->
+        <h2>Ключевые особенности</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div class="card" style="border-top: 4px solid #6366f1;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💬</div>
+              <h4>Контекстное понимание</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Помнит историю чата и может уточнять детали в диалоге</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✏️</div>
+              <h4>Редактирование</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Можно попросить изменить конкретные элементы изображения</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #f59e0b;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎨</div>
+              <h4>Стили</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Фотореализм, иллюстрации, 3D, живопись и многое другое</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Structure -->
+        <h2>Структура промпта для DALL-E 3</h2>
+
+        <div class="card">
+          <div class="card-header">Компоненты эффективного промпта</div>
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Компонент</th>
+                  <th>Описание</th>
+                  <th>Пример</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Субъект</strong></td>
+                  <td>Главный объект изображения</td>
+                  <td>"молодая женщина", "современный офис"</td>
+                </tr>
+                <tr>
+                  <td><strong>Действие/Поза</strong></td>
+                  <td>Что делает субъект</td>
+                  <td>"читает книгу", "смотрит в камеру"</td>
+                </tr>
+                <tr>
+                  <td><strong>Окружение</strong></td>
+                  <td>Фон и обстановка</td>
+                  <td>"в уютном кафе", "на фоне гор"</td>
+                </tr>
+                <tr>
+                  <td><strong>Стиль</strong></td>
+                  <td>Визуальный стиль</td>
+                  <td>"фотореалистичный", "акварель"</td>
+                </tr>
+                <tr>
+                  <td><strong>Освещение</strong></td>
+                  <td>Тип и источник света</td>
+                  <td>"мягкий естественный свет"</td>
+                </tr>
+                <tr>
+                  <td><strong>Настроение</strong></td>
+                  <td>Эмоциональная атмосфера</td>
+                  <td>"тёплая", "драматичная"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Example Prompts -->
+        <h2>Примеры промптов</h2>
+
+        <!-- Example 1 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge">Фотореалистичный портрет</span>
+            <span class="demo-title">Бизнес-контент</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Профессиональный портрет успешного бизнесмена 35 лет в синем костюме, уверенная улыбка, современный офис со стеклянными стенами на фоне, мягкое студийное освещение, снято на профессиональную камеру, высокое разрешение, корпоративный стиль</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Фотореалистичное изображение, готовое для LinkedIn или корпоративного сайта</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge demo-badge-success">Продуктовое фото</span>
+            <span class="demo-title">E-commerce</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Элегантные беспроводные наушники на мраморной поверхности, минималистичный фон в пастельных тонах, мягкие тени, профессиональное продуктовое фото для рекламы, высокое качество, чистый современный стиль Apple</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Готовое фото для интернет-магазина или рекламной кампании</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: var(--warning);">Иллюстрация</span>
+            <span class="demo-title">Социальные сети</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Плоская векторная иллюстрация команды разработчиков, работающих вместе за большим столом с ноутбуками, яркие сочные цвета (фиолетовый, оранжевый, бирюзовый), геометрические формы, современный дизайн для стартапа, без теней, чистый минимализм</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Стильная иллюстрация для презентации или сайта</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Демонстрация:</strong> Покажите студентам разницу между коротким и детальным промптом на одном и том же субъекте.</p>
+            <p><strong>Упражнение:</strong> Попросите студентов создать 3 изображения для своего воображаемого бренда.</p>
+          </div>
+        </div>
+
+        <!-- Iterative Editing -->
+        <h2>Итеративное редактирование</h2>
+
+        <div class="alert alert-success">
+          <strong>Уникальная возможность ChatGPT:</strong> Вы можете просить изменения в диалоговом режиме!
+        </div>
+
+        <div class="card">
+          <div class="card-header">Пример диалога редактирования</div>
+          <div class="card-body">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 8px;">
+                <strong>Вы:</strong> Создай изображение уютного кафе с большими окнами
+              </div>
+              <div style="background: var(--bg-main); padding: 1rem; border-radius: 8px;">
+                <strong>ChatGPT:</strong> [Генерирует изображение кафе]
+              </div>
+              <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 8px;">
+                <strong>Вы:</strong> Добавь больше растений и сделай освещение теплее
+              </div>
+              <div style="background: var(--bg-main); padding: 1rem; border-radius: 8px;">
+                <strong>ChatGPT:</strong> [Генерирует обновлённое изображение с растениями и тёплым светом]
+              </div>
+              <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 8px;">
+                <strong>Вы:</strong> Теперь добавь человека, читающего книгу у окна
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <h2>Советы для лучших результатов</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-marketing">Совет 1</span>
+            <h4>Будьте конкретны в стиле</h4>
+          </div>
+          <div class="example-body">
+            <div class="comparison" style="grid-template-columns: 1fr 1fr;">
+              <div class="comparison-item bad">
+                <div class="comparison-header">❌ Плохо</div>
+                <p>"Красивый закат"</p>
+              </div>
+              <div class="comparison-item good">
+                <div class="comparison-header">✓ Хорошо</div>
+                <p>"Драматичный закат над океаном в стиле фотографии National Geographic, золотые и пурпурные тона, силуэты пальм на переднем плане"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-service">Совет 2</span>
+            <h4>Указывайте технические параметры</h4>
+          </div>
+          <div class="example-body">
+            <p>Добавляйте технические детали для фотореалистичных изображений:</p>
+            <ul>
+              <li><strong>Камера:</strong> "снято на Canon EOS R5", "Sony A7R IV"</li>
+              <li><strong>Объектив:</strong> "85mm f/1.4", "24-70mm"</li>
+              <li><strong>Эффекты:</strong> "боке", "размытый фон", "резкий фокус"</li>
+              <li><strong>Качество:</strong> "8K", "высокое разрешение", "детализированное"</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-hr">Совет 3</span>
+            <h4>Описывайте освещение подробно</h4>
+          </div>
+          <div class="example-body">
+            <p>Освещение критически важно для настроения:</p>
+            <ul>
+              <li><strong>Мягкое:</strong> "мягкий рассеянный свет", "пасмурный день"</li>
+              <li><strong>Драматичное:</strong> "контрастное боковое освещение", "глубокие тени"</li>
+              <li><strong>Тёплое:</strong> "золотой час", "свет свечей", "закатное солнце"</li>
+              <li><strong>Холодное:</strong> "синий час", "лунный свет", "неоновое свечение"</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Limitations -->
+        <h2>Ограничения DALL-E 3</h2>
+
+        <div class="alert alert-warning">
+          <strong>Что DALL-E 3 делает с трудом:</strong>
+          <ul style="margin: 0.5rem 0 0 1rem;">
+            <li>Точный текст на изображениях (часто с ошибками)</li>
+            <li>Конкретные знаменитости или реальные люди</li>
+            <li>Очень сложные сцены с множеством деталей</li>
+            <li>Точное количество объектов (например, "ровно 5 яблок")</li>
+          </ul>
+        </div>
+
+        <!-- Quiz -->
+        <div class="card">
+          <div class="card-header">🎯 Проверьте понимание</div>
+          <div class="card-body">
+            <div class="quiz-container" data-quiz="lesson1">
+              <div class="quiz-question">
+                <h4>Вопрос 1: Какое главное преимущество ChatGPT Images перед другими генераторами?</h4>
+                <div class="quiz-options" data-correct="2">
+                  <label class="quiz-option">
+                    <input type="radio" name="q1" value="1">
+                    <span>Самое высокое разрешение</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q1" value="2">
+                    <span>Понимание контекста и диалоговое редактирование</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q1" value="3">
+                    <span>Бесплатный доступ</span>
+                  </label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+
+              <div class="quiz-question">
+                <h4>Вопрос 2: Что нужно указывать для фотореалистичных изображений?</h4>
+                <div class="quiz-options" data-correct="3">
+                  <label class="quiz-option">
+                    <input type="radio" name="q2" value="1">
+                    <span>Только субъект изображения</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q2" value="2">
+                    <span>Размер файла в пикселях</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q2" value="3">
+                    <span>Камеру, объектив, освещение и технические параметры</span>
+                  </label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+
+              <div class="quiz-question">
+                <h4>Вопрос 3: С чем DALL-E 3 справляется плохо?</h4>
+                <div class="quiz-options" data-correct="1">
+                  <label class="quiz-option">
+                    <input type="radio" name="q3" value="1">
+                    <span>Точный текст на изображениях</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q3" value="2">
+                    <span>Фотореалистичные портреты</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q3" value="3">
+                    <span>Пейзажи и природа</span>
+                  </label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary check-quiz-btn" style="margin-top: 1.5rem;">Проверить ответы</button>
+          </div>
+        </div>
+
+        <!-- Key Takeaways -->
+        <div class="card" style="border: 2px solid var(--primary);">
+          <div class="card-header" style="background: linear-gradient(135deg, var(--primary), #7C3AED);">
+            📌 Ключевые выводы урока
+          </div>
+          <div class="card-body">
+            <div class="takeaways-grid" style="display: grid; gap: 1rem;">
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">💬</span>
+                <div>
+                  <strong>Диалоговый режим</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">ChatGPT Images позволяет итеративно редактировать изображения</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">📝</span>
+                <div>
+                  <strong>Детальные промпты</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Чем больше деталей, тем лучше результат</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">📸</span>
+                <div>
+                  <strong>Технические параметры</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Указывайте камеру и объектив для фотореализма</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">💡</span>
+                <div>
+                  <strong>Освещение критично</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Описание света определяет настроение изображения</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="index.html" class="nav-arrow nav-arrow-prev">
+            <span>←</span>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Главная</div>
+            </div>
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="1">
+            Отметить как пройденный
+          </button>
+          <a href="lesson-2.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Grok Aurora</div>
+            </div>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 6: Практика генерации | Модуль 5</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 7 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 5</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          ChatGPT Images
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Grok Aurora
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Gemini Imagen
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Nanabanana
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Sora 2 (Видео)
+        </a>
+
+        <a href="lesson-6.html" class="nav-item active" data-lesson="6">
+          <span class="nav-item-number">6</span>
+          Практика: Генерация
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="7">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 5</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 6: Практика</span>
+        </div>
+
+        <div class="header-actions">
+          <span class="lesson-time">⏱ 45 мин</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <h1>Практика: Генерация контента</h1>
+
+        <p class="lead">
+          Применяем полученные знания на практике. Создаём изображения и видео для реальных бизнес-задач.
+        </p>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Формат:</strong> Студенты работают самостоятельно или в парах. Дайте 5-7 минут на каждое задание.</p>
+            <p><strong>Обсуждение:</strong> После каждого задания обсудите лучшие результаты и почему они получились.</p>
+          </div>
+        </div>
+
+        <!-- Exercise 1 -->
+        <h2>Задание 1: Продуктовое фото</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-marketing">Маркетинг</span>
+            <h4>Создайте фото продукта для интернет-магазина</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task">
+              <h5>📋 Задача:</h5>
+              <p>Создайте привлекательное фото для одного из продуктов:</p>
+              <ul>
+                <li>Умные часы</li>
+                <li>Кофемашина</li>
+                <li>Беспроводные наушники</li>
+                <li>Косметический набор</li>
+              </ul>
+            </div>
+
+            <div class="example-prompt">
+              <h5>🎯 Требования к промпту:</h5>
+              <ul>
+                <li>Укажите материал и текстуру поверхности</li>
+                <li>Опишите освещение (студийное/естественное)</li>
+                <li>Добавьте стиль (минимализм, lifestyle, премиум)</li>
+                <li>Укажите технические параметры</li>
+              </ul>
+            </div>
+
+            <div class="example-result">
+              <h5>💡 Пример базового промпта:</h5>
+              <pre style="background: var(--bg-code); color: #E2E8F0; padding: 1rem; border-radius: 8px;">Premium wireless earbuds on a matte black surface, soft gradient lighting from the left, minimalist product photography, shallow depth of field, clean white background, professional commercial style, 4K quality</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 2 -->
+        <h2>Задание 2: Портрет для сайта</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-hr">HR / Бизнес</span>
+            <h4>Создайте профессиональный портрет для "About Us"</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task">
+              <h5>📋 Задача:</h5>
+              <p>Создайте портрет члена команды для страницы "О нас" на корпоративном сайте.</p>
+            </div>
+
+            <div class="example-prompt">
+              <h5>🎯 Требования:</h5>
+              <ul>
+                <li>Укажите возраст и внешность</li>
+                <li>Опишите одежду (деловой стиль)</li>
+                <li>Добавьте фон (офис, нейтральный)</li>
+                <li>Опишите выражение лица и позу</li>
+                <li>Используйте Grok Aurora для максимального фотореализма</li>
+              </ul>
+            </div>
+
+            <div class="example-result">
+              <h5>💡 Совет:</h5>
+              <p>Используйте "candid", "genuine smile", "professional" для естественного результата.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 3 -->
+        <h2>Задание 3: Социальные сети</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-service">SMM</span>
+            <h4>Создайте визуал для Instagram/Telegram</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task">
+              <h5>📋 Задача:</h5>
+              <p>Создайте привлекательное изображение для поста в социальных сетях на одну из тем:</p>
+              <ul>
+                <li>"5 советов для продуктивности"</li>
+                <li>"Новая коллекция осень 2024"</li>
+                <li>"Приглашаем на вебинар"</li>
+                <li>"Цитата дня" с мотивирующим текстом</li>
+              </ul>
+            </div>
+
+            <div class="example-prompt">
+              <h5>🎯 Требования:</h5>
+              <ul>
+                <li>Яркие, привлекающие внимание цвета</li>
+                <li>Формат квадратный (1:1) или вертикальный (4:5)</li>
+                <li>Используйте Gemini, если нужен текст на изображении</li>
+                <li>Добавьте стиль бренда</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 4 -->
+        <h2>Задание 4: Иллюстрация для статьи</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-finance">Контент</span>
+            <h4>Создайте иллюстрацию для блога</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task">
+              <h5>📋 Задача:</h5>
+              <p>Создайте иллюстрацию для статьи на тему:</p>
+              <ul>
+                <li>"Искусственный интеллект в бизнесе"</li>
+                <li>"Удалённая работа: плюсы и минусы"</li>
+                <li>"Как начать инвестировать"</li>
+                <li>"Тренды дизайна 2024"</li>
+              </ul>
+            </div>
+
+            <div class="example-prompt">
+              <h5>🎯 Требования:</h5>
+              <ul>
+                <li>Концептуальная иллюстрация (не фото)</li>
+                <li>Плоский или изометрический стиль</li>
+                <li>Корпоративные цвета (синий, фиолетовый)</li>
+                <li>Используйте Nanabanana или ChatGPT Images</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exercise 5 -->
+        <h2>Задание 5: Видео для рекламы</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge" style="background: var(--accent);">Видео</span>
+            <h4>Создайте короткий рекламный ролик</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task">
+              <h5>📋 Задача:</h5>
+              <p>Создайте 10-20 секундный видеоролик в Sora 2 для:</p>
+              <ul>
+                <li>Рекламы кофейни</li>
+                <li>Презентации технологического стартапа</li>
+                <li>Промо фитнес-клуба</li>
+                <li>Анонса онлайн-курса</li>
+              </ul>
+            </div>
+
+            <div class="example-prompt">
+              <h5>🎯 Требования:</h5>
+              <ul>
+                <li>Опишите сцену и действие</li>
+                <li>Укажите движение камеры</li>
+                <li>Добавьте стиль и настроение</li>
+                <li>Используйте кинематографические термины</li>
+              </ul>
+            </div>
+
+            <div class="example-result">
+              <h5>💡 Структура промпта для видео:</h5>
+              <pre style="background: var(--bg-code); color: #E2E8F0; padding: 1rem; border-radius: 8px;">[Сцена] + [Субъект] + [Действие] + [Движение камеры] + [Стиль] + [Настроение] + [Качество]</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison Exercise -->
+        <h2>Задание 6: Сравнение платформ</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-logic">Анализ</span>
+            <h4>Сравните результаты разных генераторов</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task">
+              <h5>📋 Задача:</h5>
+              <p>Возьмите один промпт и сгенерируйте изображение в 3-х разных платформах:</p>
+              <ol>
+                <li>ChatGPT Images (DALL-E 3)</li>
+                <li>Grok Aurora</li>
+                <li>Gemini Imagen</li>
+              </ol>
+            </div>
+
+            <div class="example-prompt">
+              <h5>🎯 Для анализа:</h5>
+              <ul>
+                <li>Какая платформа дала лучший результат?</li>
+                <li>В чём различия в интерпретации промпта?</li>
+                <li>Какие детали каждая платформа обработала лучше?</li>
+              </ul>
+            </div>
+
+            <div class="example-result">
+              <h5>💡 Тестовый промпт:</h5>
+              <pre style="background: var(--bg-code); color: #E2E8F0; padding: 1rem; border-radius: 8px;">A cozy coffee shop interior with large windows, morning sunlight streaming in, a person reading a book at a wooden table, warm color palette, photorealistic, shot on 35mm film</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checklist -->
+        <div class="card" style="margin-top: 2rem;">
+          <div class="card-header">Чеклист выполнения</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-1"></span>
+                <span class="checklist-text">Создано продуктовое фото</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-2"></span>
+                <span class="checklist-text">Создан профессиональный портрет</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-3"></span>
+                <span class="checklist-text">Создан визуал для соцсетей</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-4"></span>
+                <span class="checklist-text">Создана иллюстрация для статьи</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-5"></span>
+                <span class="checklist-text">Создано короткое видео</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice-6"></span>
+                <span class="checklist-text">Проведено сравнение платформ</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tips Summary -->
+        <div class="card" style="border: 2px solid var(--primary);">
+          <div class="card-header" style="background: linear-gradient(135deg, var(--primary), #7C3AED);">
+            📌 Памятка: Какую платформу выбрать
+          </div>
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Задача</th>
+                  <th>Лучшая платформа</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Фотореалистичный портрет</td>
+                  <td><strong>Grok Aurora</strong></td>
+                </tr>
+                <tr>
+                  <td>Изображение с текстом</td>
+                  <td><strong>Gemini Imagen</strong></td>
+                </tr>
+                <tr>
+                  <td>Итеративное редактирование</td>
+                  <td><strong>ChatGPT Images</strong></td>
+                </tr>
+                <tr>
+                  <td>Художественная иллюстрация</td>
+                  <td><strong>Nanabanana</strong></td>
+                </tr>
+                <tr>
+                  <td>Видеоконтент</td>
+                  <td><strong>Sora 2</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-5.html" class="nav-arrow nav-arrow-prev">
+            <span>←</span>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Sora 2</div>
+            </div>
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="6">
+            Отметить как пройденный
+          </button>
+          <a href="project.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Домашнее задание</div>
+            </div>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

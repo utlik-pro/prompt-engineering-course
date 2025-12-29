@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 2: Grok Aurora | Модуль 5</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 7 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 5</div>
+
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          ChatGPT Images
+        </a>
+
+        <a href="lesson-2.html" class="nav-item active" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Grok Aurora
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Gemini Imagen
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Nanabanana
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Sora 2 (Видео)
+        </a>
+
+        <a href="lesson-6.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">6</span>
+          Практика: Генерация
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="7">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 5</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 2: Grok Aurora</span>
+        </div>
+
+        <div class="header-actions">
+          <span class="lesson-time">⏱ 30 мин</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <h1>Grok Aurora</h1>
+
+        <p class="lead">
+          Новейший генератор изображений от xAI (компании Илона Маска). Известен фотореалистичностью и скоростью генерации.
+        </p>
+
+        <!-- Key Concept -->
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-body">
+            <h3>⚡ Главная идея</h3>
+            <p style="font-size: 1.1rem; margin: 0;">
+              <strong>Grok Aurora специализируется на фотореалистичных изображениях</strong> — портреты, люди и сцены выглядят максимально естественно.
+            </p>
+          </div>
+        </div>
+
+        <!-- Access -->
+        <h2>Как получить доступ</h2>
+
+        <div class="alert alert-info">
+          <strong>Доступ к Grok Aurora:</strong>
+          <ul style="margin: 0.5rem 0 0 1rem;">
+            <li><strong>X Premium+</strong> — подписка на X (Twitter)</li>
+            <li><strong>grok.x.ai</strong> — веб-интерфейс Grok</li>
+            <li><strong>Мобильное приложение X</strong> — через чат с Grok</li>
+          </ul>
+        </div>
+
+        <!-- Features -->
+        <h2>Ключевые особенности Aurora</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div class="card" style="border-top: 4px solid #6366f1;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📷</div>
+              <h4>Фотореализм</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Особенно хорош в создании реалистичных лиц и людей</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
+              <h4>Скорость</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Генерация за несколько секунд</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #f59e0b;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎭</div>
+              <h4>Меньше ограничений</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Более гибкие правила генерации контента</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Comparison with DALL-E -->
+        <h2>Сравнение с DALL-E 3</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Критерий</th>
+                  <th>Grok Aurora</th>
+                  <th>DALL-E 3</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Фотореализм людей</strong></td>
+                  <td style="color: var(--accent);">★★★★★</td>
+                  <td>★★★★☆</td>
+                </tr>
+                <tr>
+                  <td><strong>Понимание контекста</strong></td>
+                  <td>★★★★☆</td>
+                  <td style="color: var(--accent);">★★★★★</td>
+                </tr>
+                <tr>
+                  <td><strong>Скорость генерации</strong></td>
+                  <td style="color: var(--accent);">★★★★★</td>
+                  <td>★★★☆☆</td>
+                </tr>
+                <tr>
+                  <td><strong>Итеративное редактирование</strong></td>
+                  <td>★★★☆☆</td>
+                  <td style="color: var(--accent);">★★★★★</td>
+                </tr>
+                <tr>
+                  <td><strong>Гибкость контента</strong></td>
+                  <td style="color: var(--accent);">★★★★★</td>
+                  <td>★★★☆☆</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Example Prompts -->
+        <h2>Примеры промптов для Aurora</h2>
+
+        <!-- Example 1 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge">Портрет</span>
+            <span class="demo-title">Реалистичный человек</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Candid street photography of a young woman with freckles, natural red hair, genuine smile, wearing a cream sweater, soft natural daylight, shallow depth of field, shot on Fujifilm X-T4, 56mm f/1.2</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Почему это работает:</div>
+              <p>Aurora отлично работает с английскими промптами и техническими параметрами камеры. "Candid" помогает создать естественную позу.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge demo-badge-success">Мода</span>
+            <span class="demo-title">Fashion-фотография</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>High fashion editorial photo, model in avant-garde geometric black dress, dramatic side lighting, white studio background, Vogue magazine style, professional fashion photography, sharp focus, elegant pose</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Изображение в стиле модных журналов с драматичным освещением</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 3 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: var(--warning);">Lifestyle</span>
+            <span class="demo-title">Реклама</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Happy young couple having coffee in a modern minimalist kitchen, morning sunlight through large windows, warm cozy atmosphere, lifestyle advertisement photography, genuine expressions, Canon EOS R5, 35mm lens</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Идеально для рекламы lifestyle-брендов и недвижимости</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Важно:</strong> Grok Aurora лучше работает с английскими промптами. Рекомендуйте студентам писать на английском.</p>
+            <p><strong>Упражнение:</strong> Попросите создать серию портретов для landing page стартапа.</p>
+          </div>
+        </div>
+
+        <!-- Best Practices -->
+        <h2>Лучшие практики для Aurora</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-marketing">Практика 1</span>
+            <h4>Используйте английский язык</h4>
+          </div>
+          <div class="example-body">
+            <p>Aurora обучена преимущественно на английских данных. Промпты на английском дают более качественные результаты.</p>
+            <div class="comparison" style="grid-template-columns: 1fr 1fr;">
+              <div class="comparison-item bad">
+                <div class="comparison-header">❌ Менее эффективно</div>
+                <p>"Красивая девушка в парке"</p>
+              </div>
+              <div class="comparison-item good">
+                <div class="comparison-header">✓ Более эффективно</div>
+                <p>"Beautiful young woman in a sunlit park, golden hour lighting"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-service">Практика 2</span>
+            <h4>Добавляйте "candid" или "natural" для реализма</h4>
+          </div>
+          <div class="example-body">
+            <p>Эти слова помогают избежать "постановочности" и делают изображения более живыми:</p>
+            <ul>
+              <li><strong>candid</strong> — непостановочный, естественный момент</li>
+              <li><strong>genuine</strong> — настоящий, искренний</li>
+              <li><strong>spontaneous</strong> — спонтанный</li>
+              <li><strong>documentary style</strong> — документальный стиль</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-hr">Практика 3</span>
+            <h4>Указывайте этничность для разнообразия</h4>
+          </div>
+          <div class="example-body">
+            <p>Для создания разнообразного контента можно указывать:</p>
+            <ul>
+              <li>"diverse group of people"</li>
+              <li>"Asian business professional"</li>
+              <li>"African American woman"</li>
+              <li>"Middle Eastern man"</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Use Cases -->
+        <h2>Когда использовать Aurora</h2>
+
+        <div class="alert alert-success">
+          <strong>Aurora идеально подходит для:</strong>
+          <ul style="margin: 0.5rem 0 0 1rem;">
+            <li>Фотореалистичных портретов для сайтов</li>
+            <li>Lifestyle-фотографий для рекламы</li>
+            <li>Изображений людей для презентаций</li>
+            <li>Fashion и beauty контента</li>
+            <li>Стоковых фотографий</li>
+          </ul>
+        </div>
+
+        <!-- Quiz -->
+        <div class="card">
+          <div class="card-header">🎯 Проверьте понимание</div>
+          <div class="card-body">
+            <div class="quiz-container" data-quiz="lesson2">
+              <div class="quiz-question">
+                <h4>Вопрос 1: В чём главное преимущество Grok Aurora?</h4>
+                <div class="quiz-options" data-correct="2">
+                  <label class="quiz-option">
+                    <input type="radio" name="q1" value="1">
+                    <span>Бесплатный доступ</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q1" value="2">
+                    <span>Фотореализм людей и скорость генерации</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q1" value="3">
+                    <span>Лучшее понимание русского языка</span>
+                  </label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+
+              <div class="quiz-question">
+                <h4>Вопрос 2: На каком языке лучше писать промпты для Aurora?</h4>
+                <div class="quiz-options" data-correct="1">
+                  <label class="quiz-option">
+                    <input type="radio" name="q2" value="1">
+                    <span>На английском</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q2" value="2">
+                    <span>На русском</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q2" value="3">
+                    <span>На любом языке одинаково</span>
+                  </label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+            </div>
+
+            <button class="btn btn-primary check-quiz-btn" style="margin-top: 1.5rem;">Проверить ответы</button>
+          </div>
+        </div>
+
+        <!-- Key Takeaways -->
+        <div class="card" style="border: 2px solid var(--primary);">
+          <div class="card-header" style="background: linear-gradient(135deg, var(--primary), #7C3AED);">
+            📌 Ключевые выводы урока
+          </div>
+          <div class="card-body">
+            <div class="takeaways-grid" style="display: grid; gap: 1rem;">
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">📷</span>
+                <div>
+                  <strong>Фотореализм — сильная сторона</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Aurora создаёт самых реалистичных людей</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">🇬🇧</span>
+                <div>
+                  <strong>Пишите на английском</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Английские промпты дают лучшие результаты</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">⚡</span>
+                <div>
+                  <strong>Быстрая генерация</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Результаты за секунды</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="lesson-nav">
+          <a href="lesson-1.html" class="nav-arrow nav-arrow-prev">
+            <span>←</span>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">ChatGPT Images</div>
+            </div>
+          </a>
+          <button class="btn btn-primary mark-complete-btn" data-lesson="2">
+            Отметить как пройденный
+          </button>
+          <a href="lesson-3.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Gemini Imagen</div>
+            </div>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
