@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модуль 8: Отраслевое применение и кейсы</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          IndustryAI
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 8</div>
+
+        <a href="index.html" class="nav-item active">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          AI в маркетинге
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          AI в образовании
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          AI в программировании
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          AI в аналитике
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Создание Knowledge Base
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 8</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Главная</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1 class="hero-title">Отраслевое применение и кейсы</h1>
+          <p class="hero-subtitle">
+            Практическое применение AI в маркетинге, образовании, программировании и аналитике.<br>
+            Создание отраслевых Knowledge Bases и специализированных промптов.
+          </p>
+        </section>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Общая продолжительность модуля:</strong> ~3 часа (5 уроков + домашнее задание)</p>
+            <p><strong>Рекомендация:</strong> Разделите студентов по их профессиональным областям для практики. Поощряйте обмен опытом между отраслями.</p>
+            <p><strong>Ключевая цель:</strong> Каждый студент создаёт свою отраслевую Knowledge Base с набором рабочих промптов.</p>
+          </div>
+        </div>
+
+        <!-- Info Alert -->
+        <div class="alert alert-info">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Что вы изучите в этом модуле:</strong>
+            <ul style="margin: 0.5rem 0 0 1rem;">
+              <li><strong>AI в маркетинге</strong> — контент, копирайтинг, SMM, реклама</li>
+              <li><strong>AI в образовании</strong> — учебные материалы, тесты, персонализация</li>
+              <li><strong>AI в программировании</strong> — код, review, документация</li>
+              <li><strong>AI в аналитике</strong> — данные, отчёты, инсайты</li>
+              <li><strong>Knowledge Bases</strong> — структурирование знаний, RAG-системы</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Key Message -->
+        <div class="card" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%); border: 2px solid var(--primary);">
+          <div class="card-body" style="text-align: center;">
+            <h3 style="margin-bottom: 0.5rem;">💡 Главная мысль модуля</h3>
+            <p style="font-size: 1.125rem; margin: 0; color: var(--text-primary);">
+              "AI — это инструмент усиления экспертизы, а не её замена.<br>
+              Знание своей отрасли + правильные промпты = максимальная эффективность."
+            </p>
+          </div>
+        </div>
+
+        <!-- Lesson Cards -->
+        <h2 style="margin: 2rem 0 1rem;">Уроки модуля</h2>
+
+        <div class="lesson-cards">
+          <!-- Lesson 1 -->
+          <a href="lesson-1.html" class="lesson-card">
+            <div class="lesson-card-number">1</div>
+            <h3 class="lesson-card-title">AI в маркетинге</h3>
+            <p class="lesson-card-desc">
+              Генерация контента, копирайтинг, SMM, email-маркетинг и рекламные тексты.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 30 мин</span>
+              <span>•</span>
+              <span>Теория + Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 2 -->
+          <a href="lesson-2.html" class="lesson-card">
+            <div class="lesson-card-number">2</div>
+            <h3 class="lesson-card-title">AI в образовании</h3>
+            <p class="lesson-card-desc">
+              Планы уроков, тесты, адаптация материалов, персонализация обучения.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 30 мин</span>
+              <span>•</span>
+              <span>Теория + Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 3 -->
+          <a href="lesson-3.html" class="lesson-card">
+            <div class="lesson-card-number">3</div>
+            <h3 class="lesson-card-title">AI в программировании</h3>
+            <p class="lesson-card-desc">
+              Написание кода, code review, документация, тестирование, debugging.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 30 мин</span>
+              <span>•</span>
+              <span>Теория + Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 4 -->
+          <a href="lesson-4.html" class="lesson-card" style="border-color: var(--warning);">
+            <div class="lesson-card-number" style="background: var(--warning);">4</div>
+            <h3 class="lesson-card-title">AI в аналитике</h3>
+            <p class="lesson-card-desc">
+              Анализ данных, создание отчётов, SQL-запросы, визуализация, инсайты.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 30 мин</span>
+              <span>•</span>
+              <span>Теория + Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 5 -->
+          <a href="lesson-5.html" class="lesson-card" style="border-color: var(--accent);">
+            <div class="lesson-card-number" style="background: var(--accent);">5</div>
+            <h3 class="lesson-card-title">Создание Knowledge Base</h3>
+            <p class="lesson-card-desc">
+              Структурирование знаний, создание KB, интеграция с AI, RAG-системы.
+            </p>
+            <div class="lesson-card-meta">
+              <span>⏱ 40 мин</span>
+              <span>•</span>
+              <span>Hands-on</span>
+            </div>
+          </a>
+
+          <!-- Final Project -->
+          <a href="project.html" class="lesson-card" style="border-color: var(--primary); border-width: 2px;">
+            <div class="lesson-card-number" style="background: linear-gradient(135deg, var(--primary), var(--accent));">P</div>
+            <h3 class="lesson-card-title">Домашнее задание</h3>
+            <p class="lesson-card-desc">
+              Создание отраслевой KB с 10+ промптами и практическое применение к реальной задаче.
+            </p>
+            <div class="lesson-card-meta">
+              <span>Финальное задание</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Industry Overview -->
+        <h2 style="margin: 2.5rem 0 1rem;">Отрасли применения AI</h2>
+
+        <div class="attack-type-card direct" style="border-color: #10B981;">
+          <div class="technique-card-icon">📈</div>
+          <h3 class="technique-card-title">Маркетинг</h3>
+          <p class="technique-card-desc">
+            Контент-планы, посты, статьи, email-рассылки, рекламные тексты, SEO-оптимизация.
+            AI ускоряет создание контента в 5-10 раз.
+          </p>
+          <span class="technique-badge" style="background: rgba(16, 185, 129, 0.2); color: #10B981;">Высокий потенциал</span>
+        </div>
+
+        <div class="attack-type-card indirect" style="border-color: #3B82F6;">
+          <div class="technique-card-icon">🎓</div>
+          <h3 class="technique-card-title">Образование</h3>
+          <p class="technique-card-desc">
+            Планы уроков, тесты, задания, адаптация материалов под разные уровни.
+            Персонализация обучения становится доступной для всех.
+          </p>
+          <span class="technique-badge" style="background: rgba(59, 130, 246, 0.2); color: #3B82F6;">Трансформация</span>
+        </div>
+
+        <div class="attack-type-card multiturn" style="border-color: #8B5CF6;">
+          <div class="technique-card-icon">💻</div>
+          <h3 class="technique-card-title">Программирование</h3>
+          <p class="technique-card-desc">
+            Написание кода, code review, документация, unit-тесты, рефакторинг.
+            AI как pair programmer повышает продуктивность разработчиков.
+          </p>
+          <span class="technique-badge" style="background: rgba(139, 92, 246, 0.2); color: #8B5CF6;">Революция</span>
+        </div>
+
+        <div class="attack-type-card" style="border-color: #F59E0B;">
+          <div class="technique-card-icon">📊</div>
+          <h3 class="technique-card-title">Аналитика</h3>
+          <p class="technique-card-desc">
+            Анализ данных, создание отчётов, SQL-запросы, поиск инсайтов, прогнозирование.
+            AI демократизирует доступ к аналитике.
+          </p>
+          <span class="technique-badge" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;">Ускорение</span>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="card" style="margin-top: 2rem;">
+          <div class="card-header">Подготовка к модулю</div>
+          <div class="card-body">
+            <p>Для успешного прохождения модуля вам понадобится:</p>
+
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-chatgpt"></span>
+                <span class="checklist-text">Аккаунт ChatGPT или Claude</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-notion"></span>
+                <span class="checklist-text">Notion или Obsidian для KB</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-industry"></span>
+                <span class="checklist-text">Понимание своей профессиональной области</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-task"></span>
+                <span class="checklist-text">Реальная рабочая задача для практики</span>
+              </li>
+            </ul>
+
+            <div style="margin-top: 1rem;">
+              <a href="lesson-1.html" class="btn btn-primary">Начать обучение →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- KB Structure -->
+        <div class="card">
+          <div class="card-header">Структура Knowledge Base</div>
+          <div class="card-body">
+            <div class="architecture-diagram">
+┌─────────────────────────────────────────────────────────────┐
+│                    ОТРАСЛЕВАЯ KNOWLEDGE BASE                 │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐   │
+│  │ ТЕРМИНОЛОГИЯ │    │   ПРОЦЕССЫ   │    │   ПРОМПТЫ    │   │
+│  │              │    │              │    │              │   │
+│  │ • Глоссарий  │    │ • Workflow   │    │ • Базовые    │   │
+│  │ • Понятия   │    │ • Чек-листы  │    │ • Продвинут. │   │
+│  │ • FAQ       │    │ • Шаблоны    │    │ • Цепочки    │   │
+│  └──────────────┘    └──────────────┘    └──────────────┘   │
+│                                                              │
+│  ┌──────────────┐    ┌──────────────┐                       │
+│  │    КЕЙСЫ     │    │   РЕСУРСЫ    │                       │
+│  │              │    │              │                       │
+│  │ • Успехи     │    │ • Инструм.   │                       │
+│  │ • Ошибки     │    │ • Курсы      │                       │
+│  │ • Best prac. │    │ • Сообщества │                       │
+│  └──────────────┘    └──────────────┘                       │
+└─────────────────────────────────────────────────────────────┘
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Formula -->
+        <div class="card">
+          <div class="card-header">Формула отраслевого промпта</div>
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Компонент</th>
+                  <th>Описание</th>
+                  <th>Пример</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>РОЛЬ</strong></td>
+                  <td>Отраслевой эксперт</td>
+                  <td>"Ты - senior маркетолог с 10-летним опытом"</td>
+                </tr>
+                <tr>
+                  <td><strong>КОНТЕКСТ</strong></td>
+                  <td>Специфика отрасли</td>
+                  <td>"Работаешь в e-commerce, ЦА - мужчины 25-40"</td>
+                </tr>
+                <tr>
+                  <td><strong>ЗАДАЧА</strong></td>
+                  <td>Конкретное действие</td>
+                  <td>"Создай контент-план на месяц"</td>
+                </tr>
+                <tr>
+                  <td><strong>ФОРМАТ</strong></td>
+                  <td>Отраслевой стандарт</td>
+                  <td>"Таблица: дата, тип контента, тема, CTA"</td>
+                </tr>
+                <tr>
+                  <td><strong>ОГРАНИЧЕНИЯ</strong></td>
+                  <td>Требования индустрии</td>
+                  <td>"Бюджет минимальный, используем UGC"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
