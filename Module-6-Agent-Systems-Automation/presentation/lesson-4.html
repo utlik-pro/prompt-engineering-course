@@ -294,18 +294,18 @@ print(result)</code></pre>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Gemini Pro</strong></td>
-                  <td>Базовая модель для текста</td>
-                  <td>32K токенов</td>
+                  <td><strong>Gemini 3 Flash</strong></td>
+                  <td>Быстрая модель для повседневных задач</td>
+                  <td>1M токенов</td>
                 </tr>
                 <tr>
-                  <td><strong>Gemini Pro Vision</strong></td>
-                  <td>Мультимодальная (текст + изображения)</td>
-                  <td>128K токенов</td>
+                  <td><strong>Gemini 3 Pro</strong></td>
+                  <td>Мультимодальная (текст, изображения, видео, аудио)</td>
+                  <td>1M токенов</td>
                 </tr>
                 <tr>
-                  <td><strong>Gemini Ultra</strong></td>
-                  <td>Самая мощная модель (платная)</td>
+                  <td><strong>Gemini 3 Deep Think</strong></td>
+                  <td>Специализированный режим для сложных рассуждений</td>
                   <td>1M токенов</td>
                 </tr>
               </tbody>
@@ -328,10 +328,10 @@ genai.configure(api_key="your-api-key")
 def multimodal_agent(text: str, image_path: str = None):
     if image_path:
         img = PIL.Image.open(image_path)
-        model = genai.GenerativeModel("gemini-pro-vision")
+        model = genai.GenerativeModel("gemini-3-pro")
         response = model.generate_content([text, img])
     else:
-        model = genai.GenerativeModel("gemini-pro")
+        model = genai.GenerativeModel("gemini-3-flash")
         response = model.generate_content(text)
 
     return response.text
@@ -397,7 +397,7 @@ print(result)</code></pre>
               <div class="accordion-body">
                 <p>Единый API для доступа к множеству моделей:</p>
                 <ul>
-                  <li>GPT-4, Claude, Llama и другие</li>
+                  <li>GPT-5.2, Claude Sonnet 5, Llama 4 и другие</li>
                   <li>Бесплатный tier для некоторых моделей</li>
                   <li>Поддержка function calling</li>
                   <li>Унифицированный формат запросов</li>
