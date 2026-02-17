@@ -191,7 +191,7 @@
               </div>
               <p style="color: var(--text-muted);">Фокус на безопасности и этичности. Отлично подходит для длинных текстов и анализа.</p>
               <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                <strong>Модели:</strong> Claude Sonnet 5, Opus 4.6, Sonnet 4.5, Haiku 4.5
+                <strong>Модели:</strong> Claude Sonnet 4.6, Opus 4.6, Sonnet 4.5, Haiku 4.5
               </div>
             </div>
           </div>
@@ -212,7 +212,7 @@
               </div>
               <p style="color: var(--text-muted);">Мультимодальная модель от Google. Интеграция с Google-сервисами и поиском.</p>
               <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
-                <strong>Модели:</strong> Gemini 3 Pro, 3 Flash, 3 Deep Think
+                <strong>Модели:</strong> Gemini 3 Pro, 3 Flash (+ Deep Think режим)
               </div>
             </div>
           </div>
@@ -242,7 +242,7 @@
                 <tr>
                   <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong>Контекстное окно</strong></td>
                   <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border);">400K токенов</td>
-                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border);">1M токенов</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border);">200K (1M в бета)</td>
                   <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border);">1M+ токенов</td>
                 </tr>
                 <tr>
@@ -253,8 +253,8 @@
                 </tr>
                 <tr>
                   <td style="padding: 1rem; border-bottom: 1px solid var(--border);"><strong>Генерация изображений</strong></td>
-                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">DALL-E 3 / GPT-4o</td>
-                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Да</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">GPT Image 1.5</td>
+                  <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--text-muted);">SVG/Artifacts</td>
                   <td style="padding: 1rem; text-align: center; border-bottom: 1px solid var(--border); color: var(--success);">Imagen 3</td>
                 </tr>
                 <tr>
@@ -295,7 +295,7 @@
               <h4>Сильные стороны:</h4>
               <ul style="padding-left: 1.5rem;">
                 <li>GPT-5.2 — мощнейшая модель для профессиональной работы</li>
-                <li>Генерация изображений и видео (Sora)</li>
+                <li>Генерация изображений (GPT Image) и видео (Sora 2)</li>
                 <li>Модели-рассуждатели o3 и o4-mini для сложных задач</li>
                 <li>Экосистема GPTs (кастомные ассистенты)</li>
                 <li>Огромное контекстное окно (400K токенов)</li>
@@ -326,11 +326,11 @@
             <div class="accordion-content">
               <h4>Сильные стороны:</h4>
               <ul style="padding-left: 1.5rem;">
-                <li>Claude Sonnet 5 — лидер в кодинге (82% SWE-bench)</li>
-                <li>Контекстное окно до 1M токенов (Sonnet 5)</li>
+                <li>Claude Sonnet 4.6 — лидер в кодинге и рассуждениях</li>
+                <li>Контекстное окно 200K токенов (до 1M в бета-режиме)</li>
                 <li>Отличный анализ длинных документов</li>
                 <li>Artifacts для создания интерактивного контента</li>
-                <li>Веб-поиск и генерация изображений</li>
+                <li>Веб-поиск и создание визуализаций через Artifacts (SVG, код)</li>
                 <li>Claude Code — мощный инструмент для программирования с AI-агентами</li>
               </ul>
 
@@ -359,7 +359,7 @@
               <h4>Сильные стороны:</h4>
               <ul style="padding-left: 1.5rem;">
                 <li>Gemini 3 Pro — топ-модель для рассуждений</li>
-                <li>Gemini 3 Deep Think — специализированный режим для науки и исследований</li>
+                <li>Deep Think — специализированный режим для науки и сложных рассуждений</li>
                 <li>Глубокая интеграция с Google-сервисами (Docs, Gmail, Drive)</li>
                 <li>Огромное контекстное окно (до 1M токенов)</li>
                 <li>Мультимодальность: текст, изображения, видео, аудио, голос на 24 языках</li>
@@ -391,7 +391,7 @@
               <div style="padding: 1rem; background: var(--surface); border-radius: 8px; border-left: 4px solid #10A37F;">
                 <strong>ChatGPT выбирайте, если:</strong>
                 <ul style="margin: 0.5rem 0 0 1.5rem;">
-                  <li>Нужна генерация изображений и видео (Sora)</li>
+                  <li>Нужна генерация изображений и видео (Sora 2)</li>
                   <li>Хотите использовать GPTs и кастомных ассистентов</li>
                   <li>Требуется модель-рассуждатель (o3)</li>
                   <li>Работаете с кодом (GPT-5.2 Codex)</li>
@@ -413,7 +413,7 @@
                 <ul style="margin: 0.5rem 0 0 1.5rem;">
                   <li>Активно используете Google-сервисы</li>
                   <li>Нужна работа с видео и аудио</li>
-                  <li>Требуется Deep Think для научных задач</li>
+                  <li>Требуется Deep Think режим для научных задач</li>
                   <li>Хотите бесплатный и щедрый план (Gemini 3 Flash)</li>
                 </ul>
               </div>
@@ -456,7 +456,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
               <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
                 <strong>Grok (xAI)</strong>
-                <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.875rem;">Grok 5 — контекст 2M токенов, минимум галлюцинаций</p>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.875rem;">Grok 4.1 — контекст 256K токенов, интеграция с X (Twitter)</p>
               </div>
               <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
                 <strong>Perplexity AI</strong>
@@ -464,7 +464,7 @@
               </div>
               <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
                 <strong>DeepSeek</strong>
-                <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.875rem;">DeepSeek V4 — мощная open-source модель для кода и рассуждений</p>
+                <p style="margin: 0.5rem 0 0 0; color: var(--text-muted); font-size: 0.875rem;">DeepSeek V4 — open-weight модель, $0.10/1M токенов, отличный код и рассуждения</p>
               </div>
               <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
                 <strong>Microsoft Copilot</strong>
@@ -490,12 +490,12 @@
           </div>
 
           <div class="quiz-question" data-question="2">
-            <div class="question-text">Какая платформа НЕ имеет встроенной генерации изображений?</div>
+            <div class="question-text">Какая платформа имеет самый широкий выбор тарифных планов?</div>
             <div class="quiz-options">
-              <div class="quiz-option" data-correct="false">ChatGPT</div>
-              <div class="quiz-option" data-correct="true">Claude</div>
+              <div class="quiz-option" data-correct="true">ChatGPT (Free, Go, Plus, Pro)</div>
+              <div class="quiz-option" data-correct="false">Claude</div>
               <div class="quiz-option" data-correct="false">Gemini</div>
-              <div class="quiz-option" data-correct="false">Все имеют</div>
+              <div class="quiz-option" data-correct="false">Все одинаковые</div>
             </div>
             <div class="quiz-feedback"></div>
           </div>
