@@ -270,6 +270,49 @@ Markdown-таблицы с колонками:
           </div>
         </div>
 
+        <!-- Quiz Section -->
+        <h2>Проверьте себя</h2>
+
+        <div class="quiz-container" data-quiz="formatting">
+          <div class="quiz-question" data-question="1">
+            <div class="question-text">Какой способ лучше всего контролирует длину ответа AI?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">"Ответь кратко"</div>
+              <div class="quiz-option" data-correct="true">"Не более 100 слов" или "Список из 5 пунктов"</div>
+              <div class="quiz-option" data-correct="false">"Не пиши слишком много"</div>
+              <div class="quiz-option" data-correct="false">"Будь лаконичен"</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="2">
+            <div class="question-text">Как лучше всего запросить таблицу в ответе AI?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">"Сделай таблицу"</div>
+              <div class="quiz-option" data-correct="false">"Ответ в виде таблицы, пожалуйста"</div>
+              <div class="quiz-option" data-correct="true">Показать пример структуры: | Колонка 1 | Колонка 2 |</div>
+              <div class="quiz-option" data-correct="false">"Формат: Excel"</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="3">
+            <div class="question-text">Какой формат подойдёт для быстрого обзора с возможностью углубиться?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Только таблица</div>
+              <div class="quiz-option" data-correct="true">TL;DR (1 предложение) + Подробнее (развёрнуто)</div>
+              <div class="quiz-option" data-correct="false">Нумерованный список из 20 пунктов</div>
+              <div class="quiz-option" data-correct="false">JSON-формат</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-results">
+            <div class="quiz-score"></div>
+            <button class="btn btn-primary quiz-retry-btn">Пройти ещё раз</button>
+          </div>
+        </div>
+
         <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
           <div class="card-header">Итоги урока</div>
           <div class="card-body">

@@ -200,15 +200,19 @@
 ## ⚙️ Необходимые инструменты
 
 ### Для преподавателя:
-- [ ] Доступ к ChatGPT (free или plus)
-- [ ] Доступ к Claude (free)
+- [ ] Доступ к ChatGPT (free или Go/Plus)
+- [ ] Доступ к Claude (free или Pro)
+- [ ] Доступ к Gemini (free или AI Pro)
+- [ ] Доступ к DeepSeek (free)
 - [ ] Проектор / демонстрация экрана
 - [ ] Браузер с несколькими вкладками
 - [ ] Таймер
 
 ### Для студентов:
-- [ ] Доступ к ChatGPT (free)
-- [ ] Доступ к Claude (free)
+- [ ] Доступ к ChatGPT (free) — chatgpt.com
+- [ ] Доступ к Claude (free) — claude.ai
+- [ ] Доступ к Gemini (free; AI Pro бесплатно для студентов!) — gemini.google.com
+- [ ] Доступ к DeepSeek (free, без ограничений) — chat.deepseek.com
 - [ ] Текстовый редактор (Notion, Google Docs, блокнот)
 - [ ] Браузер
 
@@ -254,14 +258,15 @@
 ## 📚 Дополнительные материалы
 
 ### Рекомендуемая литература:
-- "Prompt Engineering Guide" (GitHub)
-- "The Art of Prompting" (Medium)
-- Документация OpenAI (prompt engineering)
-- Документация Anthropic (Claude prompts)
+- [Prompt Engineering Guide](https://www.promptingguide.ai) — актуальный справочник
+- [Anthropic Prompt Engineering](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering) — гайд от создателей Claude
+- [OpenAI Prompt Engineering](https://platform.openai.com/docs/guides/prompt-engineering) — гайд от OpenAI
+- [IBM Prompt Engineering Guide 2026](https://www.ibm.com/think/prompt-engineering) — системный подход
 
 ### Инструменты:
-- **Prompt Builders:** https://www.promptable.ai/
-- **Fabric:** https://github.com/danielmiessler/fabric
+- **DeepSeek:** https://chat.deepseek.com — бесплатная модель уровня GPT-4
+- **Chatbot Arena:** https://lmarena.ai — сравнение моделей
+- **Fabric:** https://github.com/danielmiessler/fabric — автоматизация промптов
 - **JSON Validator:** https://jsonlint.com
 
 ---
@@ -322,4 +327,4 @@
 
 ---
 
-*Версия: 2.0 | Последнее обновление: 2024*
+*Версия: 3.0 | Последнее обновление: февраль 2026*

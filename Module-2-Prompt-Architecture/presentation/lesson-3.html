@@ -151,21 +151,74 @@
             <div class="info-box" style="font-size: 1.1rem;">
               <strong>Промпт-шаблон</strong> — это заготовка промпта с переменными (плейсхолдерами), которые заполняются конкретными данными перед отправкой.
             </div>
+          </div>
+        </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+        <!-- Analogy Section for Dynamic Variables -->
+        <h2>Переменные в шаблонах: простая аналогия</h2>
+
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-body">
+            <p style="font-size: 1.05rem;">Все знают, что такое <strong>бланк заявления</strong>:</p>
+
+            <div style="padding: 1.25rem; background: var(--surface); border-radius: 8px; margin: 1rem 0; font-size: 1.05rem; line-height: 1.8;">
+              Я, <span style="border-bottom: 2px solid var(--primary); padding: 0 0.5rem; color: var(--primary); font-weight: 600;">___________</span>, прошу предоставить мне отпуск с <span style="border-bottom: 2px solid var(--primary); padding: 0 0.5rem; color: var(--primary); font-weight: 600;">___________</span> по <span style="border-bottom: 2px solid var(--primary); padding: 0 0.5rem; color: var(--primary); font-weight: 600;">___________</span>
+            </div>
+
+            <p>Эти пустые поля — и есть <strong>переменные</strong>. Бланк один, но каждый человек заполняет его своими данными и получает свой уникальный документ.</p>
+
+            <p><strong>Промпт-шаблон работает точно так же:</strong></p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
               <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
-                <strong>Шаблон:</strong>
-                <pre style="margin: 0.5rem 0 0 0; font-size: 0.9rem; background: transparent;">Напиши {{тип_текста}} для {{компания}}
-о {{тема}}. Длина: {{длина}} слов.
-Тон: {{тон}}.</pre>
+                <strong>Бланк (шаблон):</strong>
+                <pre style="margin: 0.5rem 0 0 0; font-size: 0.9rem; background: transparent;">Напиши <span style="color: var(--primary); font-weight: 600;">{{тип_текста}}</span> для <span style="color: var(--primary); font-weight: 600;">{{компания}}</span>
+о <span style="color: var(--primary); font-weight: 600;">{{тема}}</span>. Длина: <span style="color: var(--primary); font-weight: 600;">{{длина}}</span> слов.
+Тон: <span style="color: var(--primary); font-weight: 600;">{{тон}}</span>.</pre>
               </div>
               <div style="padding: 1rem; background: var(--surface); border-radius: 8px;">
                 <strong>Заполненный промпт:</strong>
-                <pre style="margin: 0.5rem 0 0 0; font-size: 0.9rem; background: transparent;">Напиши пресс-релиз для Apple
-о новом iPhone 16. Длина: 300 слов.
-Тон: профессиональный.</pre>
+                <pre style="margin: 0.5rem 0 0 0; font-size: 0.9rem; background: transparent;">Напиши <span style="color: var(--success); font-weight: 600;">пресс-релиз</span> для <span style="color: var(--success); font-weight: 600;">Apple</span>
+о <span style="color: var(--success); font-weight: 600;">новом iPhone 16</span>. Длина: <span style="color: var(--success); font-weight: 600;">300</span> слов.
+Тон: <span style="color: var(--success); font-weight: 600;">профессиональный</span>.</pre>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">Ещё одна аналогия: рассылка писем</div>
+          <div class="card-body">
+            <p>Представьте email-рассылку. У вас <strong>один шаблон</strong> письма:</p>
+
+            <div style="padding: 1rem; background: var(--surface); border-radius: 8px; margin: 0.75rem 0; font-family: monospace; font-size: 0.95rem;">
+              Уважаемый(ая) <strong style="color: var(--primary);">{{имя}}</strong>! Рады сообщить, что ваш заказ <strong style="color: var(--primary);">{{номер_заказа}}</strong> доставлен.
+            </div>
+
+            <p>Из него автоматически создаются <strong>500 разных писем</strong>:</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem; margin-top: 0.75rem;">
+              <div style="padding: 0.75rem; background: var(--surface); border-radius: 8px; font-size: 0.85rem;">
+                Уважаемый(ая) <strong style="color: var(--success);">Анна</strong>! ...заказ <strong style="color: var(--success);">#1024</strong> доставлен.
+              </div>
+              <div style="padding: 0.75rem; background: var(--surface); border-radius: 8px; font-size: 0.85rem;">
+                Уважаемый(ая) <strong style="color: var(--success);">Дмитрий</strong>! ...заказ <strong style="color: var(--success);">#1025</strong> доставлен.
+              </div>
+              <div style="padding: 0.75rem; background: var(--surface); border-radius: 8px; font-size: 0.85rem;">
+                Уважаемый(ая) <strong style="color: var(--success);">Мария</strong>! ...заказ <strong style="color: var(--success);">#1026</strong> доставлен.
+              </div>
+            </div>
+
+            <div class="info-box" style="margin-top: 1rem;">
+              <strong>Вывод:</strong> Переменная — это просто «пустое поле» в шаблоне. Вы заполняете его нужными данными, и шаблон превращается в готовый промпт. Шаблон пишется один раз, а используется сотни раз с разными данными.
+            </div>
+          </div>
+        </div>
+
+        <div class="teacher-notes">
+          <div class="teacher-notes-header">Заметки для преподавателя</div>
+          <div class="teacher-notes-content">
+            <p><strong>Как объяснить переменные:</strong> Начните с аналогии бланка заявления — её все понимают. Затем покажите рассылку писем. Только после этого переходите к синтаксису <code>{{скобок}}</code>. Ключевая мысль: переменная = пустое поле, которое каждый раз заполняется новыми данными.</p>
           </div>
         </div>
 
@@ -377,9 +430,8 @@
 
 Тема: {{topic}}
 
-{{#if keywords}}
+[ЕСЛИ ЕСТЬ КЛЮЧЕВЫЕ СЛОВА — включить:]
 Включи ключевые слова: {{keywords}}
-{{/if}}
 
 Требования:
 - Длина: {{length}}
@@ -398,36 +450,65 @@
 
         <div class="card">
           <div class="card-body">
-            <p>Иногда нужно включать или исключать части промпта в зависимости от условий:</p>
+            <p>Иногда часть промпта нужна только при определённых условиях. Представьте это как <strong>секции бланка, которые заполняются не всегда</strong>:</p>
+
+            <div style="padding: 1rem; background: var(--surface); border-radius: 8px; margin: 1rem 0;">
+              <strong>Аналогия:</strong> В медицинской анкете есть вопрос «Принимаете ли вы лекарства?». Если «Да» — появляется дополнительное поле «Какие?». Если «Нет» — этот блок пропускается. То же самое в промпт-шаблонах.
+            </div>
 
             <div class="code-block" style="margin-top: 1rem;">
               <div class="code-header">
-                <span>Условные блоки</span>
+                <span>Условные блоки — простой подход</span>
                 <button class="code-copy-btn">Копировать</button>
               </div>
               <pre><code>Напиши описание товара для {{product_name}}.
 
-{{#if has_discount}}
+[ЕСЛИ ЕСТЬ СКИДКА — включить этот блок:]
 ВАЖНО: Товар со скидкой {{discount}}%!
 Подчеркни выгоду покупки сейчас.
-{{/if}}
 
-{{#if is_new}}
+[ЕСЛИ ТОВАР НОВЫЙ — включить этот блок:]
 Это НОВИНКА! Сделай акцент на инновационности.
-{{/if}}
 
-{{#if has_reviews}}
+[ЕСЛИ ЕСТЬ ОТЗЫВЫ — включить этот блок:]
 Упомяни, что товар имеет рейтинг {{rating}}
 на основе {{review_count}} отзывов.
-{{else}}
+[ЕСЛИ ОТЗЫВОВ НЕТ:]
 Не упоминай отзывы.
-{{/if}}
 
 Целевая аудитория: {{audience}}</code></pre>
             </div>
 
             <div class="info-box" style="margin-top: 1rem;">
-              <strong>Совет:</strong> Даже если вы не используете программный шаблонизатор, можно использовать эту логику вручную — просто удаляйте ненужные блоки перед отправкой.
+              <strong>Как это работает на практике:</strong> Перед отправкой промпта вы просто удаляете блоки, которые не нужны в конкретной ситуации. Товар без скидки? Удалите блок про скидку. Есть отзывы? Оставьте блок с рейтингом, удалите «не упоминай отзывы».
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--accent);">
+          <div class="card-header">Пример: шаблон с условиями до и после</div>
+          <div class="card-body">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div>
+                <strong>Ситуация 1: новый товар со скидкой</strong>
+                <div style="padding: 0.75rem; background: var(--surface); border-radius: 8px; margin-top: 0.5rem; font-size: 0.9rem;">
+                  Напиши описание товара для <strong>AirPods Pro 3</strong>.<br><br>
+                  ВАЖНО: Товар со скидкой <strong>15%</strong>!<br>
+                  Подчеркни выгоду покупки сейчас.<br><br>
+                  Это НОВИНКА! Сделай акцент на инновационности.<br><br>
+                  Не упоминай отзывы.<br><br>
+                  Целевая аудитория: <strong>молодёжь 18-30</strong>
+                </div>
+              </div>
+              <div>
+                <strong>Ситуация 2: популярный товар без скидки</strong>
+                <div style="padding: 0.75rem; background: var(--surface); border-radius: 8px; margin-top: 0.5rem; font-size: 0.9rem;">
+                  Напиши описание товара для <strong>iPhone 15</strong>.<br><br>
+                  Упомяни, что товар имеет рейтинг <strong>4.8</strong><br>
+                  на основе <strong>12 500</strong> отзывов.<br><br>
+                  Целевая аудитория: <strong>профессионалы 25-45</strong>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -487,16 +568,59 @@
           </div>
         </div>
 
+        <!-- Quiz Section -->
+        <h2>Проверьте себя</h2>
+
+        <div class="quiz-container" data-quiz="templates">
+          <div class="quiz-question" data-question="1">
+            <div class="question-text">Что такое переменная в промпт-шаблоне?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">Специальная команда для AI</div>
+              <div class="quiz-option" data-correct="true">Пустое поле, которое заполняется конкретными данными перед отправкой</div>
+              <div class="quiz-option" data-correct="false">Программный код внутри промпта</div>
+              <div class="quiz-option" data-correct="false">Случайное значение, которое AI генерирует сам</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="2">
+            <div class="question-text">Какой формат переменных рекомендуется использовать?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false"><code>{одинарные_скобки}</code></div>
+              <div class="quiz-option" data-correct="true"><code>{{двойные_скобки}}</code></div>
+              <div class="quiz-option" data-correct="false"><code>(круглые_скобки)</code></div>
+              <div class="quiz-option" data-correct="false"><code>*звёздочки*</code></div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-question" data-question="3">
+            <div class="question-text">Как работает условная логика в шаблоне на практике?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-correct="false">AI сам решает, какие блоки включать</div>
+              <div class="quiz-option" data-correct="false">Нужно писать код на Python</div>
+              <div class="quiz-option" data-correct="true">Перед отправкой вы удаляете ненужные блоки и оставляете нужные</div>
+              <div class="quiz-option" data-correct="false">Условная логика работает только в платных версиях AI</div>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz-results">
+            <div class="quiz-score"></div>
+            <button class="btn btn-primary quiz-retry-btn">Пройти ещё раз</button>
+          </div>
+        </div>
+
         <!-- Summary -->
         <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(139, 92, 246, 0.05));">
           <div class="card-header">Итоги урока</div>
           <div class="card-body">
             <ul style="padding-left: 1.5rem; margin: 0;">
+              <li>Переменная = пустое поле в бланке, которое заполняется перед каждым использованием</li>
               <li>Промпт-шаблоны экономят время и обеспечивают консистентность</li>
               <li>Используйте <code>{{двойные_скобки}}</code> для переменных</li>
-              <li>Добавляйте условную логику для гибкости</li>
+              <li>Условная логика — это блоки, которые включаются или удаляются по ситуации</li>
               <li>Документируйте шаблоны для команды</li>
-              <li>Тестируйте шаблоны с разными данными</li>
             </ul>
           </div>
         </div>
