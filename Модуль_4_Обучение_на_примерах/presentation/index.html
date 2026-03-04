@@ -158,6 +158,9 @@
               <li><strong>Many-shot prompting</strong> — десятки примеров для максимальной точности</li>
               <li><strong>In-Context Learning</strong> — как модель "обучается" в контексте</li>
               <li><strong>Prompt Ensembling</strong> — комбинирование нескольких промптов</li>
+              <li><strong>Structured Outputs</strong> — гарантированный JSON без примеров формата</li>
+              <li><strong>Prompt Caching</strong> — скидка 75-90% при повторном использовании промптов</li>
+              <li><strong>Мультимодальный Few-shot</strong> — примеры с изображениями, аудио, видео</li>
             </ul>
           </div>
         </div>
@@ -194,28 +197,28 @@
           <!-- Lesson 2 -->
           <a href="lesson-2.html" class="lesson-card">
             <div class="lesson-card-number">2</div>
-            <h3 class="lesson-card-title">In-Context Learning (ICL)</h3>
+            <h3 class="lesson-card-title">In-Context Learning + Extended Thinking</h3>
             <p class="lesson-card-desc">
-              Как модель "обучается" прямо в промпте без изменения весов. Принципы и механизмы.
+              Как модель "обучается" прямо в промпте. Chain-of-Thought Few-shot с рассуждениями (Claude 4.6, GPT-5).
             </p>
             <div class="lesson-card-meta">
-              <span>⏱ 20 мин</span>
+              <span>⏱ 25 мин</span>
               <span>•</span>
-              <span>Теория ICL</span>
+              <span>Теория ICL + 2026</span>
             </div>
           </a>
 
           <!-- Lesson 3 -->
           <a href="lesson-3.html" class="lesson-card">
             <div class="lesson-card-number">3</div>
-            <h3 class="lesson-card-title">Prompt Ensembling и подбор примеров</h3>
+            <h3 class="lesson-card-title">Ensembling, Structured Outputs & Caching</h3>
             <p class="lesson-card-desc">
-              Комбинирование промптов и золотые правила подбора качественных примеров.
+              Комбинирование промптов, гарантированный JSON, Prompt Caching (скидка 75-90%) и мультимодальный few-shot.
             </p>
             <div class="lesson-card-meta">
-              <span>⏱ 25 мин</span>
+              <span>⏱ 30 мин</span>
               <span>•</span>
-              <span>Продвинутые техники</span>
+              <span>Продвинутые техники 2026</span>
             </div>
           </a>
 
@@ -322,6 +325,35 @@
           <span class="technique-badge">Комбинирование</span>
         </div>
 
+        <h2 style="margin: 2.5rem 0 1rem;">Новые техники 2026</h2>
+
+        <div class="technique-card" style="border-left: 4px solid #10b981;">
+          <div class="technique-card-icon">📋</div>
+          <h3 class="technique-card-title">Structured Outputs</h3>
+          <p class="technique-card-desc">
+            Гарантированный JSON по схеме. Примеры теперь нужны только для стиля и логики, а не для формата.
+          </p>
+          <span class="technique-badge" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">GPT-5, Claude, Gemini</span>
+        </div>
+
+        <div class="technique-card" style="border-left: 4px solid #f59e0b;">
+          <div class="technique-card-icon">💰</div>
+          <h3 class="technique-card-title">Prompt Caching</h3>
+          <p class="technique-card-desc">
+            Скидка 75-90% при повторном использовании системных промптов с примерами. Few-shot стал в 4-10x дешевле.
+          </p>
+          <span class="technique-badge" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">Все провайдеры</span>
+        </div>
+
+        <div class="technique-card" style="border-left: 4px solid #ec4899;">
+          <div class="technique-card-icon">🖼️</div>
+          <h3 class="technique-card-title">Мультимодальный Few-shot</h3>
+          <p class="technique-card-desc">
+            Показывайте модели примеры с изображениями, аудио и видео. Gemini 3.1 Pro поддерживает до 900 изображений.
+          </p>
+          <span class="technique-badge" style="background: rgba(236, 72, 153, 0.2); color: #ec4899;">Gemini 3.1 Pro</span>
+        </div>
+
         <!-- Quick Start -->
         <div class="card" style="margin-top: 2rem;">
           <div class="card-header">Быстрый старт</div>
@@ -331,15 +363,23 @@
             <ul class="checklist">
               <li class="checklist-item">
                 <span class="checklist-checkbox" data-id="start-chatgpt"></span>
-                <span class="checklist-text">Доступ к ChatGPT (для Few-shot экспериментов)</span>
+                <span class="checklist-text">ChatGPT (GPT-5) — 400K контекст, Structured Outputs</span>
               </li>
               <li class="checklist-item">
                 <span class="checklist-checkbox" data-id="start-claude"></span>
-                <span class="checklist-text">Доступ к Claude (для сравнения результатов)</span>
+                <span class="checklist-text">Claude (Sonnet 4.6 / Opus 4.6) — Extended Thinking, авто-кэширование</span>
               </li>
               <li class="checklist-item">
                 <span class="checklist-checkbox" data-id="start-grok"></span>
-                <span class="checklist-text">Доступ к Grok (X.com) для экспериментов</span>
+                <span class="checklist-text">Grok 4 (x.ai) — 2M контекст, самый дешёвый ($0.20/M)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-gemini"></span>
+                <span class="checklist-text">Gemini 3.1 Pro (AI Studio) — мультимодальный few-shot, 2M контекст</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-deepseek"></span>
+                <span class="checklist-text">DeepSeek V3/V4 — 20-50x дешевле GPT-5</span>
               </li>
               <li class="checklist-item">
                 <span class="checklist-checkbox" data-id="start-notes"></span>
@@ -390,6 +430,16 @@
                   <td><strong>Ensembling</strong></td>
                   <td>Критичные решения</td>
                   <td>Финансовый анализ</td>
+                </tr>
+                <tr>
+                  <td><strong>Structured Outputs</strong></td>
+                  <td>Гарантированный формат</td>
+                  <td>API интеграции, парсинг</td>
+                </tr>
+                <tr>
+                  <td><strong>Prompt Caching</strong></td>
+                  <td>Повторяющиеся промпты</td>
+                  <td>Пакетная обработка</td>
                 </tr>
               </tbody>
             </table>

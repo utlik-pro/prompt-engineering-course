@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Урок 3: Prompt Ensembling | Модуль 4</title>
+  <title>Урок 3: Ensembling, Structured Outputs & Caching | Модуль 4</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -538,6 +538,108 @@
           </div>
         </div>
 
+        <!-- NEW 2026: Structured Outputs -->
+        <h2>Structured Outputs (2026)</h2>
+
+        <div class="card" style="border-left: 4px solid #10b981;">
+          <div class="card-body">
+            <h3>📋 Гарантированный формат без примеров</h3>
+            <p style="font-size: 1.1rem; margin: 0;">
+              В 2026 году GPT-5, Claude 4.6, Gemini 3.1 Pro поддерживают <strong>Structured Outputs</strong> — вы задаёте JSON Schema, и модель <em>гарантированно</em> возвращает валидный JSON. Примеры теперь нужны только для <strong>стиля и логики</strong>, а не для формата.
+            </p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 1.5rem 0;">
+          <div class="card" style="border-top: 4px solid #ef4444;">
+            <div class="card-body">
+              <h4>Раньше (до 2026)</h4>
+              <p style="font-size: 0.9rem;">Нужно было 3-5 примеров JSON в промпте, чтобы модель "выучила" формат. Иногда модель всё равно ломала структуру.</p>
+              <pre style="font-size: 0.8rem; background: var(--bg-primary); padding: 0.5rem; border-radius: 4px;">Примеры формата + примеры логики
+= 6-10 примеров в промпте</pre>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div class="card-body">
+              <h4>Сейчас (2026)</h4>
+              <p style="font-size: 0.9rem;">JSON Schema гарантирует формат. Примеры нужны только для стиля заполнения, логики и edge cases.</p>
+              <pre style="font-size: 0.8rem; background: var(--bg-primary); padding: 0.5rem; border-radius: 4px;">Schema для формата + примеры логики
+= 2-3 примера в промпте</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW 2026: Prompt Caching -->
+        <h2>Prompt Caching (2026)</h2>
+
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+          <div class="card-body">
+            <h3>💰 Few-shot стал в 4-10x дешевле</h3>
+            <p>Все основные провайдеры в 2026 поддерживают <strong>Prompt Caching</strong> — если ваш системный промпт с примерами повторяется, вы платите за него со скидкой 75-90%.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top: 1rem;">
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Провайдер</th>
+                  <th>Скидка</th>
+                  <th>Как включить</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Claude 4.6</strong></td>
+                  <td>90%</td>
+                  <td>Автоматически для промптов >1024 токенов</td>
+                </tr>
+                <tr>
+                  <td><strong>GPT-5</strong></td>
+                  <td>75-90%</td>
+                  <td>Автоматически для системных промптов</td>
+                </tr>
+                <tr>
+                  <td><strong>Gemini 3.1 Pro</strong></td>
+                  <td>75%</td>
+                  <td>Через Context Caching API</td>
+                </tr>
+                <tr>
+                  <td><strong>Grok 4</strong></td>
+                  <td>75%</td>
+                  <td>Автоматически</td>
+                </tr>
+                <tr>
+                  <td><strong>DeepSeek V3</strong></td>
+                  <td>90%</td>
+                  <td>Автоматически (disk cache)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="alert alert-success" style="margin-top: 1rem;">
+          <strong>Вывод для Few-shot:</strong> Главный аргумент против Few-shot был "дорого из-за длинных промптов". В 2026 с Prompt Caching это больше не проблема — платите полную цену только за первый запрос, потом со скидкой 75-90%.
+        </div>
+
+        <!-- NEW 2026: Multimodal Few-shot -->
+        <h2>Мультимодальный Few-shot (2026)</h2>
+
+        <div class="card" style="border-left: 4px solid #ec4899;">
+          <div class="card-body">
+            <h3>🖼️ Примеры с изображениями, аудио и видео</h3>
+            <p>Gemini 3.1 Pro поддерживает few-shot с изображениями (до 900 в одном промпте), аудио и даже ссылками на YouTube-видео. Это открывает новые возможности:</p>
+            <ul style="margin-top: 0.5rem;">
+              <li><strong>Классификация изображений:</strong> "Вот 5 фото дефектов → классифицируй новое фото"</li>
+              <li><strong>Извлечение данных из скриншотов:</strong> "Вот примеры парсинга → извлеки данные из нового скриншота"</li>
+              <li><strong>Анализ аудио:</strong> "Вот примеры тональности звонков → оцени новый звонок"</li>
+            </ul>
+          </div>
+        </div>
+
         <!-- Teacher Note -->
         <div class="teacher-note">
           <div class="teacher-note-header">
@@ -554,6 +656,8 @@
               <li>Обсудите экономику: когда 3× стоимость оправдана повышением качества</li>
               <li>Практическое упражнение: пусть студенты создадут 3 формулировки одной задачи</li>
               <li>Акцент на применимость: не везде нужен ensemble, важно понимать когда</li>
+              <li><strong>Новое 2026:</strong> Покажите Structured Outputs в ChatGPT/Claude — как JSON Schema гарантирует формат</li>
+              <li><strong>Новое 2026:</strong> Покажите мультимодальный few-shot в Gemini 3.1 Pro (AI Studio) — загрузите 3 изображения как примеры</li>
             </ul>
           </div>
         </div>
@@ -586,6 +690,22 @@
                 <div>
                   <strong>Выбирайте метод агрегации под задачу</strong>
                   <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Voting для классификации, среднее для оценок, консенсус для текста</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">📋</span>
+                <div>
+                  <strong>Structured Outputs = формат гарантирован</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Примеры теперь только для стиля и логики, не для формата (2026)</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">💰</span>
+                <div>
+                  <strong>Prompt Caching = Few-shot стал дешёвым</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Скидка 75-90% при повторном использовании промптов с примерами (2026)</p>
                 </div>
               </div>
             </div>

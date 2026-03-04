@@ -263,6 +263,49 @@ JSON: {"company": "не указана", "position": "UI/UX дизайнер", "
           </div>
         </div>
 
+        <!-- Extended Thinking + ICL (2026) -->
+        <h2>ICL + Extended Thinking (2026)</h2>
+
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+          <div class="card-body">
+            <h3>Chain-of-Thought Few-shot</h3>
+            <p>Модели 2026 года (Claude Opus 4.6, GPT-5 Thinking) поддерживают <strong>Extended Thinking</strong> — режим, в котором модель показывает ход рассуждений. Если вы включите ход рассуждений В ПРИМЕРЫ, модель научится рассуждать так же.</p>
+          </div>
+        </div>
+
+        <div class="demo-container" style="margin-top: 1.5rem;">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: #f59e0b;">Chain-of-Thought Few-shot</span>
+            <span class="demo-title">Рассуждение в примерах</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт с ходом рассуждений:</div>
+              <pre>Определи, стоит ли одобрить кредит.
+
+Заявка: Доход 80к, расходы 50к, кредитная история чистая, запрос 200к
+Рассуждение: Свободный доход = 80к - 50к = 30к. Запрос 200к при 30к свободных = 6.7 месячных доходов. Кредитная история чистая. Коэффициент долговой нагрузки приемлемый.
+Решение: Одобрить
+
+Заявка: Доход 45к, расходы 40к, 2 просрочки за год, запрос 300к
+Рассуждение: Свободный доход = 45к - 40к = 5к. Запрос 300к при 5к свободных = 60 месячных доходов. Плюс 2 просрочки — высокий риск.
+Решение: Отклонить
+
+---
+Заявка: Доход 120к, расходы 70к, 1 просрочка 2 года назад, запрос 500к</pre>
+            </div>
+            <div class="result-box" style="background: rgba(245, 158, 11, 0.1); border-color: #f59e0b;">
+              <div class="result-label">Результат (модель рассуждает как в примерах):</div>
+              <pre style="background: transparent; padding: 0;">Рассуждение: Свободный доход = 120к - 70к = 50к. Запрос 500к при 50к = 10 месячных доходов. Просрочка была 2 года назад — давно. Доход высокий, нагрузка средняя.
+Решение: Одобрить с условиями</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="alert alert-success" style="margin-top: 1rem;">
+          <strong>Вывод:</strong> Показывая ХОД рассуждений в примерах, вы учите модель не просто давать ответ, а думать правильно. Это особенно эффективно с Extended Thinking в Claude Opus 4.6 и GPT-5 Thinking.
+        </div>
+
         <!-- Important Note -->
         <div class="teacher-note">
           <div class="teacher-note-header">
@@ -273,6 +316,7 @@ JSON: {"company": "не указана", "position": "UI/UX дизайнер", "
           </div>
           <div class="teacher-note-content">
             <p>Исследования показывают: даже <strong>случайные метки</strong> в примерах могут улучшить результат, если <strong>структура правильная</strong>. Но мы рекомендуем использовать качественные примеры для надёжности.</p>
+            <p style="margin-top: 0.5rem;"><strong>Сдвиг 2026:</strong> С моделями нового поколения (GPT-5, Claude 4.6, Grok 4) часто достаточно 3-5 качественных примеров вместо 10-20. Фокусируйтесь на качестве, а не количестве.</p>
           </div>
         </div>
 
@@ -329,6 +373,10 @@ JSON: {"company": "не указана", "position": "UI/UX дизайнер", "
               <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
                 <span style="font-size: 1.5rem;">✨</span>
                 <div><strong>Качество примеров критично</strong><p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Разнообразные, качественные, в правильном формате</p></div>
+              </div>
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">💡</span>
+                <div><strong>Chain-of-Thought в примерах</strong><p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Покажите ход рассуждений — модель научится думать, а не только отвечать (Extended Thinking 2026)</p></div>
               </div>
             </div>
           </div>
