@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Урок 2: Grok Aurora | Модуль 5</title>
+  <title>Урок 2: Видео и Аудио | Модуль 5</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="app-container">
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo">
@@ -20,260 +19,118 @@
           PromptMaster
         </div>
       </div>
-
       <div class="progress-container">
         <div class="progress-bar">
           <div class="progress-fill" style="width: 0%"></div>
         </div>
-        <div class="progress-text">0 из 7 уроков</div>
+        <div class="progress-text">0 из 5 уроков</div>
       </div>
-
       <nav class="sidebar-nav">
         <div class="nav-section">Модуль 5</div>
-
         <a href="index.html" class="nav-item">
-          <span class="nav-item-number">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9,22 9,12 15,12 15,22"/>
-            </svg>
-          </span>
+          <span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>
           Главная
         </a>
-
         <a href="lesson-1.html" class="nav-item" data-lesson="1">
           <span class="nav-item-number">1</span>
-          ChatGPT Images
+          Изображения
         </a>
-
         <a href="lesson-2.html" class="nav-item active" data-lesson="2">
           <span class="nav-item-number">2</span>
-          Grok Aurora
+          Видео и Аудио
         </a>
-
         <a href="lesson-3.html" class="nav-item" data-lesson="3">
           <span class="nav-item-number">3</span>
-          Gemini Imagen
+          Sora 2
         </a>
-
         <a href="lesson-4.html" class="nav-item" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Nanabanana
+          Практика
         </a>
-
-        <a href="lesson-5.html" class="nav-item" data-lesson="5">
-          <span class="nav-item-number">5</span>
-          Sora 2 (Видео)
-        </a>
-
-        <a href="lesson-6.html" class="nav-item" data-lesson="6">
-          <span class="nav-item-number">6</span>
-          Практика: Генерация
-        </a>
-
-        <a href="project.html" class="nav-item" data-lesson="7">
+        <a href="project.html" class="nav-item" data-lesson="5">
           <span class="nav-item-number">P</span>
           Домашнее задание
         </a>
-
         <a href="../../index.html" class="nav-item exit-btn">
-          <span class="nav-item-number">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
-              <polyline points="16,17 21,12 16,7"/>
-              <line x1="21" y1="12" x2="9" y2="12"/>
-            </svg>
-          </span>
+          <span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>
           Выйти из модуля
         </a>
       </nav>
     </aside>
 
-    <!-- Overlay for mobile -->
     <div class="overlay"></div>
 
-    <!-- Main Content -->
     <main class="main-content">
-      <!-- Header -->
       <header class="header">
-        <button class="mobile-menu-btn" aria-label="Меню">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
         <div class="breadcrumb">
           <a href="index.html">Модуль 5</a>
           <span class="breadcrumb-separator">/</span>
-          <span>Урок 2: Grok Aurora</span>
+          <span>Урок 2: Видео и Аудио</span>
         </div>
-
         <div class="header-actions">
-          <span class="lesson-time">⏱ 30 мин</span>
+          <span class="lesson-time">50 мин</span>
         </div>
       </header>
 
-      <!-- Content -->
       <div class="content">
-        <h1>Grok Aurora</h1>
+        <h1>Видео (Veo3) и Аудио (NotebookLM)</h1>
 
         <p class="lead">
-          Новейший генератор изображений от xAI (компании Илона Маска). Известен фотореалистичностью и скоростью генерации.
+          Генерация видео из текста через Grok + Veo3 и создание AI-подкастов через NotebookLM. Ключевой навык — писать промпты для видео через текстовую LLM.
         </p>
 
-        <!-- Key Concept -->
-        <div class="card" style="border-left: 4px solid var(--primary);">
+        <!-- ===== PART 1: VEO3 ===== -->
+
+        <div class="card" style="border-left: 4px solid var(--accent);">
           <div class="card-body">
-            <h3>⚡ Главная идея</h3>
+            <h3>Главная идея</h3>
             <p style="font-size: 1.1rem; margin: 0;">
-              <strong>Grok Aurora специализируется на фотореалистичных изображениях</strong> — портреты, люди и сцены выглядят максимально естественно.
+              <strong>Veo3 генерирует реалистичное видео из текста.</strong> Лучшие результаты получаются, когда промпт для видео пишет текстовая LLM — она добавит движение камеры, освещение, настроение и кинематографические термины.
             </p>
           </div>
         </div>
 
-        <!-- Access -->
-        <h2>Как получить доступ</h2>
+        <h2>Как получить доступ к Veo3</h2>
 
         <div class="alert alert-info">
-          <strong>Доступ к Grok Aurora:</strong>
+          <strong>Доступ:</strong>
           <ul style="margin: 0.5rem 0 0 1rem;">
-            <li><strong>X Premium+</strong> — подписка на X (Twitter)</li>
-            <li><strong>grok.x.ai</strong> — веб-интерфейс Grok</li>
-            <li><strong>Мобильное приложение X</strong> — через чат с Grok</li>
+            <li><strong>grok.x.ai</strong> — через Grok (опция генерации видео)</li>
+            <li>Вводите промпт в текстовое поле и выбираете генерацию видео</li>
+            <li>Также доступно через API</li>
           </ul>
         </div>
 
-        <!-- Features -->
-        <h2>Ключевые особенности Aurora</h2>
+        <h2>Возможности Veo3</h2>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
           <div class="card" style="border-top: 4px solid #6366f1;">
             <div class="card-body" style="text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📷</div>
-              <h4>Фотореализм</h4>
-              <p style="font-size: 0.9rem; color: var(--text-secondary);">Особенно хорош в создании реалистичных лиц и людей</p>
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">&#x23F1;&#xFE0F;</div>
+              <h4>До 8 секунд</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Длительность одного видеоклипа</p>
             </div>
           </div>
-
           <div class="card" style="border-top: 4px solid #10b981;">
             <div class="card-body" style="text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
-              <h4>Скорость</h4>
-              <p style="font-size: 0.9rem; color: var(--text-secondary);">Генерация за несколько секунд</p>
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">&#x1F3AC;</div>
+              <h4>Высокое качество</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Реалистичные движения и физика</p>
             </div>
           </div>
-
           <div class="card" style="border-top: 4px solid #f59e0b;">
             <div class="card-body" style="text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎭</div>
-              <h4>Меньше ограничений</h4>
-              <p style="font-size: 0.9rem; color: var(--text-secondary);">Более гибкие правила генерации контента</p>
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">&#x1F50A;</div>
+              <h4>Звук и речь</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Генерация видео со звуком и диалогами</p>
             </div>
           </div>
         </div>
 
-        <!-- Comparison with DALL-E -->
-        <h2>Сравнение с DALL-E 3</h2>
+        <!-- Chain prompts -->
+        <h2>Промпты для промптов: текст &rarr; видео</h2>
 
-        <div class="card">
-          <div class="card-body">
-            <table style="width: 100%;">
-              <thead>
-                <tr>
-                  <th>Критерий</th>
-                  <th>Grok Aurora</th>
-                  <th>DALL-E 3</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Фотореализм людей</strong></td>
-                  <td style="color: var(--accent);">★★★★★</td>
-                  <td>★★★★☆</td>
-                </tr>
-                <tr>
-                  <td><strong>Понимание контекста</strong></td>
-                  <td>★★★★☆</td>
-                  <td style="color: var(--accent);">★★★★★</td>
-                </tr>
-                <tr>
-                  <td><strong>Скорость генерации</strong></td>
-                  <td style="color: var(--accent);">★★★★★</td>
-                  <td>★★★☆☆</td>
-                </tr>
-                <tr>
-                  <td><strong>Итеративное редактирование</strong></td>
-                  <td>★★★☆☆</td>
-                  <td style="color: var(--accent);">★★★★★</td>
-                </tr>
-                <tr>
-                  <td><strong>Гибкость контента</strong></td>
-                  <td style="color: var(--accent);">★★★★★</td>
-                  <td>★★★☆☆</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Example Prompts -->
-        <h2>Примеры промптов для Aurora</h2>
-
-        <!-- Example 1 -->
-        <div class="demo-container">
-          <div class="demo-header">
-            <span class="demo-badge">Портрет</span>
-            <span class="demo-title">Реалистичный человек</span>
-          </div>
-          <div class="demo-content">
-            <div class="prompt-box">
-              <div class="prompt-label">Промпт:</div>
-              <pre>Candid street photography of a young woman with freckles, natural red hair, genuine smile, wearing a cream sweater, soft natural daylight, shallow depth of field, shot on Fujifilm X-T4, 56mm f/1.2</pre>
-            </div>
-            <div class="result-box">
-              <div class="result-label">Почему это работает:</div>
-              <p>Aurora отлично работает с английскими промптами и техническими параметрами камеры. "Candid" помогает создать естественную позу.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Example 2 -->
-        <div class="demo-container">
-          <div class="demo-header">
-            <span class="demo-badge demo-badge-success">Мода</span>
-            <span class="demo-title">Fashion-фотография</span>
-          </div>
-          <div class="demo-content">
-            <div class="prompt-box">
-              <div class="prompt-label">Промпт:</div>
-              <pre>High fashion editorial photo, model in avant-garde geometric black dress, dramatic side lighting, white studio background, Vogue magazine style, professional fashion photography, sharp focus, elegant pose</pre>
-            </div>
-            <div class="result-box">
-              <div class="result-label">Результат:</div>
-              <p style="color: var(--accent);">✓ Изображение в стиле модных журналов с драматичным освещением</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Example 3 -->
-        <div class="demo-container">
-          <div class="demo-header">
-            <span class="demo-badge" style="background: var(--warning);">Lifestyle</span>
-            <span class="demo-title">Реклама</span>
-          </div>
-          <div class="demo-content">
-            <div class="prompt-box">
-              <div class="prompt-label">Промпт:</div>
-              <pre>Happy young couple having coffee in a modern minimalist kitchen, morning sunlight through large windows, warm cozy atmosphere, lifestyle advertisement photography, genuine expressions, Canon EOS R5, 35mm lens</pre>
-            </div>
-            <div class="result-box">
-              <div class="result-label">Результат:</div>
-              <p style="color: var(--accent);">✓ Идеально для рекламы lifestyle-брендов и недвижимости</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Teacher Note -->
         <div class="teacher-note">
           <div class="teacher-note-header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -283,118 +140,431 @@
             Заметка для преподавателя
           </div>
           <div class="teacher-note-content">
-            <p><strong>Важно:</strong> Grok Aurora лучше работает с английскими промптами. Рекомендуйте студентам писать на английском.</p>
-            <p><strong>Упражнение:</strong> Попросите создать серию портретов для landing page стартапа.</p>
+            <p><strong>Главная техника урока:</strong> Покажите live — пишете запрос в текстовый Grok, получаете видео-промпт, переключаетесь на генерацию видео, вставляете промпт. Всё за 2 минуты.</p>
           </div>
         </div>
 
-        <!-- Best Practices -->
-        <h2>Лучшие практики для Aurora</h2>
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge">Цепочка промптов</span>
+            <span class="demo-title">Текстовая LLM &rarr; Видео</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Шаг 1: Запрос к текстовой LLM</div>
+              <pre>Напиши промпт для генерации 8-секундного рекламного видео кофейни. Видео должно быть тёплым, уютным, показать процесс приготовления кофе. Используй кинематографические термины на английском.</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Шаг 2: LLM генерирует видео-промпт</div>
+              <pre>Cinematic close-up of a barista pouring steamed milk into a latte, creating latte art in a ceramic cup. Warm golden morning light streaming through cafe windows. Camera slowly pulls back to reveal a cozy coffee shop interior with exposed brick walls. Soft bokeh, warm color grading, commercial style, 4K, inviting atmosphere.</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Шаг 3:</div>
+              <p style="color: var(--accent);">Вставляете промпт в Grok (режим видео) &rarr; Veo3 генерирует ролик</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video prompt structure -->
+        <h2>Структура видео-промпта</h2>
+
+        <div class="card">
+          <div class="card-header">Компоненты видео-промпта</div>
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Компонент</th>
+                  <th>Описание</th>
+                  <th>Пример</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Сцена</strong></td>
+                  <td>Где происходит действие</td>
+                  <td>"Modern office with panoramic windows"</td>
+                </tr>
+                <tr>
+                  <td><strong>Субъект</strong></td>
+                  <td>Кто/что в кадре</td>
+                  <td>"Young professional at her desk"</td>
+                </tr>
+                <tr>
+                  <td><strong>Действие</strong></td>
+                  <td>Что происходит</td>
+                  <td>"Types on laptop, then turns to smile"</td>
+                </tr>
+                <tr>
+                  <td><strong>Движение камеры</strong></td>
+                  <td>Как двигается камера</td>
+                  <td>"Slow dolly in", "Pan left to right"</td>
+                </tr>
+                <tr>
+                  <td><strong>Стиль</strong></td>
+                  <td>Визуальный стиль</td>
+                  <td>"Cinematic", "Documentary", "Commercial"</td>
+                </tr>
+                <tr>
+                  <td><strong>Освещение</strong></td>
+                  <td>Тип света</td>
+                  <td>"Warm golden hour", "Soft studio lighting"</td>
+                </tr>
+                <tr>
+                  <td><strong>Настроение</strong></td>
+                  <td>Атмосфера</td>
+                  <td>"Inspiring", "Cozy", "Energetic"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Camera movements -->
+        <h2>Словарь движений камеры</h2>
 
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-marketing">Практика 1</span>
-            <h4>Используйте английский язык</h4>
+            <span class="domain-badge domain-marketing">Термины</span>
+            <h4>Основные движения камеры для промптов</h4>
           </div>
           <div class="example-body">
-            <p>Aurora обучена преимущественно на английских данных. Промпты на английском дают более качественные результаты.</p>
-            <div class="comparison" style="grid-template-columns: 1fr 1fr;">
-              <div class="comparison-item bad">
-                <div class="comparison-header">❌ Менее эффективно</div>
-                <p>"Красивая девушка в парке"</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+              <div>
+                <h5>Горизонтальные</h5>
+                <ul>
+                  <li><strong>Pan left/right</strong> — панорама</li>
+                  <li><strong>Tracking shot</strong> — следование</li>
+                  <li><strong>Dolly</strong> — на рельсах</li>
+                </ul>
               </div>
-              <div class="comparison-item good">
-                <div class="comparison-header">✓ Более эффективно</div>
-                <p>"Beautiful young woman in a sunlit park, golden hour lighting"</p>
+              <div>
+                <h5>Вертикальные</h5>
+                <ul>
+                  <li><strong>Tilt up/down</strong> — наклон</li>
+                  <li><strong>Crane shot</strong> — кран</li>
+                  <li><strong>Aerial</strong> — с воздуха</li>
+                </ul>
+              </div>
+              <div>
+                <h5>Глубина</h5>
+                <ul>
+                  <li><strong>Zoom in/out</strong> — зум</li>
+                  <li><strong>Push in</strong> — наезд</li>
+                  <li><strong>Pull back</strong> — отъезд</li>
+                  <li><strong>Rack focus</strong> — перевод фокуса</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Video examples by industry -->
+        <h2>Примеры по индустриям</h2>
+
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge">Бизнес</span>
+            <span class="demo-title">Корпоративный ролик</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Confident diverse team of professionals walking through a modern glass office building, natural daylight, camera tracking alongside them in smooth dolly shot, they stop at a conference room and shake hands, corporate commercial style, warm color grading, inspiring and professional atmosphere</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Применение:</div>
+              <p style="color: var(--accent);">Корпоративный сайт, презентация инвесторам, LinkedIn</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge demo-badge-success">Ресторан</span>
+            <span class="demo-title">Промо-видео</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Overhead cinematic shot of a chef plating a gourmet dish, hands carefully placing microgreens, steam rising from the plate, camera slowly pushes in, warm kitchen lighting, shallow depth of field, food commercial style, appetizing and elegant, 4K</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Применение:</div>
+              <p style="color: var(--accent);">Instagram Reels, реклама ресторана, сайт</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: var(--warning);">Образование</span>
+            <span class="demo-title">Промо курса</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Young student opens a laptop in a bright modern library, screen illuminates their face with a warm glow, holographic data visualizations appear floating around them, camera slowly orbits around the student, futuristic but warm atmosphere, educational technology commercial, inspiring mood</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Применение:</div>
+              <p style="color: var(--accent);">Промо онлайн-курса, реклама EdTech-платформы</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: #6366f1;">Юристы</span>
+            <span class="demo-title">Имиджевый ролик</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Establishing shot of an elegant law firm office building at golden hour, camera tilts up the glass facade, cut to interior — a lawyer in a dark suit reviewing documents at a mahogany desk, soft warm lighting, dolly push in, professional and trustworthy atmosphere, cinematic color grading</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Применение:</div>
+              <p style="color: var(--accent);">Сайт юридической компании, YouTube, имиджевое видео</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tips -->
+        <h2>Советы для лучших результатов</h2>
+
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-service">Практика 2</span>
-            <h4>Добавляйте "candid" или "natural" для реализма</h4>
+            <span class="domain-badge domain-marketing">Совет 1</span>
+            <h4>Используйте временные маркеры</h4>
           </div>
           <div class="example-body">
-            <p>Эти слова помогают избежать "постановочности" и делают изображения более живыми:</p>
             <ul>
-              <li><strong>candid</strong> — непостановочный, естественный момент</li>
-              <li><strong>genuine</strong> — настоящий, искренний</li>
-              <li><strong>spontaneous</strong> — спонтанный</li>
-              <li><strong>documentary style</strong> — документальный стиль</li>
+              <li>"starts with... then... finally..."</li>
+              <li>"camera begins at... moves to... ends on..."</li>
+              <li>"first... next... transitions to..."</li>
             </ul>
           </div>
         </div>
 
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-hr">Практика 3</span>
-            <h4>Указывайте этничность для разнообразия</h4>
+            <span class="domain-badge domain-service">Совет 2</span>
+            <h4>Указывайте стиль-референсы</h4>
           </div>
           <div class="example-body">
-            <p>Для создания разнообразного контента можно указывать:</p>
             <ul>
-              <li>"diverse group of people"</li>
-              <li>"Asian business professional"</li>
-              <li>"African American woman"</li>
-              <li>"Middle Eastern man"</li>
+              <li>"Apple commercial style" — минималистичная реклама</li>
+              <li>"National Geographic documentary" — документалка</li>
+              <li>"Wes Anderson color palette" — симметрия и пастель</li>
+              <li>"Christopher Nolan cinematic look" — эпика</li>
             </ul>
           </div>
         </div>
 
-        <!-- Use Cases -->
-        <h2>Когда использовать Aurora</h2>
-
-        <div class="alert alert-success">
-          <strong>Aurora идеально подходит для:</strong>
+        <div class="alert alert-warning">
+          <strong>Ограничения Veo3:</strong>
           <ul style="margin: 0.5rem 0 0 1rem;">
-            <li>Фотореалистичных портретов для сайтов</li>
-            <li>Lifestyle-фотографий для рекламы</li>
-            <li>Изображений людей для презентаций</li>
-            <li>Fashion и beauty контента</li>
-            <li>Стоковых фотографий</li>
+            <li>Максимум ~8 секунд на клип</li>
+            <li>Текст в видео может быть нечитаемым</li>
+            <li>Сложные мультиперсонажные сцены нестабильны</li>
+            <li>Физика не всегда реалистична</li>
           </ul>
+        </div>
+
+        <!-- ===== PART 2: NOTEBOOKLM ===== -->
+
+        <h2>NotebookLM — AI-подкасты и аудио</h2>
+
+        <div class="card" style="border-left: 4px solid var(--primary);">
+          <div class="card-body">
+            <h3>Что это?</h3>
+            <p style="font-size: 1.1rem; margin: 0;">
+              <strong>NotebookLM от Google превращает любой документ в AI-подкаст.</strong> Загружаете статью, отчёт или презентацию — получаете аудио-обсуждение двух AI-ведущих. Для обучения, маркетинга и внутренних коммуникаций.
+            </p>
+          </div>
+        </div>
+
+        <div class="alert alert-info">
+          <strong>Доступ:</strong>
+          <ul style="margin: 0.5rem 0 0 1rem;">
+            <li><strong>notebooklm.google.com</strong> — бесплатный веб-интерфейс</li>
+            <li>Загружаете документы (PDF, текст, ссылки на сайты)</li>
+            <li>Нажимаете "Audio Overview" &rarr; "Generate"</li>
+          </ul>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div class="card" style="border-top: 4px solid #6366f1;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">&#x1F3A7;</div>
+              <h4>AI-подкасты</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Два AI-ведущих обсуждают ваш контент</p>
+            </div>
+          </div>
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">&#x1F4C4;</div>
+              <h4>Любые документы</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">PDF, статьи, отчёты, ссылки на сайты</p>
+            </div>
+          </div>
+          <div class="card" style="border-top: 4px solid #f59e0b;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">&#x1F30D;</div>
+              <h4>Мультиязычность</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Поддержка русского и других языков</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- NotebookLM use cases -->
+        <h2>Use Cases для NotebookLM</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Индустрия</th>
+                  <th>Задача</th>
+                  <th>Что загружать</th>
+                  <th>Результат</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Образование</strong></td>
+                  <td>Аудио-версия лекции</td>
+                  <td>Конспект, PDF</td>
+                  <td>Подкаст для студентов</td>
+                </tr>
+                <tr>
+                  <td><strong>Маркетинг</strong></td>
+                  <td>Подкаст из блога</td>
+                  <td>Статьи блога</td>
+                  <td>Контент для аудиоплатформ</td>
+                </tr>
+                <tr>
+                  <td><strong>Юристы</strong></td>
+                  <td>Разбор законодательства</td>
+                  <td>Текст закона</td>
+                  <td>Аудио-объяснение для клиентов</td>
+                </tr>
+                <tr>
+                  <td><strong>HR</strong></td>
+                  <td>Онбординг сотрудников</td>
+                  <td>Корп. документы</td>
+                  <td>Аудиогид для новичков</td>
+                </tr>
+                <tr>
+                  <td><strong>Бизнес</strong></td>
+                  <td>Дайджест отчёта</td>
+                  <td>Годовой отчёт</td>
+                  <td>Аудио-дайджест для руководства</td>
+                </tr>
+                <tr>
+                  <td><strong>Стартап</strong></td>
+                  <td>Подкаст о продукте</td>
+                  <td>Описание продукта</td>
+                  <td>Контент для продвижения</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: #8b5cf6;">Практика</span>
+            <span class="demo-title">Создаём подкаст из документа</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Что делаем:</div>
+              <pre>1. Открываем notebooklm.google.com
+2. Создаём новый notebook
+3. Загружаем документ (PDF, текст или ссылку)
+4. Нажимаем "Audio Overview" &rarr; "Generate"
+5. Через 2-3 минуты получаем подкаст</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p>Два AI-ведущих обсуждают ваш документ в формате живого диалога. Можно скачать MP3 и использовать как подкаст, учебный материал или контент для соцсетей.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Демонстрация:</strong> Загрузите любой PDF (можно материалы предыдущего модуля) в NotebookLM и сгенерируйте Audio Overview прямо на уроке. Студенты будут в восторге от качества.</p>
+          </div>
         </div>
 
         <!-- Quiz -->
         <div class="card">
-          <div class="card-header">🎯 Проверьте понимание</div>
+          <div class="card-header">Проверьте понимание</div>
           <div class="card-body">
             <div class="quiz-container" data-quiz="lesson2">
               <div class="quiz-question">
-                <h4>Вопрос 1: В чём главное преимущество Grok Aurora?</h4>
+                <h4>Вопрос 1: Что такое Veo3?</h4>
                 <div class="quiz-options" data-correct="2">
                   <label class="quiz-option">
                     <input type="radio" name="q1" value="1">
-                    <span>Бесплатный доступ</span>
+                    <span>Текстовый чат</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q1" value="2">
-                    <span>Фотореализм людей и скорость генерации</span>
+                    <span>Генератор видео из текста</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q1" value="3">
-                    <span>Лучшее понимание русского языка</span>
+                    <span>Фоторедактор</span>
                   </label>
                 </div>
                 <div class="quiz-feedback"></div>
               </div>
 
               <div class="quiz-question">
-                <h4>Вопрос 2: На каком языке лучше писать промпты для Aurora?</h4>
-                <div class="quiz-options" data-correct="1">
+                <h4>Вопрос 2: Зачем использовать текстовую LLM перед генерацией видео?</h4>
+                <div class="quiz-options" data-correct="2">
                   <label class="quiz-option">
                     <input type="radio" name="q2" value="1">
-                    <span>На английском</span>
+                    <span>Для проверки грамматики</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q2" value="2">
-                    <span>На русском</span>
+                    <span>Для создания детального промпта с кинематографическими терминами</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q2" value="3">
-                    <span>На любом языке одинаково</span>
+                    <span>Для перевода на английский</span>
+                  </label>
+                </div>
+                <div class="quiz-feedback"></div>
+              </div>
+
+              <div class="quiz-question">
+                <h4>Вопрос 3: NotebookLM лучше всего подходит для:</h4>
+                <div class="quiz-options" data-correct="2">
+                  <label class="quiz-option">
+                    <input type="radio" name="q3" value="1">
+                    <span>Генерации изображений</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q3" value="2">
+                    <span>Создания AI-подкастов из документов</span>
+                  </label>
+                  <label class="quiz-option">
+                    <input type="radio" name="q3" value="3">
+                    <span>Написания кода</span>
                   </label>
                 </div>
                 <div class="quiz-feedback"></div>
@@ -405,34 +575,39 @@
           </div>
         </div>
 
-        <!-- Key Takeaways -->
+        <!-- Takeaways -->
         <div class="card" style="border: 2px solid var(--primary);">
           <div class="card-header" style="background: linear-gradient(135deg, var(--primary), #7C3AED);">
-            📌 Ключевые выводы урока
+            Ключевые выводы урока
           </div>
           <div class="card-body">
             <div class="takeaways-grid" style="display: grid; gap: 1rem;">
               <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
-                <span style="font-size: 1.5rem;">📷</span>
+                <span style="font-size: 1.5rem;">&#x1F3AC;</span>
                 <div>
-                  <strong>Фотореализм — сильная сторона</strong>
-                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Aurora создаёт самых реалистичных людей</p>
+                  <strong>Промпты для видео</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Всегда генерируйте через текстовую LLM с кинематографическими терминами</p>
                 </div>
               </div>
-
               <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
-                <span style="font-size: 1.5rem;">🇬🇧</span>
+                <span style="font-size: 1.5rem;">&#x1F3A5;</span>
                 <div>
-                  <strong>Пишите на английском</strong>
-                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Английские промпты дают лучшие результаты</p>
+                  <strong>Кинематография</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Используйте термины камеры: dolly, pan, tracking, push in</p>
                 </div>
               </div>
-
               <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
-                <span style="font-size: 1.5rem;">⚡</span>
+                <span style="font-size: 1.5rem;">&#x1F3A7;</span>
                 <div>
-                  <strong>Быстрая генерация</strong>
-                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Результаты за секунды</p>
+                  <strong>NotebookLM</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Превращает любой документ в AI-подкаст за 2-3 минуты</p>
+                </div>
+              </div>
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">&#x1F4BC;</span>
+                <div>
+                  <strong>Use Cases</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Видео и аудио для любой индустрии — от юристов до EdTech</p>
                 </div>
               </div>
             </div>
@@ -442,10 +617,10 @@
         <!-- Navigation -->
         <div class="lesson-nav">
           <a href="lesson-1.html" class="nav-arrow nav-arrow-prev">
-            <span>←</span>
+            <span>&larr;</span>
             <div>
               <div class="nav-arrow-label">Назад</div>
-              <div class="nav-arrow-title">ChatGPT Images</div>
+              <div class="nav-arrow-title">Изображения</div>
             </div>
           </a>
           <button class="btn btn-primary mark-complete-btn" data-lesson="2">
@@ -454,9 +629,9 @@
           <a href="lesson-3.html" class="nav-arrow nav-arrow-next">
             <div>
               <div class="nav-arrow-label">Далее</div>
-              <div class="nav-arrow-title">Gemini Imagen</div>
+              <div class="nav-arrow-title">Sora 2</div>
             </div>
-            <span>→</span>
+            <span>&rarr;</span>
           </a>
         </div>
       </div>

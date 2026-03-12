@@ -25,7 +25,7 @@
         <div class="progress-bar">
           <div class="progress-fill" style="width: 0%"></div>
         </div>
-        <div class="progress-text">0 из 7 уроков</div>
+        <div class="progress-text">0 из 5 уроков</div>
       </div>
 
       <nav class="sidebar-nav">
@@ -43,35 +43,25 @@
 
         <a href="lesson-1.html" class="nav-item" data-lesson="1">
           <span class="nav-item-number">1</span>
-          ChatGPT Images
+          Изображения
         </a>
 
         <a href="lesson-2.html" class="nav-item" data-lesson="2">
           <span class="nav-item-number">2</span>
-          Grok Aurora
+          Видео и Аудио
         </a>
 
         <a href="lesson-3.html" class="nav-item" data-lesson="3">
           <span class="nav-item-number">3</span>
-          Gemini Imagen
+          Sora 2
         </a>
 
         <a href="lesson-4.html" class="nav-item" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Nanabanana
+          Практика
         </a>
 
-        <a href="lesson-5.html" class="nav-item" data-lesson="5">
-          <span class="nav-item-number">5</span>
-          Sora 2 (Видео)
-        </a>
-
-        <a href="lesson-6.html" class="nav-item" data-lesson="6">
-          <span class="nav-item-number">6</span>
-          Практика: Генерация
-        </a>
-
-        <a href="project.html" class="nav-item" data-lesson="7">
+        <a href="project.html" class="nav-item" data-lesson="5">
           <span class="nav-item-number">P</span>
           Домашнее задание
         </a>
@@ -122,8 +112,8 @@
         <section class="hero">
           <h1 class="hero-title">Мультимодальный ИИ</h1>
           <p class="hero-subtitle">
-            Научитесь генерировать изображения и видео с помощью AI.<br>
-            DALL-E 3, Grok Aurora, Gemini, Sora 2 и другие инструменты.
+            Генерация изображений, видео и аудио с помощью AI.<br>
+            Grok Aurora, Gemini Imagen, Nanabanana, Veo3 и NotebookLM.
           </p>
         </section>
 
@@ -137,9 +127,9 @@
             Заметка для преподавателя
           </div>
           <div class="teacher-note-content">
-            <p><strong>Общая продолжительность модуля:</strong> ~4 часа (6 уроков + домашнее задание)</p>
-            <p><strong>Рекомендация:</strong> Показывайте примеры генерации в реальном времени. Студенты должны создать минимум 10 изображений и 2 видео.</p>
-            <p><strong>Ключевая цель:</strong> Студенты понимают особенности каждой платформы и умеют писать эффективные промпты для генерации визуального контента.</p>
+            <p><strong>Общая продолжительность модуля:</strong> ~3 часа (3 урока + домашнее задание)</p>
+            <p><strong>Рекомендация:</strong> Показывайте генерацию в реальном времени. Акцент на практику: промпты для промптов, use cases по индустриям. Студенты должны научиться генерировать промпты для изображений/видео через текстовую LLM.</p>
+            <p><strong>Ключевая идея:</strong> Используем текстовую модель (Grok, Cursor) для написания детальных промптов, которые затем используем в генераторах изображений, видео и аудио.</p>
           </div>
         </div>
 
@@ -153,11 +143,12 @@
           <div>
             <strong>Что вы изучите в этом модуле:</strong>
             <ul style="margin: 0.5rem 0 0 1rem;">
-              <li><strong>ChatGPT Images (DALL-E 3)</strong> — самый популярный генератор изображений</li>
-              <li><strong>Grok Aurora</strong> — новейший генератор от xAI (X/Twitter)</li>
-              <li><strong>Gemini Imagen</strong> — мощный инструмент от Google</li>
-              <li><strong>Nanabanana</strong> — творческий генератор изображений</li>
-              <li><strong>Sora 2</strong> — революционный генератор видео от OpenAI</li>
+              <li><strong>Grok Aurora</strong> — фотореалистичные изображения от xAI</li>
+              <li><strong>Gemini Imagen</strong> — изображения с текстом, слайды, баннеры от Google</li>
+              <li><strong>Nanabanana</strong> — креативные иллюстрации и художественные стили</li>
+              <li><strong>Veo3</strong> — генерация видео из текста через Grok</li>
+              <li><strong>NotebookLM</strong> — AI-подкасты и аудио из документов</li>
+              <li><strong>Промпты для промптов</strong> — как текстовая LLM пишет промпты для генераторов</li>
             </ul>
           </div>
         </div>
@@ -165,11 +156,39 @@
         <!-- Key Message -->
         <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%); border: 2px solid var(--primary);">
           <div class="card-body" style="text-align: center;">
-            <h3 style="margin-bottom: 0.5rem;">💡 Главная мысль модуля</h3>
+            <h3 style="margin-bottom: 0.5rem;">Главная мысль модуля</h3>
             <p style="font-size: 1.125rem; margin: 0; color: var(--text-primary);">
-              "Качество генерации напрямую зависит от детализации промпта:<br>
-              стиль, освещение, композиция, настроение и технические параметры."
+              "Не пишите промпты для генерации вручную — попросите текстовую LLM<br>
+              создать детальный промпт с учётом стиля, освещения, композиции и задачи."
             </p>
+          </div>
+        </div>
+
+        <!-- Meta-skill explanation -->
+        <h2 style="margin: 2rem 0 1rem;">Промпты для промптов — ключевой навык</h2>
+
+        <div class="card">
+          <div class="card-header">Как это работает</div>
+          <div class="card-body">
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 8px;">
+                <strong>Шаг 1:</strong> Описываете задачу текстовой LLM (Grok, Cursor)
+                <div style="margin-top: 0.5rem; font-style: italic; color: var(--text-secondary);">"Напиши промпт для генерации фотореалистичного изображения команды юридической фирмы для раздела 'О нас' на сайте"</div>
+              </div>
+              <div style="text-align: center; font-size: 1.5rem;">&#8595;</div>
+              <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 8px;">
+                <strong>Шаг 2:</strong> LLM генерирует детальный промпт
+                <div style="margin-top: 0.5rem; font-style: italic; color: var(--text-secondary);">"Professional group photo of a diverse legal team, 4 people in business attire, modern law office with glass walls, warm studio lighting, genuine confident smiles, corporate portrait style, shot on Canon EOS R5, 85mm f/1.8, shallow depth of field"</div>
+              </div>
+              <div style="text-align: center; font-size: 1.5rem;">&#8595;</div>
+              <div style="background: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 8px;">
+                <strong>Шаг 3:</strong> Вставляете промпт в генератор (Grok Aurora / Gemini / Nanabanana / Veo3)
+              </div>
+              <div style="text-align: center; font-size: 1.5rem;">&#8595;</div>
+              <div style="background: rgba(99, 102, 241, 0.1); padding: 1rem; border-radius: 8px;">
+                <strong>Шаг 4:</strong> Получаете результат, корректируете промпт через LLM если нужно
+              </div>
+            </div>
           </div>
         </div>
 
@@ -180,93 +199,51 @@
           <!-- Lesson 1 -->
           <a href="lesson-1.html" class="lesson-card">
             <div class="lesson-card-number">1</div>
-            <h3 class="lesson-card-title">ChatGPT Images (DALL-E 3)</h3>
+            <h3 class="lesson-card-title">Генерация изображений</h3>
             <p class="lesson-card-desc">
-              Самый популярный генератор изображений. Интеграция с ChatGPT, понимание контекста, редактирование.
+              Grok Aurora, Gemini Imagen, Nanabanana. Промпты для фото, слайдов, иллюстраций. Use cases для бизнеса, юристов, маркетинга, HR.
             </p>
             <div class="lesson-card-meta">
-              <span>⏱ 35 мин</span>
-              <span>•</span>
-              <span>Базовый инструмент</span>
+              <span>80 мин</span>
+              <span>&bull;</span>
+              <span>3 платформы + use cases</span>
             </div>
           </a>
 
           <!-- Lesson 2 -->
-          <a href="lesson-2.html" class="lesson-card">
-            <div class="lesson-card-number">2</div>
-            <h3 class="lesson-card-title">Grok Aurora</h3>
+          <a href="lesson-2.html" class="lesson-card" style="border-color: var(--accent);">
+            <div class="lesson-card-number" style="background: var(--accent);">2</div>
+            <h3 class="lesson-card-title">Видео (Veo3) и Аудио (NotebookLM)</h3>
             <p class="lesson-card-desc">
-              Новейший генератор от xAI. Фотореализм, быстрая генерация, интеграция с X (Twitter).
+              Видео через Grok + Veo3, AI-подкасты через NotebookLM. Промпты для промптов: текст к видео и аудио.
             </p>
             <div class="lesson-card-meta">
-              <span>⏱ 30 мин</span>
-              <span>•</span>
-              <span>Новинка 2026</span>
-            </div>
-          </a>
-
-          <!-- Lesson 3 -->
-          <a href="lesson-3.html" class="lesson-card">
-            <div class="lesson-card-number">3</div>
-            <h3 class="lesson-card-title">Gemini Imagen</h3>
-            <p class="lesson-card-desc">
-              Генератор изображений от Google. Высокое качество, понимание сложных промптов.
-            </p>
-            <div class="lesson-card-meta">
-              <span>⏱ 30 мин</span>
-              <span>•</span>
-              <span>Google AI</span>
-            </div>
-          </a>
-
-          <!-- Lesson 4 -->
-          <a href="lesson-4.html" class="lesson-card">
-            <div class="lesson-card-number">4</div>
-            <h3 class="lesson-card-title">Nanabanana</h3>
-            <p class="lesson-card-desc">
-              Творческий генератор изображений с уникальным стилем и возможностями.
-            </p>
-            <div class="lesson-card-meta">
-              <span>⏱ 25 мин</span>
-              <span>•</span>
-              <span>Креативный инструмент</span>
-            </div>
-          </a>
-
-          <!-- Lesson 5 -->
-          <a href="lesson-5.html" class="lesson-card" style="border-color: var(--accent);">
-            <div class="lesson-card-number" style="background: var(--accent);">5</div>
-            <h3 class="lesson-card-title">Sora 2 (Генерация видео)</h3>
-            <p class="lesson-card-desc">
-              Революционный генератор видео от OpenAI. Создание реалистичных видеороликов из текста.
-            </p>
-            <div class="lesson-card-meta">
-              <span>⏱ 40 мин</span>
-              <span>•</span>
-              <span>Видео AI</span>
+              <span>50 мин</span>
+              <span>&bull;</span>
+              <span>Видео + Аудио AI</span>
             </div>
           </a>
 
           <!-- Practice -->
-          <a href="lesson-6.html" class="lesson-card" style="border-color: var(--warning);">
-            <div class="lesson-card-number" style="background: var(--warning);">6</div>
-            <h3 class="lesson-card-title">Практика: Генерация контента</h3>
+          <a href="lesson-3.html" class="lesson-card" style="border-color: var(--warning);">
+            <div class="lesson-card-number" style="background: var(--warning);">3</div>
+            <h3 class="lesson-card-title">Практика: от задачи к результату</h3>
             <p class="lesson-card-desc">
-              Создание изображений и видео для реальных задач: маркетинг, социальные сети, презентации.
+              Генерируем слайды, баннеры, видео, подкасты для реальных задач. Цепочки промптов. Сравнение платформ.
             </p>
             <div class="lesson-card-meta">
-              <span>⏱ 45 мин</span>
-              <span>•</span>
+              <span>50 мин</span>
+              <span>&bull;</span>
               <span>Hands-on</span>
             </div>
           </a>
 
-          <!-- Final Project -->
+          <!-- Homework -->
           <a href="project.html" class="lesson-card" style="border-color: var(--primary); border-width: 2px;">
             <div class="lesson-card-number" style="background: linear-gradient(135deg, var(--primary), var(--accent));">P</div>
             <h3 class="lesson-card-title">Домашнее задание</h3>
             <p class="lesson-card-desc">
-              Создание визуального контента для бизнес-кейса: серия изображений и видео.
+              Полный мультимедийный контент-пакет для бизнеса: изображения + видео + подкаст + документ с промптами.
             </p>
             <div class="lesson-card-meta">
               <span>Финальное задание</span>
@@ -274,52 +251,61 @@
           </a>
         </div>
 
-        <!-- Platforms Overview -->
-        <h2 style="margin: 2.5rem 0 1rem;">Обзор платформ</h2>
+        <!-- Tools Overview -->
+        <h2 style="margin: 2.5rem 0 1rem;">Наши инструменты</h2>
 
         <div class="technique-card">
-          <div class="technique-card-icon">🎨</div>
-          <h3 class="technique-card-title">ChatGPT Images (DALL-E 3)</h3>
+          <div class="technique-card-icon">&#x26A1;</div>
+          <h3 class="technique-card-title">Grok Aurora (Изображения)</h3>
           <p class="technique-card-desc">
-            Интегрирован в ChatGPT. Отлично понимает контекст, поддерживает редактирование и вариации. Идеален для бизнес-задач.
+            Фотореалистичные изображения от xAI. Лучший в портретах и людях. Быстрая генерация, гибкие правила. Лучше работает на английском.
           </p>
-          <span class="technique-badge">chatgpt.com/images</span>
+          <span class="technique-badge">grok.x.ai</span>
         </div>
 
         <div class="technique-card">
-          <div class="technique-card-icon">⚡</div>
-          <h3 class="technique-card-title">Grok Aurora</h3>
-          <p class="technique-card-desc">
-            Новейший генератор от xAI. Отличается фотореалистичностью и скоростью. Доступен через X (Twitter) Premium.
-          </p>
-          <span class="technique-badge">x.com/grok</span>
-        </div>
-
-        <div class="technique-card">
-          <div class="technique-card-icon">🌈</div>
+          <div class="technique-card-icon">&#x1F308;</div>
           <h3 class="technique-card-title">Gemini Imagen</h3>
           <p class="technique-card-desc">
-            Генератор от Google с мощным пониманием языка. Отлично работает с сложными описаниями и деталями.
+            Генератор от Google. Лучший для текста на изображениях, баннеров, слайдов. Отлично понимает сложные промпты. Мультиязычный.
           </p>
           <span class="technique-badge">gemini.google.com</span>
         </div>
 
         <div class="technique-card">
-          <div class="technique-card-icon">🍌</div>
+          <div class="technique-card-icon">&#x1F34C;</div>
           <h3 class="technique-card-title">Nanabanana</h3>
           <p class="technique-card-desc">
-            Творческий генератор с уникальным художественным стилем. Отлично подходит для креативных проектов.
+            Творческий генератор с уникальными художественными стилями. Аниме, акварель, digital art. Отлично понимает русский язык.
           </p>
-          <span class="technique-badge">Креативный AI</span>
+          <span class="technique-badge">nanabanana.ai</span>
         </div>
 
         <div class="technique-card">
-          <div class="technique-card-icon">🎬</div>
-          <h3 class="technique-card-title">Sora 2</h3>
+          <div class="technique-card-icon">&#x1F3AC;</div>
+          <h3 class="technique-card-title">Veo3 (Видео через Grok)</h3>
           <p class="technique-card-desc">
-            Революционный генератор видео от OpenAI. Создаёт реалистичные видео до 20 секунд из текстового описания.
+            Генерация видео из текстового описания. Реалистичные ролики со звуком для рекламы, соцсетей и презентаций.
           </p>
-          <span class="technique-badge">sora.com</span>
+          <span class="technique-badge">grok.x.ai</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">&#x1F3A7;</div>
+          <h3 class="technique-card-title">NotebookLM (AI-подкасты)</h3>
+          <p class="technique-card-desc">
+            Превращает любой документ в AI-подкаст. Два AI-ведущих обсуждают ваш контент. Для обучения, маркетинга, внутренних коммуникаций.
+          </p>
+          <span class="technique-badge">notebooklm.google.com</span>
+        </div>
+
+        <div class="technique-card">
+          <div class="technique-card-icon">&#x1F4BB;</div>
+          <h3 class="technique-card-title">Cursor / Grok текст (LLM для промптов)</h3>
+          <p class="technique-card-desc">
+            Текстовая LLM для написания и рефайнинга промптов. Генерируем детальные промпты для изображений, видео и аудио.
+          </p>
+          <span class="technique-badge">cursor.com</span>
         </div>
 
         <!-- Quick Start -->
@@ -330,76 +316,79 @@
 
             <ul class="checklist">
               <li class="checklist-item">
-                <span class="checklist-checkbox" data-id="start-chatgpt"></span>
-                <span class="checklist-text">Доступ к ChatGPT Plus (для DALL-E 3)</span>
-              </li>
-              <li class="checklist-item">
                 <span class="checklist-checkbox" data-id="start-grok"></span>
-                <span class="checklist-text">Аккаунт X Premium (для Grok Aurora)</span>
+                <span class="checklist-text">Доступ к Grok (grok.x.ai или X Premium)</span>
               </li>
               <li class="checklist-item">
                 <span class="checklist-checkbox" data-id="start-gemini"></span>
                 <span class="checklist-text">Доступ к Gemini (gemini.google.com)</span>
               </li>
               <li class="checklist-item">
-                <span class="checklist-checkbox" data-id="start-sora"></span>
-                <span class="checklist-text">Доступ к Sora 2 (sora.com)</span>
+                <span class="checklist-checkbox" data-id="start-nana"></span>
+                <span class="checklist-text">Доступ к Nanabanana (nanabanana.ai)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-notebook"></span>
+                <span class="checklist-text">Доступ к NotebookLM (notebooklm.google.com)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-cursor"></span>
+                <span class="checklist-text">Cursor или любая текстовая LLM для генерации промптов</span>
               </li>
               <li class="checklist-item">
                 <span class="checklist-checkbox" data-id="start-folder"></span>
-                <span class="checklist-text">Папка для сохранения сгенерированных изображений</span>
+                <span class="checklist-text">Папка для сохранения сгенерированных материалов</span>
               </li>
             </ul>
 
             <div style="margin-top: 1rem;">
-              <a href="lesson-1.html" class="btn btn-primary">Начать обучение →</a>
+              <a href="lesson-1.html" class="btn btn-primary">Начать обучение &rarr;</a>
             </div>
           </div>
         </div>
 
         <!-- Comparison Table -->
         <div class="card">
-          <div class="card-header">Сравнение платформ</div>
+          <div class="card-header">Какой инструмент для какой задачи</div>
           <div class="card-body">
             <table style="width: 100%;">
               <thead>
                 <tr>
-                  <th>Платформа</th>
-                  <th>Тип контента</th>
-                  <th>Сильные стороны</th>
-                  <th>Лучше всего для</th>
+                  <th>Задача</th>
+                  <th>Лучший инструмент</th>
+                  <th>Почему</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>ChatGPT Images</strong></td>
-                  <td>Изображения</td>
-                  <td>Понимание контекста, редактирование</td>
-                  <td>Бизнес-задачи</td>
-                </tr>
-                <tr>
+                  <td>Фотопортрет для сайта</td>
                   <td><strong>Grok Aurora</strong></td>
-                  <td>Изображения</td>
-                  <td>Фотореализм, скорость</td>
-                  <td>Фото-контент</td>
+                  <td>Лучший фотореализм людей</td>
                 </tr>
                 <tr>
-                  <td><strong>Gemini</strong></td>
-                  <td>Изображения</td>
-                  <td>Сложные промпты</td>
-                  <td>Детализация</td>
+                  <td>Баннер / слайд с текстом</td>
+                  <td><strong>Gemini Imagen</strong></td>
+                  <td>Лучшая типографика</td>
                 </tr>
                 <tr>
+                  <td>Иллюстрация / арт</td>
                   <td><strong>Nanabanana</strong></td>
-                  <td>Изображения</td>
-                  <td>Уникальный стиль</td>
-                  <td>Креатив</td>
+                  <td>Уникальные стили, русский язык</td>
                 </tr>
                 <tr>
-                  <td><strong>Sora 2</strong></td>
-                  <td>Видео</td>
-                  <td>Реалистичность, длительность</td>
-                  <td>Видео-контент</td>
+                  <td>Рекламное видео</td>
+                  <td><strong>Veo3 (через Grok)</strong></td>
+                  <td>Реалистичное видео из текста</td>
+                </tr>
+                <tr>
+                  <td>Подкаст / аудио из документа</td>
+                  <td><strong>NotebookLM</strong></td>
+                  <td>AI-ведущие обсуждают контент</td>
+                </tr>
+                <tr>
+                  <td>Написание промптов</td>
+                  <td><strong>Cursor / Grok текст</strong></td>
+                  <td>Детальные промпты для генераторов</td>
                 </tr>
               </tbody>
             </table>
@@ -408,11 +397,11 @@
 
         <!-- Prompt Structure -->
         <div class="card">
-          <div class="card-header">Структура промпта для изображений</div>
+          <div class="card-header">Формула промпта для изображений</div>
           <div class="card-body">
             <div class="demo-container" style="margin: 0;">
               <div class="prompt-box">
-                <div class="prompt-label">Шаблон промпта:</div>
+                <div class="prompt-label">Шаблон:</div>
                 <pre style="background: var(--bg-code); color: #E2E8F0; padding: 1rem; border-radius: 8px;">[Субъект] + [Действие/Поза] + [Окружение] + [Стиль] + [Освещение] + [Настроение] + [Технические параметры]</pre>
               </div>
             </div>
@@ -420,7 +409,7 @@
             <div style="margin-top: 1rem;">
               <p><strong>Пример:</strong></p>
               <div style="background: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--accent);">
-                <em>"Портрет молодой женщины с рыжими волосами, смотрящей в камеру с легкой улыбкой, в уютном кафе с большими окнами, фотореалистичный стиль, мягкое естественное освещение из окна, теплая атмосфера, снято на Canon EOS R5, 85mm f/1.4, боке"</em>
+                <em>"Professional headshot of a confident woman lawyer, 35 years old, dark blazer, modern law office background with bookshelves, soft studio lighting, warm tones, shot on Canon EOS R5, 85mm f/1.4, shallow depth of field"</em>
               </div>
             </div>
           </div>

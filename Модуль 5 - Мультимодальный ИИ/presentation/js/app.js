@@ -8,7 +8,7 @@
 // ==========================================
 const MODULE_KEY = 'completedLessons_m5';
 const MODULE_ID = 5;
-const TOTAL_LESSONS = 7;
+const TOTAL_LESSONS = 5;
 
 function getUnlockedLessons() {
   // Если админ — все уроки открыты

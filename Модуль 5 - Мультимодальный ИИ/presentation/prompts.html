@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека промптов | Модуль 5</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .prompt-card {
+      background: var(--bg-secondary, #1e1e2e);
+      border: 1px solid var(--border-color, #333);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+    .prompt-card:hover {
+      border-color: var(--accent-color, #6c5ce7);
+      transform: translateY(-1px);
+    }
+    .prompt-card .prompt-text {
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      color: #e0e0e0;
+      white-space: pre-wrap;
+    }
+    .prompt-card .prompt-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-right: 6px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .tag-business { background: #2d3a8c; color: #818cf8; }
+    .tag-realestate { background: #065f46; color: #6ee7b7; }
+    .tag-food { background: #92400e; color: #fbbf24; }
+    .tag-education { background: #5b21b6; color: #c4b5fd; }
+    .tag-lawyers { background: #7c2d12; color: #fdba74; }
+    .tag-hr { background: #164e63; color: #67e8f9; }
+    .tag-startup { background: #831843; color: #f9a8d4; }
+    .tag-ecommerce { background: #3f6212; color: #a3e635; }
+    .tag-creative { background: #4a1d96; color: #a78bfa; }
+    .tag-portrait { background: #78350f; color: #fde68a; }
+    .tag-social { background: #be185d; color: #fda4af; }
+    .tag-presentation { background: #1e3a5f; color: #7dd3fc; }
+    .copy-hint {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 11px;
+      color: #666;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    .prompt-card:hover .copy-hint { opacity: 1; }
+    .prompt-card.copied .copy-hint { color: #22c55e; opacity: 1; }
+    .tool-section {
+      margin-bottom: 48px;
+    }
+    .tool-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .tool-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .badge-grok { background: #1a1a2e; color: #fff; border: 1px solid #555; }
+    .badge-gemini { background: #1a3a5c; color: #60a5fa; border: 1px solid #2563eb; }
+    .badge-nana { background: #3b1a5c; color: #c084fc; border: 1px solid #7c3aed; }
+    .badge-veo { background: #1a3a2e; color: #34d399; border: 1px solid #059669; }
+    .badge-notebook { background: #5c3a1a; color: #fb923c; border: 1px solid #d97706; }
+    .prompt-count {
+      font-size: 13px;
+      color: #888;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+      padding: 16px;
+      background: var(--bg-secondary, #1e1e2e);
+      border-radius: 12px;
+    }
+    .filter-btn {
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #444;
+      background: transparent;
+      color: #ccc;
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent-color, #6c5ce7);
+      color: #fff;
+      border-color: var(--accent-color, #6c5ce7);
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, #444, transparent);
+      margin: 40px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          PromptMaster
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 5 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 5</div>
+        <a href="index.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Изображения
+        </a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Видео и Аудио
+        </a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Sora 2
+        </a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Практика
+        </a>
+        <a href="project.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">P</span>
+          Домашнее задание
+        </a>
+        <a href="prompts.html" class="nav-item active">
+          <span class="nav-item-number">*</span>
+          Библиотека промптов
+        </a>
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="content-header">
+        <button class="menu-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+        <div class="breadcrumb">Модуль 5 / Библиотека промптов</div>
+        <div class="header-badge admin-only" style="display:none">Admin</div>
+      </header>
+
+      <div class="content-body">
+        <div class="lesson-header">
+          <h1>Библиотека промптов</h1>
+          <p class="lesson-subtitle">70+ готовых промптов для всех инструментов. Копируй, адаптируй, используй.</p>
+        </div>
+
+        <div class="alert alert-info" style="margin-bottom: 32px;">
+          <strong>Как пользоваться:</strong> нажми на любой промпт, чтобы скопировать. Замени [текст в скобках] на свои данные. Все промпты проверены и работают.
+        </div>
+
+        <!-- ============================================ -->
+        <!-- GROK AURORA — 15 промптов -->
+        <!-- ============================================ -->
+        <div class="tool-section">
+          <div class="tool-header">
+            <h2>Grok Aurora</h2>
+            <span class="tool-badge badge-grok">xAI</span>
+            <span class="prompt-count">15 промптов</span>
+          </div>
+          <p style="color: #999; margin-bottom: 20px;">Лучше всего: фотореалистичные портреты, люди, еда, интерьеры. Формула: Субъект + Действие + Сцена + Освещение + Стиль</p>
+
+          <h3>Бизнес и команда</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <span class="prompt-tag tag-portrait">Портрет</span>
+            <div class="prompt-text">Professional headshot of a [man/woman] in their 30s wearing a navy blazer over a white shirt, confident smile, modern office with floor-to-ceiling windows in the background, soft natural side lighting, shot on Canon EOS R5 with 85mm f/1.4 lens, shallow depth of field, corporate LinkedIn style</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">Team of 4 diverse professionals collaborating around a whiteboard in a bright modern startup office, casual business attire, genuine laughter and engagement, golden hour sunlight through large windows, candid documentary style, shot on Sony A7IV, natural warm tones</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <span class="prompt-tag tag-presentation">Презентация</span>
+            <div class="prompt-text">Confident female CEO giving a keynote speech on a modern stage, large LED screen behind her showing abstract data visualization, dramatic stage lighting with blue and purple tones, audience silhouettes in foreground, cinematic composition, shot on 70-200mm telephoto lens</div>
+          </div>
+
+          <h3>Недвижимость</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Luxury modern apartment interior, open-plan living room with minimalist Scandinavian furniture, floor-to-ceiling windows overlooking a city skyline at golden hour, warm ambient lighting from designer pendant lamps, hardwood floors reflecting soft light, architectural photography style, shot on Nikon Z7 with 24mm tilt-shift lens, high dynamic range</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Cozy modern kitchen interior with marble countertops and wooden cabinets, fresh fruits and herbs on the counter, morning sunlight streaming through the window, a steaming cup of coffee on the island, lifestyle real estate photography, warm color palette, shot on Fujifilm GFX with 32-64mm lens</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Exterior view of a modern two-story house with large glass facade, manicured garden with pathway lighting at dusk, warm interior lights glowing through windows, dramatic twilight sky with pink and blue gradients, real estate listing photography, wide-angle 16mm lens, perfect exposure balance between interior and exterior</div>
+          </div>
+
+          <h3>Рестораны и еда</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Overhead flat-lay shot of an Italian dinner table: pasta carbonara in a ceramic bowl, freshly baked focaccia, glass of red wine, olive oil in a small pitcher, scattered fresh basil leaves and parmesan shavings, rustic wooden table surface, soft diffused natural lighting from the left, food magazine editorial style, shot on Phase One with 80mm lens</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Close-up hero shot of a gourmet burger with melting cheddar, crispy bacon, fresh lettuce and tomato, sesame bun, juices dripping, dark moody background with a single warm spotlight from above, steam rising, shallow depth of field at f/2.8, commercial food photography, Michelin-star presentation</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Professional barista pouring latte art in a specialty coffee shop, close-up on hands and the cup, warm ambient lighting from Edison bulbs overhead, exposed brick wall in soft focus background, steam rising from the cup, shot on Fujifilm XT4 with 56mm f/1.2 lens, film simulation Kodak Portra 400</div>
+          </div>
+
+          <h3>HR и образование</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-hr">HR</span>
+            <div class="prompt-text">Warm and welcoming onboarding scene: a new employee being greeted by a smiling team in a modern open office, everyone wearing smart casual, diverse group of 5 people, natural daylight from windows, a welcome banner subtly visible, genuine candid moment, corporate culture photography style</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">University professor explaining a complex diagram on a digital interactive whiteboard to engaged students, modern lecture hall, the professor gesturing expressively, students taking notes on laptops, soft overhead institutional lighting mixed with screen glow, documentary education photography, natural and authentic</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Diverse group of adult students collaborating on a project around a table, notebooks and laptops open, post-it notes on the wall behind them, coworking space environment, natural daylight, one person standing and presenting ideas, warm and productive atmosphere, shot on 35mm lens, candid style</div>
+          </div>
+
+          <h3>Юристы и стартапы</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-lawyers">Юристы</span>
+            <div class="prompt-text">Distinguished lawyer in a tailored charcoal suit sitting at a mahogany desk, bookshelf filled with law books behind them, reading a document with a focused expression, warm desk lamp providing golden light, framed diplomas on the wall, classic law firm atmosphere, shot on 50mm f/1.8 lens, professional editorial portrait</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <div class="prompt-text">Energetic startup founders celebrating a product launch, high-fiving in a modern loft office with exposed brick and neon company logo on the wall, confetti in the air, laptops and whiteboards with charts visible, vibrant energetic atmosphere, shot on 24mm wide-angle lens, dynamic composition with slight motion blur</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <div class="prompt-text">Founder working late at night in a minimalist home office, laptop screen illuminating their concentrated face, city lights visible through the window behind, a cup of coffee beside the laptop, atmospheric noir-style lighting, solo entrepreneur grind aesthetic, shot on 35mm lens, low-key cinematic mood</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ============================================ -->
+        <!-- GEMINI IMAGEN — 15 промптов -->
+        <!-- ============================================ -->
+        <div class="tool-section">
+          <div class="tool-header">
+            <h2>Gemini Imagen</h2>
+            <span class="tool-badge badge-gemini">Google</span>
+            <span class="prompt-count">15 промптов</span>
+          </div>
+          <p style="color: #999; margin-bottom: 20px;">Лучше всего: текст на изображениях, слайды, баннеры, инфографика. Четко указывай текст в кавычках.</p>
+
+          <h3>Слайды для презентаций</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-presentation">Слайд</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">Minimalist presentation slide with dark navy background. Large white bold title text "DIGITAL STRATEGY 2026" centered at the top. Below it, three white icons in a row: a rocket, a target, and a chart going up. Clean corporate design, no clutter, professional business keynote style, 16:9 aspect ratio</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-presentation">Слайд</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Educational presentation slide with soft gradient background from light blue to white. Title text "5 STEPS TO EFFECTIVE LEARNING" in bold dark blue at the top. Five numbered circles (1-5) arranged horizontally below, each containing a simple icon: book, brain, pencil, clock, star. Clean infographic style, modern typography, 16:9</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-presentation">Слайд</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <div class="prompt-text">Pitch deck title slide with a bold gradient background from deep purple to electric blue. Large white text "[COMPANY NAME]" centered, below it smaller text "Revolutionizing [industry] with AI". A subtle abstract geometric pattern in the background. Modern tech startup aesthetic, clean and impactful, 16:9 ratio</div>
+          </div>
+
+          <h3>Баннеры и реклама</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Баннер</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Instagram story banner for a restaurant promotion, 9:16 vertical format. Dark elegant background. Large appetizing photo of a steak dish at the center. Bold white text at the top "FRIDAY SPECIAL" and yellow text at the bottom "-30% ON ALL STEAKS". Gold decorative line separating text from image. Luxury restaurant marketing design</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Баннер</span>
+            <span class="prompt-tag tag-ecommerce">E-commerce</span>
+            <div class="prompt-text">E-commerce sale banner, 1200x628px Facebook ad format. Bright white background with bold red "SALE" text taking up 40% of the frame. Text "UP TO 70% OFF" in black below. Product images of sneakers arranged artistically on the right side. Clean modern retail design with a "SHOP NOW" button in red at the bottom right</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Баннер</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Online course promotional banner, horizontal format. Split design: left half is a gradient from teal to dark blue with white text "MASTER AI IN 30 DAYS" and smaller text "Free first lesson" with a play button icon. Right half shows a person working on a laptop with AI visualizations on screen. Modern edtech design, professional and inviting</div>
+          </div>
+
+          <h3>Инфографика и карточки</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-lawyers">Юристы</span>
+            <div class="prompt-text">Legal infographic card, vertical format with white background. Title "YOUR RIGHTS AS A TENANT" in bold dark blue at the top. 6 numbered items listed vertically, each with a small icon: key, shield, document, clock, hammer, phone. Clean professional layout, law firm branding style, serif font for headings, sans-serif for body text</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-hr">HR</span>
+            <div class="prompt-text">HR infographic comparing two job offers side by side. Title "JOB A vs JOB B" at the top in bold. Two columns with comparison rows: Salary, Benefits, Growth, Culture, Location. Each row has icons and color-coded indicators (green checkmarks and red X marks). Clean corporate design, modern flat style, professional HR recruitment visual</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">Business metrics dashboard screenshot design. Dark theme UI with cards showing: Revenue "$1.2M" with green up arrow "+12%", Users "45,000" with blue trend line, Conversion "3.8%" with a donut chart. Title "Q1 2026 PERFORMANCE" at the top. Modern SaaS dashboard aesthetic, clean data visualization, professional analytics design</div>
+          </div>
+
+          <h3>Соцсети</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">LinkedIn carousel cover slide, square format 1080x1080. Clean white background with a bold statement in large black text: "7 AI TOOLS THAT REPLACED MY INTERN". Small author avatar placeholder in bottom left, "Swipe ->" text with arrow in bottom right. Minimalist professional design, high contrast, attention-grabbing</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <div class="prompt-text">Instagram post announcing a product launch, square 1080x1080. Gradient background from coral pink to warm orange. Large white text "WE'RE LIVE" at center with confetti particles around it. Below: "Try [Product Name] today" in smaller white text. A mockup of a mobile app floating at the bottom. Celebratory startup launch aesthetic</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Real estate Instagram post, square format. A beautiful luxury apartment photo taking up the top 70%. Bottom 30% is a dark overlay with white text: "2BR | 85m2 | City Center" on one line, and "FROM $250,000" in large bold text below. Small logo placeholder in corner. Premium real estate listing design, elegant and informative</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Restaurant menu special card for Instagram, square format. Rustic dark wood texture background. Elegant gold text "CHEF'S SPECIAL" at top. Beautiful food photo in a circular frame in the center. Below: dish name "Truffle Risotto" in white serif font, and price "$28" in gold. Decorative gold borders. Fine dining menu design aesthetic</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <span class="prompt-tag tag-hr">HR</span>
+            <div class="prompt-text">Job vacancy announcement post, square format 1080x1080. Modern corporate blue background. Large white text "WE'RE HIRING!" at top with a briefcase icon. Position title "SENIOR DEVELOPER" in bold yellow. Three bullet points with icons: Remote, $120K+, Benefits. "APPLY NOW" button at the bottom. Clean recruitment marketing design</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ============================================ -->
+        <!-- NANABANANA — 15 промптов -->
+        <!-- ============================================ -->
+        <div class="tool-section">
+          <div class="tool-header">
+            <h2>Nanabanana</h2>
+            <span class="tool-badge badge-nana">Creative</span>
+            <span class="prompt-count">15 промптов</span>
+          </div>
+          <p style="color: #999; margin-bottom: 20px;">Лучше всего: иллюстрации, стикеры, арт, персонажи, мультяшный стиль. Понимает русский язык. Работает поверх Gemini.</p>
+
+          <h3>Иллюстрации для контента</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <span class="prompt-tag tag-creative">Иллюстрация</span>
+            <div class="prompt-text">Cute flat vector illustration of a friendly robot teacher standing at a blackboard explaining AI to a class of diverse cartoon students, pastel color palette, clean outlines, kawaii style, suitable for an online course landing page, white background</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <span class="prompt-tag tag-creative">Иллюстрация</span>
+            <div class="prompt-text">Isometric illustration of a modern digital marketing workflow: a person at a computer, arrows flowing to social media icons (Instagram, LinkedIn, YouTube), analytics dashboards floating above, colorful flat design, tech startup style, clean white background, professional infographic illustration</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Иллюстрация</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <div class="prompt-text">Hand-drawn doodle style illustration of a startup journey roadmap: winding path from "idea" lightbulb to "launch" rocket, passing through milestones like coding, testing, funding. Sketch style with blue and orange accent colors on white background, playful and energetic, suitable for a blog header</div>
+          </div>
+
+          <h3>Стикеры и персонажи</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Стикер</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">Sticker pack of 6 cute cartoon office characters showing different work emotions: happy with coffee, stressed at deadline, celebrating a win, sleeping at desk, brainstorming with lightbulb, teamwork high-five. Chibi style, bold outlines, vibrant colors, transparent background, Telegram sticker format</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Стикер</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Набор из 4 милых стикеров с едой в стиле кавай: улыбающийся кусочек пиццы, счастливая чашка кофе с паром в форме сердца, довольный авокадо-тост, танцующий суши-ролл. Яркие цвета, толстые контуры, прозрачный фон, мультяшный стиль</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Персонаж</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Cute mascot character design for an online learning platform: a friendly owl wearing graduation cap and glasses, holding a tablet, standing pose and waving, full body, cartoon style with clean vector lines, purple and blue color scheme, white background, suitable for branding</div>
+          </div>
+
+          <h3>Соцсети и маркетинг</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <span class="prompt-tag tag-creative">Иллюстрация</span>
+            <div class="prompt-text">Иллюстрация для поста в Instagram про тайм-менеджмент: человек жонглирует часами, ноутбуком, чашкой кофе и книгой, вокруг летают стикеры с галочками, яркий градиентный фон от розового к фиолетовому, плоский векторный стиль, современный и привлекательный дизайн</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <span class="prompt-tag tag-lawyers">Юристы</span>
+            <div class="prompt-text">Friendly cartoon illustration of legal concepts for social media: a kind-looking cartoon lawyer character explaining a document to a small business owner, speech bubbles with simple icons (shield, checkmark, handshake), warm colors, approachable non-intimidating style, flat vector design, white background</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <span class="prompt-tag tag-hr">HR</span>
+            <div class="prompt-text">Красочная иллюстрация для поста HR-бренда: разнообразная команда из 5 человек строит пазл вместе, каждый держит свой кусочек, позитивные лица, корпоративные цвета синий и оранжевый, плоский современный стиль, подходит для LinkedIn поста о корпоративной культуре</div>
+          </div>
+
+          <h3>Арт и креатив</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Арт</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Watercolor illustration of a dreamy European cityscape with colorful buildings, small cafes with outdoor seating, cobblestone streets, flowering balconies, morning mist, soft pastel colors with pops of red and yellow, artistic and romantic atmosphere, perfect for a travel or real estate blog header</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Арт</span>
+            <span class="prompt-tag tag-ecommerce">E-commerce</span>
+            <div class="prompt-text">Product illustration in paper craft style: a pair of white sneakers displayed on a floating geometric platform, surrounded by paper-cut tropical leaves and flowers, soft shadows, pastel mint and coral color palette, creative product photography alternative, editorial fashion illustration</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Арт</span>
+            <div class="prompt-text">Retro 90s style illustration of a workspace: chunky CRT monitor showing code, mechanical keyboard, stack of floppy disks, a rubber duck, coffee mug with "Debug Life" text, pixel art details mixed with hand-drawn style, nostalgic color palette with teals and magentas, sticker-ready design with bold outlines</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Арт</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Нарисуй обложку для онлайн-курса по Python: милая змейка-питон в очках сидит за ноутбуком, вокруг летают символы кода {}, (), #, на фоне космическое пространство с планетами из данных, стиль аниме, яркие неоновые цвета на темном фоне, привлекательно для молодежной аудитории</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">3D Фигурка</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">3D rendered figurine of a business professional standing on a circular base, wearing a suit and holding a laptop, friendly smile, Funko Pop vinyl figure style, smooth plastic texture, studio lighting with soft shadows, product photography angle, collectible toy aesthetic, white background</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ============================================ -->
+        <!-- VEO3 — 15 промптов -->
+        <!-- ============================================ -->
+        <div class="tool-section">
+          <div class="tool-header">
+            <h2>Veo3 (Видео)</h2>
+            <span class="tool-badge badge-veo">Video</span>
+            <span class="prompt-count">15 промптов</span>
+          </div>
+          <p style="color: #999; margin-bottom: 20px;">Генерация 8 сек. видео. Формула: Субъект + Действие + Сцена + Камера + Освещение + Аудио. Доступ через Grok.</p>
+
+          <h3>Бизнес и корпоративное</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">A confident businesswoman walks through a modern glass office lobby toward the camera, her heels clicking on marble floors. She carries a tablet and smiles at colleagues passing by. Camera: slow dolly backward tracking her movement. Lighting: warm morning sunlight streaming through floor-to-ceiling windows. Audio: ambient office sounds, heels on marble, soft background music.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <span class="prompt-tag tag-presentation">Презентация</span>
+            <div class="prompt-text">Close-up of hands typing rapidly on a laptop keyboard, then the camera pulls back to reveal a modern dashboard with rising charts and green numbers on the screen. The person smiles and nods with satisfaction. Camera: starts macro on keyboard, smooth pull back to medium shot. Lighting: soft blue screen glow mixed with warm desk lamp. Audio: keyboard clicking, subtle success chime.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">Aerial drone shot slowly rising above a modern tech campus at golden hour, revealing solar panels on rooftops, green courtyards, and people walking along pathways. Camera: vertical crane up from ground level to bird's eye view. Lighting: golden hour with long warm shadows. Audio: gentle wind, distant ambient nature sounds, inspirational subtle music.</div>
+          </div>
+
+          <h3>Ресторан и еда</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">A chef's hands garnishing a beautiful plate: placing microgreens with tweezers, drizzling sauce in an artistic pattern, then dusting with gold flakes. The dish slowly rotates on a dark slate surface. Camera: overhead macro shot with slow push in. Lighting: single warm spotlight from above, dark moody background. Audio: gentle plating sounds, soft sizzle, ambient kitchen.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Slow motion pour of espresso into a clear glass cup, the dark coffee mixing with steamed milk creating beautiful latte art patterns. Steam rises elegantly. Camera: extreme close-up, static on tripod, 120fps slow motion. Lighting: warm side lighting from the left, dark cafe background with bokeh lights. Audio: rich pouring sound, gentle steam hiss, cafe ambience.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Camera glides through a bustling restaurant during dinner service: past the bar with cocktails being shaken, between tables of happy guests clinking wine glasses, into the open kitchen where flames burst from a pan. Camera: smooth steadicam tracking shot, one continuous take. Lighting: warm ambient candlelight and kitchen flames. Audio: chatter, laughter, cocktail shaking, sizzling pan.</div>
+          </div>
+
+          <h3>Недвижимость</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Camera slowly pushes through the front door of a luxury apartment into a bright open-plan living room with panoramic city views. Sunlight pours through the windows, casting beautiful shadows on hardwood floors. Camera: smooth steadicam push-in from entrance to window view. Lighting: bright natural daylight with sun rays. Audio: door opening, footsteps on wood, birds outside, calm ambient tone.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Timelapse of a modern house exterior from afternoon to twilight: the sky transitions from blue to pink to dark blue, interior lights gradually turn on room by room, landscape lights illuminate the garden path. Camera: static wide shot on tripod. Lighting: natural golden hour transitioning to blue hour with warm interior glow. Audio: birds fading, crickets beginning, gentle evening ambience.</div>
+          </div>
+
+          <h3>Образование и обучение</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">A teacher writes a complex equation on a whiteboard, steps back, and turns to the camera with a smile, gesturing to explain. Students' hands raise in the foreground, slightly out of focus. Camera: medium shot, slow dolly in toward the teacher. Lighting: bright classroom fluorescent mixed with window daylight. Audio: marker on whiteboard, teacher speaking "Let me show you why this works", student murmurs.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Close-up on a student's notebook as they write notes, then the camera tilts up to reveal their face looking at a laptop screen showing an online lecture. They nod in understanding and highlight a passage in their textbook. Camera: starts macro on pen writing, tilt up to face, rack focus to screen. Lighting: warm desk lamp, blue screen glow. Audio: pen scratching, keyboard tap, muffled lecture voice.</div>
+          </div>
+
+          <h3>Стартапы и технологии</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <div class="prompt-text">A developer sits at a dual-monitor setup, code scrolling on the screens reflected in their glasses. They lean back, have a eureka moment, snap their fingers, and lean forward to type rapidly. Camera: starts with reflection in glasses (extreme close-up), pulls back to medium shot. Lighting: dark room lit only by monitor glow in blue and green. Audio: ambient electronic hum, keyboard rapid typing, subtle triumphant tone.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <div class="prompt-text">Montage of a product being used: hands unboxing a sleek gadget, peeling off the screen protector, pressing the power button, the screen lights up with a beautiful UI animation. Camera: series of close-up shots with smooth transitions, product photography style. Lighting: clean white studio lighting with soft reflections. Audio: satisfying unboxing sounds, peeling, click, startup chime.</div>
+          </div>
+
+          <h3>Юристы и HR</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-lawyers">Юристы</span>
+            <div class="prompt-text">A lawyer in a sharp suit walks down the corridor of a courthouse, briefcase in hand, camera tracking alongside. They push through heavy wooden doors into a grand courtroom with tall windows. Camera: side tracking shot following the walk, then wide reveal of the courtroom. Lighting: dramatic window light creating shafts through the courtroom. Audio: confident footsteps echoing, door creaking open, quiet courtroom ambience.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-hr">HR</span>
+            <div class="prompt-text">A new employee's first day: they walk into a modern office, a friendly colleague shakes their hand, shows them to their new desk with a welcome kit and company swag. The new hire sits down, opens a laptop, and smiles. Camera: handheld documentary style, warm and authentic. Lighting: bright natural office light. Audio: "Welcome to the team!" greeting, office ambience, laptop opening sound.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-ecommerce">E-commerce</span>
+            <div class="prompt-text">Cinematic product reveal: a luxury watch slowly rotating on a black velvet surface, light catching the polished metal and crystal. The second hand ticks precisely. Camera: slow orbit around the watch at 45-degree angle, smooth and steady. Lighting: single dramatic rim light from behind creating a halo, soft fill from front. Audio: quiet ticking, deep atmospheric bass, premium brand reveal feeling.</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ============================================ -->
+        <!-- SORA 2 — 10 промптов -->
+        <!-- ============================================ -->
+        <div class="tool-section">
+          <div class="tool-header">
+            <h2>Sora 2 (Видео)</h2>
+            <span class="tool-badge" style="background: #1a1a2e; color: #10b981; border: 1px solid #059669;">OpenAI</span>
+            <span class="prompt-count">10 промптов</span>
+          </div>
+          <p style="color: #999; margin-bottom: 20px;">До 25 сек видео с диалогами. Формат: визуальное описание + камера + стиль + звук + [диалог отдельным блоком]</p>
+
+          <h3>Бизнес и корпоративное</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">A modern tech company office montage. Opens with an aerial drone shot descending toward a glass building at sunrise. Cut to inside: diverse team members arriving, greeting each other. A designer sketches on a tablet, a developer types on dual monitors, a manager presents on a large screen. Camera: mix of smooth tracking shots and close-ups. Lighting: bright natural daylight. Style: Apple-inspired commercial, clean whites and warm accents. Sound: upbeat ambient electronic music building throughout.
+
+[Voiceover]: "Innovation starts with people. And we start with you."</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-lawyers">Юристы</span>
+            <div class="prompt-text">A polished law firm commercial. Camera glides through an elegant office with floor-to-ceiling bookshelves and warm mahogany furniture. Soft morning light pours through tall windows. A senior lawyer in a tailored navy suit reviews documents, then stands to greet a client. They share a firm handshake. Cut to conference room where the legal team discusses a case. Camera: smooth steadicam, 50mm anamorphic lens. Color grading: rich warm tones, cinematic film look. Sound: ambient office, soft orchestral underscore.
+
+[Lawyer]: "We don't just handle cases — we protect what matters most to you."
+[Client]: "That's exactly what I needed to hear."</div>
+          </div>
+
+          <h3>Ресторан и продукт</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Cinematic restaurant commercial. Opens with extreme close-up of olive oil poured into a hot pan — it sizzles. Camera pulls back to reveal a chef tossing pasta in flames. Cut to: hands plating with tweezers, placing microgreens. Cut to: a couple at a candlelit table, waiter presents the dish. Final shot: exterior at night, warm glow from inside. Camera: macro food shots to medium shots. Lighting: warm candlelight inside, cool twilight outside. Sound: sizzling, plating sounds, soft Italian guitar.
+
+[Waiter]: "Buon appetito."
+[Woman]: "This looks incredible."</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-ecommerce">E-commerce</span>
+            <div class="prompt-text">Premium product reveal for wireless headphones. Black void background. A single spotlight slowly illuminates headphones rotating on an invisible platform. Light catches brushed aluminum surface. The headphones unfold in slow motion. A hand picks them up, puts them on. Scene transitions: the person walks through a vibrant city street, music visualizations pulse around them. Camera: slow orbit macro, then tracking shot. Lighting: dramatic spotlight transforms to neon city lights. Sound: silence, satisfying click, then bass-heavy music kicks in.
+
+[Text on screen]: "Feel every beat."</div>
+          </div>
+
+          <h3>Недвижимость и образование</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Luxury real estate virtual tour. Camera pushes through the front door of a penthouse into a stunning open-plan living space. Floor-to-ceiling windows reveal a city skyline. Camera glides past a kitchen island with fresh flowers, through a hallway with modern art, enters master bedroom with balcony view, then onto the balcony showing sunset. One continuous steadicam shot, 24mm wide-angle. Lighting: golden hour sunlight. Sound: footsteps on hardwood, distant city ambience, gentle piano.
+
+[Agent voiceover]: "Welcome to your new perspective. Penthouse living, redefined."</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">An inspiring edtech advertisement. A student sits at home frustrated with textbooks. They open a laptop — the screen glows with a colorful interface. Animated visualizations float out: 3D molecules, formulas, timelines swirling around them. Expression transforms from confusion to excitement. They grab a notebook and write eagerly. Camera: close on face, orbits as magic happens, ends medium shot smiling. Lighting: dim transforms to warm and vibrant. Sound: quiet frustration, magical transition, inspiring music swells.
+
+[Narrator]: "Learning shouldn't feel like a struggle. It should feel like a discovery."</div>
+          </div>
+
+          <h3>HR и стартапы</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-hr">HR</span>
+            <div class="prompt-text">Company culture recruitment video. Opens with sunrise over the office building. Cut to: team members arriving on bikes and on foot, waving to each other. Inside: open kitchen where someone makes coffee for a colleague. Standing meeting with laughter. Two developers pair programming, one points at the screen excitedly. Rooftop lunch together with city views. Camera: handheld documentary style, warm and authentic. Lighting: bright natural. Sound: morning birds, coffee machine, laughter, upbeat indie music.
+
+[Employee 1]: "Best part of this job? The people."
+[Employee 2]: "We actually like Mondays here."</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <div class="prompt-text">Startup launch video montage. Late night: a founder stares at code on a screen, coffee cups piling up. Dissolve to: early morning, the team gathers around a laptop showing positive metrics. Celebration — high-fives, someone pops confetti. Cut to: the product on a phone screen, users scrolling through it happily. Final shot: the team photo on the office wall, camera slowly pulls back. Camera: intimate close-ups to wide reveals. Lighting: blue screen glow to warm morning light. Sound: keyboard typing, notification ding, cheering, triumphant music.
+
+[Founder]: "We built this. Together."</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Соцсети</span>
+            <div class="prompt-text">A vertical 9:16 Instagram Reel. A person walks into frame in a stylish outfit, stops, and looks directly at the camera with confidence. Behind them, the background transforms in a magical match cut: from a plain room to a luxury rooftop, then to a neon-lit city street, then to a tropical beach. Each background change happens with a snap of their fingers. Camera: static front-facing, subject centered. Lighting: changes with each background. Sound: snappy transition sounds with each snap, trending lo-fi beat throughout.
+
+[Text overlay]: "Where will you go next?"</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Креатив</span>
+            <div class="prompt-text">A whimsical stop-motion style animation of a coffee cup on a desk. The cup slowly fills itself with coffee, sugar cubes hop in one by one, a tiny spoon stirs on its own. Steam rises and forms into the shape of a heart. A hand reaches in from the side and picks up the cup. The desk items — pencils, notebook, plant — seem to wave goodbye as the cup leaves. Camera: static overhead tabletop shot. Lighting: warm morning window light. Sound: ceramic clinking, liquid pouring, gentle xylophone melody, a satisfied sigh.</div>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ============================================ -->
+        <!-- NOTEBOOKLM — 10 промптов -->
+        <!-- ============================================ -->
+        <div class="tool-section">
+          <div class="tool-header">
+            <h2>NotebookLM (Аудио)</h2>
+            <span class="tool-badge badge-notebook">Google</span>
+            <span class="prompt-count">10 промптов</span>
+          </div>
+          <p style="color: #999; margin-bottom: 20px;">AI-подкасты из документов. Загрузи материалы, затем используй эти инструкции для настройки формата подкаста.</p>
+
+          <h3>Форматы подкастов</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Создай подкаст в формате "учитель и любопытный студент". Учитель объясняет ключевые концепции из загруженных материалов простым языком с аналогиями из повседневной жизни. Студент задает уточняющие вопросы и просит примеры. Фокус на практическом применении знаний, а не на теории.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">Create an executive briefing podcast. You are briefing a busy CEO. No fluff or banter. Go straight to the bottom line: what is the key problem described in these documents, what are the proposed solutions, and what are the financial or strategic implications. Keep it under 5 minutes. Data-driven, concise, actionable.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Turn the uploaded content into a quiz show podcast with two hosts. One host asks multiple-choice and true/false questions based on the material. The other host answers (sometimes incorrectly on purpose). After each answer, provide the correct answer with a clear explanation. Make it fun and educational. Include at least 8 questions covering the core concepts.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Бизнес</span>
+            <div class="prompt-text">Создай подкаст-дебаты: два эксперта обсуждают за и против стратегий, описанных в загруженных документах. Один защищает текущий подход, другой предлагает альтернативы. Оба приводят конкретные данные из документов. В конце — общий вывод и рекомендация. Тон профессиональный, но живой.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-lawyers">Юристы</span>
+            <div class="prompt-text">Create a legal analysis podcast from the uploaded documents. Explain the key legal points as if talking to a small business owner who has no legal background. Use everyday analogies for legal terms. Highlight the 3-5 most important things the listener needs to know and what actions they should take. Avoid legalese.</div>
+          </div>
+
+          <h3>Инструкции для настройки</h3>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-hr">HR</span>
+            <div class="prompt-text">Создай аудио-обзор для новых сотрудников на основе загруженных документов (handbook, policies). Формат: дружелюбный гид рассказывает новичку самое важное о компании — культура, правила, бонусы, к кому обращаться. Тон теплый и приветливый, как будто лучший коллега объясняет всё в первый день.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-startup">Стартап</span>
+            <div class="prompt-text">Create a "Startup Pitch Breakdown" podcast from the uploaded pitch deck or business plan. Two hosts analyze the pitch: strengths, weaknesses, market opportunity, competitive advantages, and what investors would look for. Give it a Shark Tank vibe but constructive. End with a verdict: would they invest and why.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-education">Образование</span>
+            <div class="prompt-text">Explain the core concepts in this source using the Feynman technique: as if teaching a smart 12-year-old. Use a physical real-world analogy for every abstract concept. If something is technical, ground it in something the listener can see or touch. Focus on WHY this matters, not just WHAT it is. Make it memorable and intuitive.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-realestate">Недвижимость</span>
+            <div class="prompt-text">Создай аудио-обзор рынка недвижимости на основе загруженных данных. Формат: два аналитика обсуждают тренды, цены, лучшие районы для инвестиций. Один оптимист, другой более осторожен. Приводят конкретные цифры из документов. Завершают практическими советами для покупателя и инвестора.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-food">Ресторан</span>
+            <div class="prompt-text">Turn the uploaded menu, recipes, or food content into a food storytelling podcast. Two hosts discuss each dish as if on a food travel show — the origins, the ingredients, what makes it special, and how it connects to the restaurant's identity. Make the listener hungry. Vivid descriptions, passion for food, warm conversational tone.</div>
+          </div>
+        </div>
+
+        <!-- Мета-раздел: промпты для промптов -->
+        <div class="section-divider"></div>
+
+        <div class="tool-section">
+          <div class="tool-header">
+            <h2>Мета-промпты (промпт для промпта)</h2>
+            <span class="tool-badge" style="background: #4a1d96; color: #e9d5ff; border: 1px solid #7c3aed;">META</span>
+          </div>
+          <p style="color: #999; margin-bottom: 20px;">Используй эти промпты в Grok (текстовый режим) или Cursor, чтобы LLM написал тебе идеальный промпт для генератора изображений/видео.</p>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-portrait">Для фото</span>
+            <div class="prompt-text">Я хочу сгенерировать фотореалистичное изображение в Grok Aurora для [цель: LinkedIn профиль / сайт компании / рекламный пост]. Напиши мне детальный промпт на английском языке, который включает: описание субъекта, одежду, позу, выражение лица, фон, тип освещения, стиль камеры (модель, объектив, диафрагма), настроение. Формат: один абзац, 50-80 слов.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-social">Для баннера</span>
+            <div class="prompt-text">Мне нужен промпт для Gemini Imagen, чтобы создать [Instagram пост / баннер / слайд]. Тема: [опиши]. Текст на изображении: "[твой текст]". Напиши промпт на английском, который четко описывает: формат (размер), расположение текста, цветовую схему, стиль дизайна, элементы композиции. Текст в промпте должен быть в кавычках.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-creative">Для иллюстрации</span>
+            <div class="prompt-text">Я хочу создать иллюстрацию в Nanabanana для [блог / курс / соцсети]. Тема: [опиши]. Целевая аудитория: [кто]. Напиши креативный промпт, который описывает: стиль рисунка (flat vector / watercolor / doodle / anime), персонажей, действия, цветовую палитру, настроение. Можно на русском. 40-60 слов.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Для видео</span>
+            <div class="prompt-text">Мне нужен промпт для генерации 8-секундного видео в Veo3. Цель: [реклама / промо / соцсети]. Сценарий: [опиши что должно происходить]. Напиши промпт на английском, структура: Subject (кто/что) + Action (что делает) + Setting (где) + Camera movement (dolly/pan/tracking/static) + Lighting (тип света) + Audio (звуки, музыка, диалог если есть). Один абзац, 60-90 слов.</div>
+          </div>
+
+          <div class="prompt-card" onclick="copyPrompt(this)">
+            <span class="copy-hint">скопировать</span>
+            <span class="prompt-tag tag-business">Универсальный</span>
+            <div class="prompt-text">Я [профессия]. Мне нужно создать визуальный контент для [цель]. У меня есть доступ к: Grok Aurora (фото), Gemini Imagen (текст+дизайн), Nanabanana (иллюстрации), Veo3 (видео). Предложи 5 конкретных идей визуального контента для моей задачи и напиши готовый промпт для каждой идеи в подходящем инструменте. Формат: Инструмент — Идея — Промпт.</div>
+          </div>
+        </div>
+
+        <div class="alert alert-success" style="margin-top: 40px;">
+          <strong>Совет:</strong> Не используй промпты как есть — адаптируй под свой бренд, стиль и задачу. Лучший промпт — тот, который ты доработал после первого результата. Итерация = качество.
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    // Copy prompt to clipboard on click
+    function copyPrompt(card) {
+      const text = card.querySelector('.prompt-text').textContent.trim();
+      navigator.clipboard.writeText(text).then(() => {
+        card.classList.add('copied');
+        card.querySelector('.copy-hint').textContent = 'скопировано!';
+        setTimeout(() => {
+          card.classList.remove('copied');
+          card.querySelector('.copy-hint').textContent = 'скопировать';
+        }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>

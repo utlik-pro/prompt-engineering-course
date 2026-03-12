@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Урок 1: ChatGPT Images (DALL-E 3) | Модуль 5</title>
+  <title>Урок 1: Генерация изображений | Модуль 5</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -25,7 +25,7 @@
         <div class="progress-bar">
           <div class="progress-fill" style="width: 0%"></div>
         </div>
-        <div class="progress-text">0 из 7 уроков</div>
+        <div class="progress-text">0 из 5 уроков</div>
       </div>
 
       <nav class="sidebar-nav">
@@ -43,35 +43,25 @@
 
         <a href="lesson-1.html" class="nav-item active" data-lesson="1">
           <span class="nav-item-number">1</span>
-          ChatGPT Images
+          Изображения
         </a>
 
         <a href="lesson-2.html" class="nav-item" data-lesson="2">
           <span class="nav-item-number">2</span>
-          Grok Aurora
+          Видео — Veo3
         </a>
 
         <a href="lesson-3.html" class="nav-item" data-lesson="3">
           <span class="nav-item-number">3</span>
-          Gemini Imagen
+          Sora 2
         </a>
 
         <a href="lesson-4.html" class="nav-item" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Nanabanana
+          Практика
         </a>
 
-        <a href="lesson-5.html" class="nav-item" data-lesson="5">
-          <span class="nav-item-number">5</span>
-          Sora 2 (Видео)
-        </a>
-
-        <a href="lesson-6.html" class="nav-item" data-lesson="6">
-          <span class="nav-item-number">6</span>
-          Практика: Генерация
-        </a>
-
-        <a href="project.html" class="nav-item" data-lesson="7">
+        <a href="project.html" class="nav-item" data-lesson="5">
           <span class="nav-item-number">P</span>
           Домашнее задание
         </a>
@@ -105,181 +95,54 @@
         <div class="breadcrumb">
           <a href="index.html">Модуль 5</a>
           <span class="breadcrumb-separator">/</span>
-          <span>Урок 1: ChatGPT Images</span>
+          <span>Урок 1: Генерация изображений</span>
         </div>
 
         <div class="header-actions">
-          <span class="lesson-time">⏱ 35 мин</span>
+          <span class="lesson-time">⏱ 80 мин</span>
         </div>
       </header>
 
       <!-- Content -->
       <div class="content">
-        <h1>ChatGPT Images (DALL-E 3)</h1>
+        <h1>Генерация изображений</h1>
 
         <p class="lead">
-          Самый популярный и доступный генератор изображений, интегрированный в ChatGPT. Работает на модели DALL-E 3.
+          Три платформы — три суперсилы. Grok Aurora для фотореализма, Gemini для текста и слайдов, Nanabanana для креатива. И главное — как использовать текстовую LLM для создания идеальных промптов.
         </p>
 
-        <!-- Key Concept -->
-        <div class="card" style="border-left: 4px solid var(--primary);">
+        <!-- ========================================== -->
+        <!-- Section 1: Промпты для промптов -->
+        <!-- ========================================== -->
+
+        <h2>Промпты для промптов — мета-навык</h2>
+
+        <div class="card" style="border-left: 4px solid #8b5cf6;">
           <div class="card-body">
-            <h3>💡 Главная идея</h3>
+            <h3>💡 Ключевая идея</h3>
             <p style="font-size: 1.1rem; margin: 0;">
-              <strong>ChatGPT Images понимает контекст разговора</strong> — вы можете просить изменения и уточнения в диалоговом режиме, как будто общаетесь с дизайнером.
+              <strong>Не пишите промпт для картинки руками.</strong> Попросите текстовую модель (Grok, Cursor) написать его за вас — с учётом стиля, освещения, камеры и задачи.
             </p>
           </div>
         </div>
 
-        <!-- Access -->
-        <h2>Как получить доступ</h2>
-
-        <div class="alert alert-info">
-          <strong>Способы доступа к ChatGPT Images:</strong>
-          <ul style="margin: 0.5rem 0 0 1rem;">
-            <li><strong>chatgpt.com/images</strong> — прямой доступ к генератору</li>
-            <li><strong>ChatGPT Plus/Pro</strong> — через обычный чат ChatGPT</li>
-            <li><strong>API</strong> — для разработчиков (DALL-E 3 API)</li>
-          </ul>
-        </div>
-
-        <!-- Features -->
-        <h2>Ключевые особенности</h2>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
-          <div class="card" style="border-top: 4px solid #6366f1;">
-            <div class="card-body" style="text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💬</div>
-              <h4>Контекстное понимание</h4>
-              <p style="font-size: 0.9rem; color: var(--text-secondary);">Помнит историю чата и может уточнять детали в диалоге</p>
-            </div>
-          </div>
-
-          <div class="card" style="border-top: 4px solid #10b981;">
-            <div class="card-body" style="text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✏️</div>
-              <h4>Редактирование</h4>
-              <p style="font-size: 0.9rem; color: var(--text-secondary);">Можно попросить изменить конкретные элементы изображения</p>
-            </div>
-          </div>
-
-          <div class="card" style="border-top: 4px solid #f59e0b;">
-            <div class="card-body" style="text-align: center;">
-              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎨</div>
-              <h4>Стили</h4>
-              <p style="font-size: 0.9rem; color: var(--text-secondary);">Фотореализм, иллюстрации, 3D, живопись и многое другое</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Prompt Structure -->
-        <h2>Структура промпта для DALL-E 3</h2>
-
-        <div class="card">
-          <div class="card-header">Компоненты эффективного промпта</div>
-          <div class="card-body">
-            <table style="width: 100%;">
-              <thead>
-                <tr>
-                  <th>Компонент</th>
-                  <th>Описание</th>
-                  <th>Пример</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Субъект</strong></td>
-                  <td>Главный объект изображения</td>
-                  <td>"молодая женщина", "современный офис"</td>
-                </tr>
-                <tr>
-                  <td><strong>Действие/Поза</strong></td>
-                  <td>Что делает субъект</td>
-                  <td>"читает книгу", "смотрит в камеру"</td>
-                </tr>
-                <tr>
-                  <td><strong>Окружение</strong></td>
-                  <td>Фон и обстановка</td>
-                  <td>"в уютном кафе", "на фоне гор"</td>
-                </tr>
-                <tr>
-                  <td><strong>Стиль</strong></td>
-                  <td>Визуальный стиль</td>
-                  <td>"фотореалистичный", "акварель"</td>
-                </tr>
-                <tr>
-                  <td><strong>Освещение</strong></td>
-                  <td>Тип и источник света</td>
-                  <td>"мягкий естественный свет"</td>
-                </tr>
-                <tr>
-                  <td><strong>Настроение</strong></td>
-                  <td>Эмоциональная атмосфера</td>
-                  <td>"тёплая", "драматичная"</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- Example Prompts -->
-        <h2>Примеры промптов</h2>
-
-        <!-- Example 1 -->
         <div class="demo-container">
           <div class="demo-header">
-            <span class="demo-badge">Фотореалистичный портрет</span>
-            <span class="demo-title">Бизнес-контент</span>
+            <span class="demo-badge">Промпт для промпта</span>
+            <span class="demo-title">Как это работает</span>
           </div>
           <div class="demo-content">
             <div class="prompt-box">
-              <div class="prompt-label">Промпт:</div>
-              <pre>Профессиональный портрет успешного бизнесмена 35 лет в синем костюме, уверенная улыбка, современный офис со стеклянными стенами на фоне, мягкое студийное освещение, снято на профессиональную камеру, высокое разрешение, корпоративный стиль</pre>
+              <div class="prompt-label">Вы пишете в текстовую LLM (Grok / Cursor):</div>
+              <pre>Я маркетолог юридической фирмы. Мне нужно изображение для раздела "Наша команда" на сайте. Напиши промпт для Grok Aurora — фотореалистичный, профессиональный, тёплый.</pre>
             </div>
             <div class="result-box">
-              <div class="result-label">Результат:</div>
-              <p style="color: var(--accent);">✓ Фотореалистичное изображение, готовое для LinkedIn или корпоративного сайта</p>
+              <div class="result-label">LLM генерирует промпт для вас:</div>
+              <pre>Professional group photo of a diverse legal team of 4 people in business attire, standing confidently in a modern law office with floor-to-ceiling windows, warm natural lighting, genuine smiles, corporate portrait style, shot on Canon EOS R5, 85mm f/1.4, bokeh background</pre>
             </div>
           </div>
         </div>
 
-        <!-- Example 2 -->
-        <div class="demo-container">
-          <div class="demo-header">
-            <span class="demo-badge demo-badge-success">Продуктовое фото</span>
-            <span class="demo-title">E-commerce</span>
-          </div>
-          <div class="demo-content">
-            <div class="prompt-box">
-              <div class="prompt-label">Промпт:</div>
-              <pre>Элегантные беспроводные наушники на мраморной поверхности, минималистичный фон в пастельных тонах, мягкие тени, профессиональное продуктовое фото для рекламы, высокое качество, чистый современный стиль Apple</pre>
-            </div>
-            <div class="result-box">
-              <div class="result-label">Результат:</div>
-              <p style="color: var(--accent);">✓ Готовое фото для интернет-магазина или рекламной кампании</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Example 3 -->
-        <div class="demo-container">
-          <div class="demo-header">
-            <span class="demo-badge" style="background: var(--warning);">Иллюстрация</span>
-            <span class="demo-title">Социальные сети</span>
-          </div>
-          <div class="demo-content">
-            <div class="prompt-box">
-              <div class="prompt-label">Промпт:</div>
-              <pre>Плоская векторная иллюстрация команды разработчиков, работающих вместе за большим столом с ноутбуками, яркие сочные цвета (фиолетовый, оранжевый, бирюзовый), геометрические формы, современный дизайн для стартапа, без теней, чистый минимализм</pre>
-            </div>
-            <div class="result-box">
-              <div class="result-label">Результат:</div>
-              <p style="color: var(--accent);">✓ Стильная иллюстрация для презентации или сайта</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Teacher Note -->
         <div class="teacher-note">
           <div class="teacher-note-header">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -289,165 +152,447 @@
             Заметка для преподавателя
           </div>
           <div class="teacher-note-content">
-            <p><strong>Демонстрация:</strong> Покажите студентам разницу между коротким и детальным промптом на одном и том же субъекте.</p>
-            <p><strong>Упражнение:</strong> Попросите студентов создать 3 изображения для своего воображаемого бренда.</p>
+            <p><strong>Демонстрация:</strong> Покажите студентам live, как вы пишете запрос в текстовый Grok или Cursor, получаете промпт, и сразу вставляете в Grok Aurora. Это "вау-момент" урока.</p>
+            <p><strong>Почему это важно:</strong> Студенты часто пишут промпты из 5 слов и удивляются плохому результату. Текстовая LLM сама добавит освещение, камеру, стиль, композицию — всё, о чём новичок забывает.</p>
           </div>
         </div>
 
-        <!-- Iterative Editing -->
-        <h2>Итеративное редактирование</h2>
+        <!-- ========================================== -->
+        <!-- Section 2: Grok Aurora -->
+        <!-- ========================================== -->
 
-        <div class="alert alert-success">
-          <strong>Уникальная возможность ChatGPT:</strong> Вы можете просить изменения в диалоговом режиме!
+        <h2>Grok Aurora — фотореалистичные изображения</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div class="card" style="border-top: 4px solid #6366f1;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">📷</div>
+              <h4>Фотореализм</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Лучший в создании реалистичных лиц и людей</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚡</div>
+              <h4>Скорость</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Генерация за несколько секунд</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #f59e0b;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎭</div>
+              <h4>Гибкость</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Меньше ограничений на контент</p>
+            </div>
+          </div>
         </div>
+
+        <div class="alert alert-info">
+          <strong>Доступ:</strong> grok.x.ai, X Premium+, мобильное приложение X
+        </div>
+
+        <!-- Grok Demo 1 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge">Бизнес</span>
+            <span class="demo-title">Портрет для сайта</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Confident business executive, 40 years old, navy blue suit, warm genuine smile, modern glass office background, professional headshot, soft studio lighting, Canon EOS R5, 85mm f/1.4, shallow depth of field, corporate website style</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Готово для страницы "О компании", LinkedIn, корпоративных материалов</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grok Demo 2 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge demo-badge-success">Недвижимость</span>
+            <span class="demo-title">Интерьер для каталога</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Luxurious modern apartment living room, floor-to-ceiling windows with city skyline view, warm afternoon light, minimalist Scandinavian furniture, indoor plants, architectural photography style, wide angle 24mm lens, real estate listing photo, high resolution</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Идеально для сайта недвижимости, каталога, рекламных буклетов</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grok Demo 3 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: var(--warning);">Ресторан</span>
+            <span class="demo-title">Фуд-фотография</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Artisan sourdough pizza fresh from wood-fired oven, melted mozzarella, fresh basil, rustic wooden table, warm restaurant ambient lighting, food photography, overhead shot, steam rising, appetizing and inviting, shot on Sony A7R IV, 50mm macro</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Для меню, Instagram, рекламы доставки еды</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Section 3: Gemini Imagen -->
+        <!-- ========================================== -->
+
+        <h2>Gemini Imagen — текст и графический дизайн</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div class="card" style="border-top: 4px solid #6366f1;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔤</div>
+              <h4>Текст на изображениях</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Лучше других справляется с надписями</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🌐</div>
+              <h4>Мультиязычность</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Хорошо понимает промпты на разных языках</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #f59e0b;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🔍</div>
+              <h4>Детализация</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Отлично передаёт сложные сцены</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gemini Demo 1 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge">Слайды</span>
+            <span class="demo-title">Презентация</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Минималистичный слайд для бизнес-презентации, текст "AI в бизнесе: стратегия 2026", тёмно-синий фон с градиентом, белый текст, абстрактные геометрические линии, корпоративный стиль, 16:9 формат</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Слайд-обложка для презентации, готов к использованию</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gemini Demo 2 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge demo-badge-success">Баннер</span>
+            <span class="demo-title">Реклама</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Рекламный баннер для онлайн-курса, текст "Научись AI за 30 дней", яркий градиент фиолетовый-оранжевый, современный шрифт sans-serif, иконка мозга/AI, призыв к действию "Записаться", формат 1200x628px для Facebook</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Готовый баннер для таргетированной рекламы</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gemini Demo 3 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: var(--warning);">Юристы</span>
+            <span class="demo-title">Инфографика</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Инфографика для юридической компании, заголовок "Этапы банкротства физлиц", 5 шагов в виде вертикальной timeline, иконки для каждого этапа, цвета: тёмно-синий и золотой, профессиональный строгий дизайн, белый фон</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Для сайта юридической компании, раздаточных материалов, соцсетей</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Section 4: Nanabanana -->
+        <!-- ========================================== -->
+
+        <h2>Nanabanana — художественные стили</h2>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+          <div class="card" style="border-top: 4px solid #6366f1;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎨</div>
+              <h4>Художественные стили</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Аниме, акварель, digital art, pixel art</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #10b981;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🇷🇺</div>
+              <h4>Русский язык</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Отлично понимает русские промпты</p>
+            </div>
+          </div>
+
+          <div class="card" style="border-top: 4px solid #f59e0b;">
+            <div class="card-body" style="text-align: center;">
+              <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">✨</div>
+              <h4>Креативность</h4>
+              <p style="font-size: 0.9rem; color: var(--text-secondary);">Нестандартные интерпретации</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nanabanana Demo 1 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge">Образование</span>
+            <span class="demo-title">Иллюстрация к курсу</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Яркая плоская иллюстрация: человек стоит перед огромным экраном с нейросетью, вокруг летают иконки данных, графики и лампочки идей, цвета фиолетовый-бирюзовый-оранжевый, стиль corporate illustration, без теней</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Для обложки курса, блога, презентации</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nanabanana Demo 2 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge demo-badge-success">Маркетинг</span>
+            <span class="demo-title">Соцсети</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Стильная иллюстрация для Instagram-поста: девушка с ноутбуком в уютном кафе, вокруг неё плавают виртуальные экраны и иконки, тёплые осенние цвета, digital art стиль, уютная атмосфера, квадратный формат</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Для Instagram, Telegram, обложки статьи</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nanabanana Demo 3 -->
+        <div class="demo-container">
+          <div class="demo-header">
+            <span class="demo-badge" style="background: var(--warning);">Стартап</span>
+            <span class="demo-title">Брендинг</span>
+          </div>
+          <div class="demo-content">
+            <div class="prompt-box">
+              <div class="prompt-label">Промпт:</div>
+              <pre>Концепт-арт для tech-стартапа: футуристический город с летающими дронами-курьерами, неоновые вывески, вечерняя атмосфера, cyberpunk стиль смешанный с минимализмом, детализированный, эпический масштаб</pre>
+            </div>
+            <div class="result-box">
+              <div class="result-label">Результат:</div>
+              <p style="color: var(--accent);">✓ Для лендинга стартапа, pitch-презентации, фон для hero-секции</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Section 5: Use Cases по индустриям -->
+        <!-- ========================================== -->
+
+        <h2>Use Cases: кому и зачем</h2>
 
         <div class="card">
-          <div class="card-header">Пример диалога редактирования</div>
+          <div class="card-header">Какой инструмент для какой задачи</div>
           <div class="card-body">
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-              <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 8px;">
-                <strong>Вы:</strong> Создай изображение уютного кафе с большими окнами
-              </div>
-              <div style="background: var(--bg-main); padding: 1rem; border-radius: 8px;">
-                <strong>ChatGPT:</strong> [Генерирует изображение кафе]
-              </div>
-              <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 8px;">
-                <strong>Вы:</strong> Добавь больше растений и сделай освещение теплее
-              </div>
-              <div style="background: var(--bg-main); padding: 1rem; border-radius: 8px;">
-                <strong>ChatGPT:</strong> [Генерирует обновлённое изображение с растениями и тёплым светом]
-              </div>
-              <div style="background: rgba(139, 92, 246, 0.1); padding: 1rem; border-radius: 8px;">
-                <strong>Вы:</strong> Теперь добавь человека, читающего книгу у окна
-              </div>
+            <div style="overflow-x: auto;">
+              <table style="width: 100%;">
+                <thead>
+                  <tr>
+                    <th>Индустрия</th>
+                    <th>Задача</th>
+                    <th>Инструмент</th>
+                    <th>Промпт-подсказка</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Юристы</strong></td>
+                    <td>Портреты команды для сайта</td>
+                    <td>Grok Aurora</td>
+                    <td><code>"professional headshot, law office, confident"</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Юристы</strong></td>
+                    <td>Инфографика процессов</td>
+                    <td>Gemini Imagen</td>
+                    <td><code>Включить текст этапов, timeline</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Маркетинг</strong></td>
+                    <td>Баннеры для рекламы</td>
+                    <td>Gemini Imagen</td>
+                    <td><code>Текст + CTA + яркие цвета</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Маркетинг</strong></td>
+                    <td>Фото для соцсетей</td>
+                    <td>Grok Aurora</td>
+                    <td><code>"lifestyle, candid, product"</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>HR</strong></td>
+                    <td>Иллюстрации для вакансий</td>
+                    <td>Nanabanana</td>
+                    <td><code>"corporate illustration, flat style"</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>HR</strong></td>
+                    <td>Корпоративные портреты</td>
+                    <td>Grok Aurora</td>
+                    <td><code>"professional, genuine, office"</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Образование</strong></td>
+                    <td>Слайды для курсов</td>
+                    <td>Gemini Imagen</td>
+                    <td><code>Текст на слайде + иллюстрация</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Образование</strong></td>
+                    <td>Иллюстрации к урокам</td>
+                    <td>Nanabanana</td>
+                    <td><code>Яркий, плоский, понятный</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ресторан/кафе</strong></td>
+                    <td>Фуд-фотография</td>
+                    <td>Grok Aurora</td>
+                    <td><code>"food photography, appetizing"</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Недвижимость</strong></td>
+                    <td>Визуализация интерьеров</td>
+                    <td>Grok Aurora</td>
+                    <td><code>"architectural photography"</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>E-commerce</strong></td>
+                    <td>Карточки товаров</td>
+                    <td>Grok Aurora</td>
+                    <td><code>"product photo, white background"</code></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Стартап</strong></td>
+                    <td>Концепт-арт для лендинга</td>
+                    <td>Nanabanana</td>
+                    <td><code>"futuristic, digital art"</code></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
 
-        <!-- Tips -->
-        <h2>Советы для лучших результатов</h2>
+        <!-- ========================================== -->
+        <!-- Section 6: Когда какой инструмент -->
+        <!-- ========================================== -->
 
-        <div class="example-card">
-          <div class="example-header">
-            <span class="domain-badge domain-marketing">Совет 1</span>
-            <h4>Будьте конкретны в стиле</h4>
-          </div>
-          <div class="example-body">
-            <div class="comparison" style="grid-template-columns: 1fr 1fr;">
-              <div class="comparison-item bad">
-                <div class="comparison-header">❌ Плохо</div>
-                <p>"Красивый закат"</p>
-              </div>
-              <div class="comparison-item good">
-                <div class="comparison-header">✓ Хорошо</div>
-                <p>"Драматичный закат над океаном в стиле фотографии National Geographic, золотые и пурпурные тона, силуэты пальм на переднем плане"</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h2>Когда какой инструмент</h2>
 
-        <div class="example-card">
-          <div class="example-header">
-            <span class="domain-badge domain-service">Совет 2</span>
-            <h4>Указывайте технические параметры</h4>
-          </div>
-          <div class="example-body">
-            <p>Добавляйте технические детали для фотореалистичных изображений:</p>
-            <ul>
-              <li><strong>Камера:</strong> "снято на Canon EOS R5", "Sony A7R IV"</li>
-              <li><strong>Объектив:</strong> "85mm f/1.4", "24-70mm"</li>
-              <li><strong>Эффекты:</strong> "боке", "размытый фон", "резкий фокус"</li>
-              <li><strong>Качество:</strong> "8K", "высокое разрешение", "детализированное"</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="example-card">
-          <div class="example-header">
-            <span class="domain-badge domain-hr">Совет 3</span>
-            <h4>Описывайте освещение подробно</h4>
-          </div>
-          <div class="example-body">
-            <p>Освещение критически важно для настроения:</p>
-            <ul>
-              <li><strong>Мягкое:</strong> "мягкий рассеянный свет", "пасмурный день"</li>
-              <li><strong>Драматичное:</strong> "контрастное боковое освещение", "глубокие тени"</li>
-              <li><strong>Тёплое:</strong> "золотой час", "свет свечей", "закатное солнце"</li>
-              <li><strong>Холодное:</strong> "синий час", "лунный свет", "неоновое свечение"</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Limitations -->
-        <h2>Ограничения DALL-E 3</h2>
-
-        <div class="alert alert-warning">
-          <strong>Что DALL-E 3 делает с трудом:</strong>
+        <div class="alert alert-success">
+          <strong>Памятка по выбору инструмента:</strong>
           <ul style="margin: 0.5rem 0 0 1rem;">
-            <li>Точный текст на изображениях (часто с ошибками)</li>
-            <li>Конкретные знаменитости или реальные люди</li>
-            <li>Очень сложные сцены с множеством деталей</li>
-            <li>Точное количество объектов (например, "ровно 5 яблок")</li>
+            <li><strong>Grok Aurora:</strong> фотопортреты, продуктовые фото, lifestyle, интерьеры, фуд</li>
+            <li><strong>Gemini Imagen:</strong> всё, где есть текст — слайды, баннеры, постеры, инфографика</li>
+            <li><strong>Nanabanana:</strong> иллюстрации, концепт-арт, аниме, креативные стили</li>
+            <li><strong>Текстовая LLM (Cursor/Grok):</strong> всегда начинайте с неё для генерации промпта</li>
           </ul>
         </div>
 
+        <!-- ========================================== -->
         <!-- Quiz -->
+        <!-- ========================================== -->
+
         <div class="card">
           <div class="card-header">🎯 Проверьте понимание</div>
           <div class="card-body">
             <div class="quiz-container" data-quiz="lesson1">
               <div class="quiz-question">
-                <h4>Вопрос 1: Какое главное преимущество ChatGPT Images перед другими генераторами?</h4>
+                <h4>Вопрос 1: Какой инструмент лучше для создания баннера с текстом?</h4>
                 <div class="quiz-options" data-correct="2">
                   <label class="quiz-option">
                     <input type="radio" name="q1" value="1">
-                    <span>Самое высокое разрешение</span>
+                    <span>Grok Aurora</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q1" value="2">
-                    <span>Понимание контекста и диалоговое редактирование</span>
+                    <span>Gemini Imagen</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q1" value="3">
-                    <span>Бесплатный доступ</span>
+                    <span>Nanabanana</span>
                   </label>
                 </div>
                 <div class="quiz-feedback"></div>
               </div>
 
               <div class="quiz-question">
-                <h4>Вопрос 2: Что нужно указывать для фотореалистичных изображений?</h4>
-                <div class="quiz-options" data-correct="3">
+                <h4>Вопрос 2: Что такое "промпт для промпта"?</h4>
+                <div class="quiz-options" data-correct="2">
                   <label class="quiz-option">
                     <input type="radio" name="q2" value="1">
-                    <span>Только субъект изображения</span>
+                    <span>Промпт внутри промпта</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q2" value="2">
-                    <span>Размер файла в пикселях</span>
+                    <span>Использование текстовой LLM для генерации промптов для изображений</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q2" value="3">
-                    <span>Камеру, объектив, освещение и технические параметры</span>
+                    <span>Двойной промпт</span>
                   </label>
                 </div>
                 <div class="quiz-feedback"></div>
               </div>
 
               <div class="quiz-question">
-                <h4>Вопрос 3: С чем DALL-E 3 справляется плохо?</h4>
-                <div class="quiz-options" data-correct="1">
+                <h4>Вопрос 3: Для фотореалистичного портрета сотрудника лучше использовать:</h4>
+                <div class="quiz-options" data-correct="3">
                   <label class="quiz-option">
                     <input type="radio" name="q3" value="1">
-                    <span>Точный текст на изображениях</span>
+                    <span>Nanabanana</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q3" value="2">
-                    <span>Фотореалистичные портреты</span>
+                    <span>Gemini</span>
                   </label>
                   <label class="quiz-option">
                     <input type="radio" name="q3" value="3">
-                    <span>Пейзажи и природа</span>
+                    <span>Grok Aurora</span>
                   </label>
                 </div>
                 <div class="quiz-feedback"></div>
@@ -458,7 +603,10 @@
           </div>
         </div>
 
+        <!-- ========================================== -->
         <!-- Key Takeaways -->
+        <!-- ========================================== -->
+
         <div class="card" style="border: 2px solid var(--primary);">
           <div class="card-header" style="background: linear-gradient(135deg, var(--primary), #7C3AED);">
             📌 Ключевые выводы урока
@@ -466,41 +614,44 @@
           <div class="card-body">
             <div class="takeaways-grid" style="display: grid; gap: 1rem;">
               <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
-                <span style="font-size: 1.5rem;">💬</span>
+                <span style="font-size: 1.5rem;">🧠</span>
                 <div>
-                  <strong>Диалоговый режим</strong>
-                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">ChatGPT Images позволяет итеративно редактировать изображения</p>
+                  <strong>Промпты для промптов</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Начинайте с текстовой LLM — она напишет промпт лучше, чем вы вручную</p>
                 </div>
               </div>
 
               <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
-                <span style="font-size: 1.5rem;">📝</span>
+                <span style="font-size: 1.5rem;">🎯</span>
                 <div>
-                  <strong>Детальные промпты</strong>
-                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Чем больше деталей, тем лучше результат</p>
+                  <strong>Правильный инструмент</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Grok = фото, Gemini = текст на изображениях, Nana = арт и иллюстрации</p>
+                </div>
+              </div>
+
+              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
+                <span style="font-size: 1.5rem;">💼</span>
+                <div>
+                  <strong>Use Cases</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Каждая индустрия имеет свои задачи — выбирайте инструмент под задачу</p>
                 </div>
               </div>
 
               <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
                 <span style="font-size: 1.5rem;">📸</span>
                 <div>
-                  <strong>Технические параметры</strong>
-                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Указывайте камеру и объектив для фотореализма</p>
-                </div>
-              </div>
-
-              <div style="display: flex; align-items: start; gap: 1rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px;">
-                <span style="font-size: 1.5rem;">💡</span>
-                <div>
-                  <strong>Освещение критично</strong>
-                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Описание света определяет настроение изображения</p>
+                  <strong>Детализация</strong>
+                  <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Стиль + освещение + камера = качество результата</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- ========================================== -->
         <!-- Navigation -->
+        <!-- ========================================== -->
+
         <div class="lesson-nav">
           <a href="index.html" class="nav-arrow nav-arrow-prev">
             <span>←</span>
@@ -515,7 +666,7 @@
           <a href="lesson-2.html" class="nav-arrow nav-arrow-next">
             <div>
               <div class="nav-arrow-label">Далее</div>
-              <div class="nav-arrow-title">Grok Aurora</div>
+              <div class="nav-arrow-title">Видео — Veo3</div>
             </div>
             <span>→</span>
           </a>
