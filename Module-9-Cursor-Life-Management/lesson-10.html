@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.10: Внешние интеграции | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item active" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.10</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.10</span>
+            <span class="lesson-duration">⏱ 2 часа</span>
+          </div>
+          <h1 class="lesson-title">Интеграция с внешними сервисами</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Подключаем Cursor к внешнему миру: API, сервисы, автоматизации
+          </p>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Цель урока:</strong> Показать, что Cursor может взаимодействовать с внешними сервисами через API, скрипты и MCP-серверы. Студенты НЕ программисты -- они учатся просить ИИ создавать интеграции.</p>
+            <p><strong>Важно:</strong> Акцент на промпт-инженерии: как правильно описать задачу ИИ, чтобы он сам написал нужный скрипт или запрос. Студенты не пишут код -- они формулируют запросы.</p>
+            <p><strong>Практика:</strong> Покажите живой пример: попросите Cursor через Chat создать скрипт, который делает API-запрос. Результат -- вдохновение, а не зубрёжка синтаксиса.</p>
+          </div>
+        </div>
+
+        <!-- Cursor + External World -->
+        <section class="card" style="background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">Cursor + внешний мир</div>
+          <div class="card-body">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+              Cursor -- это не замкнутая система. Через терминал и скрипты он может <strong>взаимодействовать с любым сервисом в интернете</strong>.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.3rem; margin-bottom: 0.5rem;">Что можно делать</div>
+                <p style="font-size: 0.95rem; opacity: 0.95;">
+                  Получать данные из Google Sheets, Notion, Telegram. Запрашивать погоду, курсы валют, новости. Отправлять уведомления.
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.3rem; margin-bottom: 0.5rem;">Как это работает</div>
+                <p style="font-size: 0.95rem; opacity: 0.95;">
+                  Вы описываете задачу промптом. ИИ создаёт скрипт. Скрипт запускается в терминале Cursor. Данные возвращаются в ваш проект.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Why Integrations -->
+        <section class="card">
+          <div class="card-header">Зачем нужны интеграции?</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Интеграции превращают Cursor из текстового редактора в <strong>центр управления вашей жизнью</strong>:</p>
+
+            <div class="service-cards">
+              <div class="service-card" style="text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">📊</div>
+                <h4>Данные из таблиц</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                  Подтянуть бюджет из Google Sheets, проанализировать расходы, сгенерировать отчёт
+                </p>
+              </div>
+
+              <div class="service-card" style="text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">📝</div>
+                <h4>Заметки из Notion</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                  Синхронизировать задачи, перенести базу знаний, обновить статусы проектов
+                </p>
+              </div>
+
+              <div class="service-card" style="text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
+                <h4>Боты и уведомления</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                  Telegram-бот для напоминаний, автоматические сводки, оповещения о событиях
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Google Sheets -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Работа с Google Sheets</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Google Sheets -- одна из самых полезных интеграций. Вы можете экспортировать и импортировать данные, анализировать таблицы прямо в Cursor.</p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Вариант 1: Экспорт через CSV</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для Cursor Chat</span>
+              </div>
+              <pre><code>У меня есть CSV-файл budget.csv с колонками:
+Дата, Категория, Сумма, Описание.
+
+Прочитай этот файл, сгруппируй расходы по категориям,
+посчитай итоги и создай Markdown-отчёт с таблицей
+и выводами. Сохрани в reports/budget-report.md</code></pre>
+            </div>
+
+            <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);">Вариант 2: Google Sheets API</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для Cursor Chat</span>
+              </div>
+              <pre><code>Создай Python-скрипт, который:
+1. Подключается к Google Sheets через API
+   (Service Account, credentials.json уже есть)
+2. Читает таблицу "Бюджет 2026" (ID: xxx)
+3. Скачивает данные за текущий месяц
+4. Сохраняет в файл data/budget-march.json
+
+Используй библиотеку gspread.</code></pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Простой путь:</strong> Не хотите разбираться с API? Просто скачайте таблицу как CSV (Файл -> Скачать -> CSV) и закиньте в папку проекта. Cursor прочитает и проанализирует!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Notion Integration -->
+        <section class="card">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Интеграция с Notion</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Notion -- популярная система для заметок и управления проектами. Cursor может забирать из неё данные и обрабатывать.</p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Перенос задач из Notion</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для Cursor Chat</span>
+              </div>
+              <pre><code>Создай скрипт, который через Notion API:
+1. Подключается к моей базе данных задач
+   (database_id: xxx, token: в .env файле)
+2. Получает все задачи со статусом "В работе"
+3. Форматирует их в Markdown-список с приоритетами
+4. Сохраняет в tasks/notion-tasks.md
+
+Добавь дату синхронизации в начало файла.</code></pre>
+            </div>
+
+            <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);">Синхронизация заметок</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для Cursor Chat</span>
+              </div>
+              <pre><code>У меня есть файл meeting-notes.md с заметками
+с совещания. Создай скрипт, который:
+1. Прочитает этот файл
+2. Создаст новую страницу в Notion
+   в разделе "Совещания"
+3. Перенесёт содержимое с форматированием
+4. Добавит тег "март 2026" и статус "Обработано"</code></pre>
+            </div>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <strong style="color: #8B5CF6;">Notion -> Cursor</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Забрать задачи, заметки, базы данных для анализа в Cursor</p>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong style="color: #10B981;">Cursor -> Notion</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Отправить обработанные отчёты, резюме, планы обратно в Notion</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Telegram Bot -->
+        <section class="card">
+          <div class="card-header" style="background: #3B82F6; color: white;">Telegram-бот через Cursor</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">
+              Один из самых практичных примеров: попросить ИИ написать простого Telegram-бота для персональных напоминаний.
+            </p>
+
+            <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #3B82F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Создайте бота в Telegram</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Найдите @BotFather, отправьте /newbot, получите токен</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #3B82F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Сохраните токен в .env</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">TELEGRAM_BOT_TOKEN=ваш_токен_от_botfather</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #3B82F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Попросите Cursor написать бота</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Опишите функциональность в промпте</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для Cursor Chat</span>
+              </div>
+              <pre><code>Создай простого Telegram-бота на Python (aiogram), который:
+1. Принимает команду /remind "текст" "время"
+   (например: /remind "Позвонить маме" "18:00")
+2. Сохраняет напоминания в JSON-файл
+3. Проверяет каждую минуту, не пора ли отправить
+4. Отправляет напоминание в нужное время
+5. Команда /list -- показывает все напоминания
+
+Токен бота в .env файле (TELEGRAM_BOT_TOKEN).
+Сделай код максимально простым, с комментариями.</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Результат:</strong> Через 5 минут у вас будет работающий Telegram-бот для напоминаний! Запустите его через терминал Cursor: <code>python bot.py</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- API without Programming -->
+        <section class="card">
+          <div class="card-header">API без программирования</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">
+              <strong>API</strong> (Application Programming Interface) -- это способ общения программ друг с другом. Через Cursor вы можете обращаться к любым API, не зная программирования. Просто опишите, что вам нужно.
+            </p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Примеры полезных API:</h4>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Сервис</th>
+                    <th>Что можно получить</th>
+                    <th>Пример использования</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>OpenWeatherMap</strong></td>
+                    <td>Погода в любом городе</td>
+                    <td>Утренняя сводка с погодой на день</td>
+                  </tr>
+                  <tr>
+                    <td><strong>ExchangeRate API</strong></td>
+                    <td>Курсы валют</td>
+                    <td>Ежедневный мониторинг курса доллара</td>
+                  </tr>
+                  <tr>
+                    <td><strong>NewsAPI</strong></td>
+                    <td>Новости по теме</td>
+                    <td>Автоматический дайджест новостей по ИИ</td>
+                  </tr>
+                  <tr>
+                    <td><strong>CalDAV</strong></td>
+                    <td>Событиия из календаря</td>
+                    <td>Список встреч на сегодня</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GitHub API</strong></td>
+                    <td>Репозитории, issues</td>
+                    <td>Статус ваших проектов</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);">Как попросить Cursor сделать API-запрос:</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для Cursor Chat</span>
+              </div>
+              <pre><code>Создай скрипт, который:
+1. Запрашивает текущую погоду в Минске
+   через OpenWeatherMap API (ключ в .env: WEATHER_API_KEY)
+2. Запрашивает курс USD/BYN через exchangerate-api.com
+3. Форматирует всё в красивую утреннюю сводку
+4. Сохраняет в daily/morning-brief-2026-03-12.md
+
+Формат сводки:
+# Утренняя сводка -- 12 марта 2026
+## Погода
+- Температура: ...
+- Описание: ...
+## Курсы валют
+- USD/BYN: ...</code></pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Ваша роль:</strong> Вы не программируете. Вы описываете, какой результат хотите получить. ИИ сам выберет нужные библиотеки, напишет код и объяснит, как запустить.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MCP Servers -->
+        <section class="card">
+          <div class="card-header" style="background: #F59E0B; color: white;">MCP-серверы -- расширения Cursor</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              <strong>MCP</strong> (Model Context Protocol) -- это способ подключать к Cursor дополнительные инструменты. По сути, это плагины, которые дают ИИ новые возможности.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <h4 style="color: #F59E0B; margin-bottom: 0.5rem;">Без MCP</h4>
+                <p style="color: var(--text-secondary); margin: 0;">ИИ работает только с файлами в вашем проекте и может делать запросы через терминал</p>
+              </div>
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <h4 style="color: #10B981; margin-bottom: 0.5rem;">С MCP</h4>
+                <p style="color: var(--text-secondary); margin: 0;">ИИ может напрямую обращаться к базам данных, API, файловым системам, браузеру и другим сервисам</p>
+              </div>
+            </div>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Популярные MCP-серверы:</h4>
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">@web</code>
+                <span style="color: var(--text-secondary);"> -- поиск информации в интернете прямо из чата</span>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">filesystem</code>
+                <span style="color: var(--text-secondary);"> -- расширенная работа с файловой системой</span>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">brave-search</code>
+                <span style="color: var(--text-secondary);"> -- поиск через Brave для исследований и аналитики</span>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">notion</code>
+                <span style="color: var(--text-secondary);"> -- прямое чтение и запись в Notion без скриптов</span>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">github</code>
+                <span style="color: var(--text-secondary);"> -- управление репозиториями и issues</span>
+              </div>
+            </div>
+
+            <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);">Как подключить MCP-сервер:</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Файл .cursor/mcp.json</span>
+              </div>
+              <pre><code>{
+  "mcpServers": {
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@anthropic/mcp-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "ваш_ключ"
+      }
+    }
+  }
+}</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> Начните с @web -- он уже встроен в Cursor. Просто добавьте @web в начало промпта, и ИИ будет искать актуальную информацию в интернете.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Automatic Digest Example -->
+        <section class="card">
+          <div class="card-header" style="background: #EF4444; color: white;">Пример: Автоматический дайджест</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              Давайте соберём всё вместе и создадим <strong>автоматический новостной дайджест</strong> -- скрипт, который собирает информацию из нескольких источников и создаёт отчёт.
+            </p>
+
+            <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #EF4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Сбор новостей</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Скрипт запрашивает NewsAPI по вашим темам (ИИ, продуктивность, бизнес)</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #EF4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Анализ через ИИ</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Cursor Chat анализирует собранные новости, выделяет ключевые тренды</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #EF4444; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Генерация отчёта</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">ИИ создаёт структурированный Markdown-дайджест с резюме и рекомендациями</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для создания дайджест-системы</span>
+              </div>
+              <pre><code>Создай систему автоматического дайджеста:
+
+1. Скрипт fetch-news.py:
+   - Запрашивает NewsAPI по темам: AI, productivity, technology
+   - Получает 10 статей за последние 24 часа по каждой теме
+   - Сохраняет заголовки и описания в data/raw-news.json
+
+2. Файл digest-template.md:
+   - Шаблон дайджеста с секциями: Главное, Тренды,
+     Рекомендации к прочтению
+
+3. Промпт для анализа (сохрани в prompts/digest-prompt.md):
+   "Проанализируй файл data/raw-news.json.
+    Выдели 3 главные новости, определи 2 тренда.
+    Заполни шаблон digest-template.md.
+    Сохрани результат в digests/digest-ДАТА.md"
+
+API-ключ NewsAPI в .env файле (NEWS_API_KEY).</code></pre>
+            </div>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Пример результата: digests/digest-2026-03-12.md</span>
+              </div>
+              <pre><code># Ежедневный дайджест -- 12 марта 2026
+
+## Главные новости
+1. **OpenAI представила GPT-5** -- новая модель...
+2. **Apple интегрирует ИИ в iWork** -- Pages и Numbers...
+3. **Рынок no-code вырос на 40%** -- аналитики прогнозируют...
+
+## Тренды недели
+- ИИ-ассистенты становятся персональными
+- Рост спроса на промпт-инженеров в СНГ
+
+## Рекомендации к прочтению
+- [Статья 1](ссылка) -- почему стоит прочитать
+- [Статья 2](ссылка) -- ключевой инсайт
+
+---
+*Сгенерировано автоматически через Cursor*</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Integration Architecture -->
+        <section class="card">
+          <div class="card-header">Архитектура интеграций</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Вот как выглядит типичная схема интеграций в вашем проекте:</p>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Структура папок</span>
+              </div>
+              <pre><code>my-life-system/
+├── .env                    # API-ключи (НИКОГДА не делитесь!)
+├── .cursor/
+│   └── mcp.json           # Настройки MCP-серверов
+├── scripts/
+│   ├── fetch-news.py      # Скрипт сбора новостей
+│   ├── fetch-weather.py   # Скрипт погоды
+│   ├── sync-notion.py     # Синхронизация с Notion
+│   └── telegram-bot.py    # Telegram-бот
+├── data/
+│   ├── raw-news.json      # Сырые данные
+│   └── budget.csv         # Данные из Google Sheets
+├── digests/
+│   └── digest-2026-03-12.md
+├── prompts/
+│   └── digest-prompt.md   # Промпт для анализа
+└── templates/
+    └── digest-template.md # Шаблон дайджеста</code></pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Безопасность:</strong> Всегда храните API-ключи в файле <code>.env</code> и добавьте его в <code>.gitignore</code>. Никогда не вставляйте ключи прямо в код или промпты.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson10">
+              <p><strong>Что такое MCP в контексте Cursor?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Язык программирования для ботов</div>
+                <div class="quiz-option" data-correct="true">Протокол для подключения дополнительных инструментов к ИИ</div>
+                <div class="quiz-option" data-correct="false">Формат файлов для хранения данных</div>
+                <div class="quiz-option" data-correct="false">Встроенный менеджер паролей</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Practice -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практическое задание</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Выполните два задания:</p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Задание 1: Подключите API</h4>
+            <ol style="margin: 0 0 1.5rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Зарегистрируйтесь на <strong>openweathermap.org</strong> (бесплатный аккаунт)</li>
+              <li style="margin-bottom: 0.5rem;">Получите API-ключ и сохраните в <code>.env</code></li>
+              <li style="margin-bottom: 0.5rem;">Попросите Cursor создать скрипт для получения погоды</li>
+              <li style="margin-bottom: 0.5rem;">Запустите скрипт в терминале и проверьте результат</li>
+            </ol>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Задание 2: Создайте дайджест</h4>
+            <ol style="margin: 0 0 1rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Создайте шаблон дайджеста в <code>templates/digest-template.md</code></li>
+              <li style="margin-bottom: 0.5rem;">Найдите 5-10 интересных статей вручную (или через @web)</li>
+              <li style="margin-bottom: 0.5rem;">Сохраните ссылки и описания в файл <code>data/raw-articles.md</code></li>
+              <li style="margin-bottom: 0.5rem;">Попросите Cursor проанализировать статьи и заполнить шаблон дайджеста</li>
+              <li>Сохраните итоговый дайджест с сегодняшней датой</li>
+            </ol>
+
+            <div class="alert alert-success" style="margin-top: 1rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Бонус:</strong> Попробуйте настроить MCP-сервер @web и создать дайджест целиком через Chat, без ручного поиска статей!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson10-api"></span>
+                <span class="checklist-text">Понимаю, что такое API и как Cursor может с ними работать</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson10-sheets"></span>
+                <span class="checklist-text">Знаю, как подключить данные из Google Sheets</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson10-notion"></span>
+                <span class="checklist-text">Понимаю принцип интеграции с Notion</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson10-telegram"></span>
+                <span class="checklist-text">Знаю, как попросить ИИ создать Telegram-бота</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson10-mcp"></span>
+                <span class="checklist-text">Понимаю, что такое MCP-серверы и как их подключать</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson10-digest"></span>
+                <span class="checklist-text">Создал автоматический дайджест из внешних данных</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="card">
+          <div class="card-header">Домашнее задание</div>
+          <div class="card-body">
+            <p>Создайте интеграцию, которая полезна лично вам:</p>
+            <ul style="margin: 1rem 0 1rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Выберите сервис, которым вы пользуетесь ежедневно (Telegram, Notion, Google Sheets, календарь)</li>
+              <li style="margin-bottom: 0.5rem;">Определите задачу: что вы хотите автоматизировать? (сбор данных, отчёт, напоминание)</li>
+              <li style="margin-bottom: 0.5rem;">Напишите подробный промпт для Cursor с описанием желаемого результата</li>
+              <li style="margin-bottom: 0.5rem;">Попросите ИИ создать скрипт и запустите его</li>
+              <li>Задокументируйте процесс: какой промпт сработал, что пришлось уточнить</li>
+            </ul>
+            <p><strong>Бонус:</strong> Настройте MCP-сервер для одного из внешних сервисов.</p>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-9.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Системы и шаблоны</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="10">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-11.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Продвинутый промптинг</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

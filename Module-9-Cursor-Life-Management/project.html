@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Итоговый проект: Персональная система управления жизнью | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item active" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Итоговый проект</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number" style="background: var(--accent);">Проект</span>
+            <span class="lesson-duration">⏱ 3 часа</span>
+          </div>
+          <h1 class="lesson-title">Персональная система управления жизнью</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Создайте полноценную систему в Cursor, которая будет работать на вас каждый день
+          </p>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Цель проекта:</strong> Студенты создают реальную персональную систему в Cursor, объединяя все навыки модуля: промптинг, файловая организация, автоматизация, шаблоны и интеграции.</p>
+            <p><strong>Формат:</strong> Самостоятельная работа (3 часа) с последующей защитой (5-7 минут на студента). Допускается работа в парах.</p>
+            <p><strong>Оценка:</strong> По критериям ниже. Акцент на практическую пользу системы, а не на количество файлов. Система должна быть "живой" -- той, которую студент реально будет использовать.</p>
+            <p><strong>Важно:</strong> Каждая система уникальна! Поощряйте адаптацию под реальные потребности студента, а не слепое копирование шаблона.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Project Overview -->
+        <section class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">Описание проекта</div>
+          <div class="card-body">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+              Вы создадите <strong>полноценную персональную систему управления жизнью</strong> в Cursor -- рабочее пространство, которое поможет вам управлять проектами, привычками, финансами и целями с помощью ИИ.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+              <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧠</div>
+                <strong>Second Brain</strong>
+                <p style="font-size: 0.85rem; margin-top: 0.25rem; opacity: 0.9;">Система знаний и идей</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
+                <strong>Автоматизация</strong>
+                <p style="font-size: 0.85rem; margin-top: 0.25rem; opacity: 0.9;">ИИ работает за вас</p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px;">
+                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+                <strong>Трекинг</strong>
+                <p style="font-size: 0.85rem; margin-top: 0.25rem; opacity: 0.9;">Привычки, финансы, цели</p>
+              </div>
+            </div>
+
+            <p style="margin-top: 1.5rem; font-size: 1rem; opacity: 0.95;">
+              Это не учебное задание "для галочки" -- вы создаёте инструмент, который будете использовать каждый день после окончания курса.
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Required Elements -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Обязательные элементы</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Ваш проект должен включать все перечисленные элементы. Каждый пункт -- это навык, освоенный в модуле:</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>1. Рабочее пространство с чёткой структурой папок</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Логичная иерархия: проекты, трекеры, шаблоны, архив, входящие. Каждая папка имеет назначение.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>2. .cursorrules с персонализированным системным промптом</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">ИИ знает ваше имя, роль, цели, стиль общения и контекст ваших проектов.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>3. Система управления проектами (минимум 2 проекта)</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Два реальных проекта с задачами, дедлайнами, статусами и заметками по прогрессу.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>4. GTD или OKR система</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Система целеполагания: либо GTD (входящие, следующие действия, проекты, ожидание), либо OKR (цели и ключевые результаты).</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>5. Трекер привычек</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Таблица или файл для ежедневного отслеживания 5-10 привычек с историей за неделю/месяц.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>6. Финансовый трекер</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">CSV или Markdown-таблица доходов и расходов с категориями и возможностью анализа через Chat.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>7. Промпт-библиотека (минимум 10 шаблонов)</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Коллекция готовых промптов для повседневных задач: анализ, планирование, написание текстов, принятие решений и др.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>8. Шаблоны ритуалов (утро, неделя, месяц)</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Файлы-шаблоны для утреннего обзора, еженедельного планирования и ежемесячной ретроспективы.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>9. Минимум 1 автоматизация</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Скрипт, pipeline или workflow, который выполняет рутинную задачу: генерация отчёта, обработка данных, создание файлов по шаблону.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Project Variants -->
+        <section class="card">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Варианты проектов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Система должна быть адаптирована под вашу реальную жизнь. Вот примеры для разных профессий:</p>
+
+            <div style="display: grid; gap: 1.5rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <h4 style="color: #8B5CF6; margin-bottom: 0.5rem;">Фрилансер</h4>
+                <ul style="margin: 0.5rem 0 0 1.5rem; color: var(--text-secondary);">
+                  <li>Трекер клиентов и проектов с дедлайнами</li>
+                  <li>Финансы: учёт доходов по клиентам, налоги, инвойсы</li>
+                  <li>Промпты для составления коммерческих предложений и договоров</li>
+                  <li>Шаблон недельного планирования с распределением часов</li>
+                  <li>Автоматизация: генерация еженедельного отчёта по заработку</li>
+                </ul>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <h4 style="color: #8B5CF6; margin-bottom: 0.5rem;">Студент</h4>
+                <ul style="margin: 0.5rem 0 0 1.5rem; color: var(--text-secondary);">
+                  <li>Расписание занятий и сессии с дедлайнами по курсовым</li>
+                  <li>Конспекты и заметки по предметам (Zettelkasten)</li>
+                  <li>Промпты для подготовки к экзаменам и написания рефератов</li>
+                  <li>Трекер привычек: учёба, спорт, чтение, сон</li>
+                  <li>Автоматизация: создание карточек для повторения материала</li>
+                </ul>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <h4 style="color: #8B5CF6; margin-bottom: 0.5rem;">Маркетолог</h4>
+                <ul style="margin: 0.5rem 0 0 1.5rem; color: var(--text-secondary);">
+                  <li>Контент-план для соцсетей с календарём публикаций</li>
+                  <li>Трекер рекламных кампаний и бюджетов</li>
+                  <li>Промпты для генерации текстов, заголовков, описаний</li>
+                  <li>Анализ конкурентов: шаблон и база данных</li>
+                  <li>Автоматизация: сводный отчёт по метрикам за неделю</li>
+                </ul>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <h4 style="color: #8B5CF6; margin-bottom: 0.5rem;">Предприниматель</h4>
+                <ul style="margin: 0.5rem 0 0 1.5rem; color: var(--text-secondary);">
+                  <li>OKR на квартал с декомпозицией до еженедельных задач</li>
+                  <li>Финансовая модель: доходы, расходы, прогнозы</li>
+                  <li>Промпты для стратегического анализа и принятия решений</li>
+                  <li>Трекер встреч, контактов и договорённостей</li>
+                  <li>Автоматизация: подготовка повестки к еженедельной планёрке</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> Не ограничивайтесь примерами! Комбинируйте элементы из разных вариантов или придумайте свой уникальный набор. Главное -- чтобы система решала именно ваши задачи.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Evaluation Criteria -->
+        <section class="card">
+          <div class="card-header" style="background: #F59E0B; color: white;">Критерии оценки</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Проект оценивается по 100-балльной шкале:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Критерий</th>
+                    <th>Описание</th>
+                    <th style="width: 80px;">Баллы</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Структура</strong></td>
+                    <td>Логичная организация папок и файлов, понятная навигация, есть README</td>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <td><strong>.cursorrules</strong></td>
+                    <td>Персонализированный системный промпт с контекстом, ролями и инструкциями</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Проекты</strong></td>
+                    <td>Минимум 2 проекта с задачами, статусами, дедлайнами и заметками</td>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Система целей</strong></td>
+                    <td>GTD или OKR с чётко сформулированными целями и следующими шагами</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Трекеры</strong></td>
+                    <td>Привычки и финансы -- рабочие таблицы с реальными данными</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Промпт-библиотека</strong></td>
+                    <td>10+ шаблонов промптов, организованных по категориям, с примерами использования</td>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ритуалы</strong></td>
+                    <td>Шаблоны для утреннего, недельного и месячного обзоров</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Автоматизация</strong></td>
+                    <td>Минимум 1 работающий скрипт или pipeline для рутинной задачи</td>
+                    <td>10</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Защита</strong></td>
+                    <td>Уверенная презентация, демонстрация работы системы, ответы на вопросы</td>
+                    <td>10</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; text-align: center;">
+              <div style="padding: 1rem; background: #FEE2E2; border-radius: 8px;">
+                <strong style="color: #DC2626;">0-49 баллов</strong>
+                <p style="font-size: 0.85rem; color: #DC2626; margin-top: 0.25rem;">Не зачтено</p>
+              </div>
+              <div style="padding: 1rem; background: #FEF3C7; border-radius: 8px;">
+                <strong style="color: #D97706;">50-74 баллов</strong>
+                <p style="font-size: 0.85rem; color: #D97706; margin-top: 0.25rem;">Зачтено</p>
+              </div>
+              <div style="padding: 1rem; background: #D1FAE5; border-radius: 8px;">
+                <strong style="color: #059669;">75-100 баллов</strong>
+                <p style="font-size: 0.85rem; color: #059669; margin-top: 0.25rem;">Отлично</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Step-by-step Plan -->
+        <section class="card">
+          <div class="card-header">Этапы выполнения (план на 3 часа)</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Планирование и .cursorrules (20 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Определите свою роль, цели, ключевые проекты. Создайте .cursorrules с системным промптом, который описывает вас и ваш контекст.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Структура рабочего пространства (15 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Создайте дерево папок через Composer или терминал. Используйте Chat для помощи: "Предложи структуру папок для системы управления жизнью фрилансера".</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Система целей -- GTD или OKR (25 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Выберите методологию и создайте файлы. Используйте Chat для формулировки целей: "Помоги мне превратить эти размытые желания в конкретные OKR".</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">4</div>
+                <div>
+                  <strong>Проекты и задачи (25 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Создайте файлы для 2+ реальных проектов. Заполните задачи, статусы, дедлайны. Используйте Composer для генерации структуры проекта одним запросом.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">5</div>
+                <div>
+                  <strong>Трекеры: привычки и финансы (20 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Создайте CSV или Markdown-таблицы. Заполните реальными данными хотя бы за 3-5 дней. Протестируйте анализ через Chat.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">6</div>
+                <div>
+                  <strong>Промпт-библиотека (25 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Создайте 10+ промптов по категориям: планирование, анализ, креатив, решения, коммуникация. Протестируйте каждый в Chat.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">7</div>
+                <div>
+                  <strong>Шаблоны ритуалов (15 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Создайте шаблоны для утреннего обзора, недельного планирования и месячной ретроспективы. Используйте Cmd+K для быстрой генерации.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">8</div>
+                <div>
+                  <strong>Автоматизация (20 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Создайте минимум 1 скрипт или pipeline: генерация отчёта, обработка CSV, создание файлов по шаблону. Протестируйте через терминал Cursor.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 40px; height: 40px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">9</div>
+                <div>
+                  <strong>Финальная полировка и подготовка к защите (15 мин)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Проверьте всё по чеклисту, добавьте README, подготовьте демонстрацию. Пройдитесь по системе глазами презентатора.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Student Examples -->
+        <section class="card">
+          <div class="card-header" style="background: #3B82F6; color: white;">Примеры студенческих работ</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Вот как выглядят удачные проекты предыдущих студентов:</p>
+
+            <div style="display: grid; gap: 1.5rem;">
+              <!-- Example 1 -->
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                  <h4 style="color: var(--primary);">Анна К. -- "Система фрилансера"</h4>
+                  <span style="background: #D1FAE5; color: #059669; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">92 балла</span>
+                </div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">Структура проекта</span>
+                  </div>
+                  <pre><code>my-life-system/
+  .cursorrules              # "Ты -- ассистент фрилансера Анны..."
+  README.md
+  projects/
+    client-webstudio/       # Проект для веб-студии
+    client-coffeeshop/      # Проект для кофейни
+  gtd/
+    inbox.md                # Входящие
+    next-actions.md         # Следующие действия
+    waiting-for.md          # Ожидание
+  trackers/
+    habits.csv              # 8 привычек
+    finances.csv            # Доходы/расходы по клиентам
+  prompts/
+    proposals.md            # Промпты для КП
+    emails.md               # Промпты для писем
+    analysis.md             # Промпты для анализа
+  rituals/
+    morning.md              # Утренний обзор
+    weekly.md               # Планирование недели
+    monthly.md              # Месячная ретроспектива
+  scripts/
+    weekly-report.py        # Автоматический отчёт по заработку</code></pre>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary);"><strong>Что понравилось:</strong> Реальные клиенты, промпты протестированы и доработаны, автоматический отчёт считает заработок из CSV.</p>
+              </div>
+
+              <!-- Example 2 -->
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                  <h4 style="color: var(--primary);">Дмитрий П. -- "Студенческий хаб"</h4>
+                  <span style="background: #D1FAE5; color: #059669; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">85 баллов</span>
+                </div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">Структура проекта</span>
+                  </div>
+                  <pre><code>student-hub/
+  .cursorrules              # "Ты -- учебный ассистент студента 3 курса..."
+  README.md
+  university/
+    semester-schedule.md    # Расписание
+    math/                   # Заметки по математике
+    programming/            # Заметки по программированию
+  projects/
+    coursework-db/          # Курсовая по базам данных
+    hackathon-app/          # Проект для хакатона
+  okr/
+    q1-2026.md              # OKR на квартал
+  trackers/
+    habits.md               # Сон, учёба, спорт, чтение
+    budget.csv              # Стипендия и расходы
+  prompts/
+    study/                  # Промпты для учёбы
+    writing/                # Промпты для рефератов
+  rituals/
+    morning.md
+    sunday-review.md
+  automation/
+    flashcards-gen.md       # Генерация карточек через Chat</code></pre>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary);"><strong>Что понравилось:</strong> Практичная система заметок по предметам, OKR привязаны к сессии, генератор карточек реально работает.</p>
+              </div>
+
+              <!-- Example 3 -->
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border: 1px solid var(--border);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                  <h4 style="color: var(--primary);">Мария С. -- "Маркетинг-штаб"</h4>
+                  <span style="background: #FEF3C7; color: #D97706; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">71 балл</span>
+                </div>
+                <div class="code-block">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">Структура проекта</span>
+                  </div>
+                  <pre><code>marketing-hq/
+  .cursorrules
+  campaigns/
+    instagram-spring/       # Весенняя кампания
+    email-newsletter/       # Email-рассылка
+  content-plan/
+    march-2026.md           # Контент-план на месяц
+  gtd/
+    inbox.md
+    next-actions.md
+  trackers/
+    habits.md
+    ad-budget.csv           # Бюджеты рекламы
+  prompts/
+    copywriting.md          # 12 промптов для текстов
+  rituals/
+    morning.md
+    weekly.md
+    monthly.md</code></pre>
+                </div>
+                <p style="margin-top: 1rem; color: var(--text-secondary);"><strong>Что можно улучшить:</strong> Нет автоматизации (минус 10 баллов), промпты хорошие, но не все протестированы. Структура логичная.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Readiness Checklist -->
+        <section class="card">
+          <div class="card-header">Чеклист готовности проекта</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Проверьте каждый пункт перед защитой:</p>
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-structure"></span>
+                <span class="checklist-text">Рабочее пространство с логичной структурой папок</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-cursorrules"></span>
+                <span class="checklist-text">.cursorrules с персонализированным системным промптом</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-projects"></span>
+                <span class="checklist-text">Минимум 2 проекта с задачами, статусами и дедлайнами</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-goals"></span>
+                <span class="checklist-text">GTD или OKR система с реальными целями</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-habits"></span>
+                <span class="checklist-text">Трекер привычек с данными минимум за 3 дня</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-finance"></span>
+                <span class="checklist-text">Финансовый трекер с категориями и реальными записями</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-prompts"></span>
+                <span class="checklist-text">Промпт-библиотека с 10+ шаблонами по категориям</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-rituals"></span>
+                <span class="checklist-text">Шаблоны ритуалов: утро, неделя, месяц</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-automation"></span>
+                <span class="checklist-text">Минимум 1 работающая автоматизация</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-readme"></span>
+                <span class="checklist-text">README.md с описанием системы</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-tested"></span>
+                <span class="checklist-text">Все промпты протестированы в Chat</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="proj-demo"></span>
+                <span class="checklist-text">Подготовлена демонстрация для защиты (5-7 минут)</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Section 8: Project Defense -->
+        <section class="card">
+          <div class="card-header" style="background: #EF4444; color: white;">Защита проекта</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Каждый студент защищает свой проект перед группой. Формат: 5-7 минут презентации + 2-3 минуты вопросов.</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <strong>Минута 1: Введение</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Кто вы, какую роль выбрали, какие задачи решает ваша система. Покажите .cursorrules.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <strong>Минута 2: Структура</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Покажите дерево папок в боковой панели Cursor. Объясните логику организации.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <strong>Минуты 3-4: Ключевые элементы</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Продемонстрируйте проекты, систему целей и трекеры. Покажите реальные данные.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <strong>Минута 5: Промпт-библиотека</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Покажите 2-3 лучших промпта. Запустите один в Chat прямо на защите -- покажите результат.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <strong>Минута 6: Автоматизация</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Запустите свою автоматизацию "вживую". Покажите вход и выход: что подали на вход, что получили на выходе.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <strong>Минута 7: Итоги и планы</strong>
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Что вы узнали, что хотите добавить, будете ли использовать эту систему дальше.</p>
+              </div>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Подсказка:</strong> Лучшие защиты -- те, где студент показывает систему "в действии". Не рассказывайте о файлах -- покажите, как вы реально используете систему: откройте Chat, задайте вопрос, получите ответ на основе вашего контекста.
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem; margin-bottom: 1rem;">Примеры вопросов от преподавателя:</h4>
+            <div style="display: grid; gap: 0.75rem;">
+              <div style="padding: 0.75rem 1rem; background: var(--bg-main); border-radius: 8px; color: var(--text-secondary);">
+                "Покажите, как бы вы начали утро с этой системой?"
+              </div>
+              <div style="padding: 0.75rem 1rem; background: var(--bg-main); border-radius: 8px; color: var(--text-secondary);">
+                "Как ваш .cursorrules влияет на ответы ИИ? Покажите разницу."
+              </div>
+              <div style="padding: 0.75rem 1rem; background: var(--bg-main); border-radius: 8px; color: var(--text-secondary);">
+                "Какой промпт из библиотеки оказался самым полезным и почему?"
+              </div>
+              <div style="padding: 0.75rem 1rem; background: var(--bg-main); border-radius: 8px; color: var(--text-secondary);">
+                "Что бы вы добавили в систему, если бы было ещё 2 часа?"
+              </div>
+              <div style="padding: 0.75rem 1rem; background: var(--bg-main); border-radius: 8px; color: var(--text-secondary);">
+                "Как вы отслеживаете прогресс по привычкам -- покажите процесс?"
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Congratulations -->
+        <section class="card" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">Поздравляем!</div>
+          <div class="card-body" style="text-align: center;">
+            <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+            <h2 style="margin-bottom: 1rem;">Вы прошли модуль "Cursor -- управляй жизнью через ИИ"!</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              Теперь у вас есть персональная система управления жизнью, построенная на силе ИИ.<br>
+              Cursor -- это не просто редактор кода. Это ваш второй мозг, ассистент и операционная система для жизни.
+            </p>
+            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 8px; display: inline-block;">
+              <strong>Следующий шаг:</strong> Используйте систему каждый день. Через неделю вы удивитесь, как жили без неё.
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-12.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Система продуктивности</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="13">
+            Завершить модуль
+          </button>
+
+          <a href="index.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">К началу</div>
+              <div class="nav-arrow-title">Главная модуля</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

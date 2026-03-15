@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.8: Работа с файлами и данными | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item active" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.8</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.8</span>
+            <span class="lesson-duration">⏱ 1.5 часа</span>
+          </div>
+          <h1 class="lesson-title">Работа с файлами и данными</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Cursor как персональный аналитик: обработка CSV, JSON и текстов без Excel
+          </p>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Цель урока:</strong> Показать, что Cursor может заменить Excel для анализа данных, обработки текстов и генерации отчётов. Никакого программирования — только промпты.</p>
+            <p><strong>Ключевой момент:</strong> Студенты часто не осознают, что текстовый редактор с ИИ может быть мощнее электронных таблиц для многих задач. Покажите это на конкретных примерах.</p>
+            <p><strong>Подготовка:</strong> Подготовьте пример CSV-файла с расходами за месяц (10-15 строк). Студенты будут работать с ним на практике.</p>
+          </div>
+        </div>
+
+        <!-- Cursor as Data Analyst -->
+        <section class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">Cursor как аналитик данных</div>
+          <div class="card-body">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+              Зачем открывать Excel, если у вас есть Cursor? ИИ-ассистент может анализировать данные, находить закономерности и строить отчёты — всё через естественный язык.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.3rem; margin-bottom: 0.75rem;">Традиционный путь</div>
+                <div style="font-size: 0.95rem; opacity: 0.9;">
+                  1. Открыть Excel<br>
+                  2. Импортировать данные<br>
+                  3. Написать формулы<br>
+                  4. Создать графики<br>
+                  5. Собрать отчёт<br>
+                  <strong>Время: 30-60 минут</strong>
+                </div>
+              </div>
+              <div style="background: rgba(255,255,255,0.15); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.3rem; margin-bottom: 0.75rem;">Путь через Cursor</div>
+                <div style="font-size: 0.95rem; opacity: 0.9;">
+                  1. Открыть файл в Cursor<br>
+                  2. Спросить ИИ: "проанализируй"<br>
+                  3. Получить отчёт<br>
+                  <br>
+                  <br>
+                  <strong>Время: 2-5 минут</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Working with CSV -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Анализ CSV-файлов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">CSV (Comma-Separated Values) — самый популярный формат для данных. Cursor читает его и анализирует через ИИ.</p>
+
+            <h4 style="margin-bottom: 1rem;">Пример: анализ бюджета</h4>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">budget.csv</span>
+              </div>
+              <pre><code>Дата,Категория,Описание,Сумма
+2026-03-01,Продукты,Еженедельная закупка,-85.50
+2026-03-01,Транспорт,Метро на месяц,-45.00
+2026-03-02,Развлечения,Кино с друзьями,-22.00
+2026-03-03,Продукты,Кофе и снеки,-12.30
+2026-03-04,Подписки,Spotify,-9.99
+2026-03-05,Зарплата,Основная работа,+2500.00
+2026-03-06,Продукты,Доставка еды,-35.00
+2026-03-07,Одежда,Новые кроссовки,-120.00
+2026-03-08,Здоровье,Аптека,-28.50
+2026-03-10,Подписки,Netflix,-15.99
+2026-03-12,Продукты,Еженедельная закупка,-92.00
+2026-03-15,Фриланс,Дизайн логотипа,+350.00</code></pre>
+            </div>
+
+            <h4 style="margin: 1.5rem 0 1rem;">Что спросить у ИИ в Chat (Cmd+L):</h4>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"Проанализируй мои расходы из @budget.csv. Покажи общую сумму по категориям, процент от доходов, и дай рекомендации по оптимизации"</code>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"Какая категория расходов самая большая? Покажи топ-3 категории и средний чек в каждой"</code>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"Создай Markdown-таблицу с итогами по каждой категории: количество транзакций, общая сумма, средняя сумма"</code>
+              </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Синтаксис @file:</strong> Используйте <code>@имя_файла</code> в Chat, чтобы подключить файл к контексту. ИИ прочитает его содержимое и сможет анализировать данные.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Text Processing -->
+        <section class="card">
+          <div class="card-header" style="background: #3B82F6; color: white;">Массовая обработка текстов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cursor идеален для обработки больших объёмов текстовых данных: резюме, отзывов, заметок, протоколов встреч.</p>
+
+            <div style="display: grid; gap: 1.5rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">Пример 1: Обработка резюме</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">У вас 10 резюме кандидатов в текстовом формате. Нужно быстро их сравнить.</p>
+                <div class="code-block" style="margin: 0;">
+                  <div class="code-block-header"><span class="code-block-lang">Промпт для Chat</span></div>
+                  <pre><code>Проанализируй резюме из файлов @resume-1.md @resume-2.md @resume-3.md
+
+Создай сравнительную таблицу:
+- Имя
+- Опыт работы (лет)
+- Ключевые навыки
+- Образование
+- Рекомендация (подходит/не подходит) для позиции маркетолога</code></pre>
+                </div>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">Пример 2: Анализ отзывов</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">Файл с 50 отзывами клиентов. Нужно понять общее настроение.</p>
+                <div class="code-block" style="margin: 0;">
+                  <div class="code-block-header"><span class="code-block-lang">Промпт для Chat</span></div>
+                  <pre><code>Проанализируй отзывы из @reviews.txt
+
+1. Раздели на позитивные, нейтральные и негативные
+2. Выдели топ-5 самых частых жалоб
+3. Выдели топ-5 похвал
+4. Дай общую оценку и рекомендации по улучшению</code></pre>
+                </div>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">Пример 3: Протоколы встреч</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 0.75rem;">Длинные заметки с совещания. Нужно извлечь решения и задачи.</p>
+                <div class="code-block" style="margin: 0;">
+                  <div class="code-block-header"><span class="code-block-lang">Промпт для Chat</span></div>
+                  <pre><code>Из заметок встречи @meeting-notes.md извлеки:
+
+1. Принятые решения (пронумерованный список)
+2. Задачи с ответственными и дедлайнами (таблица)
+3. Открытые вопросы, требующие обсуждения
+4. Краткое резюме встречи (3-4 предложения)</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Format Conversion -->
+        <section class="card">
+          <div class="card-header" style="background: #F59E0B; color: white;">Конвертация форматов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cursor мгновенно конвертирует данные между форматами. Выделяете текст, используете Cmd+K или Chat — получаете нужный формат.</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Из формата</th>
+                    <th>В формат</th>
+                    <th>Команда Cmd+K</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Markdown</td>
+                    <td>HTML</td>
+                    <td><code>"конвертировать в HTML"</code></td>
+                  </tr>
+                  <tr>
+                    <td>CSV</td>
+                    <td>Markdown-таблица</td>
+                    <td><code>"превратить в красивую Markdown-таблицу"</code></td>
+                  </tr>
+                  <tr>
+                    <td>JSON</td>
+                    <td>Читаемый текст</td>
+                    <td><code>"объяснить эти данные простым языком"</code></td>
+                  </tr>
+                  <tr>
+                    <td>Список</td>
+                    <td>CSV</td>
+                    <td><code>"конвертировать в CSV с заголовками"</code></td>
+                  </tr>
+                  <tr>
+                    <td>Таблица</td>
+                    <td>JSON</td>
+                    <td><code>"преобразовать в JSON-массив объектов"</code></td>
+                  </tr>
+                  <tr>
+                    <td>Текст</td>
+                    <td>Markdown</td>
+                    <td><code>"оформить как Markdown с заголовками и списками"</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="background: var(--bg-main); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+              <strong>Пример конвертации JSON в Markdown:</strong>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                <div>
+                  <div class="code-block" style="margin: 0;">
+                    <div class="code-block-header"><span class="code-block-lang">JSON (до)</span></div>
+                    <pre><code>[
+  {"name": "Иван", "role": "PM", "tasks": 5},
+  {"name": "Мария", "role": "Дизайнер", "tasks": 3},
+  {"name": "Алекс", "role": "Разработчик", "tasks": 8}
+]</code></pre>
+                  </div>
+                </div>
+                <div>
+                  <div class="code-block" style="margin: 0;">
+                    <div class="code-block-header"><span class="code-block-lang">Markdown (после)</span></div>
+                    <pre><code>| Имя   | Роль        | Задачи |
+|-------|-------------|--------|
+| Иван  | PM          | 5      |
+| Мария | Дизайнер    | 3      |
+| Алекс | Разработчик | 8      |</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Working with Large Files -->
+        <section class="card">
+          <div class="card-header">Работа с большими файлами через @file</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cursor позволяет подключать файлы к контексту ИИ через специальный синтаксис <code>@</code>. Это ключевая функция для анализа данных.</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Откройте Chat (Cmd+L)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Или Composer (Cmd+I) для создания новых файлов на основе данных</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Введите @ и начните печатать имя файла</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Появится выпадающий список с подходящими файлами из проекта</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Выберите файл и напишите запрос</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">ИИ прочитает содержимое файла и будет работать с ним</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <strong>@file</strong> — подключить конкретный файл
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Пример: <code>@budget.csv проанализируй расходы</code></p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <strong>@folder</strong> — подключить папку целиком
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Пример: <code>@data/ найди аномалии во всех файлах</code></p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <strong>Несколько файлов</strong> — подключить сразу несколько
+                <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Пример: <code>@january.csv @february.csv сравни расходы за два месяца</code></p>
+              </div>
+            </div>
+
+            <div class="alert alert-warning" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <div>
+                <strong>Ограничение:</strong> ИИ имеет лимит на размер контекста. Если файл очень большой (тысячи строк), лучше разбить анализ на части или попросить ИИ обработать первые N строк.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Extracting Information -->
+        <section class="card">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Извлечение информации из неструктурированного текста</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Одна из суперспособностей ИИ — извлекать структурированные данные из хаотичного текста. Вот типичные сценарии:</p>
+
+            <div style="display: grid; gap: 1.5rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">Из текста письма — в задачи</h4>
+                <div class="code-block" style="margin: 0;">
+                  <div class="code-block-header"><span class="code-block-lang">Исходный текст</span></div>
+                  <pre><code>Привет! Обсудили с клиентом проект. Нужно до пятницы
+отправить ему макеты. Ещё он просил обновить логотип
+и написать тексты для лендинга. Бюджет утвердили —
+150 000 руб. Встреча в понедельник в 14:00.</code></pre>
+                </div>
+                <p style="margin: 1rem 0 0.5rem;"><strong>Промпт:</strong> "Извлеки из этого текста: задачи, дедлайны, суммы, даты встреч. Оформи как структурированный список."</p>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">Из визитки — в контакт</h4>
+                <div class="code-block" style="margin: 0;">
+                  <div class="code-block-header"><span class="code-block-lang">Исходные данные</span></div>
+                  <pre><code>Иванов Петр Сергеевич
+Директор по маркетингу
+ООО "ТехноСтарт"
++7 (999) 123-45-67
+p.ivanov@technostart.ru
+г. Москва, ул. Пушкина, д. 10</code></pre>
+                </div>
+                <p style="margin: 1rem 0 0.5rem;"><strong>Промпт:</strong> "Конвертировать в JSON-формат контакта: имя, должность, компания, телефон, email, адрес."</p>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">Из чека — в таблицу</h4>
+                <p style="color: var(--text-secondary);">Текст чека из магазина или скопированные данные из приложения банка — ИИ разберёт строки и создаст аккуратную таблицу с категориями.</p>
+                <p style="margin-top: 0.5rem;"><strong>Промпт:</strong> "Разбери этот чек: извлеки название товара, количество, цену за единицу, итого. Оформи как Markdown-таблицу. Добавь строку с общей суммой."</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Report Generation -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Генерация отчётов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cursor может создавать полноценные отчёты на основе ваших данных. Вот пошаговый процесс:</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Подготовьте данные</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Положите CSV, JSON или текстовые файлы в папку проекта</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Откройте Composer (Cmd+I)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Composer создаст новый файл с отчётом</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Дайте детальный промпт</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Опишите структуру отчёта, какие данные включить, формат</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">4</div>
+                <div>
+                  <strong>Получите готовый отчёт</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">ИИ создаст файл отчёта в Markdown с таблицами, выводами и рекомендациями</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Пример промпта для отчёта</span>
+              </div>
+              <pre><code>На основе данных из @budget.csv создай файл report-march.md
+
+Структура отчёта:
+# Финансовый отчёт за март 2026
+
+## Сводка
+- Общий доход
+- Общие расходы
+- Баланс (доходы минус расходы)
+
+## Расходы по категориям
+Таблица: категория, сумма, % от общих расходов
+
+## Топ-3 крупнейших трат
+Список с датами и описаниями
+
+## Рекомендации по оптимизации
+3-5 конкретных советов на основе данных
+
+## Прогноз на апрель
+Если тренд сохранится, какие расходы ожидать</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Лайфхак:</strong> Создайте шаблон отчёта один раз. В следующем месяце просто подставите новые данные и получите отчёт за минуту.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Practice -->
+        <section class="card">
+          <div class="card-header" style="background: #EF4444; color: white;">Практика: полный цикл работы с данными</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Выполните все три задания последовательно. Каждое занимает 10-15 минут.</p>
+
+            <div style="display: grid; gap: 1.5rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #3B82F6;">
+                <h4 style="margin-bottom: 0.75rem;">Задание 1: Анализ CSV с расходами</h4>
+                <ol style="margin: 0.5rem 0 0 1.5rem; color: var(--text-secondary);">
+                  <li>Создайте файл <code>my-expenses.csv</code> с вашими реальными или выдуманными расходами за неделю (10-15 записей)</li>
+                  <li>Используйте формат: Дата, Категория, Описание, Сумма</li>
+                  <li>Через Chat: <code>@my-expenses.csv проанализируй мои расходы, покажи итоги по категориям</code></li>
+                  <li>Попросите ИИ найти, где можно сэкономить</li>
+                </ol>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <h4 style="margin-bottom: 0.75rem;">Задание 2: Создание отчёта</h4>
+                <ol style="margin: 0.5rem 0 0 1.5rem; color: var(--text-secondary);">
+                  <li>Откройте Composer (Cmd+I)</li>
+                  <li>Попросите: "На основе @my-expenses.csv создай файл weekly-report.md с полным финансовым отчётом"</li>
+                  <li>Отчёт должен включать: сводку, таблицу по категориям, рекомендации</li>
+                  <li>Отредактируйте отчёт через Cmd+K если нужно</li>
+                </ol>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <h4 style="margin-bottom: 0.75rem;">Задание 3: Конвертация данных</h4>
+                <ol style="margin: 0.5rem 0 0 1.5rem; color: var(--text-secondary);">
+                  <li>Выделите таблицу из отчёта</li>
+                  <li>Cmd+K → "конвертировать в CSV-формат"</li>
+                  <li>Создайте новый файл, вставьте CSV</li>
+                  <li>Выделите CSV → Cmd+K → "конвертировать в JSON-массив"</li>
+                  <li>Сравните три формата: Markdown, CSV, JSON</li>
+                </ol>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson8">
+              <p><strong>Как подключить файл к контексту ИИ в Cursor Chat?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Перетащить файл в окно чата</div>
+                <div class="quiz-option" data-correct="true">Использовать символ @ и имя файла (например, @budget.csv)</div>
+                <div class="quiz-option" data-correct="false">Скопировать содержимое файла в чат</div>
+                <div class="quiz-option" data-correct="false">Нажать Cmd+O и выбрать файл</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson8-csv"></span>
+                <span class="checklist-text">Умею создавать и анализировать CSV-файлы через ИИ</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson8-atfile"></span>
+                <span class="checklist-text">Знаю синтаксис @file для подключения файлов к контексту</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson8-texts"></span>
+                <span class="checklist-text">Попробовал массовую обработку текстов (резюме, отзывы, заметки)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson8-convert"></span>
+                <span class="checklist-text">Умею конвертировать между форматами (Markdown, CSV, JSON, HTML)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson8-extract"></span>
+                <span class="checklist-text">Умею извлекать структурированные данные из неструктурированного текста</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson8-report"></span>
+                <span class="checklist-text">Создал отчёт на основе данных через Composer</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="card">
+          <div class="card-header">Домашнее задание</div>
+          <div class="card-body">
+            <p>Создайте мини-проект "Персональная аналитика":</p>
+            <ol style="margin: 1rem 0 1rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Создайте CSV с расходами за целый месяц (минимум 20 записей)</li>
+              <li style="margin-bottom: 0.5rem;">Проанализируйте через Chat: категории, тренды, аномалии</li>
+              <li style="margin-bottom: 0.5rem;">Сгенерируйте полный отчёт через Composer с таблицами и рекомендациями</li>
+              <li style="margin-bottom: 0.5rem;">Конвертируйте ключевые данные в JSON для будущего использования</li>
+              <li>Извлеките из любого длинного текста (статья, письмо) структурированную информацию</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-7.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Cmd+K продуктивность</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="8">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-9.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Системы и шаблоны</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

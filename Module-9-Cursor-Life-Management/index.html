@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Модуль 9: Cursor — управляй жизнью через ИИ | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+
+        <a href="index.html" class="nav-item active">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9,22 9,12 15,12 15,22"/>
+            </svg>
+          </span>
+          Главная
+        </a>
+
+        <a href="lesson-1.html" class="nav-item" data-lesson="1">
+          <span class="nav-item-number">1</span>
+          Зачем промпт-инженеру Cursor
+        </a>
+
+        <a href="lesson-2.html" class="nav-item" data-lesson="2">
+          <span class="nav-item-number">2</span>
+          Установка и настройка
+        </a>
+
+        <a href="lesson-3.html" class="nav-item" data-lesson="3">
+          <span class="nav-item-number">3</span>
+          Chat — ИИ на каждый день
+        </a>
+
+        <a href="lesson-4.html" class="nav-item" data-lesson="4">
+          <span class="nav-item-number">4</span>
+          Управление проектами
+        </a>
+
+        <a href="lesson-5.html" class="nav-item" data-lesson="5">
+          <span class="nav-item-number">5</span>
+          Composer — документы и планы
+        </a>
+
+        <a href="lesson-6.html" class="nav-item" data-lesson="6">
+          <span class="nav-item-number">6</span>
+          Автоматизация процессов
+        </a>
+
+        <a href="lesson-7.html" class="nav-item" data-lesson="7">
+          <span class="nav-item-number">7</span>
+          Cmd+K продуктивность
+        </a>
+
+        <a href="lesson-8.html" class="nav-item" data-lesson="8">
+          <span class="nav-item-number">8</span>
+          Файлы и данные
+        </a>
+
+        <a href="lesson-9.html" class="nav-item" data-lesson="9">
+          <span class="nav-item-number">9</span>
+          Системы и шаблоны
+        </a>
+
+        <a href="lesson-10.html" class="nav-item" data-lesson="10">
+          <span class="nav-item-number">10</span>
+          Внешние интеграции
+        </a>
+
+        <a href="lesson-11.html" class="nav-item" data-lesson="11">
+          <span class="nav-item-number">11</span>
+          Продвинутый промптинг
+        </a>
+
+        <a href="lesson-12.html" class="nav-item" data-lesson="12">
+          <span class="nav-item-number">12</span>
+          Система продуктивности
+        </a>
+
+        <a href="project.html" class="nav-item" data-lesson="13">
+          <span class="nav-item-number">P</span>
+          Итоговый проект
+        </a>
+
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </span>
+          Глоссарий
+        </a>
+
+        <a href="../../index.html" class="nav-item exit-btn">
+          <span class="nav-item-number">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16,17 21,12 16,7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+          </span>
+          Выйти из модуля
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile -->
+    <div class="overlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Главная</span>
+        </div>
+
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="content">
+        <!-- Hero Section -->
+        <section class="hero">
+          <h1 class="hero-title">Cursor — управляй жизнью, проектами и процессами через ИИ</h1>
+          <p class="hero-subtitle">
+            Научитесь использовать Cursor как мощный инструмент промпт-инжиниринга<br>
+            для управления задачами, проектами и повседневными процессами
+          </p>
+        </section>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Общая продолжительность модуля:</strong> ~20 часов (3 часа аудиторных + практика)</p>
+            <p><strong>Рекомендация:</strong> Этот модуль показывает Cursor не как редактор кода, а как универсальный ИИ-инструмент для управления жизнью. Акцент на промпт-инжиниринг в контексте реальных жизненных задач: планирование, управление проектами, автоматизация рутины.</p>
+            <p><strong>Ключевая цель:</strong> К концу модуля студенты построят персональную систему управления жизнью и проектами через Cursor, применяя все техники промптинга из курса.</p>
+          </div>
+        </div>
+
+        <!-- Info Alert -->
+        <div class="alert alert-info">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Что вы освоите в этом модуле:</strong>
+            <ul style="margin: 0.5rem 0 0 1rem;">
+              <li>Поймёте, почему Cursor — это больше, чем редактор кода</li>
+              <li>Настроите Cursor как центр управления жизнью</li>
+              <li>Научитесь управлять проектами через ИИ-чат</li>
+              <li>Освоите Composer для создания документов и планов</li>
+              <li>Автоматизируете рутинные процессы</li>
+              <li>Построите систему шаблонов для повторяющихся задач</li>
+              <li>Создадите персональную систему продуктивности</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Project Preview -->
+        <div class="alert alert-success">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22,4 12,14.01 9,11.01"/>
+          </svg>
+          <div>
+            <strong>Проект модуля: Персональная система управления жизнью</strong><br>
+            Вы создадите комплексную систему в Cursor для управления целями, проектами, финансами и привычками — используя промпт-инжиниринг на практике!
+          </div>
+        </div>
+
+        <!-- Lesson Cards -->
+        <h2 style="margin: 2rem 0 1rem;">Уроки модуля</h2>
+
+        <div class="lesson-cards">
+          <!-- Lesson 1 -->
+          <a href="lesson-1.html" class="lesson-card">
+            <div class="lesson-card-number">1</div>
+            <h3 class="lesson-card-title">Зачем промпт-инженеру Cursor</h3>
+            <p class="lesson-card-desc">
+              Cursor — не только для программистов. Как ИИ-редактор меняет подход к управлению задачами и проектами.
+            </p>
+            <div class="lesson-card-meta">
+              <span>2 часа</span>
+              <span>•</span>
+              <span>Теория + Демо</span>
+            </div>
+          </a>
+
+          <!-- Lesson 2 -->
+          <a href="lesson-2.html" class="lesson-card">
+            <div class="lesson-card-number">2</div>
+            <h3 class="lesson-card-title">Установка и настройка Cursor</h3>
+            <p class="lesson-card-desc">
+              Установка, настройка интерфейса, выбор ИИ-модели, создание рабочего пространства.
+            </p>
+            <div class="lesson-card-meta">
+              <span>2 часа</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 3 -->
+          <a href="lesson-3.html" class="lesson-card">
+            <div class="lesson-card-number">3</div>
+            <h3 class="lesson-card-title">Cursor Chat — ИИ-ассистент на каждый день</h3>
+            <p class="lesson-card-desc">
+              ИИ-чат для планирования, анализа, брейнсторминга и решения повседневных задач.
+            </p>
+            <div class="lesson-card-meta">
+              <span>2 часа</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 4 -->
+          <a href="lesson-4.html" class="lesson-card">
+            <div class="lesson-card-number">4</div>
+            <h3 class="lesson-card-title">Управление личными проектами</h3>
+            <p class="lesson-card-desc">
+              Структурирование проектов, трекинг задач, декомпозиция целей через файловую систему и ИИ.
+            </p>
+            <div class="lesson-card-meta">
+              <span>2 часа</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 5 -->
+          <a href="lesson-5.html" class="lesson-card">
+            <div class="lesson-card-number">5</div>
+            <h3 class="lesson-card-title">Composer — документы и планы</h3>
+            <p class="lesson-card-desc">
+              Создание бизнес-планов, контент-стратегий и сложных документов одной командой.
+            </p>
+            <div class="lesson-card-meta">
+              <span>2 часа</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 6 -->
+          <a href="lesson-6.html" class="lesson-card">
+            <div class="lesson-card-number">6</div>
+            <h3 class="lesson-card-title">Автоматизация рутинных процессов</h3>
+            <p class="lesson-card-desc">
+              Скрипты для автоматизации, шаблоны для повторяющихся задач, пакетная обработка.
+            </p>
+            <div class="lesson-card-meta">
+              <span>1.5 часа</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 7 -->
+          <a href="lesson-7.html" class="lesson-card">
+            <div class="lesson-card-number">7</div>
+            <h3 class="lesson-card-title">Cmd+K — быстрые команды продуктивности</h3>
+            <p class="lesson-card-desc">
+              Мгновенное редактирование текстов, рефакторинг планов, быстрые преобразования.
+            </p>
+            <div class="lesson-card-meta">
+              <span>1 час</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 8 -->
+          <a href="lesson-8.html" class="lesson-card">
+            <div class="lesson-card-number">8</div>
+            <h3 class="lesson-card-title">Работа с файлами и данными</h3>
+            <p class="lesson-card-desc">
+              Анализ CSV, обработка текстов, конвертация форматов, работа с большими объёмами информации.
+            </p>
+            <div class="lesson-card-meta">
+              <span>1.5 часа</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 9 -->
+          <a href="lesson-9.html" class="lesson-card">
+            <div class="lesson-card-number">9</div>
+            <h3 class="lesson-card-title">Системы и шаблоны для жизни</h3>
+            <p class="lesson-card-desc">
+              Создание персональных систем: GTD, OKR, привычки, финансы — всё через Cursor.
+            </p>
+            <div class="lesson-card-meta">
+              <span>1.5 часа</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 10 -->
+          <a href="lesson-10.html" class="lesson-card">
+            <div class="lesson-card-number">10</div>
+            <h3 class="lesson-card-title">Интеграция с внешними сервисами</h3>
+            <p class="lesson-card-desc">
+              Подключение API, работа с Google Sheets, Notion, Telegram — расширяем возможности.
+            </p>
+            <div class="lesson-card-meta">
+              <span>2 часа</span>
+              <span>•</span>
+              <span>Теория + Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 11 -->
+          <a href="lesson-11.html" class="lesson-card">
+            <div class="lesson-card-number">11</div>
+            <h3 class="lesson-card-title">Продвинутый промптинг в Cursor</h3>
+            <p class="lesson-card-desc">
+              System prompts, .cursorrules, цепочки промптов, мультимодальные запросы.
+            </p>
+            <div class="lesson-card-meta">
+              <span>2 часа</span>
+              <span>•</span>
+              <span>Теория + Практика</span>
+            </div>
+          </a>
+
+          <!-- Lesson 12 -->
+          <a href="lesson-12.html" class="lesson-card">
+            <div class="lesson-card-number">12</div>
+            <h3 class="lesson-card-title">Построение персональной системы продуктивности</h3>
+            <p class="lesson-card-desc">
+              Объединяем всё в единую систему: дашборд, автоматизации, шаблоны, ежедневные ритуалы.
+            </p>
+            <div class="lesson-card-meta">
+              <span>1.5 часа</span>
+              <span>•</span>
+              <span>Практика</span>
+            </div>
+          </a>
+
+          <!-- Final Project -->
+          <a href="project.html" class="lesson-card" style="border-color: var(--primary); border-width: 2px;">
+            <div class="lesson-card-number" style="background: var(--accent);">P</div>
+            <h3 class="lesson-card-title">Итоговый проект</h3>
+            <p class="lesson-card-desc">
+              Создаём полноценную персональную систему управления жизнью и проектами в Cursor.
+            </p>
+            <div class="lesson-card-meta">
+              <span>3 часа</span>
+              <span>•</span>
+              <span>Финальное задание</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Quick Start -->
+        <div class="card" style="margin-top: 2rem;">
+          <div class="card-header">Требования</div>
+          <div class="card-body">
+            <p>Для успешного прохождения модуля вам понадобится:</p>
+
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-computer"></span>
+                <span class="checklist-text">Компьютер (Windows, Mac или Linux)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-internet"></span>
+                <span class="checklist-text">Подключение к интернету</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-cursor"></span>
+                <span class="checklist-text">Cursor (установим на первом занятии)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-knowledge"></span>
+                <span class="checklist-text">Знания промпт-инжиниринга из предыдущих модулей</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="start-curiosity"></span>
+                <span class="checklist-text">Желание оптимизировать свою жизнь!</span>
+              </li>
+            </ul>
+
+            <div class="alert alert-info" style="margin-top: 1rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Важно:</strong> Опыт программирования НЕ требуется! Мы используем Cursor как инструмент промпт-инжиниринга, а не для написания кода с нуля.
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem;">
+              <a href="lesson-1.html" class="btn btn-primary">Начать обучение</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="card">
+          <div class="card-header">Инструменты модуля</div>
+          <div class="card-body">
+            <div class="service-cards">
+              <div class="service-card">
+                <div class="service-card-icon">C</div>
+                <h4 class="service-card-title">Cursor</h4>
+                <p class="service-card-desc">ИИ-редактор — ваш центр управления</p>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card-icon">MD</div>
+                <h4 class="service-card-title">Markdown</h4>
+                <p class="service-card-desc">Язык для структурированных документов</p>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card-icon">AI</div>
+                <h4 class="service-card-title">ИИ-модели</h4>
+                <p class="service-card-desc">Claude, GPT-4, Gemini — через единый интерфейс</p>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card-icon">API</div>
+                <h4 class="service-card-title">Интеграции</h4>
+                <p class="service-card-desc">Подключение к внешним сервисам и данным</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

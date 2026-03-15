@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.11: Продвинутый промптинг в Cursor | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item active" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.11</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.11</span>
+            <span class="lesson-duration">⏱ 2 часа</span>
+          </div>
+          <h1 class="lesson-title">Продвинутый промптинг в Cursor</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            .cursorrules, цепочки промптов, агентский режим и персональная библиотека
+          </p>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Цель урока:</strong> Перевести студентов на продвинутый уровень работы с Cursor. Это ключевой урок модуля -- здесь промпт-инженерия раскрывается в полную силу.</p>
+            <p><strong>Важно:</strong> Каждая техника должна быть продемонстрирована на живом примере. Создайте .cursorrules прямо на занятии, покажите разницу "до" и "после".</p>
+            <p><strong>Практика:</strong> Студенты должны уйти с урока с настроенным .cursorrules, одной готовой цепочкой промптов и началом своей промпт-библиотеки.</p>
+          </div>
+        </div>
+
+        <!-- .cursorrules -->
+        <section class="card" style="background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">.cursorrules -- системный промпт для вашего проекта</div>
+          <div class="card-body">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+              <strong>.cursorrules</strong> -- это файл в корне проекта, который определяет поведение ИИ по умолчанию. Это ваш <strong>системный промпт</strong>, который автоматически добавляется к каждому запросу.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.3rem; margin-bottom: 0.5rem;">Без .cursorrules</div>
+                <p style="font-size: 0.95rem; opacity: 0.95;">
+                  Каждый раз объясняете контекст заново. ИИ не знает ваших предпочтений, стиль общения, структуру проекта.
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.3rem; margin-bottom: 0.5rem;">С .cursorrules</div>
+                <p style="font-size: 0.95rem; opacity: 0.95;">
+                  ИИ сразу знает: кто вы, как отвечать, какой формат использовать, какие файлы важны. Экономия 50% времени.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- .cursorrules example -->
+        <section class="card">
+          <div class="card-header">Как создать .cursorrules</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Создайте файл <code>.cursorrules</code> в корне вашего проекта. Вот пример для системы управления жизнью:</p>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">.cursorrules</span>
+              </div>
+              <pre><code># Контекст проекта
+Это моя персональная система управления жизнью и продуктивностью.
+Проект содержит планы, задачи, заметки, бюджет и цели.
+
+# Обо мне
+- Имя: [Ваше имя]
+- Роль: промпт-инженер, менеджер проектов
+- Город: Минск
+- Язык общения: русский
+
+# Правила ответов
+- Отвечай на русском языке
+- Используй Markdown-форматирование
+- Будь конкретным и практичным
+- Не используй эмодзи в документах (только в чате)
+- При создании файлов используй дату в формате YYYY-MM-DD
+
+# Структура проекта
+- /plans -- планы (дневные, недельные, месячные)
+- /tasks -- задачи и проекты
+- /notes -- заметки и идеи
+- /finance -- бюджет и финансы
+- /templates -- шаблоны документов
+- /digests -- дайджесты и отчёты
+- /prompts -- библиотека промптов
+
+# Предпочтения
+- Для задач используй формат: [ ] задача -- @контекст
+- Приоритеты: P1 (критично), P2 (важно), P3 (можно отложить)
+- Для дат используй формат: 2026-03-12
+- Всегда добавляй дату создания в начало документа</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Проверка:</strong> После создания файла задайте в Chat простой вопрос: "Создай план на завтра". ИИ должен автоматически использовать вашу структуру папок, формат дат и стиль.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Prompt Chains -->
+        <section class="card">
+          <div class="card-header" style="background: #3B82F6; color: white;">Цепочки промптов (Multi-step workflows)</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">
+              Цепочка промптов -- это последовательность запросов, где результат одного шага становится входом для следующего. Это мощнейшая техника для сложных задач.
+            </p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Пример: Еженедельное планирование</h4>
+            <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #3B82F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Шаг 1: Анализ</strong>
+                  <div class="code-block" style="margin-top: 0.5rem;">
+                    <pre><code>Проанализируй файлы в /plans/week-10/:
+- Какие задачи выполнены?
+- Какие перенесены?
+- Какие цели достигнуты?
+Создай краткое резюме в /reviews/week-10-review.md</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #3B82F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Шаг 2: Планирование</strong>
+                  <div class="code-block" style="margin-top: 0.5rem;">
+                    <pre><code>На основе @reviews/week-10-review.md
+и файла @goals/q1-2026.md:
+- Определи 3 главные цели на неделю 11
+- Распредели задачи по дням
+- Учти перенесённые задачи из прошлой недели
+Сохрани в /plans/week-11/plan.md</code></pre>
+                  </div>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #3B82F6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Шаг 3: Действие</strong>
+                  <div class="code-block" style="margin-top: 0.5rem;">
+                    <pre><code>На основе @plans/week-11/plan.md
+создай детальный план на понедельник:
+- Разбей каждую задачу на подзадачи (15-30 мин)
+- Добавь тайм-блоки с 9:00 до 18:00
+- Оставь буфер 30 мин после обеда
+Сохрани в /plans/week-11/monday.md</code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Принцип:</strong> Анализ -> Планирование -> Действие. Каждый шаг использует результат предыдущего через ссылки @file.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Context Window -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Управление контекстом</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">
+              Контекстное окно -- это объём информации, который ИИ может "видеть" одновременно. В Cursor есть мощные инструменты для управления контекстом:
+            </p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Команда</th>
+                    <th>Что делает</th>
+                    <th>Пример</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>@file</code></td>
+                    <td>Подключает конкретный файл</td>
+                    <td><code>@plans/today.md проанализируй план</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>@folder</code></td>
+                    <td>Подключает все файлы папки</td>
+                    <td><code>@tasks/ покажи статистику задач</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>@web</code></td>
+                    <td>Ищет в интернете</td>
+                    <td><code>@web лучшие практики GTD 2026</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>@codebase</code></td>
+                    <td>Ищет по всему проекту</td>
+                    <td><code>@codebase найди все файлы с OKR</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>@docs</code></td>
+                    <td>Подключает документацию</td>
+                    <td><code>@docs как использовать Notion API</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);">Стратегии работы с контекстом:</h4>
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong style="color: #10B981;">Точечный контекст</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">
+                  Подключайте только нужные файлы: <code>@tasks/active.md @goals/march.md</code>. Чем точнее контекст, тем лучше ответ.
+                </p>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #3B82F6;">
+                <strong style="color: #3B82F6;">Широкий контекст</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">
+                  Используйте <code>@folder</code> или <code>@codebase</code>, когда нужен обзор всего проекта или поиск по нескольким файлам.
+                </p>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <strong style="color: #F59E0B;">Внешний контекст</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">
+                  Добавляйте <code>@web</code>, когда нужна актуальная информация из интернета для принятия решений.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Few-shot -->
+        <section class="card">
+          <div class="card-header">Few-shot в Cursor: учим ИИ через примеры</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">
+              <strong>Few-shot</strong> -- техника, когда вы даёте ИИ несколько примеров нужного формата, и он повторяет паттерн. В Cursor это делается через файлы-примеры.
+            </p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Пример: формат ежедневного отчёта</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">templates/daily-report-example.md</span>
+              </div>
+              <pre><code># Ежедневный отчёт -- 2026-03-10
+
+## Выполнено сегодня
+- [x] Подготовить презентацию для клиента -- @работа P1
+- [x] Оплатить счета за интернет -- @быт P2
+- [ ] Прочитать главу книги -- @развитие P3 (перенос)
+
+## Ключевой результат дня
+Презентация готова и отправлена клиенту. Получил
+положительный отзыв.
+
+## На завтра
+- [ ] Созвон с командой в 10:00 -- @работа P1
+- [ ] Тренировка в 18:00 -- @здоровье P2
+
+## Заметки
+Идея: автоматизировать отчёты через Cursor.</code></pre>
+            </div>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт, использующий пример</span>
+              </div>
+              <pre><code>Создай ежедневный отчёт за сегодня (2026-03-12).
+Используй точно такой же формат, как в
+@templates/daily-report-example.md.
+
+Мои результаты за сегодня:
+- Закончил урок по интеграциям в Cursor
+- Настроил Telegram-бота для напоминаний
+- Не успел сделать бюджетный отчёт
+- Завтра: встреча с коллегами, подготовка проекта</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Результат:</strong> ИИ создаст отчёт в точно таком же формате -- с чекбоксами, тегами @контекст, приоритетами P1-P3. Один пример стоит тысячи слов описания!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Chain of Thought -->
+        <section class="card">
+          <div class="card-header" style="background: #F59E0B; color: white;">Chain of Thought: пошаговое мышление</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">
+              <strong>CoT (Chain of Thought)</strong> -- техника, которая заставляет ИИ думать пошагово. Особенно полезна для сложного анализа и принятия решений.
+            </p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Без CoT (простой промпт):</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Слабый промпт</span>
+              </div>
+              <pre><code>Стоит ли мне менять работу?</code></pre>
+            </div>
+
+            <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);">С CoT (структурированный промпт):</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Сильный промпт с CoT</span>
+              </div>
+              <pre><code>Помоги мне проанализировать решение о смене работы.
+Думай пошагово:
+
+Шаг 1: Проанализируй мою текущую ситуацию
+(см. @notes/career-current.md)
+
+Шаг 2: Оцени предложение новой компании
+(см. @notes/job-offer.md)
+
+Шаг 3: Сравни по критериям:
+- Зарплата и рост
+- Интерес к задачам
+- Work-life balance
+- Перспективы через 2 года
+
+Шаг 4: Перечисли риски каждого варианта
+
+Шаг 5: Дай рекомендацию с обоснованием
+
+Сохрани анализ в decisions/job-change-analysis.md</code></pre>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <strong style="color: #EF4444;">Когда использовать</strong>
+                <ul style="margin: 0.5rem 0 0 1rem; color: var(--text-secondary);">
+                  <li>Сложные решения</li>
+                  <li>Анализ данных</li>
+                  <li>Стратегическое планирование</li>
+                  <li>Оценка рисков</li>
+                </ul>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong style="color: #10B981;">Ключевые фразы</strong>
+                <ul style="margin: 0.5rem 0 0 1rem; color: var(--text-secondary);">
+                  <li>"Думай пошагово"</li>
+                  <li>"Сначала проанализируй, потом..."</li>
+                  <li>"Шаг 1... Шаг 2... Шаг 3..."</li>
+                  <li>"Обоснуй каждый вывод"</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Agent Mode -->
+        <section class="card">
+          <div class="card-header" style="background: #EF4444; color: white;">Агентский режим Cursor</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              <strong>Cursor Agent</strong> -- это режим, в котором ИИ может автономно выполнять задачи: создавать файлы, запускать команды в терминале, читать результаты и продолжать работу.
+            </p>
+
+            <div style="display: grid; gap: 1rem; margin-bottom: 1.5rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Chat vs Agent</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                  <div>
+                    <strong>Chat:</strong>
+                    <p style="color: var(--text-secondary); margin: 0.25rem 0 0;">Отвечает на вопросы, предлагает код. Вы сами применяете изменения.</p>
+                  </div>
+                  <div>
+                    <strong>Agent:</strong>
+                    <p style="color: var(--text-secondary); margin: 0.25rem 0 0;">Сам создаёт файлы, запускает скрипты, исправляет ошибки. Работает автономно.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Пример задачи для Agent:</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для Agent (Composer)</span>
+              </div>
+              <pre><code>Создай систему утреннего обзора:
+
+1. Создай папку morning-routine/ если её нет
+2. Создай шаблон morning-routine/template.md:
+   - Секция "Погода" (заглушка)
+   - Секция "Задачи на сегодня" (из @tasks/active.md)
+   - Секция "Расписание"
+   - Секция "Фокус дня"
+3. Создай скрипт morning-routine/generate.py, который:
+   - Копирует шаблон с текущей датой
+   - Подставляет задачи из tasks/active.md
+   - Сохраняет в morning-routine/2026-03-12.md
+4. Запусти скрипт и проверь результат
+5. Если есть ошибки -- исправь и запусти снова</code></pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Важно:</strong> В агентском режиме всегда проверяйте, что делает ИИ. Cursor спросит подтверждение перед выполнением каждой команды в терминале. Не нажимайте "Да" бездумно!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Prompt Library -->
+        <section class="card">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Промпт-библиотека</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">
+              Со временем у вас накопятся промпты, которые работают отлично. Организуйте их в библиотеку -- это ваша суперсила.
+            </p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Структура библиотеки:</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Структура папки prompts/</span>
+              </div>
+              <pre><code>prompts/
+├── planning/
+│   ├── daily-plan.md          # Создание плана на день
+│   ├── weekly-review.md       # Еженедельный обзор
+│   └── monthly-retro.md       # Месячная ретроспектива
+├── analysis/
+│   ├── decision-matrix.md     # Анализ решений
+│   ├── budget-review.md       # Анализ бюджета
+│   └── goal-progress.md       # Прогресс по целям
+├── content/
+│   ├── meeting-summary.md     # Резюме встречи
+│   ├── email-draft.md         # Черновик письма
+│   └── presentation-outline.md # План презентации
+└── automation/
+    ├── digest-creator.md      # Создание дайджеста
+    ├── data-processor.md      # Обработка данных
+    └── report-generator.md    # Генерация отчётов</code></pre>
+            </div>
+
+            <h4 style="margin: 1.5rem 0 1rem; color: var(--primary);">Формат промпта в библиотеке:</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">prompts/planning/daily-plan.md</span>
+              </div>
+              <pre><code># Промпт: Создание плана на день
+Версия: 1.2
+Последнее обновление: 2026-03-10
+
+## Когда использовать
+Каждое утро для создания структурированного плана дня.
+
+## Промпт
+---
+Создай план на сегодня ({{ДАТА}}).
+
+Входные данные:
+- Активные задачи: @tasks/active.md
+- Цели недели: @plans/current-week.md
+- Календарь: @calendar/today.md (если есть)
+
+Формат:
+1. Фокус дня (1 главная задача)
+2. Расписание по блокам (9:00-18:00)
+3. Список "если останется время"
+4. Вечерний чекпоинт
+
+Правила:
+- Не более 5 задач в день
+- Блоки по 90 минут с перерывами 15 мин
+- Обед 12:30-13:30
+---
+
+## Примечания
+- Работает лучше с .cursorrules настроенным
+- Можно добавить @web для учёта погоды</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Как использовать:</strong> Откройте промпт из библиотеки, скопируйте секцию "Промпт" в Chat, подставьте сегодняшнюю дату. За 10 секунд -- готовый план!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Summary Table -->
+        <section class="card">
+          <div class="card-header">Шпаргалка: техники продвинутого промптинга</div>
+          <div class="card-body">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Техника</th>
+                    <th>Суть</th>
+                    <th>Когда применять</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>.cursorrules</strong></td>
+                    <td>Системный промпт проекта</td>
+                    <td>Настраивается один раз, работает всегда</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Цепочки</strong></td>
+                    <td>Шаг 1 -> Шаг 2 -> Шаг 3</td>
+                    <td>Сложные многоэтапные задачи</td>
+                  </tr>
+                  <tr>
+                    <td><strong>@контекст</strong></td>
+                    <td>Подключение файлов и данных</td>
+                    <td>Когда нужна информация из проекта</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Few-shot</strong></td>
+                    <td>Обучение через примеры</td>
+                    <td>Нужен конкретный формат вывода</td>
+                  </tr>
+                  <tr>
+                    <td><strong>CoT</strong></td>
+                    <td>Пошаговое рассуждение</td>
+                    <td>Анализ, решения, планирование</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Agent</strong></td>
+                    <td>Автономное выполнение</td>
+                    <td>Создание систем, автоматизация</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Библиотека</strong></td>
+                    <td>Сохранённые промпты</td>
+                    <td>Повторяющиеся задачи</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson11">
+              <p><strong>Для чего нужен файл .cursorrules?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Для хранения паролей проекта</div>
+                <div class="quiz-option" data-correct="false">Для настройки цветовой темы Cursor</div>
+                <div class="quiz-option" data-correct="true">Для задания системного промпта, который автоматически добавляется к каждому запросу</div>
+                <div class="quiz-option" data-correct="false">Для ограничения доступа к файлам</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Practice -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практическое задание</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Выполните три задания:</p>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Задание 1: Настройте .cursorrules</h4>
+            <ol style="margin: 0 0 1.5rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Создайте файл <code>.cursorrules</code> в корне вашего проекта</li>
+              <li style="margin-bottom: 0.5rem;">Опишите себя, свой проект, предпочтения по формату</li>
+              <li style="margin-bottom: 0.5rem;">Задайте структуру папок и правила именования файлов</li>
+              <li style="margin-bottom: 0.5rem;">Проверьте: задайте ИИ вопрос и убедитесь, что правила работают</li>
+            </ol>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Задание 2: Создайте цепочку промптов</h4>
+            <ol style="margin: 0 0 1.5rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Выберите сложную задачу (планирование недели, анализ бюджета)</li>
+              <li style="margin-bottom: 0.5rem;">Разбейте на 3 шага: анализ -> план -> действие</li>
+              <li style="margin-bottom: 0.5rem;">Выполните каждый шаг последовательно, ссылаясь на результаты предыдущего</li>
+            </ol>
+
+            <h4 style="margin-bottom: 1rem; color: var(--primary);">Задание 3: Начните промпт-библиотеку</h4>
+            <ol style="margin: 0 0 1rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Создайте папку <code>prompts/</code> с подпапками по категориям</li>
+              <li style="margin-bottom: 0.5rem;">Сохраните минимум 3 промпта, которые вы уже использовали в курсе</li>
+              <li style="margin-bottom: 0.5rem;">Для каждого промпта укажите: когда использовать, сам промпт, примечания</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson11-cursorrules"></span>
+                <span class="checklist-text">Создал и настроил файл .cursorrules для своего проекта</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson11-chains"></span>
+                <span class="checklist-text">Понимаю и умею использовать цепочки промптов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson11-context"></span>
+                <span class="checklist-text">Знаю команды @file, @folder, @web, @codebase</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson11-fewshot"></span>
+                <span class="checklist-text">Умею использовать few-shot через файлы-примеры</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson11-cot"></span>
+                <span class="checklist-text">Понимаю технику Chain of Thought для сложных задач</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson11-agent"></span>
+                <span class="checklist-text">Знаю разницу между Chat и Agent режимами</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson11-library"></span>
+                <span class="checklist-text">Начал собирать свою промпт-библиотеку</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="card">
+          <div class="card-header">Домашнее задание</div>
+          <div class="card-body">
+            <p>Расширьте свою промпт-библиотеку и протестируйте все техники:</p>
+            <ol style="margin: 1rem 0 1rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Доведите .cursorrules до идеала: добавьте правила для разных типов задач</li>
+              <li style="margin-bottom: 0.5rem;">Создайте цепочку из 3+ шагов для вашей реальной задачи</li>
+              <li style="margin-bottom: 0.5rem;">Добавьте в библиотеку минимум 5 промптов с описаниями</li>
+              <li style="margin-bottom: 0.5rem;">Протестируйте агентский режим: дайте Cursor автономную задачу (создать систему файлов, сгенерировать набор документов)</li>
+              <li>Напишите CoT-промпт для важного решения, которое вы сейчас принимаете</li>
+            </ol>
+            <p><strong>Результат:</strong> Готовая инфраструктура для продвинутой работы с Cursor.</p>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-10.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Внешние интеграции</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="11">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-12.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Система продуктивности</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Глоссарий терминов | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item active"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Глоссарий</span>
+        </div>
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number" style="background: #8B5CF6;">Справочник</span>
+          </div>
+          <h1 class="lesson-title">Глоссарий терминов</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Все ключевые термины модуля 9 в одном месте
+          </p>
+        </div>
+
+        <div class="alert alert-info" style="margin-bottom: 2rem;">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Совет:</strong> Используйте Ctrl+F (Cmd+F на Mac), чтобы быстро найти нужный термин на странице.
+          </div>
+        </div>
+
+        <!-- Navigation by letters -->
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem;">
+          <a href="#section-a" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">А</a>
+          <a href="#section-v" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">В</a>
+          <a href="#section-g" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">Г</a>
+          <a href="#section-d" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">Д</a>
+          <a href="#section-k" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">К</a>
+          <a href="#section-m" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">М</a>
+          <a href="#section-o" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">О</a>
+          <a href="#section-p" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">П</a>
+          <a href="#section-r" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">Р</a>
+          <a href="#section-s" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">С</a>
+          <a href="#section-t" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">Т</a>
+          <a href="#section-f" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">Ф</a>
+          <a href="#section-sh" style="padding: 0.5rem 1rem; background: var(--bg-main); border-radius: 4px; text-decoration: none; font-weight: bold;">Ш</a>
+        </div>
+
+        <!-- Section A -->
+        <section class="card" id="section-a">
+          <div class="card-header" style="background: var(--primary); color: white;">А</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Автоматизация (Automation)</h4>
+                <p style="color: var(--text-secondary);">Выполнение повторяющихся задач без ручного вмешательства. В контексте Cursor -- использование скриптов, pipeline-ов и ИИ для автоматического выполнения рутинных процессов.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Скрипт, который каждое утро генерирует отчёт по привычкам из CSV-файла и создаёт план дня на основе календаря.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Agent Mode (Агентный режим)</h4>
+                <p style="color: var(--text-secondary);">Режим работы ИИ в Cursor, при котором модель может самостоятельно выполнять последовательность действий: читать файлы, запускать команды в терминале, создавать и редактировать документы.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> В Composer с Agent Mode ИИ может одним запросом создать структуру папок, заполнить шаблоны и запустить скрипт проверки.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">API (Application Programming Interface)</h4>
+                <p style="color: var(--text-secondary);">Интерфейс для взаимодействия программ между собой. Позволяет одному приложению отправлять запросы другому и получать данные. В контексте ИИ -- способ отправить промпт и получить ответ программно.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Через MCP можно подключить API Telegram, чтобы ИИ отправлял вам утреннее напоминание с планом дня.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section V -->
+        <section class="card" id="section-v">
+          <div class="card-header" style="background: var(--primary); color: white;">В</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Версионирование (Versioning)</h4>
+                <p style="color: var(--text-secondary);">Система отслеживания изменений в файлах. Позволяет вернуться к предыдущей версии документа, сравнить изменения и работать параллельно над разными вариантами.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Через Git можно отслеживать все изменения в вашей системе управления жизнью и откатываться, если что-то пошло не так.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Workflow (Рабочий процесс)</h4>
+                <p style="color: var(--text-secondary);">Последовательность шагов для выполнения определённой задачи. В Cursor -- цепочка действий, которую вы выполняете регулярно: утренний обзор, недельное планирование, обработка входящих.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Workflow "Утро": открыть трекер привычек, отметить вчерашний день, спросить Chat о приоритетах, обновить план дня.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section G -->
+        <section class="card" id="section-g">
+          <div class="card-header" style="background: var(--primary); color: white;">Г</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Git</h4>
+                <p style="color: var(--text-secondary);">Система контроля версий, встроенная в Cursor. Сохраняет историю всех изменений файлов и позволяет работать с ветками -- параллельными версиями проекта.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Каждую неделю делайте коммит вашей системы: <code>git commit -m "Неделя 12: обновил OKR, добавил 3 промпта"</code>.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">GTD (Getting Things Done)</h4>
+                <p style="color: var(--text-secondary);">Методология управления задачами Дэвида Аллена. Суть: собрать все задачи в одно место (inbox), обработать каждую (сделать, делегировать, отложить, удалить), распределить по контекстам и регулярно пересматривать.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Создайте папку <code>gtd/</code> с файлами <code>inbox.md</code>, <code>next-actions.md</code>, <code>waiting-for.md</code>, <code>someday.md</code>. Используйте Chat для еженедельного обзора.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section D -->
+        <section class="card" id="section-d">
+          <div class="card-header" style="background: var(--primary); color: white;">Д</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Дашборд (Dashboard)</h4>
+                <p style="color: var(--text-secondary);">Сводная панель с ключевыми показателями и статусами. В текстовом формате -- Markdown-файл, который агрегирует информацию из разных частей вашей системы: прогресс по целям, привычки, финансы.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Файл <code>dashboard.md</code>, который вы просите ИИ обновить каждое утро: "Обнови дашборд на основе данных из трекеров".</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section K -->
+        <section class="card" id="section-k">
+          <div class="card-header" style="background: var(--primary); color: white;">К</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Контекстное окно (Context Window)</h4>
+                <p style="color: var(--text-secondary);">Объём информации, который ИИ-модель может "видеть" одновременно. Измеряется в токенах. Чем больше контекстное окно, тем больше файлов и истории диалога ИИ может учитывать при ответе.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Если добавить в Chat файл с планами на квартал через @-упоминание, ИИ будет учитывать ваши цели при ответах на любые вопросы в этой сессии.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Cmd+K (Ctrl+K)</h4>
+                <p style="color: var(--text-secondary);">Горячая клавиша в Cursor для быстрого редактирования текста с помощью ИИ. Выделяете текст, нажимаете Cmd+K, описываете что изменить -- ИИ редактирует прямо на месте.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Выделите список задач, нажмите Cmd+K: "Отсортируй по приоритету и добавь дедлайны на эту неделю".</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">CSV (Comma-Separated Values)</h4>
+                <p style="color: var(--text-secondary);">Текстовый формат для хранения табличных данных, где значения разделены запятыми. Легко читается как человеком, так и программами. Идеален для трекеров и отчётов.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Файл <code>finances.csv</code>: <code>2026-03-01,Кафе,Еда,-450</code>. ИИ в Chat может анализировать такой файл: "Посчитай мои расходы на еду за март".</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Cursor</h4>
+                <p style="color: var(--text-secondary);">Редактор кода со встроенным ИИ, основанный на VS Code. В контексте этого модуля используется не для программирования, а как мощная платформа для управления жизнью, проектами и процессами через промпт-инженерию.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример:</strong> Откройте папку вашей системы в Cursor -- и у вас есть персональный ИИ-ассистент, который знает весь контекст вашей жизни.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">.cursorrules</h4>
+                <p style="color: var(--text-secondary);">Специальный файл в корне проекта Cursor, содержащий инструкции для ИИ. Всё написанное в .cursorrules автоматически подгружается в каждый запрос как системный контекст.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> В .cursorrules: "Ты -- персональный ассистент Анны. Она фрилансер-дизайнер. Отвечай кратко. Используй метод GTD. Знай её клиентов: WebStudio, CoffeeShop".</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section M -->
+        <section class="card" id="section-m">
+          <div class="card-header" style="background: var(--primary); color: white;">М</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Markdown</h4>
+                <p style="color: var(--text-secondary);">Простой язык разметки текста. Используется для создания структурированных документов: заголовки (#), списки (-), жирный (**текст**), ссылки. Основной формат файлов для систем управления жизнью в Cursor.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Файл <code>weekly-plan.md</code> с заголовками по дням недели, списками задач и чекбоксами <code>- [ ] задача</code>.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">MCP (Model Context Protocol)</h4>
+                <p style="color: var(--text-secondary);">Протокол, позволяющий подключать к Cursor внешние инструменты и сервисы. Через MCP ИИ получает доступ к API сторонних приложений: календари, мессенджеры, базы данных.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Подключите MCP-сервер для Google Calendar, и ИИ сможет проверить ваше расписание: "Какие встречи у меня завтра?".</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section O -->
+        <section class="card" id="section-o">
+          <div class="card-header" style="background: var(--primary); color: white;">О</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">OKR (Objectives and Key Results)</h4>
+                <p style="color: var(--text-secondary);">Методология целеполагания, где каждая цель (Objective) подкреплена 2-5 измеримыми ключевыми результатами (Key Results). Популярна в Google, Intel и других компаниях.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Цель: "Стать продуктивнее". KR1: "Выполнять 80% запланированных задач". KR2: "Вести трекер привычек 30 дней подряд". Попросите ИИ: "Оцени мой прогресс по OKR на основе данных трекеров".</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section P -->
+        <section class="card" id="section-p">
+          <div class="card-header" style="background: var(--primary); color: white;">П</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Промпт (Prompt)</h4>
+                <p style="color: var(--text-secondary);">Текстовый запрос к ИИ. Может быть простым вопросом или сложной инструкцией с контекстом, ролью, форматом вывода и примерами. Качество промпта определяет качество ответа.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Вместо "Составь план" напишите: "Составь план на неделю в формате Markdown-таблицы. Учти мои OKR из файла okr/q1-2026.md и незавершённые задачи из gtd/next-actions.md".</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Pipeline (Конвейер)</h4>
+                <p style="color: var(--text-secondary);">Последовательность автоматических шагов, где выход одного шага становится входом следующего. В Cursor -- цепочка промптов и действий для обработки данных.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Pipeline "Еженедельный отчёт": 1) прочитать трекер привычек, 2) проанализировать финансы, 3) оценить прогресс по OKR, 4) сгенерировать сводный отчёт.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section R -->
+        <section class="card" id="section-r">
+          <div class="card-header" style="background: var(--primary); color: white;">Р</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Рабочее пространство (Workspace)</h4>
+                <p style="color: var(--text-secondary);">Папка, открытая в Cursor, со всеми вложенными файлами и подпапками. ИИ в Cursor "видит" всё рабочее пространство и может обращаться к любому файлу в нём.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Откройте папку <code>my-life-system/</code> -- и ИИ получит доступ ко всем вашим проектам, трекерам и промптам одновременно.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Ретроспектива (Retrospective)</h4>
+                <p style="color: var(--text-secondary);">Регулярный обзор прошедшего периода (неделя, месяц) с анализом: что получилось, что нет, что изменить. Ключевой элемент любой системы продуктивности.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Откройте шаблон <code>rituals/monthly.md</code> и попросите Chat: "Проведи ретроспективу месяца на основе моих трекеров и проектов. Что я сделал хорошо? Где провал?".</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section S -->
+        <section class="card" id="section-s">
+          <div class="card-header" style="background: var(--primary); color: white;">С</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Системный промпт (System Prompt)</h4>
+                <p style="color: var(--text-secondary);">Инструкция, которая определяет поведение ИИ на протяжении всего диалога. В Cursor системный промпт задаётся через файл .cursorrules и автоматически применяется ко всем запросам.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> "Ты -- строгий, но справедливый коуч по продуктивности. Всегда спрашивай о дедлайнах. Отвечай на русском. Используй методологию OKR".</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Second Brain (Второй мозг)</h4>
+                <p style="color: var(--text-secondary);">Концепция Тьяго Форте: внешняя система для хранения знаний, идей и информации. Вместо того чтобы держать всё в голове, вы "выгружаете" информацию в организованную структуру файлов.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Ваше рабочее пространство в Cursor -- это и есть Second Brain. ИИ помогает не только хранить, но и анализировать, связывать и извлекать знания.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Composer</h4>
+                <p style="color: var(--text-secondary);">Мощный режим ИИ в Cursor (Cmd+I / Ctrl+I), который может создавать и редактировать несколько файлов одновременно. Идеален для масштабных изменений: создание структуры проекта, генерация набора шаблонов, рефакторинг системы.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> "Создай структуру GTD-системы: 5 файлов в папке gtd/ с заголовками, инструкциями и примерами записей в каждом".</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Chat (Чат)</h4>
+                <p style="color: var(--text-secondary);">Боковая панель ИИ в Cursor (Cmd+L / Ctrl+L) для диалога с моделью. Можно задавать вопросы, анализировать файлы, генерировать идеи. Поддерживает @-упоминания файлов для добавления контекста.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Откройте Chat, добавьте @finances.csv и спросите: "Какие мои три крупнейшие категории расходов в этом месяце?".</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section T -->
+        <section class="card" id="section-t">
+          <div class="card-header" style="background: var(--primary); color: white;">Т</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Токены (Tokens)</h4>
+                <p style="color: var(--text-secondary);">Единицы текста, на которые ИИ разбивает входные данные. Примерно 1 токен = 4 символа на английском или 1-2 символа на русском. Ограничение по токенам определяет, сколько информации ИИ может обработать за раз.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Если ваш .cursorrules на 500 токенов, а контекстное окно -- 128 000 токенов, у вас остаётся огромный запас для файлов и диалога.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Трекер (Tracker)</h4>
+                <p style="color: var(--text-secondary);">Инструмент для регулярного отслеживания показателей: привычек, расходов, настроения, прогресса по целям. В Cursor реализуется через CSV-файлы или Markdown-таблицы.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Файл <code>habits.csv</code> с колонками: дата, медитация, спорт, чтение, сон. Каждый день добавляете строку, а ИИ анализирует тренды.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Терминал (Terminal)</h4>
+                <p style="color: var(--text-secondary);">Встроенный инструмент Cursor для выполнения команд операционной системы. Позволяет запускать скрипты, управлять файлами, работать с Git -- не выходя из редактора.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Откройте терминал (Ctrl+`) и запустите: <code>python scripts/weekly-report.py</code> для генерации еженедельного отчёта.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section F -->
+        <section class="card" id="section-f">
+          <div class="card-header" style="background: var(--primary); color: white;">Ф</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Файловая система (File System)</h4>
+                <p style="color: var(--text-secondary);">Способ организации файлов и папок на компьютере. В контексте Cursor -- структура вашего рабочего пространства: иерархия папок, именование файлов, логика группировки.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Структура <code>projects/</code>, <code>trackers/</code>, <code>prompts/</code>, <code>rituals/</code> -- каждая папка отвечает за свою область жизни.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Few-shot (Обучение на примерах)</h4>
+                <p style="color: var(--text-secondary);">Техника промптинга, при которой вы даёте ИИ несколько примеров желаемого результата перед основным запросом. ИИ "учится" на примерах и воспроизводит паттерн.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> "Вот как я описываю задачи: '[ ] Позвонить клиенту @Дом (15 мин) #срочно'. Теперь преобразуй этот список в такой же формат: ...".</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section Sh -->
+        <section class="card" id="section-sh">
+          <div class="card-header" style="background: var(--primary); color: white;">Ш</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Шаблон (Template)</h4>
+                <p style="color: var(--text-secondary);">Заготовка документа с предопределённой структурой и плейсхолдерами. Экономит время на создание повторяющихся документов: планов, отчётов, обзоров.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Шаблон <code>rituals/morning.md</code> с секциями: "Благодарности", "3 приоритета дня", "Расписание", "Заметки". Каждое утро копируете и заполняете через Chat.</p>
+              </div>
+
+              <div>
+                <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Chain-of-Thought (Цепочка рассуждений)</h4>
+                <p style="color: var(--text-secondary);">Техника промптинга, при которой вы просите ИИ рассуждать пошагово. Улучшает качество ответов на сложные вопросы: анализ, планирование, принятие решений.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> "Проанализируй мои расходы за месяц пошагово: 1) найди общую сумму по категориям, 2) сравни с прошлым месяцем, 3) выдели аномалии, 4) дай рекомендации".</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Additional terms: JSON, Zettelkasten -->
+        <section class="card" id="section-dop">
+          <div class="card-header" style="background: #10B981; color: white;">Дополнительные термины</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div>
+                <h4 style="color: #10B981; margin-bottom: 0.5rem;">JSON (JavaScript Object Notation)</h4>
+                <p style="color: var(--text-secondary);">Текстовый формат для хранения структурированных данных. Используется для настроек, конфигураций и обмена данными между приложениями. Поддерживает вложенные объекты и массивы.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Файл конфигурации MCP-серверов <code>.mcp.json</code> или структурированное хранение контактов клиентов: <code>{"name": "WebStudio", "contact": "anna@web.com", "budget": 5000}</code>.</p>
+              </div>
+
+              <div>
+                <h4 style="color: #10B981; margin-bottom: 0.5rem;">Zettelkasten (Метод карточек)</h4>
+                <p style="color: var(--text-secondary);">Система управления знаниями, разработанная Никласом Луманом. Каждая идея записывается на отдельную "карточку" (файл) и связывается с другими через ссылки. Идеальна для накопления и переплетения знаний.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;"><strong>Пример в Cursor:</strong> Папка <code>notes/</code> с файлами вроде <code>202603-productivity-rules.md</code>, <code>202603-morning-routine.md</code>. В каждом файле -- ссылки на связанные заметки.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Reference: Keyboard Shortcuts -->
+        <section class="card" style="margin-top: 2rem;">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Шпаргалка: Горячие клавиши Cursor для продуктивности</div>
+          <div class="card-body">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mac</th>
+                    <th>Windows</th>
+                    <th>Действие</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Cmd+L</td><td>Ctrl+L</td><td>Открыть Chat -- диалог с ИИ</td></tr>
+                  <tr><td>Cmd+I</td><td>Ctrl+I</td><td>Открыть Composer -- мультифайловые операции</td></tr>
+                  <tr><td>Cmd+K</td><td>Ctrl+K</td><td>Быстрое редактирование выделенного текста через ИИ</td></tr>
+                  <tr><td>Cmd+S</td><td>Ctrl+S</td><td>Сохранить файл</td></tr>
+                  <tr><td>Cmd+Shift+P</td><td>Ctrl+Shift+P</td><td>Палитра команд -- поиск любого действия</td></tr>
+                  <tr><td>Cmd+P</td><td>Ctrl+P</td><td>Быстрое открытие файла по имени</td></tr>
+                  <tr><td>Ctrl+`</td><td>Ctrl+`</td><td>Открыть/закрыть терминал</td></tr>
+                  <tr><td>Cmd+B</td><td>Ctrl+B</td><td>Показать/скрыть боковую панель</td></tr>
+                  <tr><td>Cmd+Z</td><td>Ctrl+Z</td><td>Отменить последнее действие</td></tr>
+                  <tr><td>Cmd+F</td><td>Ctrl+F</td><td>Поиск в текущем файле</td></tr>
+                  <tr><td>Cmd+Shift+F</td><td>Ctrl+Shift+F</td><td>Поиск по всем файлам проекта</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Reference: Prompt Patterns -->
+        <section class="card">
+          <div class="card-header" style="background: #3B82F6; color: white;">Шпаргалка: Паттерны промптинга для жизни</div>
+          <div class="card-body">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Паттерн</th>
+                    <th>Когда использовать</th>
+                    <th>Пример начала промпта</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Роль + задача</strong></td><td>Ежедневные запросы</td><td>"Как мой коуч по продуктивности, оцени..."</td></tr>
+                  <tr><td><strong>Chain-of-Thought</strong></td><td>Анализ и решения</td><td>"Проанализируй пошагово..."</td></tr>
+                  <tr><td><strong>Few-shot</strong></td><td>Форматирование данных</td><td>"Вот пример: ... Теперь сделай так же для..."</td></tr>
+                  <tr><td><strong>Контекст + @файл</strong></td><td>Работа с данными</td><td>"На основе @finances.csv посчитай..."</td></tr>
+                  <tr><td><strong>Шаблон вывода</strong></td><td>Регулярные отчёты</td><td>"Выведи в формате Markdown-таблицы..."</td></tr>
+                  <tr><td><strong>Ограничения</strong></td><td>Точные ответы</td><td>"Ответь в 3 пунктах, каждый до 20 слов..."</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quick Reference: File Formats -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Шпаргалка: Форматы файлов в системе</div>
+          <div class="card-body">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Формат</th>
+                    <th>Для чего</th>
+                    <th>Пример файла</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><code>.md</code></td><td>Планы, заметки, шаблоны, промпты</td><td>weekly-plan.md, morning-ritual.md</td></tr>
+                  <tr><td><code>.csv</code></td><td>Таблицы, трекеры, финансы</td><td>habits.csv, finances.csv</td></tr>
+                  <tr><td><code>.json</code></td><td>Настройки, структурированные данные</td><td>.mcp.json, contacts.json</td></tr>
+                  <tr><td><code>.py / .js</code></td><td>Скрипты автоматизации</td><td>weekly-report.py, gen-dashboard.js</td></tr>
+                  <tr><td><code>.txt</code></td><td>Простой текст, входящие, черновики</td><td>inbox.txt, ideas.txt</td></tr>
+                  <tr><td><code>.cursorrules</code></td><td>Системный промпт для ИИ</td><td>.cursorrules (в корне проекта)</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Back to top -->
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="btn btn-primary">
+            Наверх
+          </a>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

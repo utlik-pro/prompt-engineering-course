@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.3: Cursor Chat — ИИ-ассистент на каждый день | Prompt Engineering</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Prompt Engineering
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item active" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.3</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.3</span>
+            <span class="lesson-duration">⏱ 2 часа</span>
+          </div>
+          <h1 class="lesson-title">Cursor Chat — ИИ-ассистент на каждый день</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Применяем техники промпт-инжиниринга в чате Cursor для повседневных задач
+          </p>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Цель урока:</strong> Студенты должны освоить чат Cursor как инструмент для повседневных задач: планирование, брейнсторминг, анализ решений. Они применяют техники промптинга из предыдущих модулей (CoT, Few-shot, Role Prompting) прямо в Cursor.</p>
+            <p><strong>Важно:</strong> Проведите живые демонстрации каждого сценария. Дайте студентам время попробовать самим. Подчёркивайте, что это не теория — они сразу видят результат в своих файлах.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: How to Open Chat -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Как открыть и использовать чат</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              Чат в Cursor — это ваш персональный ИИ-ассистент, который знает контекст всех ваших файлов. Вот как с ним работать:
+            </p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="font-size: 2rem;">⌨️</div>
+                <div>
+                  <strong>Cmd+L / Ctrl+L — открыть чат</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Основной способ. Чат открывается в правой панели. Пишите запрос и нажимайте Enter.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="font-size: 2rem;">🔄</div>
+                <div>
+                  <strong>Cmd+Shift+L — новый чат</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Начинает чистый диалог. Полезно, когда хотите сменить тему, чтобы не путать ИИ контекстом.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="font-size: 2rem;">📌</div>
+                <div>
+                  <strong>Режимы чата: Normal, Agent, Custom</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Normal — обычный диалог. Agent — ИИ может сам читать файлы, создавать и редактировать. Выбирайте Agent для сложных задач.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> Всегда начинайте с Agent-режима, если задача требует работы с несколькими файлами. Он умнее и самостоятельнее обычного чата.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Prompt Engineering in Cursor Chat -->
+        <section class="card">
+          <div class="card-header">Промпт-инжиниринг в чате Cursor</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Вы уже знаете техники промптинга из предыдущих модулей. Вот как они работают в Cursor:</p>
+
+            <h4 style="color: var(--accent);">Chain of Thought (Цепочка рассуждений)</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Cursor Chat</span>
+              </div>
+              <pre><code>Проанализируй мой бюджет в @file data/budget.md
+Думай пошагово:
+1. Найди все категории расходов
+2. Посчитай долю каждой категории
+3. Определи, где можно сэкономить
+4. Дай конкретные рекомендации с суммами</code></pre>
+            </div>
+
+            <h4 style="color: var(--accent); margin-top: 2rem;">Few-shot (Примеры)</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Cursor Chat</span>
+              </div>
+              <pre><code>Создай план на завтра в том же формате, что в @file plans/weekly-plan.md
+Посмотри формат моих предыдущих планов и следуй ему точно.
+Завтра мне нужно: встреча с клиентом в 10:00, дедлайн по проекту X,
+тренировка в 18:00.</code></pre>
+            </div>
+
+            <h4 style="color: var(--accent); margin-top: 2rem;">Role Prompting (Роль)</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Cursor Chat</span>
+              </div>
+              <pre><code>Выступи как опытный бизнес-коуч. Посмотри мои цели в
+@file plans/goals-2026.md и мой текущий прогресс в @file projects/active-projects.md.
+Скажи честно: я на правильном пути? Что нужно изменить?</code></pre>
+            </div>
+
+            <h4 style="color: var(--accent); margin-top: 2rem;">System Prompt (через .cursorrules)</h4>
+            <p style="margin: 0.5rem 0 1rem;">Помните — ваш .cursorrules уже работает как системный промпт! ИИ читает его автоматически. Вам не нужно каждый раз задавать контекст.</p>
+
+            <div class="alert alert-info">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Ключевое отличие от веб-чатов:</strong> В Cursor вы ссылаетесь на файлы через @file и @folder — ИИ реально читает их содержимое. Это как передать собеседнику папку с документами.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: Daily Planning -->
+        <section class="card">
+          <div class="card-header" style="background: #667eea; color: white;">Ежедневное планирование — утренний ритуал</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              Превратите утренний чат с ИИ в привычку. Каждое утро — 5 минут в Cursor, и ваш день структурирован.
+            </p>
+
+            <h4>Утренний промпт-ритуал:</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Утренний промпт</span>
+              </div>
+              <pre><code>Доброе утро! Помоги мне спланировать день.
+
+Контекст:
+- Посмотри мои активные проекты: @file projects/active-projects.md
+- Вчерашние задачи: @file journal/2026-03-11.md
+- Цели на неделю: @file plans/weekly-plan.md
+
+Задание:
+1. Какие задачи остались со вчера?
+2. Какие дедлайны приближаются?
+3. Составь план на сегодня по приоритетам (используй матрицу Эйзенхауэра)
+4. Сохрани план в файл journal/2026-03-12.md</code></pre>
+            </div>
+
+            <div style="background: var(--bg-main); border-radius: 8px; padding: 1.5rem; margin: 1.5rem 0;">
+              <h4 style="margin-bottom: 1rem;">Пример ответа ИИ:</h4>
+              <div style="display: flex; gap: 1rem;">
+                <div style="width: 32px; height: 32px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">AI</div>
+                <div style="flex: 1; background: white; padding: 1rem; border-radius: 8px; box-shadow: var(--shadow);">
+                  <p style="margin-bottom: 0.5rem;"><strong>План на 12 марта 2026:</strong></p>
+                  <p style="margin-bottom: 0.5rem; color: #EF4444;"><strong>СРОЧНО + ВАЖНО:</strong></p>
+                  <ul style="margin: 0 0 0.5rem 1.5rem; font-size: 0.9rem;">
+                    <li>09:00-10:30 — Дедлайн: отправить отчёт клиенту (из проекта "Маркетинг Q1")</li>
+                    <li>11:00-12:00 — Перенесённая задача: подготовить презентацию</li>
+                  </ul>
+                  <p style="margin-bottom: 0.5rem; color: #F59E0B;"><strong>ВАЖНО, НЕ СРОЧНО:</strong></p>
+                  <ul style="margin: 0 0 0.5rem 1.5rem; font-size: 0.9rem;">
+                    <li>14:00-15:30 — Работа над бизнес-планом (глава 3)</li>
+                    <li>16:00-17:00 — Изучение нового курса</li>
+                  </ul>
+                  <p style="font-size: 0.85rem; color: var(--text-secondary);">Файл journal/2026-03-12.md создан.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-success">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Сила контекста:</strong> ИИ видит ваши проекты, вчерашние задачи и недельные цели одновременно. Ни один веб-чат так не сможет — это уникальная возможность Cursor.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Brainstorming -->
+        <section class="card">
+          <div class="card-header">Брейнсторминг идей</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cursor — идеальная среда для генерации и развития идей. ИИ может видеть ваши предыдущие наработки и строить на них.</p>
+
+            <h4>Пример 1: Идеи для бизнеса</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для брейнсторминга</span>
+              </div>
+              <pre><code>Я хочу запустить побочный бизнес.
+Мои навыки и опыт — в @file notes/my-skills.md
+Мой бюджет — 500$ на старт.
+Свободное время — 10 часов в неделю.
+
+Предложи 10 идей для бизнеса, которые:
+- Соответствуют моим навыкам
+- Вписываются в бюджет
+- Можно запустить за 2 недели
+- Имеют потенциал дохода 1000$/мес через 3 месяца
+
+Для каждой идеи укажи: описание, первый шаг, риски.</code></pre>
+            </div>
+
+            <h4 style="margin-top: 2rem;">Пример 2: Контент-план</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для контент-плана</span>
+              </div>
+              <pre><code>Мне нужен контент-план для Telegram-канала на неделю.
+Тематика: @file notes/content-strategy.md
+Прошлые посты (для контекста): @folder notes/posts/
+
+Создай план на 7 дней:
+- Понедельник-пятница: экспертные посты
+- Суббота: развлекательный контент
+- Воскресенье: обзор недели
+
+Для каждого поста: заголовок, основная мысль, формат (текст/карусель/видео),
+хештеги. Сохрани в plans/content-plan-week12.md</code></pre>
+            </div>
+
+            <h4 style="margin-top: 2rem;">Пример 3: Идеи для подарка</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для повседневной задачи</span>
+              </div>
+              <pre><code>У мамы день рождения через 2 недели.
+Информация о ней: @file notes/family/mom.md
+Бюджет: до 200$
+Предыдущие подарки (чтобы не повториться):
+- 2024: книга по садоводству
+- 2025: поездка на термальные источники
+
+Предложи 7 уникальных идей с описанием и где купить.</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: Analysis and Decisions -->
+        <section class="card">
+          <div class="card-header" style="background: #F59E0B; color: white;">Анализ и принятие решений</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              Одна из самых мощных применений ИИ — помощь в принятии решений. В Cursor это работает особенно хорошо, потому что ИИ видит весь контекст.
+            </p>
+
+            <h4>Pros/Cons анализ</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для анализа</span>
+              </div>
+              <pre><code>Я выбираю между двумя вариантами:
+Вариант А: Остаться на текущей работе и пройти курс повышения квалификации
+Вариант Б: Перейти в новую компанию (оффер в @file notes/job-offer.md)
+
+Мои текущие условия: @file notes/current-job.md
+Мои цели на год: @file plans/goals-2026.md
+
+Сделай структурированный анализ:
+1. Pros/Cons для каждого варианта (таблица)
+2. Финансовое сравнение на 1 год и 3 года
+3. Как каждый вариант влияет на мои цели
+4. Твоя рекомендация с обоснованием</code></pre>
+            </div>
+
+            <h4 style="margin-top: 2rem;">SWOT-анализ</h4>
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для SWOT</span>
+              </div>
+              <pre><code>Проведи SWOT-анализ моей идеи онлайн-школы.
+Описание идеи: @file projects/online-school/concept.md
+Анализ конкурентов: @file projects/online-school/competitors.md
+Мои ресурсы: @file notes/my-skills.md
+
+Структура:
+- Strengths (сильные стороны) — минимум 5 пунктов
+- Weaknesses (слабые стороны) — минимум 5 пунктов
+- Opportunities (возможности) — минимум 5 пунктов
+- Threats (угрозы) — минимум 5 пунктов
+
+После SWOT предложи 3 стратегии на основе анализа.
+Сохрани в projects/online-school/swot-analysis.md</code></pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Принцип:</strong> Чем больше контекста вы даёте через @file и @folder, тем точнее и полезнее анализ. ИИ не гадает — он работает с вашими реальными данными.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Working with File Context -->
+        <section class="card">
+          <div class="card-header">Работа с контекстом файлов: @file, @folder, @codebase</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Уникальная суперспособность Cursor — подключение файлов к контексту диалога. Вот все способы:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Команда</th>
+                    <th>Что делает</th>
+                    <th>Когда использовать</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>@file имя_файла</code></td>
+                    <td>Подключает один конкретный файл</td>
+                    <td>Когда нужно проанализировать или обновить конкретный файл</td>
+                  </tr>
+                  <tr>
+                    <td><code>@folder имя_папки</code></td>
+                    <td>Подключает все файлы в папке</td>
+                    <td>Когда нужен обзор всей области (все проекты, все заметки)</td>
+                  </tr>
+                  <tr>
+                    <td><code>@codebase</code></td>
+                    <td>Ищет по всему проекту</td>
+                    <td>Когда не знаете, в каком файле нужная информация</td>
+                  </tr>
+                  <tr>
+                    <td><code>@web</code></td>
+                    <td>Поиск в интернете</td>
+                    <td>Когда нужна свежая информация извне</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Примеры использования:</h4>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0;">
+                <strong>@file plans/weekly-plan.md</strong> — "Что я не успел на этой неделе?"
+              </div>
+              <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0;">
+                <strong>@folder projects/</strong> — "Сколько всего активных проектов и на каком они этапе?"
+              </div>
+              <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0;">
+                <strong>@file data/budget.md</strong> — "На что я потратил больше всего в этом месяце?"
+              </div>
+              <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0;">
+                <strong>@folder journal/</strong> — "Проанализируй мои записи за последний месяц. Какие темы повторяются?"
+              </div>
+              <div style="padding: 1rem; background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0;">
+                <strong>@codebase</strong> — "Найди все упоминания проекта X в моих файлах"
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7: Multimodal -->
+        <section class="card">
+          <div class="card-header">Мультимодальные запросы: изображения в чате</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cursor поддерживает отправку изображений в чат. Это открывает новые возможности:</p>
+
+            <div class="service-cards">
+              <div class="service-card" style="text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">📸</div>
+                <h4>Скриншоты</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                  Скриншот таблицы с данными, расписания, чека — ИИ извлечёт информацию и сохранит в файл
+                </p>
+              </div>
+
+              <div class="service-card" style="text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+                <h4>Документы</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                  Фото документа, визитки, рукописных заметок — ИИ распознает текст и структурирует
+                </p>
+              </div>
+
+              <div class="service-card" style="text-align: center;">
+                <div style="font-size: 2.5rem; margin-bottom: 1rem;">📊</div>
+                <h4>Графики и диаграммы</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                  Скриншот графика из Excel или отчёта — ИИ проанализирует тренды и даст выводы
+                </p>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Как отправить изображение:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Перетащите изображение в окно чата (drag & drop)</strong>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Или вставьте из буфера обмена (Cmd+V / Ctrl+V после скриншота)</strong>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Добавьте текстовый промпт: "Извлеки данные из этой таблицы и сохрани в data/expenses.md"</strong>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-warning" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <div>
+                <strong>Важно:</strong> Мультимодальность работает с моделями GPT-4o и Claude 3.5 Sonnet. Убедитесь, что выбрана подходящая модель.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8: Common Mistakes -->
+        <section class="card">
+          <div class="card-header">Типичные ошибки при работе с чатом</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">❌</div>
+                <div>
+                  <strong>Не подключать файлы к контексту</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Без @file и @folder ИИ не видит ваши данные и отвечает абстрактно. Всегда давайте контекст!</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">❌</div>
+                <div>
+                  <strong>Слишком длинные диалоги на одну тему</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">После 15-20 сообщений контекст засоряется. Лучше начать новый чат (Cmd+Shift+L) со свежим запросом.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">❌</div>
+                <div>
+                  <strong>Не просить сохранить результат в файл</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Если ИИ создал хороший план — попросите его сохранить в конкретный файл. Иначе результат останется только в чате.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">❌</div>
+                <div>
+                  <strong>Забывать про .cursorrules</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Если ответы ИИ вас не устраивают — обновите .cursorrules. Добавьте конкретные инструкции по стилю, формату, языку.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson3-q1">
+              <p><strong>1. Какая команда подключает целую папку к контексту чата?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">@file имя_папки</div>
+                <div class="quiz-option" data-correct="true">@folder имя_папки</div>
+                <div class="quiz-option" data-correct="false">@codebase имя_папки</div>
+                <div class="quiz-option" data-correct="false">@import имя_папки</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+
+            <div class="quiz" data-quiz="lesson3-q2" style="margin-top: 2rem;">
+              <p><strong>2. Когда лучше начать новый чат (Cmd+Shift+L)?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">После каждого сообщения</div>
+                <div class="quiz-option" data-correct="false">Только утром</div>
+                <div class="quiz-option" data-correct="true">Когда диалог становится длинным или вы меняете тему</div>
+                <div class="quiz-option" data-correct="false">Каждые 5 минут</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+
+            <div class="quiz" data-quiz="lesson3-q3" style="margin-top: 2rem;">
+              <p><strong>3. Какая техника промптинга уже встроена в .cursorrules?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Few-shot (примеры)</div>
+                <div class="quiz-option" data-correct="true">System Prompt (системный промпт)</div>
+                <div class="quiz-option" data-correct="false">Temperature (температура)</div>
+                <div class="quiz-option" data-correct="false">Embedding (эмбеддинги)</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Practice -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практическое задание</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Выполните все три задания в Cursor:</p>
+
+            <h4>Задание 1: Утреннее планирование</h4>
+            <p style="margin-bottom: 1rem;">Откройте чат и попросите ИИ спланировать ваш завтрашний день. Используйте @file для подключения ваших файлов с задачами и целями. Результат сохраните в файл journal/.</p>
+
+            <h4 style="margin-top: 1.5rem;">Задание 2: SWOT-анализ идеи</h4>
+            <p style="margin-bottom: 1rem;">Выберите любую идею (бизнес, проект, путешествие) и попросите ИИ провести SWOT-анализ. Подключите @file с вашими ресурсами и целями. Сохраните результат в notes/.</p>
+
+            <h4 style="margin-top: 1.5rem;">Задание 3: Контент-план на неделю</h4>
+            <p style="margin-bottom: 1rem;">Создайте контент-план для любой платформы (Telegram, Instagram, LinkedIn). Попросите ИИ учесть вашу аудиторию и тематику. Сохраните в plans/.</p>
+
+            <ul class="checklist" style="margin-top: 1.5rem;">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice3-plan"></span>
+                <span class="checklist-text">Провёл утреннее планирование через чат с @file</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice3-swot"></span>
+                <span class="checklist-text">Сделал SWOT-анализ идеи и сохранил в файл</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="practice3-content"></span>
+                <span class="checklist-text">Создал контент-план на неделю</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson3-chat"></span>
+                <span class="checklist-text">Уверенно открываю и использую чат (Cmd+L)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson3-techniques"></span>
+                <span class="checklist-text">Применил CoT, Few-shot, Role Prompting в Cursor</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson3-context"></span>
+                <span class="checklist-text">Использую @file и @folder для подключения контекста</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson3-planning"></span>
+                <span class="checklist-text">Провёл утреннее планирование дня через чат</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson3-analysis"></span>
+                <span class="checklist-text">Сделал SWOT-анализ или Pros/Cons через чат</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson3-save"></span>
+                <span class="checklist-text">Умею просить ИИ сохранять результаты в файлы</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="card">
+          <div class="card-header">Домашнее задание</div>
+          <div class="card-body">
+            <p><strong>На следующей неделе каждое утро проводите 5-минутный ритуал планирования в Cursor:</strong></p>
+            <ul style="margin: 1rem 0 1rem 1.5rem;">
+              <li>Открывайте чат, подключайте @file с вчерашним планом</li>
+              <li>Просите спланировать новый день</li>
+              <li>Сохраняйте план в journal/ с датой в имени файла</li>
+              <li>Через неделю попросите ИИ проанализировать все 7 планов: @folder journal/ — "Какие задачи повторяются? Что я постоянно переношу?"</li>
+            </ul>
+
+            <div class="alert alert-info">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Цель:</strong> Выработать привычку использовать Cursor как ежедневный инструмент. Через неделю вы будете удивлены, какие паттерны обнаружит ИИ в ваших записях.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-2.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Установка и настройка</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="3">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-4.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Управление проектами</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

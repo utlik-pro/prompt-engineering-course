@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.4: Управление личными проектами | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item active" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.4</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.4</span>
+            <span class="lesson-duration">⏱ 2 часа</span>
+          </div>
+          <h1 class="lesson-title">Управление личными проектами</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Превращаем любую жизненную цель в управляемый проект с помощью Cursor
+          </p>
+        </div>
+
+        <!-- Проект = папка в Cursor -->
+        <section class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">Проект = папка в Cursor</div>
+          <div class="card-body">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+              Ключевая идея этого урока: <strong>любая жизненная цель</strong> может быть организована как проект в Cursor. Переезд в другой город, запуск бизнеса, подготовка к свадьбе, получение нового образования &mdash; всё это проекты, которые состоят из задач, сроков и ресурсов.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128193;</div>
+                <strong>Традиционный подход</strong>
+                <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">
+                  Заметки в телефоне, стикеры, Excel-таблицы, записи в блокноте &mdash; хаос и потерянная информация
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px; border: 2px solid rgba(255,255,255,0.5);">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#9889;</div>
+                <strong>Подход Cursor</strong>
+                <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">
+                  Структурированная папка с файлами, ИИ-помощник всегда рядом, всё в одном месте
+                </p>
+              </div>
+            </div>
+
+            <p style="margin-top: 1.5rem; font-size: 1.05rem; opacity: 0.95;">
+              Когда вы открываете папку в Cursor &mdash; ИИ видит все файлы внутри неё. Это значит, что он понимает контекст вашего проекта целиком: задачи, заметки, сроки, бюджет. Вы можете задавать вопросы типа "Что мне делать дальше?" или "Какие задачи просрочены?" &mdash; и получать осмысленные ответы.
+            </p>
+          </div>
+        </section>
+
+        <!-- Примеры проектов -->
+        <section class="card">
+          <div class="card-header">Какие жизненные проекты можно вести в Cursor</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cursor подходит для управления абсолютно любым проектом. Вот примеры из разных сфер жизни:</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <h4 style="margin-bottom: 0.5rem;">Переезд в другой город</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Поиск жилья, оформление документов, логистика, бюджет, контакты риелторов</p>
+              </div>
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <h4 style="margin-bottom: 0.5rem;">Запуск онлайн-бизнеса</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Бизнес-план, регистрация, маркетинг, создание продукта, финансы</p>
+              </div>
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <h4 style="margin-bottom: 0.5rem;">Подготовка к свадьбе</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Список гостей, площадка, меню, декор, бюджет, таймлайн, подрядчики</p>
+              </div>
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <h4 style="margin-bottom: 0.5rem;">Получение образования</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Выбор программы, документы, подготовка, расписание, конспекты</p>
+              </div>
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <h4 style="margin-bottom: 0.5rem;">Ремонт квартиры</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Дизайн-проект, смета, подрядчики, закупки, сроки, контроль</p>
+              </div>
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EC4899;">
+                <h4 style="margin-bottom: 0.5rem;">Организация мероприятия</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Программа, спикеры, логистика, продвижение, билеты, спонсоры</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Структура папок проекта -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Структура папок проекта</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Для любого проекта используйте единый шаблон структуры. Это позволит ИИ лучше понимать контекст и давать более точные ответы.</p>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Универсальная структура проекта</span>
+              </div>
+              <pre><code>my-project/
+├── README.md          # Описание проекта: цель, сроки, ключевые решения
+├── tasks.md           # Список задач со статусами
+├── timeline.md        # Сроки и дедлайны
+├── budget.md          # Бюджет (если применимо)
+├── notes/             # Заметки и размышления
+│   ├── ideas.md       # Идеи и мозговой штурм
+│   ├── meetings.md    # Заметки со встреч
+│   └── decisions.md   # Принятые решения и их обоснования
+├── resources/         # Полезные ресурсы
+│   ├── contacts.md    # Контакты людей
+│   ├── links.md       # Полезные ссылки
+│   └── templates/     # Шаблоны документов
+└── archive/           # Завершённые или неактуальные материалы</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Что включить в каждый файл:</h4>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <strong>README.md</strong> &mdash; главный файл проекта
+                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.9rem;">Цель проекта, почему это важно, ключевые даты, критерии успеха, текущий статус. ИИ будет обращаться к этому файлу для понимания контекста.</p>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <strong>tasks.md</strong> &mdash; задачи и их статусы
+                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.9rem;">Каждая задача с чекбоксом, приоритетом и дедлайном. Можно группировать по категориям или этапам.</p>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <strong>timeline.md</strong> &mdash; календарный план
+                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.9rem;">Этапы проекта с датами начала и окончания. Вехи (milestones) и ключевые дедлайны.</p>
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <strong>notes/</strong> &mdash; папка с заметками
+                <p style="color: var(--text-secondary); margin-top: 0.25rem; font-size: 0.9rem;">Свободное пространство для мыслей, идей, заметок со встреч. ИИ видит всё и может анализировать.</p>
+              </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Пример README.md</span>
+              </div>
+              <pre><code># Запуск онлайн-курса по фотографии
+
+## Цель
+Создать и запустить онлайн-курс по мобильной фотографии
+для начинающих. Первый поток — 30 учеников.
+
+## Сроки
+- Старт подготовки: 1 марта 2026
+- Запуск продаж: 1 мая 2026
+- Старт курса: 1 июня 2026
+
+## Критерии успеха
+- Минимум 20 учеников на первом потоке
+- Средняя оценка курса не ниже 4.5/5
+- Окупаемость затрат в первый месяц
+
+## Текущий статус
+Этап: подготовка контента (40% готово)
+
+## Ключевые решения
+- Платформа: Stepik
+- Формат: видеоуроки + практические задания
+- Цена: $49 за курс</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Создание проекта пошагово -->
+        <section class="card">
+          <div class="card-header">Создание проекта: пошаговый процесс</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Вот точная последовательность действий для запуска нового проекта в Cursor:</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                <div>
+                  <strong>Создайте папку на компьютере</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Создайте папку с понятным названием, например: <code>wedding-planning</code>, <code>new-business</code>, <code>apartment-renovation</code></p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                <div>
+                  <strong>Откройте папку в Cursor</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">File &rarr; Open Folder &rarr; выберите созданную папку. Теперь это ваше рабочее пространство.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                <div>
+                  <strong>Попросите ИИ создать структуру</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Откройте Chat и опишите свой проект. ИИ предложит оптимальную структуру файлов.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
+                <div>
+                  <strong>Заполните README.md</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Опишите цель, сроки и критерии успеха. Это фундамент вашего проекта.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">5</div>
+                <div>
+                  <strong>Декомпозируйте цель на задачи</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Попросите ИИ разбить вашу цель на конкретные шаги и задачи. Заполните tasks.md.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для создания структуры</span>
+              </div>
+              <pre><code>Я планирую [описание проекта].
+
+Создай для меня структуру проекта:
+1. README.md с описанием цели, сроками и критериями успеха
+2. tasks.md со списком всех задач, разбитых по этапам
+3. timeline.md с календарным планом
+4. budget.md с примерной сметой
+
+Контекст: [дополнительная информация о проекте]
+Сроки: [когда нужно завершить]
+Бюджет: [примерный бюджет]</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Декомпозиция целей -->
+        <section class="card">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Декомпозиция целей с ИИ</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">
+              <strong>Декомпозиция</strong> &mdash; это разбиение большой цели на маленькие управляемые шаги. Это самый важный навык управления проектами, и ИИ делает его невероятно простым.
+            </p>
+
+            <h4 style="margin-top: 1.5rem;">Принцип трёх уровней:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="padding: 1.25rem; background: rgba(139, 92, 246, 0.1); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <strong>Уровень 1: Цель</strong>
+                <p style="color: var(--text-secondary); margin-top: 0.25rem;">Запустить онлайн-курс по фотографии</p>
+              </div>
+              <div style="padding: 1.25rem; background: rgba(139, 92, 246, 0.08); border-radius: 8px; border-left: 4px solid #A78BFA;">
+                <strong>Уровень 2: Этапы</strong>
+                <p style="color: var(--text-secondary); margin-top: 0.25rem;">Исследование рынка &rarr; Создание программы &rarr; Запись контента &rarr; Настройка платформы &rarr; Маркетинг &rarr; Запуск</p>
+              </div>
+              <div style="padding: 1.25rem; background: rgba(139, 92, 246, 0.05); border-radius: 8px; border-left: 4px solid #C4B5FD;">
+                <strong>Уровень 3: Задачи</strong>
+                <p style="color: var(--text-secondary); margin-top: 0.25rem;">Для этапа "Исследование рынка": изучить конкурентов, провести опрос ЦА, определить нишу, сформулировать УТП...</p>
+              </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для декомпозиции</span>
+              </div>
+              <pre><code>Моя цель: запустить онлайн-курс по мобильной фотографии
+для начинающих за 3 месяца.
+
+Разбей эту цель на:
+1. Основные этапы (5-7 этапов)
+2. Для каждого этапа — конкретные задачи (3-5 задач)
+3. Для каждой задачи укажи:
+   - Примерное время выполнения
+   - Зависимости от других задач
+   - Приоритет (высокий/средний/низкий)
+
+Оформи в виде Markdown с чекбоксами [ ]</code></pre>
+            </div>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Результат: tasks.md</span>
+              </div>
+              <pre><code># Задачи: Онлайн-курс по фотографии
+
+## Этап 1: Исследование (неделя 1-2)
+- [ ] Изучить 10 конкурентных курсов (2 дня) [высокий]
+- [ ] Провести опрос в соцсетях — 50 ответов (3 дня) [высокий]
+- [ ] Определить нишу и целевую аудиторию (1 день) [высокий]
+- [ ] Сформулировать УТП курса (1 день) [средний]
+
+## Этап 2: Программа курса (неделя 3-4)
+- [ ] Составить структуру курса: модули и уроки (2 дня) [высокий]
+- [ ] Написать описание каждого урока (3 дня) [высокий]
+- [ ] Подготовить практические задания (3 дня) [средний]
+- [ ] Согласовать программу с экспертом (2 дня) [низкий]
+
+## Этап 3: Создание контента (неделя 5-8)
+- [ ] Написать скрипты для видеоуроков (5 дней) [высокий]
+- [ ] Записать видеоуроки (7 дней) [высокий]
+- [ ] Смонтировать видео (5 дней) [высокий]
+- [ ] Подготовить дополнительные материалы (3 дня) [средний]
+
+## Этап 4: Платформа (неделя 9-10)
+- [ ] Выбрать и настроить платформу (2 дня) [высокий]
+- [ ] Загрузить весь контент (2 дня) [высокий]
+- [ ] Настроить автоматизации (1 день) [средний]
+- [ ] Тестовый прогон с 3 друзьями (3 дня) [высокий]
+
+## Этап 5: Маркетинг и запуск (неделя 11-12)
+- [ ] Создать лендинг курса (2 дня) [высокий]
+- [ ] Подготовить email-воронку (2 дня) [средний]
+- [ ] Запустить рекламу в соцсетях (1 день) [высокий]
+- [ ] Провести бесплатный вебинар (1 день) [высокий]
+- [ ] Открыть продажи (1 день) [высокий]</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Трекинг прогресса -->
+        <section class="card">
+          <div class="card-header">Трекинг прогресса</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Markdown-чеклисты &mdash; простой и мощный инструмент для отслеживания прогресса. А ИИ поможет вам поддерживать их в актуальном состоянии.</p>
+
+            <h4>Как работают чеклисты в Markdown:</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Синтаксис чеклистов</span>
+              </div>
+              <pre><code>- [ ] Незавершённая задача
+- [x] Завершённая задача
+- [ ] Ещё одна задача (дедлайн: 15 марта)</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Обновление прогресса через ИИ:</h4>
+            <p style="margin: 0.5rem 0 1rem;">Вместо того чтобы вручную искать задачи и менять их статус, просто скажите ИИ:</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div class="code-block" style="margin: 0;">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">Промпт</span>
+                  </div>
+                  <pre><code>Отметь следующие задачи как выполненные в tasks.md:
+- Изучить конкурентов
+- Провести опрос
+И добавь новую задачу в этап "Исследование":
+- Проанализировать результаты опроса (1 день) [высокий]</code></pre>
+                </div>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div class="code-block" style="margin: 0;">
+                  <div class="code-block-header">
+                    <span class="code-block-lang">Промпт для обзора прогресса</span>
+                  </div>
+                  <pre><code>Посмотри на мой tasks.md и скажи:
+1. Сколько процентов задач завершено?
+2. Какие задачи с высоким приоритетом ещё не сделаны?
+3. Укладываюсь ли я в сроки из timeline.md?
+4. Что мне стоит сделать на этой неделе?</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> Заведите привычку каждое утро открывать Cursor и спрашивать: "Какие задачи мне нужно сделать сегодня?" ИИ проанализирует все ваши файлы и даст приоритизированный список.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Пример: Запуск онлайн-курса -->
+        <section class="card">
+          <div class="card-header" style="background: #F59E0B; color: white;">Кейс: Запуск онлайн-курса</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Разберём полный пример от идеи до реализации. Допустим, вы хотите создать и запустить онлайн-курс.</p>
+
+            <h4>Шаг 1: Инициализация проекта</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Chat</span>
+              </div>
+              <pre><code>Я хочу создать онлайн-курс по мобильной фотографии.
+Целевая аудитория: начинающие фотографы 25-40 лет.
+Бюджет: $500. Срок подготовки: 3 месяца.
+
+Создай полную структуру проекта с файлами:
+README.md, tasks.md, timeline.md, budget.md,
+notes/ideas.md, resources/contacts.md</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Шаг 2: Глубокая проработка каждого этапа</h4>
+            <p style="margin: 0.5rem 0 1rem;">После создания структуры, углубляйтесь в каждый этап:</p>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт</span>
+              </div>
+              <pre><code>Посмотри на tasks.md, этап "Создание контента".
+Для задачи "Написать скрипты видеоуроков" — помоги мне:
+1. Определить оптимальную длину каждого урока
+2. Составить структуру скрипта (шаблон)
+3. Написать скрипт для первого урока "Основы композиции"
+
+Сохрани результат в notes/script-template.md</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Шаг 3: Работа с бюджетом</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Пример budget.md</span>
+              </div>
+              <pre><code># Бюджет: Онлайн-курс по фотографии
+
+## Расходы
+| Категория           | Планируемые | Фактические | Статус  |
+|---------------------|-------------|-------------|---------|
+| Микрофон            | $80         | $75         | Куплено |
+| Свет для съёмки     | $60         | -           | Ожидает |
+| Подписка на Stepik  | $0          | $0          | Бесплатно |
+| Реклама в Instagram | $200        | -           | Планируется |
+| Дизайн обложки      | $50         | -           | Планируется |
+| Резерв              | $110        | -           | -       |
+
+## Итого
+- Бюджет: $500
+- Потрачено: $75
+- Остаток: $425</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Шаг 4: Еженедельный обзор</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для еженедельного обзора</span>
+              </div>
+              <pre><code>Проведи еженедельный обзор моего проекта:
+1. Проверь tasks.md — что сделано за эту неделю?
+2. Проверь timeline.md — идём ли мы по графику?
+3. Проверь budget.md — нет ли перерасхода?
+4. Что запланировать на следующую неделю?
+5. Есть ли риски, на которые стоит обратить внимание?
+
+Обнови tasks.md и timeline.md при необходимости.</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Пример: Планирование путешествия -->
+        <section class="card">
+          <div class="card-header" style="background: #3B82F6; color: white;">Кейс: Планирование путешествия</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Ещё один частый проект &mdash; планирование путешествия. Cursor превратит подготовку поездки в организованный процесс.</p>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для создания проекта</span>
+              </div>
+              <pre><code>Помоги спланировать путешествие в Грузию на 10 дней.
+Двое взрослых, бюджет $2000.
+Интересы: горы, еда, вино, история.
+Даты: 15-25 июля 2026.
+
+Создай проект со следующими файлами:
+1. README.md — обзор поездки
+2. itinerary.md — маршрут по дням
+3. budget.md — бюджет по категориям
+4. packing-list.md — список вещей
+5. bookings.md — что нужно забронировать
+6. food-spots.md — рестораны и кафе для посещения</code></pre>
+            </div>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Результат: itinerary.md (фрагмент)</span>
+              </div>
+              <pre><code># Маршрут: Грузия, 15-25 июля 2026
+
+## День 1 (15 июля): Прибытие в Тбилиси
+- [ ] Прилёт, трансфер в отель
+- [ ] Прогулка по Старому городу
+- [ ] Ужин: ресторан "Шемомечама" (хинкали, хачапури)
+- Ночь: отель в центре Тбилиси
+
+## День 2 (16 июля): Тбилиси
+- [ ] Крепость Нарикала
+- [ ] Серные бани (Абанотубани)
+- [ ] Блошиный рынок на мосту Мира
+- [ ] Обед: Fabrika
+- [ ] Проспект Руставели вечером
+- Ночь: отель в Тбилиси
+
+## День 3 (17 июля): Мцхета + Ананури
+- [ ] Аренда машины
+- [ ] Мцхета — древняя столица (храм Светицховели)
+- [ ] Крепость Ананури по дороге
+- [ ] Переезд в Казбеги
+- Ночь: гестхаус в Степанцминда
+...</code></pre>
+            </div>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Результат: budget.md</span>
+              </div>
+              <pre><code># Бюджет: Грузия 10 дней, 2 человека
+
+| Категория        | Бюджет | Забронировано | Осталось |
+|------------------|--------|---------------|----------|
+| Перелёт          | $600   | $580          | $20      |
+| Жильё (10 ночей) | $500   | $0            | $500     |
+| Еда и напитки    | $400   | $0            | $400     |
+| Транспорт        | $200   | $0            | $200     |
+| Экскурсии        | $150   | $0            | $150     |
+| Покупки/сувениры | $100   | $0            | $100     |
+| Резерв           | $50    | $0            | $50      |
+| **ИТОГО**        | **$2000** | **$580**   | **$1420** |</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Лайфхак:</strong> По мере бронирования обновляйте файлы через ИИ: "Я забронировал отель в Тбилиси за $45/ночь на booking.com. Обнови budget.md и bookings.md". ИИ сразу пересчитает остатки бюджета.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Продвинутые приёмы -->
+        <section class="card">
+          <div class="card-header">Продвинутые приёмы управления проектами</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#128200;</div>
+                <div>
+                  <strong>Еженедельные обзоры</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Каждую пятницу просите ИИ проанализировать весь проект и создать отчёт о прогрессе. Сохраняйте отчёты в notes/weekly/.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#128161;</div>
+                <div>
+                  <strong>Файл решений</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Ведите notes/decisions.md, где фиксируйте каждое важное решение с обоснованием. Это поможет не забыть, почему вы выбрали именно этот путь.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#128679;</div>
+                <div>
+                  <strong>Управление рисками</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Попросите ИИ проанализировать проект на возможные риски и создать файл risks.md с планами их минимизации.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#128196;</div>
+                <div>
+                  <strong>Шаблоны для новых проектов</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Создайте папку-шаблон project-template/ с пустыми файлами. При начале нового проекта просто копируйте её.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт для анализа рисков</span>
+              </div>
+              <pre><code>Проанализируй мой проект (README.md, tasks.md, timeline.md)
+и определи:
+1. Топ-5 рисков, которые могут помешать завершению в срок
+2. Для каждого риска:
+   - Вероятность (высокая/средняя/низкая)
+   - Влияние на проект
+   - План минимизации
+3. Общая оценка: успею ли я завершить проект в срок?
+
+Сохрани в risks.md</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Практическое задание -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практическое задание</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;"><strong>Создайте проект для одной из ваших реальных целей.</strong> Выберите что-то актуальное &mdash; путешествие, обучение, карьерный переход, запуск проекта.</p>
+
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex4-1"></span>
+                <span class="checklist-text">Создать папку проекта и открыть в Cursor</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex4-2"></span>
+                <span class="checklist-text">С помощью ИИ создать README.md с описанием цели и критериев успеха</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex4-3"></span>
+                <span class="checklist-text">Декомпозировать цель на этапы и задачи в tasks.md</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex4-4"></span>
+                <span class="checklist-text">Создать timeline.md с конкретными датами</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex4-5"></span>
+                <span class="checklist-text">Создать budget.md (если применимо к вашему проекту)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex4-6"></span>
+                <span class="checklist-text">Попросить ИИ проанализировать проект и дать рекомендации</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex4-7"></span>
+                <span class="checklist-text">Отметить 2-3 задачи как выполненные и попросить обзор прогресса</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson4">
+              <p><strong>Какой файл является "фундаментом" проекта и помогает ИИ понять контекст?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">tasks.md</div>
+                <div class="quiz-option" data-correct="true">README.md</div>
+                <div class="quiz-option" data-correct="false">timeline.md</div>
+                <div class="quiz-option" data-correct="false">budget.md</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson4-concept"></span>
+                <span class="checklist-text">Понял концепцию "проект = папка в Cursor"</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson4-structure"></span>
+                <span class="checklist-text">Знаю универсальную структуру папок проекта</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson4-decompose"></span>
+                <span class="checklist-text">Умею декомпозировать цели с помощью ИИ</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson4-track"></span>
+                <span class="checklist-text">Умею отслеживать прогресс через чеклисты</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson4-practice"></span>
+                <span class="checklist-text">Создал реальный проект в Cursor</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="card">
+          <div class="card-header">Домашнее задание</div>
+          <div class="card-body">
+            <p><strong>Создайте проект "Планирование путешествия" для реальной поездки, которую вы хотите совершить:</strong></p>
+            <ul style="margin: 1rem 0 1rem 1.5rem;">
+              <li>Полная структура проекта (README, tasks, timeline, budget)</li>
+              <li>Маршрут по дням с активностями</li>
+              <li>Бюджет с разбивкой по категориям</li>
+              <li>Список вещей для упаковки</li>
+              <li>Файл с бронированиями (что и где забронировать)</li>
+            </ul>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Используйте ИИ для генерации всех файлов, а затем адаптируйте под свои предпочтения.</p>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-3.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Chat — ИИ на каждый день</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="4">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-5.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Composer — документы и планы</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

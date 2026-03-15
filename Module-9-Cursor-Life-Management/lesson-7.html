@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.7: Cmd+K — быстрые команды продуктивности | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item active" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.7</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.7</span>
+            <span class="lesson-duration">⏱ 1 час</span>
+          </div>
+          <h1 class="lesson-title">Cmd+K — быстрые команды продуктивности</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Мгновенное редактирование текста, планов и данных без открытия чата
+          </p>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Цель урока:</strong> Научить студентов использовать Cmd+K как самый быстрый инструмент для точечного редактирования текстов, планов и данных прямо на месте.</p>
+            <p><strong>Ключевой момент:</strong> Cmd+K идеально подходит для локальных правок. Студенты должны понять разницу между Cmd+K, Chat и Composer и выбирать правильный инструмент под задачу.</p>
+            <p><strong>Практика:</strong> Подготовьте несколько текстов разного типа (письмо, список задач, таблица) и проработайте Cmd+K на каждом из них.</p>
+          </div>
+        </div>
+
+        <!-- What is Cmd+K -->
+        <section class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">Что такое Cmd+K?</div>
+          <div class="card-body">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+              <strong>Cmd+K</strong> (или Ctrl+K на Windows) — это самый быстрый способ изменить текст прямо на месте. Выделяете фрагмент, нажимаете Cmd+K, пишете команду — и текст мгновенно трансформируется.
+            </p>
+
+            <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+              <div style="text-align: center; font-size: 1.1rem;">
+                <strong>Выделяете текст</strong> → <strong>Cmd+K</strong> → <strong>Даёте команду</strong> → <strong>Готово!</strong>
+              </div>
+            </div>
+
+            <p style="margin-top: 1.5rem; opacity: 0.95;">
+              В отличие от Chat (диалог) и Composer (создание с нуля), Cmd+K работает точечно: вы указываете конкретный фрагмент и говорите, что с ним сделать. Никаких лишних шагов.
+            </p>
+          </div>
+        </section>
+
+        <!-- How to Use -->
+        <section class="card">
+          <div class="card-header">Как использовать Cmd+K</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Выделите текст</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Мышкой или Shift+стрелки. Можно выделить слово, абзац, список или весь документ</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Нажмите Cmd+K (Ctrl+K на Windows)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Появится компактное поле ввода прямо над выделенным текстом</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Напишите команду на естественном языке</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Например: "переписать формальнее", "сократить до 3 предложений", "перевести на английский"</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">4</div>
+                <div>
+                  <strong>Нажмите Enter и примите изменения</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">ИИ покажет diff (разницу). Нажмите Tab или кнопку Accept, чтобы применить</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Без выделения:</strong> Если не выделить текст, Cmd+K создаст новый текст в позиции курсора. Это удобно для быстрой вставки.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cmd+K for Texts -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Cmd+K для текстов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cmd+K превращает вас в мастера редактирования. Вот примеры команд для работы с текстами:</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"переписать формальным деловым тоном"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Превращает неформальный текст в деловое письмо. Идеально для рабочей переписки.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"сократить до 3 предложений, сохранив суть"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Убирает воду, оставляет ключевые мысли. Работает для длинных абзацев и описаний.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"перевести на английский"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Мгновенный перевод выделенного фрагмента. Работает с любыми языками.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"исправить грамматику и пунктуацию"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Автоматическая корректура. Исправляет ошибки, не меняя смысл.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"сделать более убедительным"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Усиливает аргументацию, добавляет уверенности. Полезно для презентаций и предложений.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"упростить для широкой аудитории"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Заменяет сложные термины простыми словами. Делает текст доступным.</p>
+              </div>
+            </div>
+
+            <div style="background: var(--bg-main); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+              <strong>Пример трансформации:</strong>
+              <div style="margin-top: 1rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="padding: 1rem; background: var(--bg-card); border-radius: 8px; border-left: 4px solid #EF4444;">
+                  <strong style="color: #EF4444; font-size: 0.85rem;">ДО (неформально):</strong>
+                  <p style="margin: 0.5rem 0 0; font-size: 0.9rem;">Привет! Слушай, мне нужно больше времени на проект, не успеваю. Давай сдвинем дедлайн?</p>
+                </div>
+                <div style="padding: 1rem; background: var(--bg-card); border-radius: 8px; border-left: 4px solid #10B981;">
+                  <strong style="color: #10B981; font-size: 0.85rem;">ПОСЛЕ (формально):</strong>
+                  <p style="margin: 0.5rem 0 0; font-size: 0.9rem;">Добрый день. В связи с увеличением объёма работ прошу рассмотреть возможность переноса срока сдачи проекта.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cmd+K for Plans -->
+        <section class="card">
+          <div class="card-header" style="background: #3B82F6; color: white;">Cmd+K для планов и списков</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Планы и списки задач — идеальная территория для Cmd+K. Вот что можно делать:</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"отсортировать по приоритету: критичные сверху"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">ИИ проанализирует задачи и перестроит список по важности.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"добавить реалистичные дедлайны к каждому пункту"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">ИИ оценит сложность каждой задачи и предложит сроки.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"конвертировать в Markdown-таблицу с колонками: задача, приоритет, дедлайн, статус"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Превращает обычный список в структурированную таблицу.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"разбить каждый пункт на подзадачи"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Декомпозирует крупные задачи на конкретные шаги.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"добавить чекбоксы Markdown к каждому пункту"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Превращает список в интерактивный чек-лист: - [ ] задача</p>
+              </div>
+            </div>
+
+            <div style="background: var(--bg-main); padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+              <strong>Пример: список в таблицу</strong>
+              <div class="code-block" style="margin-top: 1rem;">
+                <div class="code-block-header">
+                  <span class="code-block-lang">До: простой список</span>
+                </div>
+                <pre><code>- Подготовить презентацию
+- Позвонить клиенту
+- Написать отчёт
+- Обновить сайт
+- Провести встречу с командой</code></pre>
+              </div>
+              <div class="code-block" style="margin-top: 1rem;">
+                <div class="code-block-header">
+                  <span class="code-block-lang">После: Cmd+K "конвертировать в таблицу с приоритетами и дедлайнами"</span>
+                </div>
+                <pre><code>| Задача                      | Приоритет | Дедлайн    | Статус     |
+|-----------------------------|-----------|------------|------------|
+| Позвонить клиенту           | Высокий   | Сегодня    | - [ ]      |
+| Провести встречу с командой | Высокий   | Завтра     | - [ ]      |
+| Подготовить презентацию     | Средний   | Пятница    | - [ ]      |
+| Написать отчёт              | Средний   | Пятница    | - [ ]      |
+| Обновить сайт               | Низкий    | След. нед. | - [ ]      |</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cmd+K for Data -->
+        <section class="card">
+          <div class="card-header" style="background: #F59E0B; color: white;">Cmd+K для данных</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cmd+K отлично справляется с быстрой обработкой данных прямо в редакторе:</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"преобразовать JSON в читаемую Markdown-таблицу"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Превращает сырые данные в удобный для чтения формат.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"извлечь ключевые тезисы из этого текста"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Из длинного текста создаёт краткий список главных идей.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"создать executive summary на основе этих данных"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Из набора фактов и цифр формирует связное резюме для руководства.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"преобразовать в CSV-формат"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Конвертирует таблицу или список в формат для Excel/Google Sheets.</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="color: var(--primary);">"добавить итоги и средние значения"</code>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Для числовых данных рассчитывает суммы и статистику.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Cmd+K vs Chat vs Composer -->
+        <section class="card">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Cmd+K vs Chat vs Composer: когда что использовать</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Три мощных инструмента в Cursor — каждый для своей задачи. Вот как выбирать:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Характеристика</th>
+                    <th>Cmd+K</th>
+                    <th>Chat</th>
+                    <th>Composer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Лучше всего для</strong></td>
+                    <td>Точечное редактирование выделенного фрагмента</td>
+                    <td>Вопросы, обсуждения, анализ</td>
+                    <td>Создание и редактирование нескольких файлов</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Скорость</strong></td>
+                    <td>Мгновенно</td>
+                    <td>Средняя</td>
+                    <td>Медленнее, но мощнее</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Контекст</strong></td>
+                    <td>Только выделенный текст</td>
+                    <td>Текущий файл + подключённые</td>
+                    <td>Весь проект</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Результат</strong></td>
+                    <td>Изменяет текст на месте</td>
+                    <td>Ответ в панели чата</td>
+                    <td>Изменения в файлах проекта</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Пример задачи</strong></td>
+                    <td>Переписать абзац формальнее</td>
+                    <td>Как лучше структурировать план?</td>
+                    <td>Создать систему из 5 файлов</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Горячая клавиша</strong></td>
+                    <td>Cmd+K / Ctrl+K</td>
+                    <td>Cmd+L / Ctrl+L</td>
+                    <td>Cmd+I / Ctrl+I</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Правило выбора:</strong> Нужно быстро изменить конкретный кусок текста? Cmd+K. Нужно обсудить или спросить? Chat. Нужно создать что-то масштабное? Composer.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Hotkeys Master -->
+        <section class="card">
+          <div class="card-header">Горячие клавиши мастера продуктивности</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Запомните эти сочетания — они сэкономят вам часы работы:</p>
+
+            <div style="display: grid; gap: 0.75rem;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+K / Ctrl+K</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Быстрое редактирование (Inline Edit)</p>
+                </div>
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+L / Ctrl+L</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Открыть AI Chat</p>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+I / Ctrl+I</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Открыть Composer</p>
+                </div>
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+Shift+K</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Удалить строку целиком</p>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+D</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Выделить следующее совпадение слова</p>
+                </div>
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+Shift+L</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Выделить все совпадения слова</p>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Alt+Up / Alt+Down</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Переместить строку вверх/вниз</p>
+                </div>
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+Shift+P</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Палитра команд (все действия)</p>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+P</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Быстрое открытие файла по имени</p>
+                </div>
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+B</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Скрыть/показать боковую панель</p>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+Z / Cmd+Shift+Z</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Отменить / Повторить действие</p>
+                </div>
+                <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                  <strong>Cmd+S</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary); font-size: 0.9rem;">Сохранить файл</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-warning" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <div>
+                <strong>На Windows:</strong> Везде, где написано Cmd, используйте Ctrl. Например: Ctrl+K, Ctrl+L, Ctrl+I.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Practice: 10 exercises -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практика: 10 упражнений на Cmd+K</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Выполните все 10 упражнений. Для каждого создайте текст в файле, выделите его и примените Cmd+K.</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #3B82F6;">
+                <strong>Упражнение 1: Формальное письмо</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Напишите неформальное сообщение коллеге. Выделите его → Cmd+K → "переписать как деловое письмо"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #3B82F6;">
+                <strong>Упражнение 2: Сокращение</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Напишите длинный абзац (5-6 предложений). Выделите → Cmd+K → "сократить до 2 предложений"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #3B82F6;">
+                <strong>Упражнение 3: Перевод</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Напишите абзац на русском. Выделите → Cmd+K → "перевести на английский"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>Упражнение 4: Список в таблицу</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Создайте маркированный список из 5 задач. Выделите → Cmd+K → "конвертировать в Markdown-таблицу"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>Упражнение 5: Приоритизация</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Список из 7 задач в случайном порядке. Выделите → Cmd+K → "отсортировать по приоритету"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>Упражнение 6: Дедлайны</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Список задач без дат. Выделите → Cmd+K → "добавить реалистичные дедлайны начиная с сегодня"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <strong>Упражнение 7: Грамматика</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Напишите текст с намеренными ошибками. Выделите → Cmd+K → "исправить грамматику и пунктуацию"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <strong>Упражнение 8: Извлечение тезисов</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Вставьте длинный текст (можно из интернета). Выделите → Cmd+K → "извлечь 5 ключевых тезисов"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <strong>Упражнение 9: Смена тона</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Напишите серьёзный текст. Выделите → Cmd+K → "переписать с юмором". Затем → "переписать вдохновляюще"</p>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <strong>Упражнение 10: Конвертация формата</strong>
+                <p style="margin: 0.5rem 0 0; color: var(--text-secondary);">Создайте простую таблицу в Markdown. Выделите → Cmd+K → "конвертировать в CSV-формат"</p>
+              </div>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> После каждого Cmd+K вы можете отменить изменения через Cmd+Z. Экспериментируйте без страха!
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson7">
+              <p><strong>Когда лучше использовать Cmd+K вместо Chat?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Когда нужно задать вопрос об ИИ</div>
+                <div class="quiz-option" data-correct="true">Когда нужно быстро изменить выделенный фрагмент текста</div>
+                <div class="quiz-option" data-correct="false">Когда нужно создать несколько файлов одновременно</div>
+                <div class="quiz-option" data-correct="false">Когда нужно обсудить стратегию проекта</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson7-know"></span>
+                <span class="checklist-text">Знаю, как работает Cmd+K: выделить текст, нажать Cmd+K, ввести команду</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson7-texts"></span>
+                <span class="checklist-text">Попробовал Cmd+K для редактирования текстов (формальность, сокращение, перевод)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson7-plans"></span>
+                <span class="checklist-text">Попробовал Cmd+K для работы с планами (приоритеты, дедлайны, таблицы)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson7-data"></span>
+                <span class="checklist-text">Попробовал Cmd+K для обработки данных (форматы, извлечение, саммари)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson7-compare"></span>
+                <span class="checklist-text">Понимаю разницу между Cmd+K, Chat и Composer</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson7-hotkeys"></span>
+                <span class="checklist-text">Запомнил основные горячие клавиши</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="card">
+          <div class="card-header">Домашнее задание</div>
+          <div class="card-body">
+            <p>Подготовьте документ-портфолио своих навыков Cmd+K:</p>
+            <ol style="margin: 1rem 0 1rem 1.5rem;">
+              <li style="margin-bottom: 0.5rem;">Создайте файл <code>cmd-k-portfolio.md</code></li>
+              <li style="margin-bottom: 0.5rem;">Напишите неформальное описание 3 своих профессиональных навыков</li>
+              <li style="margin-bottom: 0.5rem;">Через Cmd+K превратите каждое описание в формальный пункт резюме</li>
+              <li style="margin-bottom: 0.5rem;">Создайте список из 10 задач на неделю и через Cmd+K конвертируйте в таблицу с приоритетами</li>
+              <li style="margin-bottom: 0.5rem;">Переведите 2 абзаца на английский через Cmd+K</li>
+              <li>Запишите, какие команды вы использовали и какие понравились больше всего</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-6.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Автоматизация процессов</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="7">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-8.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Файлы и данные</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

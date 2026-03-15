@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.2: Установка и настройка Cursor | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item active" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.2</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.2</span>
+            <span class="lesson-duration">⏱ 2 часа</span>
+          </div>
+          <h1 class="lesson-title">Установка и настройка Cursor</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Устанавливаем Cursor, создаём рабочее пространство "Моя жизнь" и настраиваем ИИ под себя
+          </p>
+        </div>
+
+        <!-- Teacher Note -->
+        <div class="teacher-note">
+          <div class="teacher-note-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+            Заметка для преподавателя
+          </div>
+          <div class="teacher-note-content">
+            <p><strong>Цель урока:</strong> Каждый студент должен установить Cursor, создать рабочее пространство с папками и написать свой первый .cursorrules файл.</p>
+            <p><strong>Важно:</strong> Показывайте экран и делайте медленно. Помогайте тем, у кого проблемы с установкой. Убедитесь, что все выбрали ИИ-модель и могут открыть чат.</p>
+          </div>
+        </div>
+
+        <!-- Section 1: Installation -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Шаг 1: Установка Cursor</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              <strong>Cursor</strong> — это редактор на базе VS Code со встроенным ИИ-ассистентом. Установка занимает 5 минут на любой системе.
+            </p>
+
+            <div class="alert alert-info">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Официальный сайт:</strong> <a href="https://cursor.sh" target="_blank" style="color: inherit; font-weight: bold;">cursor.sh</a>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Установка на Windows:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Перейдите на cursor.sh и нажмите "Download"</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Сайт автоматически определит Windows и предложит .exe файл</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Запустите установщик CursorSetup.exe</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Следуйте стандартному процессу: Next → Next → Install</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Запустите Cursor из меню Пуск</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Cursor появится в списке программ после установки</p>
+                </div>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Установка на Mac:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Скачайте .dmg файл с cursor.sh</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Сайт предложит версию для вашего процессора (Intel или Apple Silicon)</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Откройте .dmg и перетащите Cursor в Applications</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Стандартная установка для Mac — drag & drop в папку Applications</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #667eea; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Запустите из Launchpad или Spotlight (Cmd+Space → "Cursor")</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">При первом запуске Mac может попросить разрешение — нажмите "Открыть"</p>
+                </div>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Установка на Linux:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #F59E0B; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Скачайте .AppImage файл с cursor.sh</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Для Debian/Ubuntu также доступен .deb пакет</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: #F59E0B; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Сделайте файл исполняемым и запустите</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">chmod +x Cursor.AppImage && ./Cursor.AppImage</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-warning" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <div>
+                <strong>Регистрация:</strong> При первом запуске создайте аккаунт (можно через Google). Бесплатный план включает 2000 запросов к ИИ в месяц — этого достаточно для обучения.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Interface Overview -->
+        <section class="card">
+          <div class="card-header">Шаг 2: Обзор интерфейса</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Разберём основные области Cursor. Интерфейс на английском, но мы объясним каждый элемент:</p>
+
+            <div class="service-cards">
+              <div class="service-card">
+                <div class="service-card-icon">📁</div>
+                <h4 class="service-card-title">Explorer (левая панель)</h4>
+                <p class="service-card-desc">
+                  <strong>Ваши файлы и папки</strong><br>
+                  Здесь отображается структура проекта. Кликайте на файлы, чтобы открыть их в редакторе. Правый клик — создание новых файлов и папок.
+                </p>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card-icon">📝</div>
+                <h4 class="service-card-title">Editor (центр)</h4>
+                <p class="service-card-desc">
+                  <strong>Основная рабочая область</strong><br>
+                  Здесь вы редактируете файлы — текст, заметки, планы. Можно открыть несколько файлов во вкладках и работать с ними параллельно.
+                </p>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card-icon">🤖</div>
+                <h4 class="service-card-title">AI Chat (правая панель)</h4>
+                <p class="service-card-desc">
+                  <strong>Ваш ИИ-ассистент</strong><br>
+                  Открывается по Cmd+L. Сюда вы пишете запросы к ИИ. Он видит ваши открытые файлы и может работать с контекстом проекта.
+                </p>
+              </div>
+
+              <div class="service-card">
+                <div class="service-card-icon">⌨️</div>
+                <h4 class="service-card-title">Terminal (нижняя панель)</h4>
+                <p class="service-card-desc">
+                  <strong>Командная строка</strong><br>
+                  Открывается по Ctrl+`. Полезна для запуска скриптов и автоматизации. Мы будем использовать её в продвинутых уроках.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3: AI Model Selection -->
+        <section class="card">
+          <div class="card-header">Шаг 3: Настройка ИИ-модели</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Cursor позволяет выбирать между разными ИИ-моделями. Каждая имеет свои сильные стороны:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Модель</th>
+                    <th>Сильные стороны</th>
+                    <th>Рекомендация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Claude 3.5 Sonnet</strong></td>
+                    <td>Глубокий анализ, длинные тексты, рассуждения</td>
+                    <td style="color: #10B981;">Отлично для планирования и анализа</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GPT-4o</strong></td>
+                    <td>Универсальность, креативность, скорость</td>
+                    <td style="color: #10B981;">Хорош для брейнсторминга и контента</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Claude 3.5 Haiku</strong></td>
+                    <td>Быстрые ответы, простые задачи</td>
+                    <td>Для быстрых вопросов и редактирования</td>
+                  </tr>
+                  <tr>
+                    <td><strong>GPT-4o Mini</strong></td>
+                    <td>Скорость, экономия запросов</td>
+                    <td>Для простых задач, если запросы ограничены</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Как выбрать модель:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">1</div>
+                <div>
+                  <strong>Откройте чат (Cmd+L / Ctrl+L)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">В нижней части окна чата вы увидите название текущей модели</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">2</div>
+                <div>
+                  <strong>Кликните на название модели</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Откроется выпадающий список с доступными моделями</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="width: 32px; height: 32px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; flex-shrink: 0;">3</div>
+                <div>
+                  <strong>Выберите Claude 3.5 Sonnet (рекомендуем для начала)</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Это лучшая модель для аналитических и текстовых задач</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> Вы можете менять модель для каждого запроса. Используйте Claude для анализа и планирования, GPT-4o для креативных задач.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4: Creating Workspace -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Шаг 4: Создаём рабочее пространство "Моя жизнь"</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              Сейчас мы создадим структуру папок, которая станет вашим цифровым центром управления жизнью. Это ваш "второй мозг" в Cursor.
+            </p>
+
+            <h4>Шаг 1: Создаём корневую папку</h4>
+            <ul style="margin: 1rem 0 1rem 1.5rem;">
+              <li>Создайте на рабочем столе (или в удобном месте) папку: <code>My-Life-System</code></li>
+              <li>В Cursor: File → Open Folder → выберите эту папку</li>
+            </ul>
+
+            <h4 style="margin-top: 1.5rem;">Шаг 2: Создаём структуру папок</h4>
+            <p>Создайте следующие папки через левую панель (правый клик → New Folder):</p>
+
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Структура папок</span>
+              </div>
+              <pre><code>My-Life-System/
+├── projects/          # Активные проекты и задачи
+├── notes/             # Заметки, идеи, конспекты
+├── plans/             # Планы: дневные, недельные, месячные, годовые
+├── templates/         # Шаблоны для повторяющихся задач
+├── data/              # Данные: бюджет, трекеры, списки
+├── journal/           # Дневник и рефлексия
+└── .cursorrules       # Системный промпт для ИИ (файл!)</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Шаг 3: Создаём первые файлы</h4>
+            <p>В каждой папке создайте стартовый файл:</p>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">📋</div>
+                <div>
+                  <strong>projects/active-projects.md</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Список текущих проектов с описанием и статусами</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">📓</div>
+                <div>
+                  <strong>plans/weekly-plan.md</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Шаблон недельного плана</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">💡</div>
+                <div>
+                  <strong>notes/ideas.md</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Место для быстрых идей и мыслей</p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">💰</div>
+                <div>
+                  <strong>data/budget.md</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Бюджет и учёт расходов</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5: .cursorrules -->
+        <section class="card">
+          <div class="card-header">Шаг 5: Настройка .cursorrules — ваш системный промпт</div>
+          <div class="card-body">
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+              Файл <code>.cursorrules</code> — это самая мощная функция Cursor для промпт-инженера. Это системный промпт, который ИИ читает при каждом обращении. Вы настраиваете его один раз — и ИИ всегда знает ваш контекст.
+            </p>
+
+            <h4>Создайте файл .cursorrules в корне проекта:</h4>
+
+            <div class="code-block" style="margin: 1rem 0;">
+              <div class="code-block-header">
+                <span class="code-block-lang">.cursorrules</span>
+              </div>
+              <pre><code># Системные инструкции для ИИ-ассистента
+
+## Кто я
+Ты — мой персональный ИИ-ассистент для управления жизнью и проектами.
+Ты помогаешь мне планировать, анализировать, принимать решения и
+организовывать информацию.
+
+## Как отвечать
+- Отвечай на русском языке
+- Будь конкретным и практичным
+- Предлагай структурированные решения (списки, таблицы)
+- Если задача сложная — разбивай на шаги
+- Используй Markdown-форматирование для читаемости
+- Всегда думай пошагово (Chain of Thought)
+
+## Контекст моей жизни
+- Папка /projects — мои активные проекты
+- Папка /plans — мои планы и цели
+- Папка /notes — заметки и идеи
+- Папка /data — данные, бюджет, трекеры
+- Папка /journal — дневник
+- Папка /templates — шаблоны
+
+## Правила работы
+- При планировании учитывай мои текущие проекты из /projects
+- При анализе ссылайся на конкретные файлы
+- Предлагай создавать новые файлы, если информацию стоит сохранить
+- Не удаляй информацию без моего подтверждения</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Это ваш системный промпт!</strong> Вспомните урок о System Prompts — здесь вы применяете те же принципы. ИИ будет следовать этим инструкциям в каждом диалоге, не нужно повторять контекст.
+              </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Важно:</strong> Файл .cursorrules должен быть именно в корне папки проекта (в My-Life-System, не внутри подпапок). Cursor автоматически его подхватит.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6: Keyboard Shortcuts -->
+        <section class="card">
+          <div class="card-header">Шаг 6: Горячие клавиши — ваши суперспособности</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Запомните эти 6 комбинаций — они покроют 90% ваших действий в Cursor:</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th>Mac</th>
+                    <th>Windows / Linux</th>
+                    <th>Зачем</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Открыть чат</strong></td>
+                    <td><code>Cmd + L</code></td>
+                    <td><code>Ctrl + L</code></td>
+                    <td>Основной способ общения с ИИ</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Открыть Composer</strong></td>
+                    <td><code>Cmd + I</code></td>
+                    <td><code>Ctrl + I</code></td>
+                    <td>Мультифайловое редактирование с ИИ</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Inline Edit (Cmd+K)</strong></td>
+                    <td><code>Cmd + K</code></td>
+                    <td><code>Ctrl + K</code></td>
+                    <td>Быстрое редактирование выделенного текста</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Палитра команд</strong></td>
+                    <td><code>Cmd + Shift + P</code></td>
+                    <td><code>Ctrl + Shift + P</code></td>
+                    <td>Доступ ко всем командам Cursor</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Сохранить файл</strong></td>
+                    <td><code>Cmd + S</code></td>
+                    <td><code>Ctrl + S</code></td>
+                    <td>Сохранить текущий файл</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Быстрый поиск файла</strong></td>
+                    <td><code>Cmd + P</code></td>
+                    <td><code>Ctrl + P</code></td>
+                    <td>Быстро найти и открыть любой файл в проекте</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Мнемоника:</strong> <strong>L</strong> = Chat (от "Language"), <strong>I</strong> = Composer (от "Instrument"), <strong>K</strong> = быстрое редактирование (от "Keyboard edit"). Потренируйтесь прямо сейчас — откройте и закройте каждую панель 3 раза.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Additional Settings -->
+        <section class="card">
+          <div class="card-header">Дополнительные настройки для комфорта</div>
+          <div class="card-body">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Настройка</th>
+                    <th>Где найти</th>
+                    <th>Рекомендация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Тема оформления</strong></td>
+                    <td>Cmd+Shift+P → "Color Theme"</td>
+                    <td>Выберите тёмную или светлую по вкусу</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Размер шрифта</strong></td>
+                    <td>Settings → Font Size</td>
+                    <td>14-16 px для комфортного чтения</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Автосохранение</strong></td>
+                    <td>File → Auto Save</td>
+                    <td>Обязательно включите! Никогда не потеряете работу</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Перенос строк</strong></td>
+                    <td>View → Word Wrap</td>
+                    <td>Включите — текст не будет уходить за экран</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Язык интерфейса</strong></td>
+                    <td>Cmd+Shift+P → "Display Language"</td>
+                    <td>Можно установить русский через расширение</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson2-q1">
+              <p><strong>Какая горячая клавиша открывает ИИ-чат в Cursor?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Cmd + K / Ctrl + K</div>
+                <div class="quiz-option" data-correct="true">Cmd + L / Ctrl + L</div>
+                <div class="quiz-option" data-correct="false">Cmd + I / Ctrl + I</div>
+                <div class="quiz-option" data-correct="false">Cmd + P / Ctrl + P</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+
+            <div class="quiz" data-quiz="lesson2-q2" style="margin-top: 2rem;">
+              <p><strong>Для чего нужен файл .cursorrules?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Для настройки внешнего вида Cursor</div>
+                <div class="quiz-option" data-correct="false">Для хранения горячих клавиш</div>
+                <div class="quiz-option" data-correct="true">Это системный промпт, который ИИ читает при каждом обращении</div>
+                <div class="quiz-option" data-correct="false">Для хранения паролей</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson2-install"></span>
+                <span class="checklist-text">Установил Cursor на компьютер</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson2-account"></span>
+                <span class="checklist-text">Создал аккаунт и вошёл в систему</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson2-interface"></span>
+                <span class="checklist-text">Понял расположение основных панелей (Explorer, Editor, Chat, Terminal)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson2-model"></span>
+                <span class="checklist-text">Выбрал ИИ-модель (Claude 3.5 Sonnet рекомендуется)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson2-workspace"></span>
+                <span class="checklist-text">Создал рабочее пространство My-Life-System с папками</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson2-cursorrules"></span>
+                <span class="checklist-text">Написал свой .cursorrules файл</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson2-shortcuts"></span>
+                <span class="checklist-text">Запомнил 6 горячих клавиш (Cmd+L, Cmd+I, Cmd+K, Cmd+Shift+P, Cmd+S, Cmd+P)</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Practice -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практическое задание</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;"><strong>Выполните все шаги:</strong></p>
+            <ul style="margin: 0 0 1.5rem 1.5rem;">
+              <li>Установите Cursor, если ещё не установили</li>
+              <li>Создайте папку My-Life-System со всей структурой</li>
+              <li>Напишите свой .cursorrules — адаптируйте пример под себя (добавьте информацию о ваших целях, предпочтениях, стиле общения)</li>
+              <li>Откройте чат (Cmd+L) и напишите: "Привет! Расскажи, что ты знаешь обо мне из .cursorrules"</li>
+              <li>Попробуйте все 6 горячих клавиш — откройте и закройте каждую панель</li>
+              <li>Настройте тему, шрифт и автосохранение</li>
+            </ul>
+
+            <div class="alert alert-warning">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              <div>
+                <strong>Подготовка к следующему уроку:</strong> На следующем занятии мы будем активно использовать чат Cursor. Убедитесь, что ваше рабочее пространство готово и .cursorrules написан.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-1.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Зачем промпт-инженеру Cursor</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="2">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-3.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Chat — ИИ на каждый день</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

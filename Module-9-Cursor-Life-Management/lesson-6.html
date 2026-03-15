@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.6: Автоматизация рутинных процессов | Prompt Engineering</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Prompt Engineering
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item active" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.6</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.6</span>
+            <span class="lesson-duration">⏱ 1.5 часа</span>
+          </div>
+          <h1 class="lesson-title">Автоматизация рутинных процессов</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Делегируем повторяющиеся задачи ИИ и простым скриптам &mdash; без навыков программирования
+          </p>
+        </div>
+
+        <!-- Что можно автоматизировать -->
+        <section class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">Что можно автоматизировать через Cursor</div>
+          <div class="card-body">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+              Если вы делаете что-то больше двух раз &mdash; это можно автоматизировать. Cursor позволяет создавать простые скрипты и шаблоны даже без опыта программирования. Вы описываете задачу словами, а ИИ создаёт решение.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128221;</div>
+                <strong>Обработка текстов</strong>
+                <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">
+                  Форматирование, перевод, рерайт, извлечение данных, генерация из шаблонов
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128202;</div>
+                <strong>Генерация отчётов</strong>
+                <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">
+                  Еженедельные обзоры, аналитика, подведение итогов, сводки
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#9993;&#65039;</div>
+                <strong>Шаблоны писем</strong>
+                <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">
+                  Холодные письма, ответы клиентам, рассылки, уведомления
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128260;</div>
+                <strong>Конвертация форматов</strong>
+                <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">
+                  CSV в Markdown-таблицы, списки в чеклисты, данные в отчёты
+                </p>
+              </div>
+            </div>
+
+            <p style="margin-top: 1.5rem; font-size: 1.05rem; opacity: 0.95;">
+              Ключевая мысль: вам не нужно быть программистом. Вы просите Cursor создать скрипт, а он делает всё за вас. Вам остаётся лишь запустить его.
+            </p>
+          </div>
+        </section>
+
+        <!-- Скрипты без программирования -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Скрипты без программирования</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Cursor может написать для вас простой скрипт на Python, который выполнит рутинную задачу. Вам не нужно понимать код &mdash; достаточно описать, что нужно сделать.</p>
+
+            <h4>Пример 1: Переименование файлов</h4>
+            <p style="color: var(--text-secondary); margin: 0.25rem 0 1rem;">У вас 50 фотографий с названиями IMG_2847.jpg, IMG_2848.jpg... Хотите переименовать в "Грузия-день1-001.jpg"</p>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Chat</span>
+              </div>
+              <pre><code>Напиши Python-скрипт, который:
+1. Берёт все .jpg файлы из папки photos/
+2. Сортирует их по дате создания
+3. Переименовывает по шаблону:
+   "Грузия-день{N}-{номер}.jpg"
+   где N — день (каждые 24 часа = новый день),
+   номер — порядковый номер фото за день (001, 002...)
+4. Выводит на экран: было → стало
+
+Сохрани скрипт как rename-photos.py
+Я не программист — добавь комментарии
+и инструкцию как запустить.</code></pre>
+            </div>
+
+            <div class="code-block" style="margin-top: 1rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Результат: rename-photos.py (упрощённо)</span>
+              </div>
+              <pre><code># Скрипт для переименования фотографий
+# Как запустить: откройте терминал в Cursor и введите:
+#   python rename-photos.py
+
+import os
+from datetime import datetime
+
+# Папка с фотографиями
+PHOTO_DIR = "photos/"
+# Шаблон имени
+PREFIX = "Грузия"
+
+# Получаем список файлов .jpg
+files = [f for f in os.listdir(PHOTO_DIR) if f.endswith('.jpg')]
+
+# Сортируем по дате создания
+files.sort(key=lambda f: os.path.getmtime(os.path.join(PHOTO_DIR, f)))
+
+# Переименовываем
+day = 1
+counter = 1
+prev_date = None
+
+for file in files:
+    filepath = os.path.join(PHOTO_DIR, file)
+    file_date = datetime.fromtimestamp(os.path.getmtime(filepath)).date()
+
+    if prev_date and file_date != prev_date:
+        day += 1
+        counter = 1
+
+    new_name = f"{PREFIX}-день{day}-{counter:03d}.jpg"
+    print(f"  {file} → {new_name}")
+
+    os.rename(filepath, os.path.join(PHOTO_DIR, new_name))
+    counter += 1
+    prev_date = file_date
+
+print(f"\nГотово! Переименовано {len(files)} файлов.")</code></pre>
+            </div>
+
+            <h4 style="margin-top: 2rem;">Пример 2: Обработка CSV-файла</h4>
+            <p style="color: var(--text-secondary); margin: 0.25rem 0 1rem;">У вас есть таблица расходов в CSV. Нужно посчитать итоги по категориям.</p>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Chat</span>
+              </div>
+              <pre><code>У меня есть файл expenses.csv с колонками:
+дата, категория, описание, сумма
+
+Напиши скрипт, который:
+1. Читает этот CSV-файл
+2. Считает общую сумму расходов
+3. Группирует по категориям и считает
+   сумму по каждой категории
+4. Находит топ-3 самых дорогих покупки
+5. Создаёт красивый отчёт в файле
+   expense-report.md с таблицами
+
+Добавь инструкцию как запустить.</code></pre>
+            </div>
+
+            <h4 style="margin-top: 2rem;">Пример 3: Генерация отчёта из данных</h4>
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Chat</span>
+              </div>
+              <pre><code>Напиши скрипт, который:
+1. Читает файл sales-data.csv (дата, товар, количество, цена)
+2. Генерирует ежемесячный отчёт в Markdown:
+   - Общая выручка за месяц
+   - Топ-5 товаров по выручке
+   - Динамика продаж по неделям
+   - Средний чек
+3. Сохраняет отчёт как report-{месяц}-{год}.md
+
+Я хочу запускать этот скрипт каждый месяц.</code></pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Не бойтесь:</strong> Вам не нужно понимать код. Cursor напишет скрипт, объяснит как его запустить, и вы будете использовать его как кнопку: нажал &mdash; получил результат. Если что-то пойдёт не так, просто скажите ИИ: "Скрипт выдал ошибку: [текст ошибки]" &mdash; и он исправит.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Шаблоны для повторяющихся задач -->
+        <section class="card">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Промпт-шаблоны для повторяющихся задач</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">
+              Промпт-шаблон &mdash; это заранее подготовленный запрос к ИИ, который вы используете снова и снова, подставляя новые данные. Храните шаблоны в .md файлах прямо в проекте.
+            </p>
+
+            <h4>Шаблон 1: Генерация email-ответов</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">templates/email-reply.md</span>
+              </div>
+              <pre><code># Шаблон: Ответ на email клиента
+
+## Инструкция
+Скопируй этот промпт в Chat, заменив данные в [скобках].
+
+## Промпт
+Напиши профессиональный ответ на email от клиента.
+
+Контекст:
+- Имя клиента: [имя]
+- Суть запроса: [о чём пишет клиент]
+- Наша позиция: [что мы можем предложить/ответить]
+- Тон: дружелюбный, но профессиональный
+
+Требования:
+- Обращение по имени
+- Благодарность за обращение
+- Ответ по существу
+- Предложение следующего шага
+- Подпись: [ваше имя, должность]
+
+Длина: 5-8 предложений.</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Шаблон 2: Описание товара</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">templates/product-description.md</span>
+              </div>
+              <pre><code># Шаблон: Описание товара для маркетплейса
+
+## Промпт
+Напиши описание товара для карточки на маркетплейсе.
+
+Данные о товаре:
+- Название: [название]
+- Категория: [категория]
+- Основные характеристики: [список]
+- Целевая аудитория: [для кого]
+- Ценовой сегмент: [эконом/средний/премиум]
+
+Создай:
+1. Заголовок (до 80 символов, с ключевыми словами)
+2. Краткое описание (2-3 предложения)
+3. Полное описание с буллетами (5-7 преимуществ)
+4. Список SEO-ключевых слов (10 штук)
+5. 3 варианта рекламного текста для соцсетей</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Шаблон 3: Еженедельный обзор</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">templates/weekly-review.md</span>
+              </div>
+              <pre><code># Шаблон: Еженедельный обзор проекта
+
+## Промпт
+Проведи еженедельный обзор моего проекта.
+
+Проанализируй файлы:
+- README.md (цели и контекст)
+- tasks.md (задачи и их статусы)
+- timeline.md (сроки)
+- budget.md (бюджет)
+
+Создай отчёт в notes/weekly/week-[номер].md:
+
+1. **Выполнено за неделю:**
+   список завершённых задач из tasks.md
+
+2. **Прогресс:** X% задач выполнено
+
+3. **Отклонения от плана:**
+   какие задачи просрочены или под угрозой
+
+4. **Фокус на следующую неделю:**
+   топ-5 приоритетных задач
+
+5. **Проблемы и решения:**
+   что мешает и как исправить
+
+6. **Бюджет:** сколько потрачено / осталось</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Идея:</strong> Создайте папку templates/ в каждом проекте и складывайте туда свои проверенные промпт-шаблоны. Со временем у вас накопится библиотека, которая сэкономит часы работы.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Пакетная обработка -->
+        <section class="card">
+          <div class="card-header">Пакетная обработка файлов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Одно из самых мощных применений автоматизации &mdash; обработка множества файлов за раз. Вместо того чтобы работать с каждым файлом по отдельности, вы даёте одну команду.</p>
+
+            <h4>Сценарий 1: Генерация серии постов</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Composer</span>
+              </div>
+              <pre><code>У меня есть файл topics.md со списком из 10 тем
+для блога. Для каждой темы создай отдельный файл
+в папке posts/:
+
+posts/01-тема.md
+posts/02-тема.md
+...
+
+Каждый файл должен содержать:
+- Заголовок поста
+- Краткое описание (для превью)
+- Полный текст поста (300-500 слов)
+- 5 хештегов
+- Призыв к действию в конце</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Сценарий 2: Создание серии писем</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Composer</span>
+              </div>
+              <pre><code>Создай email-воронку из 5 писем для нового клиента
+онлайн-курса по фотографии. Каждое письмо
+в отдельном файле:
+
+emails/01-welcome.md — приветственное письмо
+emails/02-day3-tips.md — полезные советы (день 3)
+emails/03-day5-case.md — история успеха ученика (день 5)
+emails/04-day7-offer.md — специальное предложение (день 7)
+emails/05-day10-last.md — последний шанс (день 10)
+
+Для каждого письма:
+- Тема (subject line) — 3 варианта
+- Текст письма
+- Призыв к действию (CTA)</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Сценарий 3: Конвертация данных</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Промпт в Chat</span>
+              </div>
+              <pre><code>У меня есть файл contacts.csv с колонками:
+имя, email, компания, должность, заметки
+
+Конвертируй его в:
+1. contacts.md — красиво оформленная таблица в Markdown
+2. contacts-by-company.md — контакты сгруппированные
+   по компаниям
+3. vip-contacts.md — только те, у кого в заметках
+   написано "VIP"</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Терминал в Cursor -->
+        <section class="card">
+          <div class="card-header" style="background: #374151; color: white;">Терминал в Cursor: базовые команды</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">В Cursor есть встроенный терминал (открывается через <code>Ctrl+`</code> или <code>Cmd+`</code>). Через него вы запускаете скрипты. Вот самые базовые команды, которые нужно знать:</p>
+
+            <div class="table-container" style="margin-top: 1rem;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Команда</th>
+                    <th>Что делает</th>
+                    <th>Пример</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code>ls</code></td>
+                    <td>Показать список файлов в папке</td>
+                    <td><code>ls photos/</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>cd</code></td>
+                    <td>Перейти в папку</td>
+                    <td><code>cd my-project/</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>mkdir</code></td>
+                    <td>Создать папку</td>
+                    <td><code>mkdir notes</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>cp</code></td>
+                    <td>Скопировать файл</td>
+                    <td><code>cp file.md backup/</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>mv</code></td>
+                    <td>Переместить/переименовать</td>
+                    <td><code>mv old.md new.md</code></td>
+                  </tr>
+                  <tr>
+                    <td><code>python script.py</code></td>
+                    <td>Запустить Python-скрипт</td>
+                    <td><code>python rename-photos.py</code></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> Если не знаете, какую команду ввести &mdash; просто спросите в Chat: "Как мне запустить скрипт rename-photos.py?" ИИ подскажет точную команду для вашей операционной системы.
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Как запустить скрипт пошагово:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #374151;">
+                <div style="background: #374151; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                <div>
+                  <strong>Попросите ИИ написать скрипт</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Опишите задачу в Chat. ИИ создаст файл .py с комментариями и инструкцией.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #374151;">
+                <div style="background: #374151; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                <div>
+                  <strong>Откройте терминал</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Нажмите <code>Ctrl+`</code> (Mac: <code>Cmd+`</code>) &mdash; внизу откроется панель терминала.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #374151;">
+                <div style="background: #374151; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                <div>
+                  <strong>Введите команду запуска</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Обычно это <code>python имя_скрипта.py</code>. Нажмите Enter.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #374151;">
+                <div style="background: #374151; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
+                <div>
+                  <strong>Если ошибка &mdash; скопируйте её в Chat</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">ИИ объяснит причину и исправит скрипт. Обычно хватает 1-2 итераций.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Примеры автоматизации из жизни -->
+        <section class="card">
+          <div class="card-header">Примеры автоматизации из реальной жизни</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1.5rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <h4 style="margin-bottom: 0.5rem;">&#128188; Фрилансер: выставление счетов</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Шаблон счёта в Markdown + скрипт, который подставляет данные клиента и сумму. Результат: генерация счёта за 30 секунд вместо 15 минут.</p>
+                <code style="font-size: 0.85rem; color: var(--accent);">Экономия: ~2 часа в месяц</code>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <h4 style="margin-bottom: 0.5rem;">&#128240; Блогер: подготовка постов</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Промпт-шаблон для генерации постов + пакетная генерация 30 постов на месяц. Ручная доработка каждого занимает 5 минут вместо 30.</p>
+                <code style="font-size: 0.85rem; color: var(--accent);">Экономия: ~12 часов в месяц</code>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <h4 style="margin-bottom: 0.5rem;">&#127891; Преподаватель: проверка работ</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Скрипт, который читает работы студентов из папки и генерирует обратную связь по заданным критериям. Преподаватель только проверяет и корректирует.</p>
+                <code style="font-size: 0.85rem; color: var(--accent);">Экономия: ~5 часов в месяц</code>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #EF4444;">
+                <h4 style="margin-bottom: 0.5rem;">&#128200; Маркетолог: еженедельный отчёт</h4>
+                <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">Шаблон обзора + ИИ анализирует данные проекта и генерирует отчёт. Маркетолог тратит 10 минут на проверку вместо 2 часов на написание.</p>
+                <code style="font-size: 0.85rem; color: var(--accent);">Экономия: ~7 часов в месяц</code>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Создание системы автоматизации -->
+        <section class="card">
+          <div class="card-header">Как построить свою систему автоматизации</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Подходите к автоматизации системно. Вот пошаговый план:</p>
+
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                <div>
+                  <strong>Определите повторяющиеся задачи</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">На протяжении недели записывайте всё, что вы делаете больше одного раза. Это кандидаты на автоматизацию.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                <div>
+                  <strong>Оцените потенциальную экономию</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Сколько времени каждая задача занимает сейчас? Сколько будет занимать с автоматизацией? Начните с самых "дорогих" по времени.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                <div>
+                  <strong>Создайте шаблоны и скрипты</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Для каждой задачи создайте промпт-шаблон или попросите ИИ написать скрипт. Храните всё в папке automation/.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
+                <div>
+                  <strong>Улучшайте итеративно</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">После каждого использования дорабатывайте шаблон. Через месяц ваша система автоматизации будет работать идеально.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Структура папки автоматизации</span>
+              </div>
+              <pre><code>automation/
+├── templates/              # Промпт-шаблоны
+│   ├── email-reply.md      # Ответы на email
+│   ├── post-generator.md   # Генерация постов
+│   ├── weekly-review.md    # Еженедельный обзор
+│   └── invoice.md          # Шаблон счёта
+├── scripts/                # Скрипты
+│   ├── rename-files.py     # Переименование файлов
+│   ├── csv-to-report.py    # CSV в отчёт
+│   └── batch-generate.py   # Пакетная генерация
+└── README.md               # Описание всех автоматизаций</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Практическое задание -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практическое задание</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;"><strong>Создайте 3 шаблона и 1 скрипт автоматизации для ваших реальных задач.</strong></p>
+
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex6-1"></span>
+                <span class="checklist-text">Создать папку automation/ с подпапками templates/ и scripts/</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex6-2"></span>
+                <span class="checklist-text">Создать шаблон для ответов на email (templates/email-reply.md)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex6-3"></span>
+                <span class="checklist-text">Создать шаблон для генерации постов (templates/post-generator.md)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex6-4"></span>
+                <span class="checklist-text">Создать шаблон для еженедельного обзора (templates/weekly-review.md)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex6-5"></span>
+                <span class="checklist-text">Попросить ИИ написать скрипт для одной из ваших рутинных задач</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex6-6"></span>
+                <span class="checklist-text">Запустить скрипт через терминал и проверить результат</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex6-7"></span>
+                <span class="checklist-text">Протестировать один шаблон на реальной задаче</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson6">
+              <p><strong>Что такое промпт-шаблон?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Скрипт на Python для обработки данных</div>
+                <div class="quiz-option" data-correct="true">Заранее подготовленный запрос к ИИ, в который подставляются новые данные</div>
+                <div class="quiz-option" data-correct="false">Настройка Cursor для автоматической работы</div>
+                <div class="quiz-option" data-correct="false">Плагин для Cursor, который автоматизирует задачи</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson6-what"></span>
+                <span class="checklist-text">Понял, что можно автоматизировать через Cursor</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson6-scripts"></span>
+                <span class="checklist-text">Умею просить ИИ написать скрипт и знаю как его запустить</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson6-templates"></span>
+                <span class="checklist-text">Создал промпт-шаблоны для повторяющихся задач</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson6-batch"></span>
+                <span class="checklist-text">Понял принцип пакетной обработки файлов</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson6-terminal"></span>
+                <span class="checklist-text">Знаю базовые команды терминала</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="card">
+          <div class="card-header">Домашнее задание</div>
+          <div class="card-body">
+            <p><strong>Проведите "аудит рутины" и автоматизируйте одну задачу:</strong></p>
+            <ul style="margin: 1rem 0 1rem 1.5rem;">
+              <li>Запишите 5 повторяющихся задач, которые вы делаете каждую неделю</li>
+              <li>Выберите одну из них и создайте для неё промпт-шаблон или скрипт</li>
+              <li>Протестируйте автоматизацию на реальных данных</li>
+              <li>Оцените: сколько времени экономит ваше решение</li>
+            </ul>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Цель &mdash; найти задачу, на которую вы тратите больше всего времени, и сократить его хотя бы вдвое.</p>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-5.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Composer — документы и планы</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="6">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-7.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Cmd+K продуктивность</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>

@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Урок 9.5: Composer — документы и планы | Промпт-инжиниринг 2.0</title>
+  <script src="js/auth-check.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/>
+          </svg>
+          Промпт-инжиниринг
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 13 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 9</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Зачем промпт-инженеру Cursor</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Установка и настройка</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>Chat — ИИ на каждый день</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Управление проектами</a>
+        <a href="lesson-5.html" class="nav-item active" data-lesson="5"><span class="nav-item-number">5</span>Composer — документы и планы</a>
+        <a href="lesson-6.html" class="nav-item" data-lesson="6"><span class="nav-item-number">6</span>Автоматизация процессов</a>
+        <a href="lesson-7.html" class="nav-item" data-lesson="7"><span class="nav-item-number">7</span>Cmd+K продуктивность</a>
+        <a href="lesson-8.html" class="nav-item" data-lesson="8"><span class="nav-item-number">8</span>Файлы и данные</a>
+        <a href="lesson-9.html" class="nav-item" data-lesson="9"><span class="nav-item-number">9</span>Системы и шаблоны</a>
+        <a href="lesson-10.html" class="nav-item" data-lesson="10"><span class="nav-item-number">10</span>Внешние интеграции</a>
+        <a href="lesson-11.html" class="nav-item" data-lesson="11"><span class="nav-item-number">11</span>Продвинутый промптинг</a>
+        <a href="lesson-12.html" class="nav-item" data-lesson="12"><span class="nav-item-number">12</span>Система продуктивности</a>
+        <a href="project.html" class="nav-item" data-lesson="13"><span class="nav-item-number">P</span>Итоговый проект</a>
+        <div class="nav-section" style="margin-top: 1rem;">Справочник</div>
+        <a href="glossary.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span>Глоссарий</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 9</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Урок 9.5</span>
+        </div>
+        <div class="header-actions">
+          <div class="timer">
+            <span class="timer-icon">⏱</span>
+            <span class="timer-display">00:00</span>
+            <button class="timer-btn" title="Запустить">▶</button>
+            <button class="timer-reset" title="Сбросить">↺</button>
+          </div>
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="lesson-header">
+          <div class="lesson-meta">
+            <span class="lesson-number">Урок 9.5</span>
+            <span class="lesson-duration">⏱ 2 часа</span>
+          </div>
+          <h1 class="lesson-title">Composer &mdash; создание документов и планов</h1>
+          <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.5rem;">
+            Мощный инструмент для создания и редактирования нескольких файлов одновременно
+          </p>
+        </div>
+
+        <!-- Что такое Composer -->
+        <section class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+          <div class="card-header" style="background: transparent; color: white; border-bottom-color: rgba(255,255,255,0.2);">Что такое Composer?</div>
+          <div class="card-body">
+            <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+              <strong>Composer</strong> (вызывается через <code style="background: rgba(255,255,255,0.2); color: white;">Cmd+I</code> на Mac или <code style="background: rgba(255,255,255,0.2); color: white;">Ctrl+I</code> на Windows) &mdash; это режим работы с ИИ, который позволяет <strong>создавать и редактировать сразу несколько файлов</strong> за один запрос. В отличие от Chat, который отвечает в окне диалога, Composer напрямую изменяет файлы в вашем проекте.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#128172;</div>
+                <strong>Chat (Cmd+L)</strong>
+                <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">
+                  Для обсуждений, вопросов, анализа. Результат появляется в окне чата. Вы сами решаете, что копировать в файлы.
+                </p>
+              </div>
+              <div style="background: rgba(255,255,255,0.2); padding: 1.5rem; border-radius: 8px; border: 2px solid rgba(255,255,255,0.5);">
+                <div style="font-size: 1.5rem; margin-bottom: 0.5rem;">&#9997;&#65039;</div>
+                <strong>Composer (Cmd+I)</strong>
+                <p style="margin: 0.5rem 0 0; font-size: 0.9rem; opacity: 0.9;">
+                  Для создания и редактирования файлов. ИИ напрямую вносит изменения. Может работать с несколькими файлами сразу.
+                </p>
+              </div>
+            </div>
+
+            <p style="margin-top: 1.5rem; font-size: 1.05rem; opacity: 0.95;">
+              Представьте, что Chat &mdash; это разговор с консультантом, а Composer &mdash; это секретарь, который сразу оформляет документы по вашим указаниям. Для управления жизненными проектами Composer незаменим.
+            </p>
+          </div>
+        </section>
+
+        <!-- Composer vs Chat -->
+        <section class="card">
+          <div class="card-header">Composer vs Chat: когда что использовать</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Понимание различий между этими двумя режимами &mdash; ключ к эффективной работе в Cursor.</p>
+
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Сценарий</th>
+                    <th>Chat</th>
+                    <th>Composer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Обсудить идею, получить совет</td>
+                    <td style="color: #10B981; font-weight: bold;">&#10003; Лучший выбор</td>
+                    <td style="color: var(--text-secondary);">Не подходит</td>
+                  </tr>
+                  <tr>
+                    <td>Создать 1 документ с нуля</td>
+                    <td style="color: var(--text-secondary);">Можно, но неудобно</td>
+                    <td style="color: #10B981; font-weight: bold;">&#10003; Лучший выбор</td>
+                  </tr>
+                  <tr>
+                    <td>Создать 3-5 связанных файлов</td>
+                    <td style="color: #EF4444;">Не подходит</td>
+                    <td style="color: #10B981; font-weight: bold;">&#10003; Лучший выбор</td>
+                  </tr>
+                  <tr>
+                    <td>Проанализировать существующие файлы</td>
+                    <td style="color: #10B981; font-weight: bold;">&#10003; Лучший выбор</td>
+                    <td style="color: var(--text-secondary);">Можно, но избыточно</td>
+                  </tr>
+                  <tr>
+                    <td>Отредактировать несколько файлов</td>
+                    <td style="color: var(--text-secondary);">Только по одному</td>
+                    <td style="color: #10B981; font-weight: bold;">&#10003; Лучший выбор</td>
+                  </tr>
+                  <tr>
+                    <td>Задать уточняющие вопросы</td>
+                    <td style="color: #10B981; font-weight: bold;">&#10003; Лучший выбор</td>
+                    <td style="color: #EF4444;">Не подходит</td>
+                  </tr>
+                  <tr>
+                    <td>Переписать документ по фидбэку</td>
+                    <td style="color: var(--text-secondary);">Только показать</td>
+                    <td style="color: #10B981; font-weight: bold;">&#10003; Лучший выбор</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Правило:</strong> Если вам нужно обсудить &mdash; используйте Chat. Если нужно создать или изменить файлы &mdash; используйте Composer. Часто эффективно сначала обсудить в Chat, а потом выполнить в Composer.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Как открыть Composer -->
+        <section class="card">
+          <div class="card-header">Как открыть и использовать Composer</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="font-size: 1.25rem; font-weight: bold; min-width: 100px;">Cmd+I</code>
+                <span>Открыть Composer (Mac)</span>
+              </div>
+              <div style="display: flex; gap: 1rem; align-items: center; padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <code style="font-size: 1.25rem; font-weight: bold; min-width: 100px;">Ctrl+I</code>
+                <span>Открыть Composer (Windows/Linux)</span>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Интерфейс Composer:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <strong>Поле ввода</strong> &mdash; внизу экрана, где вы описываете, что нужно сделать
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <strong>Предпросмотр изменений</strong> &mdash; Composer показывает, какие файлы будут созданы или изменены
+              </div>
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <strong>Accept / Reject</strong> &mdash; вы можете принять или отклонить каждое изменение
+              </div>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Важно:</strong> Composer всегда показывает предпросмотр изменений перед их применением. Вы полностью контролируете процесс и можете отклонить любое изменение.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Создание бизнес-плана -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практика: Создание бизнес-плана через Composer</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Разберём пошагово, как создать полноценный бизнес-план одним запросом в Composer.</p>
+
+            <h4>Шаг 1: Откройте Composer (Cmd+I)</h4>
+            <h4 style="margin-top: 1rem;">Шаг 2: Введите запрос</h4>
+
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Запрос в Composer</span>
+              </div>
+              <pre><code>Создай бизнес-план для онлайн-магазина экологичных товаров
+для дома. Целевая аудитория: женщины 25-45 лет,
+заботящиеся об экологии. Стартовый бюджет: $3000.
+
+Создай следующие файлы:
+
+1. business-plan.md — полный бизнес-план:
+   - Резюме проекта
+   - Описание продукта/услуги
+   - Анализ рынка и конкурентов
+   - Маркетинговая стратегия
+   - Финансовый план на 6 месяцев
+   - Риски и способы их минимизации
+
+2. marketing-plan.md — детальный маркетинговый план:
+   - Каналы продвижения
+   - Бюджет на маркетинг
+   - KPI и метрики
+
+3. financial-model.md — финансовая модель:
+   - Стартовые расходы
+   - Ежемесячные расходы
+   - Прогноз доходов
+   - Точка безубыточности</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Шаг 3: Просмотрите предложенные файлы</h4>
+            <p style="margin: 0.5rem 0 1rem;">Composer покажет предпросмотр каждого файла. Вы увидите структуру и содержание.</p>
+
+            <h4>Шаг 4: Примите изменения</h4>
+            <p style="margin: 0.5rem 0;">Нажмите "Accept All" или примите файлы по одному.</p>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Результат: business-plan.md (фрагмент)</span>
+              </div>
+              <pre><code># Бизнес-план: EcoHome — онлайн-магазин экотоваров
+
+## 1. Резюме проекта
+
+**Название:** EcoHome
+**Формат:** Онлайн-магазин (Instagram + сайт)
+**Ниша:** Экологичные товары для дома
+**Целевая аудитория:** Женщины 25-45 лет, городские жители
+**Стартовый бюджет:** $3,000
+**Планируемый выход на окупаемость:** 4-й месяц
+
+## 2. Описание продукта
+
+### Ассортимент (стартовый)
+- Многоразовые мешочки для покупок ($5-12)
+- Бамбуковые щётки и аксессуары ($8-20)
+- Натуральные свечи из соевого воска ($15-30)
+- Эко-средства для уборки ($10-25)
+- Многоразовые бутылки и контейнеры ($12-35)
+
+### Средний чек: $35-45
+
+## 3. Анализ рынка
+...
+
+## 4. Маркетинговая стратегия
+...
+
+## 5. Финансовый план
+
+| Месяц | Расходы | Доходы  | Прибыль |
+|-------|---------|---------|---------|
+| 1     | $1,500  | $300    | -$1,200 |
+| 2     | $800    | $800    | $0      |
+| 3     | $800    | $1,200  | $400    |
+| 4     | $900    | $1,800  | $900    |
+| 5     | $900    | $2,500  | $1,600  |
+| 6     | $1,000  | $3,200  | $2,200  |</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Контент-стратегия -->
+        <section class="card">
+          <div class="card-header" style="background: #F59E0B; color: white;">Практика: Контент-стратегия на месяц</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Composer отлично подходит для генерации контент-планов. Один промпт &mdash; и у вас готов план на целый месяц.</p>
+
+            <div class="code-block">
+              <div class="code-block-header">
+                <span class="code-block-lang">Запрос в Composer</span>
+              </div>
+              <pre><code>Создай контент-стратегию для Instagram-аккаунта
+по мобильной фотографии. 30 постов на апрель 2026.
+
+Создай файл content-plan-april.md с:
+1. Контент-календарь — таблица по дням:
+   дата, тема, тип контента (пост/reels/stories),
+   краткое описание, хештеги
+2. Рубрики (5-6 рубрик, чередующихся в течение месяца)
+3. Идеи для Reels (10 штук с описанием)
+4. Список хештегов по категориям
+
+Также создай файл content-templates.md с шаблонами
+текстов для каждой рубрики.</code></pre>
+            </div>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Результат: content-plan-april.md (фрагмент)</span>
+              </div>
+              <pre><code># Контент-план: Мобильная фотография | Апрель 2026
+
+## Рубрики
+1. **Совет дня** — короткий практический совет
+2. **До/После** — обработка фото с описанием
+3. **Разбор кадра** — анализ чужих фотографий
+4. **Лайфхак** — необычные приёмы съёмки
+5. **Вдохновение** — подборка идей для съёмки
+6. **Backstage** — процесс создания фото
+
+## Календарь
+
+| Дата  | Рубрика      | Тип    | Тема                              |
+|-------|-------------|--------|-----------------------------------|
+| 1 апр | Совет дня   | Пост   | Правило третей для начинающих     |
+| 2 апр | До/После    | Reels  | Обработка заката за 30 секунд     |
+| 3 апр | Лайфхак     | Пост   | 5 вещей из дома для крутых фото   |
+| 4 апр | Разбор кадра| Карусель| Почему это фото набрало 100K      |
+| 5 апр | Вдохновение | Stories| Идеи для съёмки в дождь           |
+| 6 апр | Backstage   | Reels  | Как я снял это фото в метро       |
+| 7 апр | Совет дня   | Пост   | Свет в фотографии: золотой час    |
+| ...   | ...         | ...    | ...                               |</code></pre>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> После генерации контент-плана вы можете попросить Composer создать тексты для каждого поста отдельными файлами в папке posts/. Это позволит работать с каждым постом по отдельности.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Сложные документы -->
+        <section class="card">
+          <div class="card-header" style="background: #8B5CF6; color: white;">Создание сложных документов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1.5rem;">Composer умеет создавать любые типы документов. Вот примеры промптов для наиболее востребованных:</p>
+
+            <div style="display: grid; gap: 1.5rem;">
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">&#128196; Резюме / CV</h4>
+                <div class="code-block" style="margin: 0;">
+                  <pre><code>Создай профессиональное резюме в файле resume.md:
+Имя: Анна Иванова
+Позиция: маркетолог с 5-летним опытом
+Навыки: SMM, контент-маркетинг, аналитика, Figma
+Опыт: 3 компании (кратко опиши типичный опыт)
+Образование: БГУ, маркетинг, 2019
+
+Формат: структурированный Markdown с разделами,
+готовый для конвертации в PDF</code></pre>
+                </div>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">&#128188; Коммерческое предложение</h4>
+                <div class="code-block" style="margin: 0;">
+                  <pre><code>Создай коммерческое предложение (КП) в файле
+proposal.md для клиента "ЭкоФуд":
+
+Услуга: ведение социальных сетей (Instagram, Telegram)
+Стоимость: $800/мес
+Включает: 20 постов, 8 Reels, Stories ежедневно,
+аналитика, стратегия
+
+Структура КП:
+1. Обложка с названием
+2. О нашей компании (2-3 абзаца)
+3. Что мы предлагаем (детально)
+4. Тарифы (3 пакета: базовый, стандарт, премиум)
+5. Кейсы (2-3 примера результатов)
+6. Следующие шаги</code></pre>
+                </div>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">&#128203; Техническое задание (ТЗ)</h4>
+                <div class="code-block" style="margin: 0;">
+                  <pre><code>Создай техническое задание в файле tz-website.md
+для разработки сайта фитнес-студии:
+
+Разделы ТЗ:
+1. Общая информация о проекте
+2. Целевая аудитория
+3. Структура сайта (карта страниц)
+4. Описание каждой страницы
+5. Функциональные требования
+6. Требования к дизайну
+7. SEO-требования
+8. Сроки и этапы
+9. Критерии приёмки</code></pre>
+                </div>
+              </div>
+
+              <div style="padding: 1.5rem; background: var(--bg-main); border-radius: 8px;">
+                <h4 style="margin-bottom: 0.75rem;">&#128202; Аналитический отчёт</h4>
+                <div class="code-block" style="margin: 0;">
+                  <pre><code>Создай шаблон ежемесячного отчёта в файле
+report-template.md для отдела маркетинга:
+
+Разделы:
+1. Ключевые метрики (таблица)
+2. Сравнение с предыдущим месяцем
+3. Достижения
+4. Проблемы и вызовы
+5. Расходы на маркетинг
+6. Планы на следующий месяц
+7. Рекомендации руководству</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Мульти-файловые операции -->
+        <section class="card">
+          <div class="card-header">Мульти-файловые операции</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Главное преимущество Composer перед Chat &mdash; возможность создавать и редактировать <strong>несколько файлов одновременно</strong>. Это особенно полезно, когда файлы связаны между собой.</p>
+
+            <h4 style="margin-top: 1.5rem;">Пример: Комплект документов для запуска проекта</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Запрос в Composer</span>
+              </div>
+              <pre><code>Создай комплект документов для запуска
+YouTube-канала о кулинарии:
+
+1. channel-strategy.md — стратегия канала:
+   позиционирование, ЦА, конкуренты, УТП
+
+2. content-plan-q1.md — контент-план на 3 месяца:
+   темы видео, рубрики, частота публикаций
+
+3. production-checklist.md — чек-лист производства:
+   оборудование, локация, процесс съёмки
+
+4. monetization-plan.md — план монетизации:
+   этапы от 0 до первого дохода
+
+5. tasks.md — задачи на первый месяц
+   с приоритетами и дедлайнами
+
+Все файлы должны ссылаться друг на друга
+где это логично.</code></pre>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Пример: Обновление связанных файлов</h4>
+            <div class="code-block" style="margin-top: 0.5rem;">
+              <div class="code-block-header">
+                <span class="code-block-lang">Запрос в Composer</span>
+              </div>
+              <pre><code>Я решил изменить стратегию: вместо YouTube
+буду делать подкаст о кулинарии.
+
+Обнови ВСЕ файлы в проекте:
+- channel-strategy.md → podcast-strategy.md
+- content-plan-q1.md — адаптируй под формат подкаста
+- production-checklist.md — замени видео-оборудование
+  на аудио-оборудование
+- monetization-plan.md — адаптируй под подкаст
+- tasks.md — обнови задачи</code></pre>
+            </div>
+
+            <div class="alert alert-success" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+              <div>
+                <strong>Мощь Composer:</strong> Одним запросом вы можете переписать 5 файлов и адаптировать весь проект под новую стратегию. В Chat это заняло бы 5 отдельных запросов, и вам пришлось бы копировать результаты вручную.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Итеративное улучшение -->
+        <section class="card">
+          <div class="card-header">Итеративное улучшение документов</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;">Редко когда первый результат идеален. Composer позволяет итеративно улучшать документы, давая фидбэк и уточнения.</p>
+
+            <h4>Цикл работы с Composer:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #667eea;">
+                <div style="background: #667eea; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">1</div>
+                <div>
+                  <strong>Создание</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Первый запрос: опишите, что нужно создать. Получите черновик.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #10B981;">
+                <div style="background: #10B981; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">2</div>
+                <div>
+                  <strong>Оценка</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Просмотрите результат. Определите, что нравится и что нужно изменить.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #F59E0B;">
+                <div style="background: #F59E0B; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">3</div>
+                <div>
+                  <strong>Фидбэк</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Дайте конкретный фидбэк Composer. Чем точнее, тем лучше результат.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1.25rem; background: var(--bg-main); border-radius: 8px; border-left: 4px solid #8B5CF6;">
+                <div style="background: #8B5CF6; color: white; min-width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">4</div>
+                <div>
+                  <strong>Доработка</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Composer применит изменения. Повторяйте цикл, пока результат не устроит.</p>
+                </div>
+              </div>
+            </div>
+
+            <h4 style="margin-top: 1.5rem;">Примеры фидбэка для Composer:</h4>
+            <div style="display: grid; gap: 1rem; margin-top: 0.5rem;">
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div class="code-block" style="margin: 0;">
+                  <pre><code>Бизнес-план хороший, но:
+1. Раздел "Анализ рынка" слишком поверхностный —
+   добавь конкретных конкурентов и их цены
+2. Финансовый план — добавь пессимистичный сценарий
+3. Раздел "Риски" — добавь риск зависимости
+   от одного поставщика
+4. Сделай резюме более ёмким — максимум 5 предложений</code></pre>
+                </div>
+              </div>
+
+              <div style="padding: 1rem; background: var(--bg-main); border-radius: 8px;">
+                <div class="code-block" style="margin: 0;">
+                  <pre><code>В контент-плане:
+- Слишком много постов одного типа подряд —
+  чередуй рубрики равномернее
+- Добавь столбец "время публикации"
+  (лучшее время для постинга)
+- Темы 15-20 апреля скучные — сделай их
+  более провокационными и цепляющими
+- Добавь раздел "запасные темы" на случай
+  если что-то не подойдёт</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 1.5rem;">
+              <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 16v-4"/>
+                <path d="M12 8h.01"/>
+              </svg>
+              <div>
+                <strong>Совет:</strong> Не пытайтесь получить идеальный результат с первого раза. Лучше быстро получить черновик, а потом довести его до совершенства через 2-3 итерации фидбэка. Это быстрее, чем пытаться описать всё идеально в первом промпте.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Советы по работе с Composer -->
+        <section class="card">
+          <div class="card-header">Советы по эффективной работе с Composer</div>
+          <div class="card-body">
+            <div style="display: grid; gap: 1rem;">
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#9989;</div>
+                <div>
+                  <strong>Указывайте имена файлов явно</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Вместо "создай документ" пишите "создай файл marketing-plan.md". Так Composer точно поймёт, что создать.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#9989;</div>
+                <div>
+                  <strong>Описывайте структуру документа</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Перечислите разделы, которые должны быть в документе. Это даёт ИИ чёткий каркас.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#9989;</div>
+                <div>
+                  <strong>Давайте контекст</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">Чем больше деталей вы дадите (ЦА, бюджет, сроки, стиль), тем точнее будет результат.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(16, 185, 129, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#9989;</div>
+                <div>
+                  <strong>Используйте @-упоминания файлов</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">В Composer можно упомянуть существующие файлы через @, чтобы ИИ использовал их как контекст при создании новых.</p>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 1rem; align-items: flex-start; padding: 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 8px;">
+                <div style="font-size: 1.5rem;">&#10060;</div>
+                <div>
+                  <strong>Не делайте запросы слишком абстрактными</strong>
+                  <p style="margin: 0.25rem 0 0; color: var(--text-secondary);">"Создай что-нибудь полезное" &mdash; плохой запрос. "Создай чек-лист из 20 пунктов для подготовки к собеседованию на позицию маркетолога" &mdash; хороший.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Практическое задание -->
+        <section class="card">
+          <div class="card-header" style="background: #10B981; color: white;">Практическое задание</div>
+          <div class="card-body">
+            <p style="margin-bottom: 1rem;"><strong>Создайте через Composer два комплекта документов:</strong></p>
+
+            <h4>Задание 1: Бизнес-план</h4>
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex5-1"></span>
+                <span class="checklist-text">Придумайте бизнес-идею (или используйте реальную)</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex5-2"></span>
+                <span class="checklist-text">Через Composer создайте 3 файла: бизнес-план, маркетинг-план, финансовую модель</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex5-3"></span>
+                <span class="checklist-text">Дайте фидбэк и попросите Composer доработать слабые места</span>
+              </li>
+            </ul>
+
+            <h4 style="margin-top: 1.5rem;">Задание 2: Контент-стратегия</h4>
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex5-4"></span>
+                <span class="checklist-text">Выберите тему для блога / канала / аккаунта</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex5-5"></span>
+                <span class="checklist-text">Создайте контент-план на месяц через Composer</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex5-6"></span>
+                <span class="checklist-text">Создайте шаблоны текстов для 3 разных рубрик</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="ex5-7"></span>
+                <span class="checklist-text">Итеративно улучшите результат (минимум 2 раунда фидбэка)</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="card">
+          <div class="card-header">Проверка понимания</div>
+          <div class="card-body">
+            <div class="quiz" data-quiz="lesson5">
+              <p><strong>В чём главное преимущество Composer перед Chat?</strong></p>
+              <div class="quiz-options">
+                <div class="quiz-option" data-correct="false">Composer быстрее отвечает на вопросы</div>
+                <div class="quiz-option" data-correct="false">Composer лучше понимает русский язык</div>
+                <div class="quiz-option" data-correct="true">Composer напрямую создаёт и редактирует несколько файлов одновременно</div>
+                <div class="quiz-option" data-correct="false">Composer не требует подписки</div>
+              </div>
+              <div class="quiz-feedback"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Checklist -->
+        <section class="card">
+          <div class="card-header">Чек-лист урока</div>
+          <div class="card-body">
+            <ul class="checklist">
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson5-what"></span>
+                <span class="checklist-text">Понял, что такое Composer и как его открыть</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson5-diff"></span>
+                <span class="checklist-text">Знаю разницу между Chat и Composer</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson5-create"></span>
+                <span class="checklist-text">Создал документ через Composer</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson5-multi"></span>
+                <span class="checklist-text">Создал несколько связанных файлов одним запросом</span>
+              </li>
+              <li class="checklist-item">
+                <span class="checklist-checkbox" data-id="lesson5-iterate"></span>
+                <span class="checklist-text">Применил итеративное улучшение с фидбэком</span>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Homework -->
+        <section class="card">
+          <div class="card-header">Домашнее задание</div>
+          <div class="card-body">
+            <p><strong>Создайте комплект документов для вашего реального проекта (из урока 9.4):</strong></p>
+            <ul style="margin: 1rem 0 1rem 1.5rem;">
+              <li>Коммерческое предложение или презентация проекта</li>
+              <li>Детальный план первого месяца работы</li>
+              <li>Чек-лист запуска с дедлайнами</li>
+              <li>Шаблон еженедельного отчёта о прогрессе</li>
+            </ul>
+            <p style="color: var(--text-secondary); margin-top: 0.5rem;">Используйте Composer для создания всех файлов за 1-2 запроса, затем доработайте через итеративный фидбэк.</p>
+          </div>
+        </section>
+
+        <!-- Navigation -->
+        <nav class="lesson-nav">
+          <a href="lesson-4.html" class="nav-arrow nav-arrow-prev">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="15,18 9,12 15,6"/>
+            </svg>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Управление проектами</div>
+            </div>
+          </a>
+
+          <button class="btn btn-primary mark-complete-btn" data-lesson="5">
+            Отметить урок пройденным
+          </button>
+
+          <a href="lesson-6.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">Далее</div>
+              <div class="nav-arrow-title">Автоматизация процессов</div>
+            </div>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="9,6 15,12 9,18"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/glossary.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
