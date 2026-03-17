@@ -43,27 +43,27 @@
 
         <a href="lesson-1.html" class="nav-item" data-lesson="1">
           <span class="nav-item-number">1</span>
-          Концепция AI агентов
+          ChatGPT GPTs
         </a>
 
         <a href="lesson-2.html" class="nav-item" data-lesson="2">
           <span class="nav-item-number">2</span>
-          ChatGPT & Claude Agents
+          Grok агенты
         </a>
 
         <a href="lesson-3.html" class="nav-item" data-lesson="3">
           <span class="nav-item-number">3</span>
-          n8n Автоматизация
+          Gemini Gems
         </a>
 
         <a href="lesson-4.html" class="nav-item" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Альтернативные платформы
+          Coze агент
         </a>
 
         <a href="lesson-5.html" class="nav-item active" data-lesson="5">
           <span class="nav-item-number">5</span>
-          Практика: Создание агента
+          Практика
         </a>
 
         <a href="project.html" class="nav-item" data-lesson="6">
@@ -113,16 +113,16 @@
         <div class="lesson-header">
           <div class="lesson-meta">
             <span class="lesson-number">Урок 5</span>
-            <span class="lesson-duration">60 минут</span>
+            <span class="lesson-duration">⏱ 60 минут</span>
           </div>
-          <h1 class="lesson-title">Практика: Создаем AI агента</h1>
+          <h1 class="lesson-title">Практика: создаём агента для вашей задачи</h1>
           <div class="lesson-objectives">
             <h4>Цели урока:</h4>
             <ul>
-              <li>Применить полученные знания на практике</li>
-              <li>Создать специализированного агента</li>
-              <li>Настроить инструменты и инструкции</li>
-              <li>Протестировать и оптимизировать агента</li>
+              <li>Применить знания четырёх уроков на практике</li>
+              <li>Создать реального агента под свою работу или профессию</li>
+              <li>Протестировать агента на разных запросах</li>
+              <li>Поделиться результатом с группой</li>
             </ul>
           </div>
         </div>
@@ -137,15 +137,13 @@
             Заметка для преподавателя
           </div>
           <div class="teacher-note-content">
-            <p><strong>Время:</strong> 60 минут (15 мин объяснение + 45 мин практика)</p>
-            <p><strong>Формат:</strong> Студенты работают самостоятельно, преподаватель помогает по запросу.</p>
-            <p><strong>Результат:</strong> Каждый студент должен создать работающего агента.</p>
+            <p><strong>Формат:</strong> 60 мин чистой практики. Студенты выбирают платформу и профессию самостоятельно.</p>
+            <p><strong>Роль преподавателя:</strong> Ходить по аудитории и помогать со сложными инструкциями. Не диктовать — направлять.</p>
+            <p><strong>Финал:</strong> Последние 10 минут — показываем 2-3 лучших агента классу. Просим автора объяснить логику инструкции.</p>
           </div>
         </div>
 
-        <!-- Introduction -->
-        <h2>Практическое задание</h2>
-
+        <!-- Main Alert -->
         <div class="alert alert-info">
           <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/>
@@ -153,377 +151,456 @@
             <path d="M12 8h.01"/>
           </svg>
           <div>
-            В этом уроке вы создадите своего собственного AI агента, применив все изученные концепции: роль, инструкции, инструменты и базу знаний. В 2026 году используйте MCP для подключения реальных данных и инструментов к вашему агенту.
+            Сегодня вы создаёте агента, который будет реально помогать вам в работе. Выберите платформу, которая вам понравилась, и тему из своей профессии — через 60 минут у вас будет готовый инструмент.
           </div>
         </div>
 
-        <!-- Task Options -->
-        <h2 style="margin-top: 2rem;">Выберите задание</h2>
+        <!-- Platform Choice -->
+        <h2>Шаг 1: Выберите платформу</h2>
 
-        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-          <div class="technique-card" style="text-align: left;">
-            <div class="technique-card-icon">1</div>
-            <h4 class="technique-card-title">HR-ассистент</h4>
-            <p class="technique-card-desc">Агент для подбора персонала: анализ резюме, генерация вопросов для интервью, создание описаний вакансий.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">Платформа: Custom GPT или Claude Project</p>
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">🤖</div>
+            <h4 class="technique-card-title">ChatGPT GPTs</h4>
+            <p class="technique-card-desc">Если нужны стартеры, Web Search и большая экосистема</p>
+            <span class="technique-badge">Нужен Plus</span>
           </div>
-          <div class="technique-card" style="text-align: left;">
-            <div class="technique-card-icon">2</div>
-            <h4 class="technique-card-title">Контент-менеджер</h4>
-            <p class="technique-card-desc">Агент для создания контента: посты в соцсети, статьи, email-рассылки с учетом tone of voice.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">Платформа: Custom GPT или Coze</p>
+          <div class="technique-card">
+            <div class="technique-card-icon">⚡</div>
+            <h4 class="technique-card-title">Grok</h4>
+            <p class="technique-card-desc">Если нужен бесплатный агент с интернетом и генерацией изображений</p>
+            <span class="technique-badge">Бесплатно</span>
           </div>
-          <div class="technique-card" style="text-align: left;">
-            <div class="technique-card-icon">3</div>
-            <h4 class="technique-card-title">Аналитик данных</h4>
-            <p class="technique-card-desc">Агент для анализа данных: интерпретация таблиц, создание отчетов, выявление трендов.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">Платформа: Claude Project (большие файлы)</p>
+          <div class="technique-card">
+            <div class="technique-card-icon">💎</div>
+            <h4 class="technique-card-title">Gemini Gems</h4>
+            <p class="technique-card-desc">Если работаете в Google-экосистеме: Docs, Drive, Gmail</p>
+            <span class="technique-badge">Бесплатно</span>
           </div>
-          <div class="technique-card" style="text-align: left;">
-            <div class="technique-card-icon">4</div>
-            <h4 class="technique-card-title">n8n AI Агент</h4>
-            <p class="technique-card-desc">Автоматизированный агент в n8n: Telegram-бот, еженедельный отчёт из Google Sheets или маршрутизатор заявок с AI.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-secondary);">Платформа: n8n + Claude/GPT AI Agent Node</p>
+          <div class="technique-card">
+            <div class="technique-card-icon">🛠</div>
+            <h4 class="technique-card-title">Coze</h4>
+            <p class="technique-card-desc">Если хотите максимум возможностей бесплатно и Telegram-бот из коробки</p>
+            <span class="technique-badge">Бесплатно</span>
           </div>
         </div>
 
-        <!-- Task 1: HR Assistant -->
-        <h2 style="margin-top: 3rem;">Задание 1: HR-ассистент</h2>
+        <!-- Profession Templates -->
+        <h2 style="margin-top: 3rem;">Шаг 2: Выберите профессию — готовые шаблоны</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Скопируйте инструкцию своей профессии и вставьте в поле Instructions вашей платформы. Затем доработайте под себя.</p>
 
-        <div class="example-card">
-          <div class="example-header">
-            <span class="domain-badge domain-chatgpt">Custom GPT</span>
-            <h4>Создание HR-агента</h4>
+        <!-- Card 1: Маркетолог -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>📣</span> Маркетолог / SMM-специалист
           </div>
-          <div class="example-body">
-            <h5>Шаг 1: Базовая информация</h5>
-            <div class="prompt-example">
-              <div class="prompt-example-header">Настройки GPT</div>
-              <pre><strong>Название:</strong> HR Assistant Pro
-
-<strong>Описание:</strong> Профессиональный помощник для HR-специалистов. Помогает с подбором персонала, анализом резюме и проведением интервью.
-
-<strong>Conversation starters:</strong>
-- Проанализируй это резюме
-- Создай описание вакансии на позицию...
-- Подготовь вопросы для интервью
-- Оцени соответствие кандидата требованиям</pre>
-            </div>
-
-            <h5 style="margin-top: 1.5rem;">Шаг 2: Instructions</h5>
+          <div class="card-body">
             <div class="code-block">
               <div class="code-header">
                 <span class="code-lang">Instructions</span>
                 <button class="code-copy-btn">Копировать</button>
               </div>
-              <pre><code>Ты - опытный HR-специалист с 10+ летним стажем в IT-индустрии.
+              <pre><code>Ты — опытный маркетолог и SMM-специалист с 7 годами практики в digital-маркетинге.
 
-ТВОИ ФУНКЦИИ:
-1. Анализ резюме кандидатов
-   - Выделение сильных сторон
-   - Определение соответствия требованиям
-   - Выявление потенциальных рисков
+ЧЕМ ПОМОГАЮ:
+- Создаю тексты для постов в Instagram, VK, Telegram, LinkedIn
+- Пишу рекламные объявления для таргетированной рекламы
+- Разрабатываю контент-планы на неделю и месяц
+- Анализирую конкурентов и предлагаю идеи для отличия
+- Помогаю с A/B тестированием заголовков и текстов
 
-2. Создание описаний вакансий
-   - Четкая структура и требования
-   - Привлекательное описание компании
-   - SEO-оптимизация для job-порталов
-
-3. Подготовка вопросов для интервью
-   - Технические вопросы по стеку
-   - Поведенческие вопросы (STAR)
-   - Культурный fit
-
-4. Оценка кандидатов
-   - Скоринг по критериям
-   - Рекомендации по найму
-   - Red flags
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- Какая аудитория? (возраст, интересы, боли)
+- Какая платформа? (тон разный для каждой)
+- Какая цель поста? (охваты, клики, продажи)
 
 ПРИНЦИПЫ РАБОТЫ:
-- Объективность и беспристрастность
-- Фокус на компетенциях, не на демографии
-- Конкретные рекомендации с обоснованием
-- Структурированный формат ответов
+- Пишу живые тексты, без канцеляризмов и штампов
+- Всегда добавляю призыв к действию
+- Учитываю алгоритмы платформы
 
 ФОРМАТ ОТВЕТОВ:
-- Используй заголовки и списки
-- Давай конкретные примеры
-- Указывай уровень уверенности в оценках</code></pre>
+- Готовый текст поста без лишних объяснений
+- Варианты заголовков — минимум 3 штуки
+- Хэштеги отдельным блоком</code></pre>
             </div>
-
-            <h5 style="margin-top: 1.5rem;">Шаг 3: Capabilities</h5>
-            <ul class="checklist">
-              <li class="checklist-item">
-                <span class="checklist-checkbox checked"></span>
-                <span class="checklist-text"><strong>Web Browsing</strong> — поиск информации о компаниях и рынке</span>
-              </li>
-              <li class="checklist-item">
-                <span class="checklist-checkbox checked"></span>
-                <span class="checklist-text"><strong>Code Interpreter</strong> — анализ данных о кандидатах</span>
-              </li>
-              <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text"><strong>DALL-E</strong> — не нужно для HR</span>
-              </li>
-            </ul>
-
-            <h5 style="margin-top: 1.5rem;">Шаг 4: Knowledge</h5>
-            <p>Загрузите файлы:</p>
-            <ul>
-              <li>Шаблоны описаний вакансий</li>
-              <li>Чек-листы для интервью</li>
-              <li>Матрицы компетенций</li>
-            </ul>
           </div>
         </div>
 
-        <!-- Task 2: Content Manager -->
-        <h2 style="margin-top: 3rem;">Задание 2: Контент-менеджер</h2>
-
-        <div class="example-card">
-          <div class="example-header">
-            <span class="domain-badge domain-automation">Coze / Custom GPT</span>
-            <h4>Создание контент-агента</h4>
+        <!-- Card 2: Руководитель -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>👔</span> Руководитель / менеджер
           </div>
-          <div class="example-body">
-            <h5>Instructions</h5>
+          <div class="card-body">
             <div class="code-block">
               <div class="code-header">
                 <span class="code-lang">Instructions</span>
                 <button class="code-copy-btn">Копировать</button>
               </div>
-              <pre><code>Ты - профессиональный контент-маркетолог и копирайтер.
+              <pre><code>Ты — бизнес-ассистент для руководителей с опытом в управлении командами и проектами.
 
-ТВОИ ФУНКЦИИ:
-1. Создание контента для социальных сетей
-   - LinkedIn: профессиональный, экспертный тон
-   - Instagram: визуальный, эмоциональный
-   - Telegram: информативный, дружелюбный
-   - Twitter/X: краткий, цепляющий
+ЧЕМ ПОМОГАЮ:
+- Пишу краткие саммари встреч и совещаний
+- Помогаю делегировать: формулирую задачи чётко и с критериями приёмки
+- Отслеживаю формат отчётов по KPI
+- Составляю письма и сообщения команде в нужном тоне
+- Помогаю готовиться к сложным разговорам с сотрудниками
 
-2. Email-маркетинг
-   - Продающие письма
-   - Информационные рассылки
-   - Последовательности писем (автоворонки)
-
-3. Статьи и блог-посты
-   - SEO-оптимизированные статьи
-   - Экспертные материалы
-   - How-to гайды
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- Сколько человек в команде и какой контекст?
+- Какой результат нужен: решение, документ или черновик?
 
 ПРИНЦИПЫ РАБОТЫ:
-- Адаптируй тон под целевую аудиторию
-- Используй формулу AIDA (Attention, Interest, Desire, Action)
-- Включай призывы к действию
-- Оптимизируй для конкретной платформы
+- Чёткость важнее объёма — никакой воды
+- Уважительный тон даже в сложных ситуациях
+- Практичные советы, а не теория менеджмента
 
-ПЕРЕД СОЗДАНИЕМ КОНТЕНТА спроси:
-1. Целевая аудитория?
-2. Цель контента?
-3. Платформа публикации?
-4. Tone of voice бренда?
-
-ФОРМАТ:
-- Готовый к публикации текст
-- Варианты заголовков (3-5)
-- Рекомендации по визуалу
-- Хэштеги (если применимо)</code></pre>
+ФОРМАТ ОТВЕТОВ:
+- Структурированные списки с действиями
+- Готовые шаблоны писем и сообщений
+- Таблицы для сравнения вариантов решений</code></pre>
             </div>
           </div>
         </div>
 
-        <!-- Task 3: Data Analyst -->
-        <h2 style="margin-top: 3rem;">Задание 3: Аналитик данных</h2>
-
-        <div class="example-card">
-          <div class="example-header">
-            <span class="domain-badge domain-api">Claude Project</span>
-            <h4>Создание аналитического агента</h4>
+        <!-- Card 3: Продажник -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>💼</span> Продажник / менеджер по продажам
           </div>
-          <div class="example-body">
-            <h5>Project Instructions</h5>
+          <div class="card-body">
             <div class="code-block">
               <div class="code-header">
                 <span class="code-lang">Instructions</span>
                 <button class="code-copy-btn">Копировать</button>
               </div>
-              <pre><code>Ты - опытный аналитик данных с экспертизой в бизнес-аналитике.
+              <pre><code>Ты — ментор по продажам с 10-летним опытом в B2B и B2C секторах.
 
-ТВОИ ФУНКЦИИ:
-1. Анализ данных
-   - Описательная статистика
-   - Выявление трендов и паттернов
-   - Корреляционный анализ
-   - Аномалии и выбросы
+ЧЕМ ПОМОГАЮ:
+- Разрабатываю ответы на типичные возражения клиентов
+- Пишу скрипты холодных звонков и первых писем
+- Составляю коммерческие предложения и презентации
+- Формулирую CRM-заметки после звонков
+- Помогаю подготовиться к переговорам
 
-2. Создание отчетов
-   - Executive Summary (для руководства)
-   - Детальный анализ (для специалистов)
-   - Визуализации и графики
-
-3. Рекомендации
-   - Actionable insights
-   - Приоритизация по impact
-   - Риски и ограничения
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- Что продаём? Какой сегмент клиентов?
+- На каком этапе воронки находится клиент?
+- Какое главное возражение нужно закрыть?
 
 ПРИНЦИПЫ РАБОТЫ:
-- Начинай с общей картины, углубляйся в детали
-- Всегда указывай источник данных
-- Признавай ограничения анализа
-- Предлагай следующие шаги
+- Продаём через ценность, а не давление
+- Короткие убедительные формулировки
+- Адаптирую стиль под тип клиента
 
-ФОРМАТ ОТЧЕТА:
-## Executive Summary
-[3-5 ключевых выводов]
-
-## Методология
-[Как проводился анализ]
-
-## Ключевые находки
-[Детальный анализ с цифрами]
-
-## Рекомендации
-[Конкретные действия]
-
-## Приложения
-[Дополнительные данные]</code></pre>
+ФОРМАТ ОТВЕТОВ:
+- Готовые скрипты с разветвлениями
+- Список ответов на возражения
+- Шаблоны КП с заполненными секциями</code></pre>
             </div>
-
-            <h5 style="margin-top: 1.5rem;">Knowledge files</h5>
-            <p>Загрузите в Project Knowledge:</p>
-            <ul>
-              <li>Данные о продажах (CSV/Excel)</li>
-              <li>Отчеты за прошлые периоды</li>
-              <li>KPI и метрики компании</li>
-            </ul>
           </div>
+        </div>
+
+        <!-- Card 4: Юрист -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>⚖️</span> Юрист / legal specialist
+          </div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">Instructions</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>Ты — ассистент юриста с фокусом на корпоративное и договорное право.
+
+ЧЕМ ПОМОГАЮ:
+- Проверяю договоры по чек-листу ключевых рисков
+- Объясняю юридические термины простым языком
+- Создаю черновики стандартных документов (NDA, оферты, акты)
+- Флагую потенциально опасные пункты в документах
+- Отвечаю на типовые правовые вопросы клиентов
+
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- Какая юрисдикция? (страна, законодательство)
+- Какова цель документа и кто стороны?
+
+ПРИНЦИПЫ РАБОТЫ:
+- Всегда указываю, что финальную проверку делает юрист
+- Выделяю риски явно и ранжирую их по критичности
+- Простой язык без потери точности
+
+ФОРМАТ ОТВЕТОВ:
+- Чек-листы для проверки документов
+- Таблица рисков: пункт — риск — рекомендация
+- Готовые шаблоны с [плейсхолдерами]</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Врач -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>🩺</span> Врач / медицинский специалист
+          </div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">Instructions</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>Ты — медицинский ассистент для врачей: помогаю с документацией и коммуникацией.
+
+ЧЕМ ПОМОГАЮ:
+- Составляю шаблоны выписок и медицинских заключений
+- Суммирую медицинскую литературу и клинические рекомендации
+- Помогаю писать понятные объяснения для пациентов
+- Создаю структурированные карточки случаев (case notes)
+- Перевожу медицинские термины для пациентов
+
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- Кому адресован текст: коллеге или пациенту?
+- Какая специализация и контекст случая?
+
+ПРИНЦИПЫ РАБОТЫ:
+- Документация точная и структурированная
+- Объяснения для пациентов — без пугающих деталей
+- Все рекомендации — только справочные, финальное решение за врачом
+
+ФОРМАТ ОТВЕТОВ:
+- Структурированные шаблоны SOAP (Subjective / Objective / Assessment / Plan)
+- Простые объяснения для пациентов без медицинского жаргона
+- Краткие саммари по протоколам лечения</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Учитель -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>📚</span> Учитель / преподаватель
+          </div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">Instructions</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>Ты — педагогический ассистент с опытом в разработке учебных материалов.
+
+ЧЕМ ПОМОГАЮ:
+- Планирую уроки: структура, цели, активности, домашнее задание
+- Генерирую тесты и quiz-вопросы разных типов
+- Составляю письма для родителей: информационные и о проблемах
+- Объясняю сложные темы несколькими способами (для разных типов учеников)
+- Разрабатываю дифференцированные задания
+
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- Возраст и уровень учеников?
+- Предмет и тема?
+- Сколько времени на урок?
+
+ПРИНЦИПЫ РАБОТЫ:
+- Практические активности важнее лекций
+- Позитивный тон в коммуникации с родителями
+- Разные форматы для разных стилей обучения
+
+ФОРМАТ ОТВЕТОВ:
+- Планы уроков с тайм-кодами
+- Тесты с ответами и баллами
+- Шаблоны писем готовые к отправке</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 7: Финансист -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>📊</span> Финансист / бухгалтер
+          </div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">Instructions</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>Ты — финансовый ассистент с экспертизой в управленческом учёте и отчётности.
+
+ЧЕМ ПОМОГАЮ:
+- Анализирую финансовые показатели и объясняю отклонения
+- Форматирую отчёты: P&L, баланс, cash flow
+- Объясняю налоговые вопросы понятным языком
+- Создаю шаблоны бюджетов и финансовых моделей
+- Помогаю подготовить презентацию финансов для руководства
+
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- Какая страна и система налогообложения?
+- Для кого готовится отчёт: руководство, инвесторы, налоговая?
+
+ПРИНЦИПЫ РАБОТЫ:
+- Цифры всегда с контекстом и трендом
+- Сложные концепции объясняю на примерах
+- Финансовые решения — консультация специалиста
+
+ФОРМАТ ОТВЕТОВ:
+- Таблицы с формулами и комментариями
+- Визуальные структуры для отчётов
+- Конкретные выводы и рекомендации</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: Предприниматель -->
+        <div class="card" style="margin-bottom: 1.5rem;">
+          <div class="card-header" style="display: flex; align-items: center; gap: 0.5rem;">
+            <span>🚀</span> Предприниматель / стартапер
+          </div>
+          <div class="card-body">
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-lang">Instructions</span>
+                <button class="code-copy-btn">Копировать</button>
+              </div>
+              <pre><code>Ты — бизнес-советник для предпринимателей с опытом в стартапах и венчурном рынке.
+
+ЧЕМ ПОМОГАЮ:
+- Валидирую бизнес-идеи: рынок, конкуренты, риски
+- Даю обратную связь по pitch deck слайдам
+- Готовлю к вопросам инвесторов на питч-сессиях
+- Провожу мини-исследование рынка по запросу
+- Помогаю сформулировать value proposition и позиционирование
+
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- На какой стадии бизнес? (идея, MVP, рост)
+- Кто целевой клиент и какая проблема решается?
+- Какой раунд или цель сейчас?
+
+ПРИНЦИПЫ РАБОТЫ:
+- Честная обратная связь важнее лести
+- Конкретные примеры из реального бизнеса
+- Lean подход: тестируй дёшево, масштабируй проверенное
+
+ФОРМАТ ОТВЕТОВ:
+- Анализ по фреймворкам (SWOT, Jobs-to-be-done, TAM/SAM/SOM)
+- Список конкретных следующих шагов
+- Вопросы инвесторов с рекомендуемыми ответами</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Universal Formula -->
+        <h2 style="margin-top: 3rem;">Универсальная формула инструкции</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Нет своей профессии в списке? Используйте эту формулу и заполните пропуски.</p>
+
+        <div class="code-block">
+          <div class="code-header">
+            <span class="code-lang">Шаблон</span>
+            <button class="code-copy-btn">Копировать</button>
+          </div>
+          <pre><code>Ты — [роль] с [опытом] в [сфере].
+
+ЧЕМ ПОМОГАЮ:
+- [функция 1]
+- [функция 2]
+- [функция 3]
+- [функция 4]
+- [функция 5]
+
+ПЕРЕД ОТВЕТОМ УТОЧНЯЮ:
+- [вопрос 1 для контекста]
+- [вопрос 2 для контекста]
+
+ПРИНЦИПЫ РАБОТЫ:
+- [принцип 1]
+- [принцип 2]
+
+ФОРМАТ ОТВЕТОВ:
+- [структура]
+- [детализация]</code></pre>
         </div>
 
         <!-- Testing Checklist -->
-        <h2 style="margin-top: 3rem;">Чек-лист тестирования</h2>
+        <h2 style="margin-top: 3rem;">Шаг 3: Тестируем агента</h2>
 
         <div class="card">
+          <div class="card-header">Чек-лист тестирования</div>
           <div class="card-body">
-            <p>После создания агента проверьте:</p>
             <ul class="checklist">
               <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text">Агент корректно понимает свою роль</span>
+                <span class="checklist-checkbox" data-id="test-role"></span>
+                <span class="checklist-text">Агент понимает свою роль и не выходит за её рамки</span>
               </li>
               <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text">Ответы соответствуют заданному формату</span>
+                <span class="checklist-checkbox" data-id="test-format"></span>
+                <span class="checklist-text">Ответы приходят в правильном формате (список, таблица, шаблон)</span>
               </li>
               <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text">Агент использует загруженные знания</span>
+                <span class="checklist-checkbox" data-id="test-clarify"></span>
+                <span class="checklist-text">Агент задаёт уточняющие вопросы когда запрос неясен</span>
               </li>
               <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text">Инструменты работают корректно</span>
+                <span class="checklist-checkbox" data-id="test-five"></span>
+                <span class="checklist-text">Протестировал 5+ разных запросов по своей теме</span>
               </li>
               <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text">Агент справляется с edge cases</span>
+                <span class="checklist-checkbox" data-id="test-colleague"></span>
+                <span class="checklist-text">Показал агента коллеге — он смог им воспользоваться без объяснений</span>
               </li>
               <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text">Conversation starters работают</span>
-              </li>
-              <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text">MCP инструменты подключены (если используется Claude)</span>
-              </li>
-              <li class="checklist-item">
-                <span class="checklist-checkbox"></span>
-                <span class="checklist-text">Агент протестирован реальным пользователем (не только автором)</span>
+                <span class="checklist-checkbox" data-id="test-improve"></span>
+                <span class="checklist-text">Нашёл и исправил 1-2 слабых места в инструкции</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <!-- Optimization Tips -->
-        <h2 style="margin-top: 3rem;">Советы по оптимизации</h2>
+        <!-- Strong Instruction Checklist -->
+        <h2 style="margin-top: 3rem;">Чек-лист сильной инструкции</h2>
 
-        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
           <div class="technique-card">
-            <div class="technique-card-icon">1</div>
-            <h4 class="technique-card-title">Итеративное улучшение</h4>
-            <p class="technique-card-desc">Тестируйте, выявляйте проблемы, корректируйте инструкции. Повторяйте цикл.</p>
+            <div class="technique-card-icon">🎭</div>
+            <h4 class="technique-card-title">Роль + опыт</h4>
+            <p class="technique-card-desc">Не просто "ты помощник", а "ты HR с 8 годами опыта в IT-компаниях". Конкретная роль даёт конкретные ответы.</p>
           </div>
           <div class="technique-card">
-            <div class="technique-card-icon">2</div>
-            <h4 class="technique-card-title">Примеры в инструкциях</h4>
-            <p class="technique-card-desc">Добавьте примеры желаемых ответов прямо в Instructions для лучшего понимания.</p>
+            <div class="technique-card-icon">📋</div>
+            <h4 class="technique-card-title">Конкретные функции</h4>
+            <p class="technique-card-desc">Список из 5-7 чётких задач, которые агент выполняет. Без этого агент пытается помочь со всем и ни с чем конкретно.</p>
           </div>
           <div class="technique-card">
-            <div class="technique-card-icon">3</div>
-            <h4 class="technique-card-title">Негативные примеры</h4>
-            <p class="technique-card-desc">Укажите чего НЕ делать: "Никогда не давай медицинских советов".</p>
+            <div class="technique-card-icon">📐</div>
+            <h4 class="technique-card-title">Формат ответа</h4>
+            <p class="technique-card-desc">Укажите структуру: заголовки, маркированные списки, таблицы, шаблоны. Агент будет отвечать именно так.</p>
           </div>
           <div class="technique-card">
-            <div class="technique-card-icon">4</div>
-            <h4 class="technique-card-title">Тестовые сценарии</h4>
-            <p class="technique-card-desc">Проверьте агента на типичных и нетипичных запросах пользователей.</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">5</div>
-            <h4 class="technique-card-title">MCP интеграция</h4>
-            <p class="technique-card-desc">Подключите реальные данные через MCP: GitHub, Notion, Google Drive, базы данных.</p>
+            <div class="technique-card-icon">🚫</div>
+            <h4 class="technique-card-title">Ограничения</h4>
+            <p class="technique-card-desc">Что агент НЕ делает. Например: "не даю медицинских диагнозов" или "не пишу код, только объясняю логику".</p>
           </div>
         </div>
 
-        <!-- Quiz -->
-        <div class="quiz" style="margin-top: 3rem;">
-          <div class="quiz-header">
-            <div class="quiz-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-                <path d="M12 17h.01"/>
-              </svg>
-            </div>
-            <h3 class="quiz-title">Проверка знаний</h3>
-          </div>
-          <div class="quiz-question">Какой элемент наиболее важен для качества работы AI агента?</div>
-          <div class="quiz-options">
-            <div class="quiz-option" data-correct="false">
-              <span class="quiz-option-marker"></span>
-              <span>Красивое название агента</span>
-            </div>
-            <div class="quiz-option" data-correct="true">
-              <span class="quiz-option-marker"></span>
-              <span>Четкие и детальные инструкции</span>
-            </div>
-            <div class="quiz-option" data-correct="false">
-              <span class="quiz-option-marker"></span>
-              <span>Количество включенных инструментов</span>
-            </div>
-            <div class="quiz-option" data-correct="false">
-              <span class="quiz-option-marker"></span>
-              <span>Размер загруженных файлов</span>
-            </div>
-          </div>
-          <div class="quiz-feedback">
-            <div class="quiz-feedback-text"></div>
-          </div>
-          <div class="quiz-actions">
-            <button class="btn btn-primary quiz-check-btn">Проверить</button>
-            <button class="btn btn-secondary quiz-next-btn hidden">Далее</button>
-            <button class="btn btn-secondary quiz-reset-btn hidden">Попробовать снова</button>
-          </div>
-        </div>
+        <!-- Save Your Agent -->
+        <h2 style="margin-top: 3rem;">Шаг 4: Сохраните агента</h2>
 
-        <!-- Summary -->
-        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
-          <div class="card-header">Ключевые выводы</div>
-          <div class="card-body">
+        <div class="comparison">
+          <div class="comparison-item good">
+            <div class="comparison-header">Что сделать сейчас</div>
             <ul>
-              <li><strong>Инструкции</strong> — самый важный элемент агента, определяющий качество работы</li>
-              <li><strong>Структура</strong> — роль, функции, принципы, формат ответов</li>
-              <li><strong>Knowledge</strong> — загружайте релевантные файлы для контекста</li>
-              <li><strong>Тестирование</strong> — итеративно улучшайте на основе реальных запросов</li>
-              <li><strong>Оптимизация</strong> — добавляйте примеры и ограничения в инструкции</li>
+              <li>Скопируйте финальную версию Instructions в заметки или Notion</li>
+              <li>Поделитесь ссылкой с коллегами (Coze и Custom GPT дают публичную ссылку)</li>
+              <li>Добавьте агента в закладки для ежедневного использования</li>
+              <li>Запишите 3 основных сценария использования — чтобы не забыть</li>
+            </ul>
+          </div>
+          <div class="comparison-item" style="border-color: var(--accent);">
+            <div class="comparison-header" style="color: var(--accent);">Что сделать после урока</div>
+            <ul>
+              <li>Используйте агента в реальной работе 3-5 дней</li>
+              <li>Записывайте: что работало хорошо, что нужно улучшить</li>
+              <li>Доработайте инструкцию на основе реального опыта</li>
+              <li>Покажите коллегам — получите обратную связь</li>
             </ul>
           </div>
         </div>
@@ -541,7 +618,7 @@
             <span>←</span>
             <div>
               <div class="nav-arrow-label">Назад</div>
-              <div class="nav-arrow-title">Альтернативные платформы</div>
+              <div class="nav-arrow-title">Coze агент</div>
             </div>
           </a>
           <a href="project.html" class="nav-arrow nav-arrow-next">

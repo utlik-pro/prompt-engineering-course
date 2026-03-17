@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Урок 1: Концепция AI агентов | Модуль 6</title>
+  <title>Урок 1: ChatGPT Custom GPTs | Модуль 6</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="app-container">
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo">
@@ -20,17 +19,12 @@
           PromptMaster
         </div>
       </div>
-
       <div class="progress-container">
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 0%"></div>
-        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
         <div class="progress-text">0 из 6 уроков</div>
       </div>
-
       <nav class="sidebar-nav">
         <div class="nav-section">Модуль 6</div>
-
         <a href="index.html" class="nav-item">
           <span class="nav-item-number">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -40,37 +34,30 @@
           </span>
           Главная
         </a>
-
         <a href="lesson-1.html" class="nav-item active" data-lesson="1">
           <span class="nav-item-number">1</span>
-          Концепция AI агентов
+          ChatGPT GPTs
         </a>
-
         <a href="lesson-2.html" class="nav-item" data-lesson="2">
           <span class="nav-item-number">2</span>
-          ChatGPT & Claude Agents
+          Grok агенты
         </a>
-
         <a href="lesson-3.html" class="nav-item" data-lesson="3">
           <span class="nav-item-number">3</span>
-          n8n Автоматизация
+          Gemini Gems
         </a>
-
         <a href="lesson-4.html" class="nav-item" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Альтернативные платформы
+          Coze агент
         </a>
-
         <a href="lesson-5.html" class="nav-item" data-lesson="5">
           <span class="nav-item-number">5</span>
-          Практика: Создание агента
+          Практика
         </a>
-
         <a href="project.html" class="nav-item" data-lesson="6">
           <span class="nav-item-number">P</span>
           Домашнее задание
         </a>
-
         <a href="../../index.html" class="nav-item exit-btn">
           <span class="nav-item-number">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -83,23 +70,15 @@
         </a>
       </nav>
     </aside>
-
     <div class="overlay"></div>
-
     <main class="main-content">
       <header class="header">
-        <button class="mobile-menu-btn" aria-label="Меню">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
         <div class="breadcrumb">
           <a href="index.html">Модуль 6</a>
           <span class="breadcrumb-separator">/</span>
           <span>Урок 1</span>
         </div>
-
         <div class="header-actions">
           <div class="mode-toggle" title="Переключить режим">
             <div class="mode-toggle-switch"></div>
@@ -107,22 +86,22 @@
           </div>
         </div>
       </header>
-
       <div class="content">
+
         <!-- Lesson Header -->
         <div class="lesson-header">
           <div class="lesson-meta">
             <span class="lesson-number">Урок 1</span>
             <span class="lesson-duration">⏱ 40 минут</span>
           </div>
-          <h1 class="lesson-title">Концепция AI агентов</h1>
+          <h1 class="lesson-title">Создаём агента в ChatGPT: Custom GPTs</h1>
           <div class="lesson-objectives">
             <h4>Цели урока:</h4>
             <ul>
-              <li>Понять, что такое AI агент и чем он отличается от чат-бота</li>
-              <li>Изучить типы агентов: автономные, управляемые, гибридные</li>
-              <li>Разобрать компоненты и архитектуру агентов</li>
-              <li>Понять концепцию Tool use и Function Calling</li>
+              <li>Понять, что такое Custom GPT и зачем он нужен</li>
+              <li>Пошагово создать своего первого агента прямо на занятии</li>
+              <li>Освоить написание инструкций (Instructions) для агента</li>
+              <li>Попробовать готовые примеры и адаптировать под себя</li>
             </ul>
           </div>
         </div>
@@ -137,14 +116,14 @@
             Заметка для преподавателя
           </div>
           <div class="teacher-note-content">
-            <p><strong>Время:</strong> 40 минут (20 мин теория + 10 мин демо + 10 мин обсуждение)</p>
-            <p><strong>Акцент:</strong> Важно донести разницу между простым чат-ботом и агентом. Агент может принимать решения и использовать инструменты.</p>
-            <p><strong>Демо:</strong> Покажите пример агента, который использует инструменты (поиск, калькулятор) для решения задачи.</p>
+            <p><strong>Время:</strong> 40 минут — 10 мин теория + 25 мин практика + 5 мин обсуждение</p>
+            <p><strong>Формат:</strong> Все создают агента прямо на занятии. Преподаватель демонстрирует на экране, студенты повторяют.</p>
+            <p><strong>Требования:</strong> Нужен ChatGPT аккаунт. Бесплатный аккаунт позволяет просматривать и использовать чужие GPTs. Для создания своих — нужен Plus ($20/мес) или Pro ($200/мес). Если у студентов нет Plus — работают в парах или используют готовые примеры из урока.</p>
           </div>
         </div>
 
-        <!-- What is AI Agent -->
-        <h2>Что такое AI агент?</h2>
+        <!-- What is Custom GPT -->
+        <h2>Что такое Custom GPT?</h2>
 
         <div class="alert alert-info">
           <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -153,483 +132,404 @@
             <path d="M12 8h.01"/>
           </svg>
           <div>
-            <strong>Определение:</strong> AI агент — это автономная система, способная воспринимать окружающую среду, принимать решения и выполнять действия для достижения поставленных целей.
+            <strong>Custom GPT</strong> — это ваш персональный AI-помощник с вашими инструкциями, знаниями и стилем общения. Работает на платформе ChatGPT, настраивается без единой строчки кода. Вы один раз пишете "правила игры" — и агент работает по ним с любым пользователем.
           </div>
         </div>
 
         <div class="comparison">
           <div class="comparison-item bad">
-            <div class="comparison-header">❌ Обычный чат-бот</div>
+            <div class="comparison-header">Обычный ChatGPT</div>
             <ul>
-              <li>Отвечает на вопросы</li>
-              <li>Не имеет инструментов</li>
-              <li>Не запоминает контекст</li>
-              <li>Не принимает решения</li>
-              <li>Пассивная роль</li>
+              <li>Общий помощник — всё подряд</li>
+              <li>Нужно каждый раз объяснять контекст</li>
+              <li>Не знает вашу специфику</li>
+              <li>Универсальный тон ответов</li>
+              <li>Не помнит ваши предпочтения</li>
             </ul>
           </div>
           <div class="comparison-item good">
-            <div class="comparison-header">✅ AI Агент</div>
+            <div class="comparison-header">Custom GPT</div>
             <ul>
-              <li>Решает задачи</li>
-              <li>Использует инструменты (API, БД, код)</li>
-              <li>Хранит долгосрочную память</li>
-              <li>Принимает решения автономно</li>
-              <li>Активная роль</li>
+              <li>Специализированный эксперт в вашей нише</li>
+              <li>Всегда знает контекст вашей работы</li>
+              <li>Использует ваши документы и шаблоны</li>
+              <li>Отвечает в нужном вам стиле и формате</li>
+              <li>Можно поделиться с командой или клиентами</li>
             </ul>
           </div>
         </div>
 
-        <!-- Agent Architecture -->
-        <h2>Архитектура AI агента</h2>
+        <!-- What you need -->
+        <h2>Что нужно для начала</h2>
 
-        <div class="card">
-          <div class="card-header">Три основных компонента</div>
-          <div class="card-body">
-            <div class="architecture-diagram">
-┌─────────────────────────────────────────────────────────┐
-│                    AI АГЕНТ                             │
-├─────────────────────────────────────────────────────────┤
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
-│  │ ВОСПРИЯТИЕ  │  │ ОБРАБОТКА   │  │ ДЕЙСТВИЕ    │     │
-│  │ (Perception)│  │ (Processing)│  │ (Action)    │     │
-│  │             │  │             │  │             │     │
-│  │ • Текст     │  │ • Анализ    │  │ • Ответы    │     │
-│  │ • Изображ.  │  │ • Решения   │  │ • API вызовы│     │
-│  │ • Данные    │  │ • Планиров. │  │ • Действия  │     │
-│  │ • События   │  │ • Обучение  │  │ • Уведомл.  │     │
-│  └─────────────┘  └─────────────┘  └─────────────┘     │
-└─────────────────────────────────────────────────────────┘
-            </div>
-          </div>
-        </div>
+        <ul class="checklist">
+          <li class="checklist-item">
+            <span class="checklist-checkbox" data-id="l1-account"></span>
+            <span class="checklist-text">Аккаунт ChatGPT на <strong>chatgpt.com</strong> — Plus или Pro для создания Custom GPTs</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-checkbox" data-id="l1-time"></span>
+            <span class="checklist-text">15 минут времени — этого хватит на создание первого рабочего агента</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-checkbox" data-id="l1-idea"></span>
+            <span class="checklist-text">Идея для агента — выберите из примеров ниже или придумайте свою</span>
+          </li>
+        </ul>
 
-        <!-- Types of Agents -->
-        <h2>Типы AI агентов</h2>
-
-        <div class="agent-type-card autonomous">
-          <h3>1. Автономные агенты</h3>
-          <p>Работают независимо, без постоянного контроля человека.</p>
-
-          <div class="comparison" style="margin-top: 1rem;">
-            <div class="comparison-item good" style="border-color: var(--accent);">
-              <div class="comparison-header" style="color: var(--accent);">✅ Преимущества</div>
-              <ul>
-                <li>Высокая эффективность</li>
-                <li>Работа 24/7</li>
-                <li>Быстрое реагирование</li>
-                <li>Масштабируемость</li>
-              </ul>
-            </div>
-            <div class="comparison-item bad" style="border-color: var(--warning);">
-              <div class="comparison-header" style="color: var(--warning);">⚠️ Ограничения</div>
-              <ul>
-                <li>Сложность настройки</li>
-                <li>Риски при ошибках</li>
-                <li>Требуют мониторинга</li>
-                <li>Ограниченная гибкость</li>
-              </ul>
-            </div>
-          </div>
-
-          <p style="margin-top: 1rem;"><strong>Примеры:</strong> Торговые боты, системы мониторинга, автоматические отчеты</p>
-        </div>
-
-        <div class="agent-type-card managed">
-          <h3>2. Управляемые агенты</h3>
-          <p>Работают под контролем человека, выполняют задачи по запросу.</p>
-
-          <div class="comparison" style="margin-top: 1rem;">
-            <div class="comparison-item good" style="border-color: var(--accent);">
-              <div class="comparison-header" style="color: var(--accent);">✅ Преимущества</div>
-              <ul>
-                <li>Простота создания</li>
-                <li>Высокий контроль</li>
-                <li>Безопасность</li>
-                <li>Легкость тестирования</li>
-              </ul>
-            </div>
-            <div class="comparison-item bad" style="border-color: var(--warning);">
-              <div class="comparison-header" style="color: var(--warning);">⚠️ Ограничения</div>
-              <ul>
-                <li>Требуют участия человека</li>
-                <li>Ограниченная автономность</li>
-                <li>Меньшая эффективность</li>
-                <li>Зависимость от пользователя</li>
-              </ul>
-            </div>
-          </div>
-
-          <p style="margin-top: 1rem;"><strong>Примеры:</strong> Custom GPTs, Claude Projects, виртуальные ассистенты</p>
-        </div>
-
-        <div class="agent-type-card hybrid">
-          <h3>3. Гибридные агенты</h3>
-          <p>Сочетают автономность и управляемость, адаптируются к уровню доверия.</p>
-
-          <div class="comparison" style="margin-top: 1rem;">
-            <div class="comparison-item good" style="border-color: var(--accent);">
-              <div class="comparison-header" style="color: var(--accent);">✅ Преимущества</div>
-              <ul>
-                <li>Баланс автономности и контроля</li>
-                <li>Высокая гибкость</li>
-                <li>Постепенное обучение</li>
-                <li>Адаптация к потребностям</li>
-              </ul>
-            </div>
-            <div class="comparison-item bad" style="border-color: var(--warning);">
-              <div class="comparison-header" style="color: var(--warning);">⚠️ Ограничения</div>
-              <ul>
-                <li>Сложность настройки</li>
-                <li>Потенциальная непредсказуемость</li>
-                <li>Требуют тестирования</li>
-                <li>Нужен мониторинг</li>
-              </ul>
-            </div>
-          </div>
-
-          <p style="margin-top: 1rem;"><strong>Примеры:</strong> n8n workflows с AI, системы обслуживания клиентов</p>
-        </div>
-
-        <!-- Tool Use -->
-        <h2>Tool Use и Function Calling</h2>
-
-        <div class="alert alert-success">
-          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <div>
-            <strong>Tool Use</strong> — это способность AI агента использовать внешние инструменты для выполнения задач, которые он не может решить самостоятельно.
-          </div>
-        </div>
-
-        <h3>Типы инструментов</h3>
-
-        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-          <div class="technique-card">
-            <div class="technique-card-icon">🔍</div>
-            <h4 class="technique-card-title">Поиск</h4>
-            <p class="technique-card-desc">Поиск в интернете, базах данных, документах</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🔢</div>
-            <h4 class="technique-card-title">Вычисления</h4>
-            <p class="technique-card-desc">Математические расчеты, анализ данных</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">📁</div>
-            <h4 class="technique-card-title">Файлы</h4>
-            <p class="technique-card-desc">Чтение, запись, обработка файлов</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🔌</div>
-            <h4 class="technique-card-title">API</h4>
-            <p class="technique-card-desc">Интеграция с внешними сервисами</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🔌</div>
-            <h4 class="technique-card-title">MCP</h4>
-            <p class="technique-card-desc">Model Context Protocol — стандарт подключения инструментов к AI агентам</p>
-          </div>
-        </div>
-
-        <!-- Function Calling Example -->
-        <h3>Пример Function Calling</h3>
-
-        <div class="code-block">
-          <div class="code-header">
-            <span class="code-lang">JSON</span>
-            <button class="code-copy-btn">Копировать</button>
-          </div>
-          <pre><code>{
-  "name": "search_weather",
-  "description": "Поиск текущей погоды в указанном городе",
-  "parameters": {
-    "type": "object",
-    "properties": {
-      "city": {
-        "type": "string",
-        "description": "Название города"
-      },
-      "units": {
-        "type": "string",
-        "enum": ["celsius", "fahrenheit"],
-        "description": "Единицы измерения температуры"
-      }
-    },
-    "required": ["city"]
-  }
-}</code></pre>
-        </div>
-
-        <div class="prompt-example">
-          <div class="prompt-example-header">💡 Как агент использует инструменты</div>
-          <pre>Пользователь: "Какая погода в Минске?"
-
-Агент (внутренний процесс):
-1. Анализирует запрос
-2. Определяет, что нужен инструмент search_weather
-3. Вызывает функцию: search_weather(city="Минск")
-4. Получает результат: {"temp": 5, "condition": "облачно"}
-5. Формирует ответ для пользователя
-
-Агент: "В Минске сейчас 5°C, облачно."</pre>
-        </div>
-
-        <!-- MCP Section -->
-        <h2>Model Context Protocol (MCP)</h2>
-
-        <div class="alert alert-success">
-          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <div>
-            <strong>MCP</strong> — открытый стандарт от Anthropic (2024), который стал индустриальным стандартом подключения AI агентов к инструментам, базам данных и сервисам. Поддерживается Claude, ChatGPT, Cursor, n8n и сотнями других платформ.
-          </div>
-        </div>
-
-        <div class="comparison">
-          <div class="comparison-item bad">
-            <div class="comparison-header">❌ До MCP</div>
-            <ul>
-              <li>Каждая платформа — своя интеграция</li>
-              <li>Сложная настройка API</li>
-              <li>Нет единого стандарта</li>
-              <li>Сложно переключаться между AI</li>
-            </ul>
-          </div>
-          <div class="comparison-item good">
-            <div class="comparison-header">✅ С MCP</div>
-            <ul>
-              <li>Один сервер — все AI клиенты</li>
-              <li>Plug-and-play подключение</li>
-              <li>1000+ готовых MCP серверов</li>
-              <li>GitHub, Notion, Slack, БД — из коробки</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Components Deep Dive -->
-        <h2>Компоненты агента подробнее</h2>
+        <!-- Step by step -->
+        <h2>Создаём агента: пошагово</h2>
 
         <div class="accordion open-first">
+
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>🔍 Система восприятия (Perception System)</span>
+              <span>Шаг 1: Открываем конструктор GPT</span>
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
             <div class="accordion-content">
               <div class="accordion-body">
-                <p><strong>Функции:</strong></p>
-                <ul>
-                  <li>Получение данных из внешней среды</li>
-                  <li>Обработка различных типов входных данных</li>
-                  <li>Фильтрация и предобработка информации</li>
-                </ul>
-                <p style="margin-top: 1rem;"><strong>Типы входных данных:</strong></p>
-                <ul>
-                  <li><strong>Текст:</strong> сообщения, документы, команды</li>
-                  <li><strong>Изображения:</strong> фото, скриншоты, диаграммы</li>
-                  <li><strong>Структурированные данные:</strong> JSON, CSV, XML</li>
-                  <li><strong>События:</strong> уведомления, триггеры, API вызовы</li>
-                </ul>
+                <ol style="margin-left: 1.2rem; margin-top: 0.5rem;">
+                  <li style="margin-bottom: 0.5rem;">Заходим на <strong>chatgpt.com</strong> и авторизуемся</li>
+                  <li style="margin-bottom: 0.5rem;">В левом боковом меню находим раздел <strong>"Explore GPTs"</strong></li>
+                  <li style="margin-bottom: 0.5rem;">В правом верхнем углу нажимаем кнопку <strong>"Create"</strong></li>
+                  <li style="margin-bottom: 0.5rem;">Открывается конструктор. Видим две вкладки: <strong>"Create"</strong> (диалог с ИИ-помощником) и <strong>"Configure"</strong> (ручная настройка)</li>
+                  <li>Выбираем <strong>"Configure"</strong> — там полный контроль над всеми параметрами</li>
+                </ol>
+                <div class="alert alert-info" style="margin-top: 1rem;">
+                  <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                  <div><strong>Совет:</strong> Вкладка "Create" — это мастер-помощник, который сам задаёт вопросы. Полезна для первого знакомства. Вкладка "Configure" — для опытных пользователей, даёт полный контроль.</div>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>🧠 Система обработки (Processing System)</span>
+              <span>Шаг 2: Называем агента и добавляем описание</span>
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
             <div class="accordion-content">
               <div class="accordion-body">
-                <p><strong>Компоненты:</strong></p>
-                <ul>
-                  <li><strong>LLM (Large Language Model):</strong> основная логика обработки</li>
-                  <li><strong>Memory System:</strong> хранение контекста и опыта</li>
-                  <li><strong>Decision Engine:</strong> принятие решений</li>
-                  <li><strong>Planning Module:</strong> планирование действий</li>
+                <p><strong>Name (Название)</strong> — как будет называться ваш агент. Сделайте его понятным и запоминающимся.</p>
+                <ul style="margin: 0.5rem 0 1rem 1.2rem;">
+                  <li>Хорошо: "Маркетолог для Instagram", "HR-ассистент Иванова и К"</li>
+                  <li>Плохо: "GPT1", "Мой помощник"</li>
                 </ul>
-                <p style="margin-top: 1rem;"><strong>Функции:</strong></p>
-                <ul>
-                  <li>Анализ полученных данных</li>
-                  <li>Принятие решений на основе контекста</li>
-                  <li>Планирование последовательности действий</li>
-                  <li>Обучение и адаптация</li>
+                <p><strong>Description (Описание)</strong> — короткое объяснение для чего этот агент. Видно пользователям в магазине GPTs.</p>
+                <ul style="margin: 0.5rem 0 1rem 1.2rem;">
+                  <li>Пример: "Помогает создавать посты для LinkedIn, Instagram и Telegram. Пишите — получите готовый текст с хэштегами."</li>
                 </ul>
+                <p><strong>Profile picture</strong> — аватар агента. Можно попросить ChatGPT сгенерировать прямо здесь, нажав на иконку с карандашом.</p>
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>⚡ Система действий (Action System)</span>
+              <span>Шаг 3: Пишем Instructions — сердце агента</span>
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
             <div class="accordion-content">
               <div class="accordion-body">
-                <p><strong>Типы действий:</strong></p>
-                <ul>
-                  <li><strong>Коммуникация:</strong> отправка сообщений, уведомлений</li>
-                  <li><strong>Интеграции:</strong> вызовы API, работа с базами данных</li>
-                  <li><strong>Генерация контента:</strong> создание текстов, изображений, кода</li>
-                  <li><strong>Автоматизация:</strong> запуск процессов, управление системами</li>
-                </ul>
-                <p style="margin-top: 1rem;"><strong>Функции:</strong></p>
-                <ul>
-                  <li>Выполнение решений системы обработки</li>
-                  <li>Взаимодействие с внешними системами</li>
-                  <li>Мониторинг выполнения действий</li>
-                </ul>
+                <p>Instructions — это главное поле. Здесь вы описываете "правила" агента: кто он, что делает, как отвечает. Это и есть системный промпт.</p>
+                <p style="margin-top: 1rem;"><strong>Структура хороших Instructions:</strong></p>
+                <div class="comparison">
+                  <div class="comparison-item good" style="flex: 1;">
+                    <div class="comparison-header" style="color: var(--accent);">Структура блоков</div>
+                    <ul>
+                      <li><strong>Роль:</strong> "Ты — опытный маркетолог..."</li>
+                      <li><strong>Функции:</strong> "ЧЕМ ПОМОГАЮ: ..."</li>
+                      <li><strong>Уточняющие вопросы:</strong> "ПЕРЕД РАБОТОЙ СПРАШИВАЮ: ..."</li>
+                      <li><strong>Ограничения:</strong> "НИКОГДА не делаю: ..."</li>
+                      <li><strong>Формат ответа:</strong> "ФОРМАТ: готовый текст + ..."</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="alert alert-info" style="margin-top: 1rem;">
+                  <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                  <div>Берите готовые примеры из раздела ниже и вставляйте прямо сюда. Потом корректируйте под себя.</div>
+                </div>
               </div>
             </div>
           </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 4: Настраиваем возможности и сохраняем</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p><strong>Capabilities (Возможности):</strong></p>
+                <ul style="margin: 0.5rem 0 1rem 1.2rem;">
+                  <li><strong>Web Search</strong> — агент может искать актуальную информацию в интернете. Включайте для агентов по новостям, рынкам, трендам.</li>
+                  <li><strong>DALL-E Image Generation</strong> — агент создаёт изображения по описанию.</li>
+                  <li><strong>Code Interpreter</strong> — агент анализирует таблицы Excel/CSV, строит графики, работает с данными.</li>
+                </ul>
+                <p><strong>Knowledge (База знаний):</strong></p>
+                <ul style="margin: 0.5rem 0 1rem 1.2rem;">
+                  <li>Загружайте PDF, DOCX, TXT — агент будет отвечать на основе ваших документов</li>
+                  <li>Примеры: прайс-лист компании, корпоративный стиль, шаблоны договоров, FAQ</li>
+                </ul>
+                <p><strong>Сохранение:</strong> Нажимаем "Save" → выбираем кому доступен агент: "Only me", "Anyone with a link" или "Everyone". Нажимаем "Confirm".</p>
+                <p style="margin-top: 0.5rem;">Агент создан! Теперь его можно тестировать прямо в окне справа.</p>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Use Cases -->
-        <h2>Примеры применения агентов</h2>
+        <!-- 5 Ready-to-use agents -->
+        <h2>5 готовых агентов — копируй и используй</h2>
 
-        <div class="example-card">
-          <div class="example-header">
-            <span class="domain-badge domain-api">Программирование</span>
-            <h4>Claude Code / Cursor Agent</h4>
-          </div>
-          <div class="example-body">
-            <div class="example-task">
-              <h5>📋 Задачи агента</h5>
-              <ul>
-                <li>Чтение и редактирование файлов проекта</li>
-                <li>Запуск тестов и исправление ошибок</li>
-                <li>Написание и рефакторинг кода</li>
-                <li>Работа с Git (коммиты, PR)</li>
-              </ul>
-            </div>
-            <div class="example-result">
-              <h5>🛠 Инструменты</h5>
-              <ul>
-                <li>Файловая система (MCP)</li>
-                <li>Терминал / Shell</li>
-                <li>Браузер (web search)</li>
-                <li>Git интеграция</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Возьмите любой пример, вставьте в поле Instructions и ваш агент готов. Адаптируйте под свою специфику.</p>
 
-        <div class="example-card">
-          <div class="example-header">
-            <span class="domain-badge domain-automation">Автоматизация</span>
-            <h4>Computer Use агент (Operator)</h4>
-          </div>
-          <div class="example-body">
-            <div class="example-task">
-              <h5>📋 Задачи агента</h5>
-              <ul>
-                <li>Управление браузером и приложениями</li>
-                <li>Заполнение форм, бронирование</li>
-                <li>Сбор данных с сайтов</li>
-                <li>Выполнение задач в интерфейсе</li>
-              </ul>
-            </div>
-            <div class="example-result">
-              <h5>🛠 Инструменты</h5>
-              <ul>
-                <li>Браузер (Computer Use)</li>
-                <li>Скриншоты и клики</li>
-                <li>Клавиатура и мышь</li>
-                <li>OpenAI Operator API</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+        <!-- Agent 1: Marketing -->
         <div class="example-card">
           <div class="example-header">
             <span class="domain-badge domain-automation">Маркетинг</span>
-            <h4>Маркетинговый агент</h4>
+            <h4>Маркетолог-профи</h4>
           </div>
           <div class="example-body">
-            <div class="example-task">
-              <h5>📋 Задачи агента</h5>
+            <div class="example-task" style="flex: 1;">
+              <h5>Что умеет</h5>
               <ul>
-                <li>Анализ трендов в социальных сетях</li>
-                <li>Создание контент-планов</li>
-                <li>Генерация постов для разных платформ</li>
-                <li>Анализ эффективности кампаний</li>
+                <li>Посты для всех социальных сетей</li>
+                <li>Email-рассылки и продающие тексты</li>
+                <li>Рекламные объявления</li>
+                <li>Контент-планы</li>
               </ul>
             </div>
-            <div class="example-result">
-              <h5>🛠 Инструменты</h5>
-              <ul>
-                <li>API социальных сетей</li>
-                <li>Аналитические сервисы</li>
-                <li>Генераторы изображений</li>
-                <li>Системы планирования</li>
-              </ul>
+            <div class="example-result" style="flex: 2;">
+              <h5>Instructions — вставить в агента:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Instructions</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — опытный маркетолог с 10+ лет в digital.
+
+ЧЕМ ПОМОГАЮ:
+- Посты для LinkedIn, Instagram, Telegram, Facebook
+- Email-рассылки и продающие тексты
+- Рекламные объявления (таргет, контекст)
+- Контент-планы на неделю/месяц
+- Анализ конкурентов и трендов
+
+ПЕРЕД РАБОТОЙ СПРАШИВАЮ:
+1. Для какой платформы?
+2. Кто целевая аудитория?
+3. Цель: продать, привлечь, удержать?
+4. Есть ли tone of voice?
+
+ФОРМАТ: готовый текст + варианты заголовков + хэштеги + рекомендации по визуалу</code></pre>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Agent 2: HR -->
         <div class="example-card">
           <div class="example-header">
             <span class="domain-badge domain-chatgpt">HR</span>
-            <h4>HR-агент</h4>
+            <h4>HR-ассистент</h4>
           </div>
           <div class="example-body">
-            <div class="example-task">
-              <h5>📋 Задачи агента</h5>
+            <div class="example-task" style="flex: 1;">
+              <h5>Что умеет</h5>
               <ul>
-                <li>Анализ резюме кандидатов</li>
-                <li>Создание описаний вакансий</li>
-                <li>Генерация вопросов для интервью</li>
-                <li>Обработка обратной связи сотрудников</li>
+                <li>Описания вакансий</li>
+                <li>Анализ резюме</li>
+                <li>Вопросы для интервью</li>
+                <li>Письма кандидатам</li>
               </ul>
             </div>
-            <div class="example-result">
-              <h5>🛠 Инструменты</h5>
-              <ul>
-                <li>ATS системы</li>
-                <li>Базы данных кандидатов</li>
-                <li>Системы видеосвязи</li>
-                <li>Платформы обратной связи</li>
-              </ul>
+            <div class="example-result" style="flex: 2;">
+              <h5>Instructions — вставить в агента:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Instructions</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — HR-специалист с опытом в найме и управлении персоналом.
+
+ЧЕМ ПОМОГАЮ:
+- Создание описаний вакансий (привлекательных и чётких)
+- Анализ резюме (сильные стороны, риски, соответствие)
+- Вопросы для интервью по компетенциям (STAR)
+- Оценка кандидата: рекомендую / не рекомендую + обоснование
+- Планы адаптации новых сотрудников
+- Письма кандидатам (оффер, отказ, приглашение)
+
+ПРИНЦИПЫ: объективность, фокус на компетенциях, конкретные рекомендации
+ФОРМАТ: структурированно, с заголовками и списками</code></pre>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Agent 3: Legal -->
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-api">Аналитика</span>
-            <h4>Аналитический агент</h4>
+            <span class="domain-badge domain-api">Право</span>
+            <h4>Юридический помощник</h4>
           </div>
           <div class="example-body">
-            <div class="example-task">
-              <h5>📋 Задачи агента</h5>
+            <div class="example-task" style="flex: 1;">
+              <h5>Что умеет</h5>
               <ul>
-                <li>Автоматический анализ данных</li>
-                <li>Создание отчетов и дашбордов</li>
-                <li>Мониторинг KPI</li>
-                <li>Прогнозирование трендов</li>
+                <li>Объяснение юр. терминов</li>
+                <li>Анализ договоров</li>
+                <li>Типовые шаблоны</li>
+                <li>Составление претензий</li>
               </ul>
             </div>
-            <div class="example-result">
-              <h5>🛠 Инструменты</h5>
+            <div class="example-result" style="flex: 2;">
+              <h5>Instructions — вставить в агента:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Instructions</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — помощник юриста. Помогаешь разобраться в правовых вопросах,
+НЕ даёшь официальных юридических консультаций.
+
+ЧЕМ ПОМОГАЮ:
+- Объяснение юридических терминов простым языком
+- Анализ договоров: на что обратить внимание
+- Типовые шаблоны документов (NDA, договор оказания услуг)
+- Краткий обзор законодательных норм
+- Помощь в составлении претензий и писем
+
+ВАЖНО: всегда рекомендую консультацию с практикующим юристом
+для важных решений.
+ФОРМАТ: чёткие пункты, выделяю риски отдельно</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agent 4: Business Analyst -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-n8n">Аналитика</span>
+            <h4>Бизнес-аналитик</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task" style="flex: 1;">
+              <h5>Что умеет</h5>
               <ul>
-                <li>Базы данных (SQL, NoSQL)</li>
-                <li>BI платформы</li>
-                <li>Системы уведомлений</li>
-                <li>API аналитических сервисов</li>
+                <li>SWOT-анализ</li>
+                <li>Анализ данных из файлов</li>
+                <li>Unit-экономика</li>
+                <li>Конкурентный анализ</li>
               </ul>
             </div>
+            <div class="example-result" style="flex: 2;">
+              <h5>Instructions — вставить в агента:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Instructions</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — бизнес-аналитик. Помогаешь принимать решения на основе
+данных и структурированного мышления.
+
+ЧЕМ ПОМОГАЮ:
+- SWOT-анализ бизнеса или идеи
+- Анализ данных из таблиц (загружай файл)
+- Построение бизнес-гипотез и их проверка
+- Unit-экономика: LTV, CAC, маржинальность
+- Конкурентный анализ
+- Презентация выводов для руководства
+
+ФОРМАТ ОТЧЁТА:
+Executive Summary → Ключевые выводы → Данные → Рекомендации</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agent 5: Education -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-groq">Образование</span>
+            <h4>Ассистент по обучению</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task" style="flex: 1;">
+              <h5>Что умеет</h5>
+              <ul>
+                <li>Объясняет сложное просто</li>
+                <li>Создаёт планы обучения</li>
+                <li>Генерирует тесты и квизы</li>
+                <li>Делает конспекты</li>
+              </ul>
+            </div>
+            <div class="example-result" style="flex: 2;">
+              <h5>Instructions — вставить в агента:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Instructions</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — персональный репетитор и методист.
+Помогаешь учиться эффективнее.
+
+ЧЕМ ПОМОГАЮ:
+- Объясняю сложные темы простым языком (с примерами)
+- Создаю планы обучения по любой теме
+- Генерирую тесты и квизы для проверки знаний
+- Делаю конспекты из длинных материалов
+- Придумываю мнемоники и способы запомнить
+- Разбираю ошибки и объясняю почему они возникли
+
+СТИЛЬ: дружелюбный, с аналогиями, проверяю понимание вопросами</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lifehacks -->
+        <h2>Лайфхаки для сильных GPTs</h2>
+
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">🎭</div>
+            <h4 class="technique-card-title">Начни с роли</h4>
+            <p class="technique-card-desc">Напиши: "Ты — [профессия] с [опытом] в [области]". Чем конкретнее роль — тем точнее ответы. Не "помощник", а "старший копирайтер с 8 годами в B2B SaaS".</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🚫</div>
+            <h4 class="technique-card-title">Укажи чего НЕ делать</h4>
+            <p class="technique-card-desc">Добавь раздел "НИКОГДА:". Например: "Никогда не давай медицинских советов", "Не пиши тексты длиннее 300 слов без запроса", "Не делай выводы без данных".</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">💡</div>
+            <h4 class="technique-card-title">Добавь примеры ответов</h4>
+            <p class="technique-card-desc">В конце Instructions вставь 1-2 примера диалога в формате "Вопрос: ... / Ответ: ...". Это few-shot learning — агент будет копировать этот стиль.</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">📁</div>
+            <h4 class="technique-card-title">Загрузи документы</h4>
+            <p class="technique-card-desc">В раздел Knowledge загрузи шаблоны, гайдлайны бренда, прайс-лист, FAQ. Агент будет отвечать на основе ваших реальных документов, а не общих знаний.</p>
           </div>
         </div>
 
@@ -645,23 +545,23 @@
             </div>
             <h3 class="quiz-title">Проверка знаний</h3>
           </div>
-          <div class="quiz-question">Что является ключевым отличием AI агента от обычного чат-бота?</div>
+          <div class="quiz-question">Какой элемент Instructions определяет качество агента больше всего?</div>
           <div class="quiz-options">
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>Способность понимать естественный язык</span>
+              <span>Красивое название и аватар агента</span>
+            </div>
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>Количество загруженных файлов в Knowledge</span>
             </div>
             <div class="quiz-option" data-correct="true">
               <span class="quiz-option-marker"></span>
-              <span>Способность использовать инструменты и принимать решения автономно</span>
+              <span>Чёткое описание функций, ограничений и формата ответа</span>
             </div>
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>Более быстрая генерация ответов</span>
-            </div>
-            <div class="quiz-option" data-correct="false">
-              <span class="quiz-option-marker"></span>
-              <span>Возможность работать в веб-браузере</span>
+              <span>Включение всех Capabilities (Web Search, DALL-E, Code Interpreter)</span>
             </div>
           </div>
           <div class="quiz-feedback">
@@ -676,21 +576,20 @@
 
         <!-- Summary -->
         <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
-          <div class="card-header">📝 Ключевые выводы</div>
+          <div class="card-header">Ключевые выводы</div>
           <div class="card-body">
             <ul>
-              <li><strong>AI агент</strong> — это система, способная воспринимать среду, принимать решения и выполнять действия</li>
-              <li><strong>Три типа агентов:</strong> автономные, управляемые и гибридные</li>
-              <li><strong>Компоненты:</strong> восприятие, обработка (LLM + память), действие</li>
-              <li><strong>Tool Use</strong> позволяет агентам выходить за рамки текстовой генерации</li>
-              <li><strong>Function Calling</strong> — механизм вызова внешних функций</li>
-              <li><strong>MCP</strong> — единый стандарт подключения инструментов к любому AI агенту (2024+)</li>
-              <li><strong>Тренд 2026:</strong> multi-agent системы и Computer Use — агенты управляют браузером и приложениями</li>
+              <li><strong>Custom GPT</strong> — персональный агент с вашими правилами, без кода. Создаётся за 15 минут.</li>
+              <li><strong>Главное поле — Instructions.</strong> Чем конкретнее описаны роль, функции и формат — тем лучше работает агент.</li>
+              <li><strong>Структура Instructions:</strong> Роль → Функции → Уточняющие вопросы → Ограничения → Формат ответа.</li>
+              <li><strong>Knowledge</strong> позволяет загрузить ваши документы — агент будет отвечать на их основе.</li>
+              <li><strong>Capabilities:</strong> Web Search для актуальных данных, Code Interpreter для анализа файлов и таблиц.</li>
+              <li><strong>Можно поделиться</strong> агентом с командой или сделать публичным в GPT Store.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Mark Complete Button -->
+        <!-- Mark Complete -->
         <div style="text-align: center; margin: 2rem 0;">
           <button class="btn btn-primary mark-complete-btn" data-lesson="1">
             Отметить урок как пройденный ✓
@@ -709,11 +608,12 @@
           <a href="lesson-2.html" class="nav-arrow nav-arrow-next">
             <div>
               <div class="nav-arrow-label">Далее</div>
-              <div class="nav-arrow-title">ChatGPT & Claude Agents</div>
+              <div class="nav-arrow-title">Grok агенты</div>
             </div>
             <span>→</span>
           </a>
         </div>
+
       </div>
     </main>
   </div>

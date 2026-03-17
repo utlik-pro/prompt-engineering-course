@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Урок 4: Альтернативные платформы | Модуль 6</title>
+  <title>Урок 4: Coze агент | Модуль 6</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -43,27 +43,27 @@
 
         <a href="lesson-1.html" class="nav-item" data-lesson="1">
           <span class="nav-item-number">1</span>
-          Концепция AI агентов
+          ChatGPT GPTs
         </a>
 
         <a href="lesson-2.html" class="nav-item" data-lesson="2">
           <span class="nav-item-number">2</span>
-          ChatGPT & Claude Agents
+          Grok агенты
         </a>
 
         <a href="lesson-3.html" class="nav-item" data-lesson="3">
           <span class="nav-item-number">3</span>
-          n8n Автоматизация
+          Gemini Gems
         </a>
 
         <a href="lesson-4.html" class="nav-item active" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Альтернативные платформы
+          Coze агент
         </a>
 
         <a href="lesson-5.html" class="nav-item" data-lesson="5">
           <span class="nav-item-number">5</span>
-          Практика: Создание агента
+          Практика
         </a>
 
         <a href="project.html" class="nav-item" data-lesson="6">
@@ -113,16 +113,16 @@
         <div class="lesson-header">
           <div class="lesson-meta">
             <span class="lesson-number">Урок 4</span>
-            <span class="lesson-duration">40 минут</span>
+            <span class="lesson-duration">⏱ 45 минут</span>
           </div>
-          <h1 class="lesson-title">Альтернативные платформы для AI агентов</h1>
+          <h1 class="lesson-title">Создаём агента в Coze — самая мощная бесплатная платформа</h1>
           <div class="lesson-objectives">
             <h4>Цели урока:</h4>
             <ul>
-              <li>Познакомиться с альтернативными платформами</li>
-              <li>Изучить Groq для быстрой генерации</li>
-              <li>Освоить Google Gemini для мультимодальности</li>
-              <li>Сравнить платформы и выбрать подходящую</li>
+              <li>Познакомиться с Coze — самой функциональной бесплатной платформой</li>
+              <li>Создать агента с плагинами и долгосрочной памятью</li>
+              <li>Настроить Workflow для автоматизации задач</li>
+              <li>Опубликовать агента в Telegram</li>
             </ul>
           </div>
         </div>
@@ -137,15 +137,13 @@
             Заметка для преподавателя
           </div>
           <div class="teacher-note-content">
-            <p><strong>Время:</strong> 40 минут (25 мин обзор платформ + 15 мин демо)</p>
-            <p><strong>Подготовка:</strong> Зарегистрируйтесь на Groq и Gemini заранее для демонстрации.</p>
-            <p><strong>Акцент:</strong> Бесплатные возможности каждой платформы.</p>
+            <p><strong>Время:</strong> 45 минут. Coze от ByteDance — бесплатный аналог ChatGPT GPTs с гораздо большими возможностями.</p>
+            <p><strong>Подготовка:</strong> Все регистрируются на <strong>coze.com</strong> перед началом урока или в самом начале.</p>
+            <p><strong>Фишка урока:</strong> Публикация в Telegram — студенты уходят с готовым AI-ботом в своём Telegram. Это мощный практический результат.</p>
           </div>
         </div>
 
-        <!-- Overview -->
-        <h2>Обзор альтернативных платформ</h2>
-
+        <!-- What is Coze -->
         <div class="alert alert-info">
           <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/>
@@ -153,121 +151,256 @@
             <path d="M12 8h.01"/>
           </svg>
           <div>
-            Помимо ChatGPT и Claude существует множество платформ для создания AI агентов — от бесплатных API до no-code решений.
+            <strong>Coze</strong> — платформа от ByteDance (создатели TikTok) для создания AI-агентов. Полностью бесплатная. Более мощная, чем Custom GPTs: есть плагины, долгосрочная память, Workflow-автоматизация и публикация в Telegram, Discord, Slack.
           </div>
         </div>
 
-        <h3>Категории платформ</h3>
+        <!-- Why Coze -->
+        <h2>Почему Coze — лучший выбор для бесплатного агента</h2>
 
-        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
           <div class="technique-card">
-            <div class="technique-card-icon">🚀</div>
-            <h4 class="technique-card-title">Быстрая инференция</h4>
-            <p class="technique-card-desc">Groq, Together AI — высокая скорость генерации</p>
+            <div class="technique-card-icon">🆓</div>
+            <h4 class="technique-card-title">Полностью бесплатно</h4>
+            <p class="technique-card-desc">Не только базовые функции — все возможности доступны без оплаты</p>
           </div>
           <div class="technique-card">
-            <div class="technique-card-icon">🖼</div>
-            <h4 class="technique-card-title">Мультимодальность</h4>
-            <p class="technique-card-desc">Google Gemini — текст, изображения, видео</p>
+            <div class="technique-card-icon">🔌</div>
+            <h4 class="technique-card-title">Плагины из коробки</h4>
+            <p class="technique-card-desc">Поиск, погода, новости, перевод, генерация изображений — всё готово</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🧠</div>
+            <h4 class="technique-card-title">Долгосрочная память</h4>
+            <p class="technique-card-desc">Агент помнит пользователя между сессиями — как живой ассистент</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">📲</div>
+            <h4 class="technique-card-title">Публикация везде</h4>
+            <p class="technique-card-desc">Telegram, Discord, Slack, WeChat — один агент на всех платформах</p>
+          </div>
+        </div>
+
+        <!-- What you need -->
+        <h2>Что нужно для начала</h2>
+
+        <ul class="checklist">
+          <li class="checklist-item">
+            <span class="checklist-checkbox checked"></span>
+            <span class="checklist-text">Аккаунт на <strong>coze.com</strong> (бесплатно, через Google или email)</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-checkbox checked"></span>
+            <span class="checklist-text">20–30 минут на создание и настройку</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-checkbox checked"></span>
+            <span class="checklist-text">Telegram для публикации готового бота (опционально)</span>
+          </li>
+        </ul>
+
+        <!-- Step by step creation -->
+        <h2>Пошаговое создание агента в Coze</h2>
+
+        <div class="accordion open-first">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 1: Создаём нового бота</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ol>
+                  <li>Зайдите на <strong>coze.com</strong> и войдите в аккаунт</li>
+                  <li>Нажмите <strong>"Create Bot"</strong></li>
+                  <li>Введите название и описание агента</li>
+                  <li>Выберите модель: <strong>GPT-4o</strong> или <strong>Claude 3.5 Sonnet</strong></li>
+                </ol>
+                <div class="prompt-example" style="margin-top: 1rem;">
+                  <div class="prompt-example-header">📝 Пример</div>
+                  <pre><strong>Bot Name:</strong> Мой деловой помощник
+<strong>Description:</strong> Помогает с деловой перепиской, анализом рынка и планированием задач.</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 2: Persona &amp; Prompt — инструкция агента</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>Вставляем инструкцию в поле <strong>Persona &amp; Prompt</strong>. Та же структура: роль, функции, принципы.</p>
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-lang">Пример Prompt</span>
+                    <button class="code-copy-btn">Копировать</button>
+                  </div>
+                  <pre><code>Ты — умный деловой ассистент.
+
+ЧЕМ ПОМОГАЮ:
+- Написание деловых писем и коммерческих предложений
+- Анализ рынка и поиск актуальной информации
+- Планирование задач и напоминания
+- Ответы на вопросы по бизнесу
+
+ПРИНЦИПЫ:
+- Отвечай по делу, кратко
+- Используй поиск для актуальных данных
+- Помни предпочтения пользователя</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 3: Plugins — добавляем суперсилы</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>В разделе <strong>Plugins</strong> добавляем инструменты. Для большинства агентов рекомендуем:</p>
+                <ul class="checklist">
+                  <li class="checklist-item">
+                    <span class="checklist-checkbox checked"></span>
+                    <span class="checklist-text"><strong>Web Search</strong> — актуальная информация из интернета</span>
+                  </li>
+                  <li class="checklist-item">
+                    <span class="checklist-checkbox checked"></span>
+                    <span class="checklist-text"><strong>Image Generation</strong> — создание изображений по описанию</span>
+                  </li>
+                  <li class="checklist-item">
+                    <span class="checklist-checkbox checked"></span>
+                    <span class="checklist-text"><strong>News</strong> — свежие новости по теме</span>
+                  </li>
+                  <li class="checklist-item">
+                    <span class="checklist-checkbox checked"></span>
+                    <span class="checklist-text"><strong>Calculator</strong> — точные вычисления</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 4: Memory — долгосрочная память</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>В разделе <strong>Memory</strong> включаем долгосрочную память.</p>
+                <div class="alert alert-success" style="margin-top: 0.5rem;">
+                  <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <div>С включённой памятью агент будет помнить имя пользователя, его предпочтения и историю общения между сессиями. Это превращает бота в настоящего персонального ассистента.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 5: Onboarding — приветствие и стартовые вопросы</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <div class="prompt-example">
+                  <div class="prompt-example-header">📝 Пример Onboarding</div>
+                  <pre><strong>Приветствие:</strong>
+Привет! Я ваш деловой ассистент. Помогу с перепиской, анализом и планированием. С чего начнём?
+
+<strong>Starter questions:</strong>
+• Напиши коммерческое предложение
+• Найди актуальные новости по теме
+• Помоги спланировать неделю</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 6: Publish — публикуем агента</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ol>
+                  <li>Нажмите кнопку <strong>Publish</strong></li>
+                  <li>Выберите платформу: <strong>Telegram</strong> (самый популярный выбор)</li>
+                  <li>Следуйте инструкции по подключению Telegram Bot Token</li>
+                  <li>Поделитесь ссылкой на бота с коллегами или студентами</li>
+                </ol>
+                <div class="alert alert-info" style="margin-top: 1rem;">
+                  <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                  <div>Подробная инструкция по подключению к Telegram — в разделе ниже.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plugins Section -->
+        <h2 style="margin-top: 3rem;">Плагины Coze — суперсилы агента</h2>
+
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">🌐</div>
+            <h4 class="technique-card-title">Web Search</h4>
+            <p class="technique-card-desc">Актуальная информация из интернета в режиме реального времени</p>
           </div>
           <div class="technique-card">
             <div class="technique-card-icon">🎨</div>
-            <h4 class="technique-card-title">No-code</h4>
-            <p class="technique-card-desc">Coze, Flowise — визуальное создание</p>
+            <h4 class="technique-card-title">Image Generation</h4>
+            <p class="technique-card-desc">Создание изображений по текстовому описанию прямо в чате</p>
           </div>
           <div class="technique-card">
-            <div class="technique-card-icon">🔗</div>
-            <h4 class="technique-card-title">Агрегаторы</h4>
-            <p class="technique-card-desc">OpenRouter — единый API для всех моделей</p>
+            <div class="technique-card-icon">📰</div>
+            <h4 class="technique-card-title">News</h4>
+            <p class="technique-card-desc">Свежие новости по любой теме с фильтрацией по языку и региону</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🧮</div>
+            <h4 class="technique-card-title">Calculator</h4>
+            <p class="technique-card-desc">Точные математические вычисления без ошибок</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">📄</div>
+            <h4 class="technique-card-title">PDF Reader</h4>
+            <p class="technique-card-desc">Анализ и извлечение данных из PDF-документов</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🌍</div>
+            <h4 class="technique-card-title">Translator</h4>
+            <p class="technique-card-desc">Перевод текстов в режиме реального времени на десятки языков</p>
           </div>
         </div>
 
-        <!-- Groq Section -->
-        <h2 style="margin-top: 3rem;">Groq — Сверхбыстрая инференция</h2>
-
-        <div class="alert alert-success">
-          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <div>
-            <strong>Groq</strong> использует специализированные процессоры (LPU) для генерации до 800+ токенов/секунду — в 10-30 раз быстрее обычных GPU. В 2025-2026 добавил поддержку Llama 4, DeepSeek-R2 и Qwen2.5.
-          </div>
-        </div>
-
-        <div class="comparison">
-          <div class="comparison-item good">
-            <div class="comparison-header">Преимущества</div>
-            <ul>
-              <li>Очень быстрая генерация</li>
-              <li>Бесплатный tier</li>
-              <li>Поддержка function calling</li>
-              <li>Простая интеграция через API</li>
-            </ul>
-          </div>
-          <div class="comparison-item bad">
-            <div class="comparison-header">Ограничения</div>
-            <ul>
-              <li>Ограниченный выбор моделей</li>
-              <li>Нет GUI для агентов</li>
-              <li>Лимиты на бесплатном плане</li>
-              <li>Требует программирования</li>
-            </ul>
-          </div>
-        </div>
-
-        <h3>Пример агента на Groq</h3>
-
-        <div class="code-block">
-          <div class="code-header">
-            <span class="code-lang">Python</span>
-            <button class="code-copy-btn">Копировать</button>
-          </div>
-          <pre><code>from groq import Groq
-import json
-
-client = Groq(api_key="your-api-key")
-
-# Определение инструментов
-tools = [
-    {
-        "type": "function",
-        "function": {
-            "name": "get_weather",
-            "description": "Получить текущую погоду в городе",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "city": {"type": "string", "description": "Название города"}
-                },
-                "required": ["city"]
-            }
-        }
-    }
-]
-
-def run_agent(user_message: str):
-    messages = [
-        {"role": "system", "content": "Ты - полезный AI агент с доступом к инструментам."},
-        {"role": "user", "content": user_message}
-    ]
-
-    response = client.chat.completions.create(
-        model="llama-4-maverick",  # или deepseek-r2, qwen-2.5-72b
-        messages=messages,
-        tools=tools,
-        tool_choice="auto"
-    )
-
-    return response.choices[0].message.content
-
-# Использование
-result = run_agent("Какая погода в Минске?")
-print(result)</code></pre>
-        </div>
-
-        <!-- Gemini Section -->
-        <h2 style="margin-top: 3rem;">Google Gemini 2.5 — Мультимодальные агенты</h2>
+        <!-- Workflow Section -->
+        <h2 style="margin-top: 3rem;">Workflow — автоматизация без кода</h2>
 
         <div class="alert alert-info">
           <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -276,360 +409,243 @@ print(result)</code></pre>
             <path d="M12 8h.01"/>
           </svg>
           <div>
-            <strong>Gemini 2.5</strong> — семейство мультимодальных моделей от Google с нативным reasoning. Работает с текстом, изображениями, аудио, видео и кодом. Контекст до 1M токенов. Gemini 2.5 Pro — лучший в кодинге и аналитике по бенчмаркам 2026 года.
+            <strong>Workflow</strong> в Coze позволяет создать цепочку действий. Например: получить запрос → найти в интернете → проанализировать → сформировать отчёт → отправить в Telegram. Всё это через визуальный редактор — без единой строки кода.
           </div>
         </div>
 
-        <h3>Модели Gemini</h3>
+        <h3>Пример Workflow: "Ежедневный дайджест новостей"</h3>
 
         <div class="card">
           <div class="card-body">
             <table style="width: 100%;">
               <thead>
                 <tr>
-                  <th>Модель</th>
-                  <th>Особенности</th>
-                  <th>Контекст</th>
+                  <th>Шаг</th>
+                  <th>Действие</th>
+                  <th>Описание</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Gemini 2.5 Flash</strong></td>
-                  <td>Быстрая и дешёвая для высоких нагрузок</td>
-                  <td>1M токенов</td>
+                  <td><strong>Trigger</strong></td>
+                  <td>Расписание</td>
+                  <td>Каждое утро в 8:00 автоматически запускается</td>
                 </tr>
                 <tr>
-                  <td><strong>Gemini 2.5 Pro</strong></td>
-                  <td>Лучший в кодинге и аналитике, нативный reasoning</td>
-                  <td>1M токенов</td>
+                  <td><strong>Step 1</strong></td>
+                  <td>Web Search</td>
+                  <td>Ищет новости по заданным темам за последние 24 часа</td>
                 </tr>
                 <tr>
-                  <td><strong>Gemini 2.5 Deep Research</strong></td>
-                  <td>Автономный исследователь — сам ищет и анализирует</td>
-                  <td>1M токенов</td>
+                  <td><strong>Step 2</strong></td>
+                  <td>AI Node</td>
+                  <td>Обрабатывает результаты: выделяет главное, убирает лишнее</td>
+                </tr>
+                <tr>
+                  <td><strong>Step 3</strong></td>
+                  <td>Send to Telegram</td>
+                  <td>Отправляет готовый дайджест в Telegram-бот</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <h3>Пример мультимодального агента</h3>
+        <!-- 5 Ready Agents -->
+        <h2 style="margin-top: 3rem;">5 готовых агентов для Coze</h2>
 
-        <div class="code-block">
-          <div class="code-header">
-            <span class="code-lang">Python</span>
-            <button class="code-copy-btn">Копировать</button>
+        <p>Скопируйте инструкцию в поле Persona &amp; Prompt при создании нового бота. Рекомендуемые плагины указаны для каждого агента.</p>
+
+        <!-- Agent 1 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-chatgpt">Продажи</span>
+            <h4>Агент 1: Продающий консультант</h4>
           </div>
-          <pre><code>import google.generativeai as genai
-import PIL.Image
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>📝 Persona &amp; Prompt</h5>
+              <pre>Ты — опытный менеджер по продажам. Помогаешь клиентам выбрать подходящий продукт и закрываешь сделки.
 
-genai.configure(api_key="your-api-key")
+ЧЕМ ПОМОГАЮ:
+- Выявление потребностей клиента через вопросы
+- Презентация продуктов с выгодами для клиента
+- Работа с возражениями ("дорого", "подумаю", "уже есть поставщик")
+- Расчёт стоимости и составление КП
+- Доведение до покупки
 
-def multimodal_agent(text: str, image_path: str = None):
-    if image_path:
-        img = PIL.Image.open(image_path)
-        model = genai.GenerativeModel("gemini-2.5-pro")
-        response = model.generate_content([text, img])
-    else:
-        model = genai.GenerativeModel("gemini-2.5-flash")
-        response = model.generate_content(text)
+КАК РАБОТАЮ:
+1. Приветствую и узнаю запрос
+2. Задаю уточняющие вопросы о задаче
+3. Предлагаю решение с обоснованием выгод
+4. Обрабатываю возражения
+5. Предлагаю следующий шаг
 
-    return response.text
-
-# Анализ изображения
-result = multimodal_agent(
-    "Что изображено на этом фото? Опиши детально.",
-    "photo.jpg"
-)
-print(result)</code></pre>
-        </div>
-
-        <!-- Coze Section -->
-        <h2 style="margin-top: 3rem;">Coze — No-code платформа</h2>
-
-        <div class="alert alert-success">
-          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <div>
-            <strong>Coze</strong> (от ByteDance) — полностью бесплатная платформа для создания AI агентов без программирования. Похожа на Custom GPTs, но с дополнительными возможностями.
-          </div>
-        </div>
-
-        <h3>Особенности Coze</h3>
-
-        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-          <div class="technique-card">
-            <div class="technique-card-icon">🆓</div>
-            <h4 class="technique-card-title">Бесплатно</h4>
-            <p class="technique-card-desc">Полностью бесплатная платформа</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🔌</div>
-            <h4 class="technique-card-title">Плагины</h4>
-            <p class="technique-card-desc">Множество готовых интеграций</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🧠</div>
-            <h4 class="technique-card-title">Память</h4>
-            <p class="technique-card-desc">Долгосрочная память агентов</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🌐</div>
-            <h4 class="technique-card-title">Публикация</h4>
-            <p class="technique-card-desc">Легкое распространение</p>
-          </div>
-        </div>
-
-        <!-- Grok Section -->
-        <h2 style="margin-top: 3rem;">Grok (xAI) — Агент с интернетом в реальном времени</h2>
-
-        <div class="alert alert-info">
-          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 16v-4"/>
-            <path d="M12 8h.01"/>
-          </svg>
-          <div>
-            <strong>Grok</strong> от Elon Musk's xAI — мощный мультимодальный агент с доступом к X (Twitter) в реальном времени, генерацией изображений (Aurora) и видео (Veo3 через DeepMind). Grok 3 в 2025 году вошёл в топ-3 по бенчмаркам.
-          </div>
-        </div>
-
-        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-          <div class="technique-card">
-            <div class="technique-card-icon">🌐</div>
-            <h4 class="technique-card-title">Реальное время</h4>
-            <p class="technique-card-desc">Доступ к X/Twitter и актуальным новостям</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🖼</div>
-            <h4 class="technique-card-title">Aurora</h4>
-            <p class="technique-card-desc">Фотореалистичная генерация изображений</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🎬</div>
-            <h4 class="technique-card-title">Veo3</h4>
-            <p class="technique-card-desc">Генерация видео из текста</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🆓</div>
-            <h4 class="technique-card-title">Бесплатно</h4>
-            <p class="technique-card-desc">Базовый доступ через grok.x.ai</p>
-          </div>
-        </div>
-
-        <!-- Other Platforms -->
-        <h2 style="margin-top: 3rem;">Другие платформы</h2>
-
-        <div class="accordion open-first">
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>OpenRouter — Агрегатор моделей</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Единый API для доступа к множеству моделей:</p>
-                <ul>
-                  <li>GPT-5.2, Claude Sonnet 5, Llama 4 и другие</li>
-                  <li>Бесплатный tier для некоторых моделей</li>
-                  <li>Поддержка function calling</li>
-                  <li>Унифицированный формат запросов</li>
-                </ul>
-                <p><strong>Ссылка:</strong> <a href="https://openrouter.ai" target="_blank">openrouter.ai</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Together AI — Open-source модели</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Платформа для запуска open-source моделей:</p>
-                <ul>
-                  <li>Бесплатный tier</li>
-                  <li>Быстрая инференция</li>
-                  <li>Поддержка function calling</li>
-                  <li>Llama, Mistral, и другие модели</li>
-                </ul>
-                <p><strong>Ссылка:</strong> <a href="https://together.ai" target="_blank">together.ai</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>LangChain / LangGraph — Фреймворки</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Open-source фреймворки для создания агентов:</p>
-                <ul>
-                  <li>Полный контроль над агентом</li>
-                  <li>Интеграция с различными моделями</li>
-                  <li>Гибкая настройка</li>
-                  <li>Требует программирования (Python)</li>
-                </ul>
-                <p><strong>Ссылка:</strong> <a href="https://langchain.com" target="_blank">langchain.com</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Flowise — No-code LLM приложения</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Визуальный редактор для LLM приложений:</p>
-                <ul>
-                  <li>Drag-and-drop интерфейс</li>
-                  <li>Бесплатная self-hosted версия</li>
-                  <li>Интеграция с LangChain</li>
-                  <li>Поддержка агентов и RAG</li>
-                </ul>
-                <p><strong>Ссылка:</strong> <a href="https://flowise.ai" target="_blank">flowise.ai</a></p>
-              </div>
+СТИЛЬ: дружелюбный, профессиональный, ориентированный на результат</pre>
+              <p style="margin-top: 0.75rem;"><strong>Рекомендуемые плагины:</strong> Web Search, Calculator</p>
             </div>
           </div>
         </div>
 
-        <!-- Make.com -->
-        <h2 style="margin-top: 3rem;">Make.com — Визуальная автоматизация</h2>
+        <!-- Agent 2 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-automation">SMM</span>
+            <h4>Агент 2: SMM-менеджер с картинками</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>📝 Persona &amp; Prompt</h5>
+              <pre>Ты — SMM-менеджер. Создаёшь контент для социальных сетей: посты И картинки к ним.
 
-        <div class="alert alert-success">
-          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <div>
-            <strong>Make.com</strong> (бывший Integromat) — мощная альтернатива n8n с интуитивным визуальным редактором. 1000+ интеграций, AI модули для Claude и GPT, бесплатный план 1000 операций/месяц.
+ЧЕМ ПОМОГАЮ:
+- Написание постов для Instagram, VK, Telegram, LinkedIn
+- Генерация изображений для каждого поста
+- Контент-план на неделю или месяц
+- Анализ трендов и актуальных тем
+- Хэштеги и заголовки для охвата
+
+КАК РАБОТАЮ:
+1. Уточняю тематику и аудиторию
+2. Пишу текст поста
+3. Генерирую подходящее изображение
+4. Предлагаю хэштеги и время публикации
+
+СТИЛЬ: живой, вовлекающий, адаптированный под платформу</pre>
+              <p style="margin-top: 0.75rem;"><strong>Рекомендуемые плагины:</strong> Web Search, Image Generation, News</p>
+            </div>
           </div>
         </div>
 
-        <!-- Comparison Table -->
-        <h2 style="margin-top: 3rem;">Сравнительная таблица</h2>
+        <!-- Agent 3 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-api">Поддержка</span>
+            <h4>Агент 3: Техподдержка</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>📝 Persona &amp; Prompt</h5>
+              <pre>Ты — специалист службы поддержки. Помогаешь клиентам решать проблемы быстро и без стресса.
 
-        <div class="card">
-          <div class="card-body" style="overflow-x: auto;">
-            <table style="width: 100%; min-width: 600px;">
-              <thead>
-                <tr>
-                  <th>Платформа</th>
-                  <th>Тип</th>
-                  <th>Бесплатно</th>
-                  <th>No-code</th>
-                  <th>Мультимодальность</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Custom GPTs</strong></td>
-                  <td>No-code</td>
-                  <td>Частично</td>
-                  <td>Да</td>
-                  <td>Да</td>
-                </tr>
-                <tr>
-                  <td><strong>Claude Projects</strong></td>
-                  <td>No-code</td>
-                  <td>Частично</td>
-                  <td>Да</td>
-                  <td>Да</td>
-                </tr>
-                <tr>
-                  <td><strong>Groq</strong></td>
-                  <td>API</td>
-                  <td>Да</td>
-                  <td>Нет</td>
-                  <td>Нет</td>
-                </tr>
-                <tr>
-                  <td><strong>Gemini</strong></td>
-                  <td>API</td>
-                  <td>Да</td>
-                  <td>Нет</td>
-                  <td>Да</td>
-                </tr>
-                <tr>
-                  <td><strong>Coze</strong></td>
-                  <td>No-code</td>
-                  <td>Да</td>
-                  <td>Да</td>
-                  <td>Да</td>
-                </tr>
-                <tr>
-                  <td><strong>OpenRouter</strong></td>
-                  <td>API</td>
-                  <td>Частично</td>
-                  <td>Нет</td>
-                  <td>Зависит от модели</td>
-                </tr>
-                <tr>
-                  <td><strong>LangChain</strong></td>
-                  <td>Framework</td>
-                  <td>Да</td>
-                  <td>Нет</td>
-                  <td>Да</td>
-                </tr>
-                <tr>
-                  <td><strong>Grok (xAI)</strong></td>
-                  <td>No-code + API</td>
-                  <td>Да</td>
-                  <td>Да</td>
-                  <td>Да</td>
-                </tr>
-                <tr>
-                  <td><strong>Make.com</strong></td>
-                  <td>No-code</td>
-                  <td>Частично</td>
-                  <td>Да</td>
-                  <td>Зависит от модуля</td>
-                </tr>
-              </tbody>
-            </table>
+ЧЕМ ПОМОГАЮ:
+- Ответы на частые вопросы о продукте или сервисе
+- Пошаговые инструкции по решению проблем
+- Сбор информации для передачи специалисту
+- Отслеживание статуса обращений
+- Сохранение истории общения с клиентом
+
+КАК РАБОТАЮ:
+1. Приветствую и уточняю проблему
+2. Проверяю базу знаний (документы)
+3. Даю решение пошагово
+4. Уточняю — проблема решена?
+5. Если нет — фиксирую и передаю в отдел
+
+ТОН: терпеливый, чёткий, без технического жаргона</pre>
+              <p style="margin-top: 0.75rem;"><strong>Память:</strong> включить — агент запомнит историю обращений клиента</p>
+            </div>
           </div>
         </div>
 
-        <!-- Recommendations -->
-        <h2 style="margin-top: 3rem;">Рекомендации по выбору</h2>
+        <!-- Agent 4 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-chatgpt">Финансы</span>
+            <h4>Агент 4: Инвестиционный аналитик</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>📝 Persona &amp; Prompt</h5>
+              <pre>Ты — финансовый аналитик. Помогаешь разобраться в инвестициях на понятном языке.
+
+ЧЕМ ПОМОГАЮ:
+- Анализ акций, ETF, крипты по свежим данным
+- Сводка финансовых новостей по активу
+- Объяснение финансовых терминов простым языком
+- Сравнение инвестиционных инструментов
+- Калькуляция доходности и рисков
+
+КАК РАБОТАЮ:
+1. Уточняю интересующий актив или вопрос
+2. Ищу актуальные данные и новости
+3. Анализирую и объясняю ситуацию
+4. Даю варианты действий с плюсами и минусами
+
+ВАЖНО: Это информация для образования, не финансовый совет. Решения принимаете самостоятельно.</pre>
+              <p style="margin-top: 0.75rem;"><strong>Рекомендуемые плагины:</strong> Web Search, News, Calculator</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agent 5 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-automation">Продуктивность</span>
+            <h4>Агент 5: Персональный планировщик</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>📝 Persona &amp; Prompt</h5>
+              <pre>Ты — персональный ассистент и планировщик. Помнишь цели пользователя и помогаешь их достигать.
+
+ЧЕМ ПОМОГАЮ:
+- Ведение списка целей и задач
+- Планирование дня, недели, месяца
+- Напоминание о важных делах и дедлайнах
+- Разбивка больших целей на маленькие шаги
+- Отслеживание прогресса и мотивация
+
+КАК РАБОТАЮ:
+1. При первом контакте узнаю главные цели
+2. Помогаю распланировать ближайшие задачи
+3. Спрашиваю про прогресс при следующей встрече
+4. Адаптирую план на основе обратной связи
+
+СТИЛЬ: поддерживающий, конкретный, без лишних слов</pre>
+              <p style="margin-top: 0.75rem;"><strong>Память:</strong> обязательно включить — агент должен помнить цели между сессиями</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Telegram Publication -->
+        <h2 style="margin-top: 3rem;">Публикация в Telegram — пошаговая инструкция</h2>
 
         <div class="comparison">
           <div class="comparison-item" style="border-color: var(--primary);">
-            <div class="comparison-header" style="color: var(--primary);">Для начинающих (No-code)</div>
-            <ul>
-              <li><strong>Coze</strong> — полностью бесплатно</li>
-              <li><strong>Custom GPTs</strong> — простой старт</li>
-              <li><strong>Claude Projects</strong> — большие файлы</li>
-            </ul>
+            <div class="comparison-header" style="color: var(--primary);">Шаг 1: Создаём бота в Telegram</div>
+            <ol>
+              <li>Откройте Telegram и найдите <strong>@BotFather</strong></li>
+              <li>Отправьте команду <strong>/newbot</strong></li>
+              <li>Введите имя бота (например: "Мой Ассистент")</li>
+              <li>Введите username бота (например: my_assistant_bot)</li>
+              <li>Скопируйте <strong>Bot Token</strong> — он выглядит как: 1234567890:ABCdef...</li>
+            </ol>
           </div>
-          <div class="comparison-item" style="border-color: var(--accent);">
-            <div class="comparison-header" style="color: var(--accent);">Для разработчиков (API)</div>
-            <ul>
-              <li><strong>Groq</strong> — сверхбыстрая генерация (Llama 4)</li>
-              <li><strong>Gemini 2.5 Pro</strong> — reasoning + мультимодальность</li>
-              <li><strong>OpenRouter</strong> — доступ к 100+ моделям</li>
-              <li><strong>Grok API</strong> — реальное время + Aurora</li>
-            </ul>
+          <div class="comparison-item good">
+            <div class="comparison-header">Шаг 2: Подключаем к Coze</div>
+            <ol>
+              <li>В Coze нажмите <strong>Publish</strong></li>
+              <li>Выберите <strong>Telegram</strong></li>
+              <li>Вставьте скопированный Bot Token</li>
+              <li>Нажмите <strong>Connect</strong></li>
+              <li>Откройте Telegram и найдите своего бота — он уже работает!</li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="alert alert-success" style="margin-top: 1.5rem;">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <div>
+            Готово! Теперь у вас есть персональный AI-бот в Telegram. Поделитесь ссылкой с коллегами или клиентами — они смогут пользоваться им бесплатно.
           </div>
         </div>
 
         <!-- Quiz -->
-        <div class="quiz" style="margin-top: 3rem;">
+        <div class="quiz">
           <div class="quiz-header">
             <div class="quiz-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -640,23 +656,23 @@ print(result)</code></pre>
             </div>
             <h3 class="quiz-title">Проверка знаний</h3>
           </div>
-          <div class="quiz-question">Какая платформа обеспечивает самую быструю генерацию текста (до 300 токенов/сек)?</div>
+          <div class="quiz-question">Какая уникальная возможность Coze недоступна в ChatGPT GPTs бесплатно?</div>
           <div class="quiz-options">
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>Google Gemini</span>
+              <span>Создание инструкций для агента</span>
+            </div>
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>Загрузка документов в базу знаний</span>
             </div>
             <div class="quiz-option" data-correct="true">
               <span class="quiz-option-marker"></span>
-              <span>Groq</span>
+              <span>Долгосрочная память + публикация в Telegram + плагины — всё бесплатно</span>
             </div>
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>Coze</span>
-            </div>
-            <div class="quiz-option" data-correct="false">
-              <span class="quiz-option-marker"></span>
-              <span>OpenRouter</span>
+              <span>Общение с агентом через чат</span>
             </div>
           </div>
           <div class="quiz-feedback">
@@ -670,17 +686,16 @@ print(result)</code></pre>
         </div>
 
         <!-- Summary -->
-        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
-          <div class="card-header">Ключевые выводы</div>
+        <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
+          <div class="card-header">📝 Ключевые выводы</div>
           <div class="card-body">
             <ul>
-              <li><strong>Groq</strong> — сверхбыстрая генерация (300 токенов/сек), бесплатный tier</li>
-              <li><strong>Gemini</strong> — мультимодальность (текст, изображения, видео), длинный контекст</li>
-              <li><strong>Coze</strong> — полностью бесплатная no-code платформа с плагинами</li>
-              <li><strong>Grok</strong> — реальное время, Aurora (изображения), Veo3 (видео)</li>
-              <li><strong>Make.com</strong> — визуальная автоматизация, альтернатива n8n</li>
-              <li><strong>Gemini 2.5 Pro</strong> — лидер в кодинге и аналитике 2026</li>
-              <li>Выбор платформы зависит от задач: скорость, мультимодальность, или простота</li>
+              <li><strong>Coze</strong> — самая мощная бесплатная платформа для создания AI-агентов без кода</li>
+              <li><strong>Плагины</strong> дают агенту реальные возможности: поиск, новости, генерация изображений, вычисления</li>
+              <li><strong>Долгосрочная память</strong> превращает бота в настоящего персонального ассистента, который помнит вас</li>
+              <li><strong>Workflow</strong> позволяет автоматизировать цепочки задач через визуальный редактор</li>
+              <li><strong>Публикация в Telegram</strong> за 5 минут — один агент для всех пользователей</li>
+              <li>Выбирайте Coze, если нужен мощный бесплатный агент с интеграцией в мессенджеры</li>
             </ul>
           </div>
         </div>
@@ -688,7 +703,7 @@ print(result)</code></pre>
         <!-- Mark Complete Button -->
         <div style="text-align: center; margin: 2rem 0;">
           <button class="btn btn-primary mark-complete-btn" data-lesson="4">
-            Отметить урок как пройденный
+            Отметить урок как пройденный ✓
           </button>
         </div>
 
@@ -698,13 +713,13 @@ print(result)</code></pre>
             <span>←</span>
             <div>
               <div class="nav-arrow-label">Назад</div>
-              <div class="nav-arrow-title">n8n Автоматизация</div>
+              <div class="nav-arrow-title">Gemini Gems</div>
             </div>
           </a>
           <a href="lesson-5.html" class="nav-arrow nav-arrow-next">
             <div>
               <div class="nav-arrow-label">Далее</div>
-              <div class="nav-arrow-title">Практика: Создание агента</div>
+              <div class="nav-arrow-title">Практика</div>
             </div>
             <span>→</span>
           </a>

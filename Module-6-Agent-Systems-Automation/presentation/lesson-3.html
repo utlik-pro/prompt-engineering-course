@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Урок 3: n8n Автоматизация | Модуль 6</title>
+  <title>Урок 3: Gemini Gems | Модуль 6</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -43,27 +43,27 @@
 
         <a href="lesson-1.html" class="nav-item" data-lesson="1">
           <span class="nav-item-number">1</span>
-          Концепция AI агентов
+          ChatGPT GPTs
         </a>
 
         <a href="lesson-2.html" class="nav-item" data-lesson="2">
           <span class="nav-item-number">2</span>
-          ChatGPT & Claude Agents
+          Grok агенты
         </a>
 
         <a href="lesson-3.html" class="nav-item active" data-lesson="3">
           <span class="nav-item-number">3</span>
-          n8n Автоматизация
+          Gemini Gems
         </a>
 
         <a href="lesson-4.html" class="nav-item" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Альтернативные платформы
+          Coze агент
         </a>
 
         <a href="lesson-5.html" class="nav-item" data-lesson="5">
           <span class="nav-item-number">5</span>
-          Практика: Создание агента
+          Практика
         </a>
 
         <a href="project.html" class="nav-item" data-lesson="6">
@@ -113,16 +113,16 @@
         <div class="lesson-header">
           <div class="lesson-meta">
             <span class="lesson-number">Урок 3</span>
-            <span class="lesson-duration">60 минут</span>
+            <span class="lesson-duration">⏱ 40 минут</span>
           </div>
-          <h1 class="lesson-title">n8n: Автоматизация с AI</h1>
+          <h1 class="lesson-title">Создаём агента в Google Gemini: Gems</h1>
           <div class="lesson-objectives">
             <h4>Цели урока:</h4>
             <ul>
-              <li>Понять что такое n8n и его возможности</li>
-              <li>Освоить типы нодов и компоненты платформы</li>
-              <li>Научиться создавать AI-powered workflows</li>
-              <li>Создать первый автоматизированный процесс</li>
+              <li>Узнать что такое Gems и чем они отличаются от GPTs</li>
+              <li>Пошагово создать своего Gem прямо на занятии</li>
+              <li>Освоить Deep Research — автономный исследователь</li>
+              <li>Попробовать готовые примеры и сразу использовать их</li>
             </ul>
           </div>
         </div>
@@ -137,15 +137,13 @@
             Заметка для преподавателя
           </div>
           <div class="teacher-note-content">
-            <p><strong>Время:</strong> 60 минут (20 мин теория + 40 мин практика)</p>
-            <p><strong>Подготовка:</strong> Установите n8n локально или используйте n8n.cloud для демонстрации.</p>
-            <p><strong>Демо:</strong> Покажите создание Telegram бота с AI в реальном времени.</p>
+            <p><strong>Время:</strong> 40 минут. Все создают Gem прямо на занятии — нужен только Google аккаунт (бесплатно).</p>
+            <p><strong>Демо:</strong> Покажите Deep Research в действии — это wow-момент урока. Запустите исследование заранее, чтобы показать готовый отчёт прямо на паре.</p>
+            <p><strong>Важно:</strong> Gems создаются бесплатно. Убедитесь, что у всех студентов есть аккаунт Google и доступ к gemini.google.com.</p>
           </div>
         </div>
 
-        <!-- What is n8n -->
-        <h2>Что такое n8n?</h2>
-
+        <!-- What are Gems -->
         <div class="alert alert-info">
           <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10"/>
@@ -153,400 +151,427 @@
             <path d="M12 8h.01"/>
           </svg>
           <div>
-            <strong>n8n</strong> — open-source платформа для автоматизации workflows. Позволяет соединять различные сервисы и API без программирования через визуальный drag-and-drop интерфейс. В версии 1.x появились нативные <strong>AI Agent ноды</strong> — создавайте полноценных агентов с памятью и инструментами прямо в n8n, без кода.
+            <strong>Gems</strong> — это персональные AI-помощники в Google Gemini. Создаются бесплатно, работают с документами Google, имеют доступ к поиску. Плюс <strong>Deep Research</strong> — автономный агент, который сам исследует тему часами и пишет профессиональный отчёт.
           </div>
         </div>
 
-        <h3>Ключевые особенности</h3>
+        <!-- What you need -->
+        <h2>Что нужно для начала</h2>
 
-        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-          <div class="technique-card">
-            <div class="technique-card-icon">🔓</div>
-            <h4 class="technique-card-title">Open Source</h4>
-            <p class="technique-card-desc">Бесплатная платформа с возможностью self-hosting</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🎨</div>
-            <h4 class="technique-card-title">Visual Builder</h4>
-            <p class="technique-card-desc">Drag-and-drop создание без кода</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🔗</div>
-            <h4 class="technique-card-title">200+ Интеграций</h4>
-            <p class="technique-card-desc">Готовые ноды для сервисов</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🤖</div>
-            <h4 class="technique-card-title">AI Nodes</h4>
-            <p class="technique-card-desc">OpenAI, Anthropic, Hugging Face</p>
+        <ul class="checklist">
+          <li class="checklist-item">
+            <span class="checklist-checkbox checked"></span>
+            <span class="checklist-text">Google аккаунт (бесплатно — он уже есть у большинства)</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-checkbox checked"></span>
+            <span class="checklist-text">Зайти на <strong>gemini.google.com</strong></span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-checkbox checked"></span>
+            <span class="checklist-text">15 минут — и ваш персональный Gem готов</span>
+          </li>
+        </ul>
+
+        <!-- Comparison table -->
+        <h2>Gemini Gems vs другие платформы</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <table style="width: 100%;">
+              <thead>
+                <tr>
+                  <th>Критерий</th>
+                  <th>ChatGPT GPTs</th>
+                  <th>Grok</th>
+                  <th>Gemini Gems</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Цена создания</strong></td>
+                  <td>Платно (Plus)</td>
+                  <td>Бесплатно</td>
+                  <td>✅ Бесплатно</td>
+                </tr>
+                <tr>
+                  <td><strong>Интеграция с Google</strong></td>
+                  <td>Нет</td>
+                  <td>Нет</td>
+                  <td>✅ Да (Docs, Drive, Gmail)</td>
+                </tr>
+                <tr>
+                  <td><strong>Deep Research</strong></td>
+                  <td>Нет</td>
+                  <td>Частично</td>
+                  <td>✅ Да — автономный</td>
+                </tr>
+                <tr>
+                  <td><strong>Языки</strong></td>
+                  <td>Хорошо</td>
+                  <td>Хорошо</td>
+                  <td>✅ Отлично (Google Translate)</td>
+                </tr>
+                <tr>
+                  <td><strong>Мультимодальность</strong></td>
+                  <td>Да</td>
+                  <td>Да</td>
+                  <td>✅ Да</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <!-- Architecture -->
-        <h2 style="margin-top: 3rem;">Архитектура n8n</h2>
-
-        <div class="code-block">
-          <div class="code-header">
-            <span class="code-lang">Структура платформы</span>
-          </div>
-          <pre><code>┌─────────────────────────────────────────────────────────┐
-│                    n8n PLATFORM                         │
-├─────────────────────────────────────────────────────────┤
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐     │
-│  │   Trigger   │  │  Processing │  │   Action    │     │
-│  │   Nodes     │  │    Nodes    │  │   Nodes     │     │
-│  │             │  │             │  │             │     │
-│  │ • Webhook   │  │ • Function  │  │ • HTTP      │     │
-│  │ • Schedule  │  │ • Code      │  │ • Email     │     │
-│  │ • Manual    │  │ • AI/ML     │  │ • Database  │     │
-│  │ • Email     │  │ • IF/Switch │  │ • Slack     │     │
-│  └─────────────┘  └─────────────┘  └─────────────┘     │
-│         │                 │                 │          │
-│         └─────────────────┼─────────────────┘          │
-│                           ▼                            │
-│  ┌─────────────────────────────────────────────────┐   │
-│  │              Execution Engine                   │   │
-│  │  • Workflow Engine  • Error Handling           │   │
-│  │  • Retry Logic      • Logging                  │   │
-│  └─────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────┘</code></pre>
-        </div>
-
-        <!-- Node Types -->
-        <h2 style="margin-top: 3rem;">Типы нодов</h2>
+        <!-- Step by step creation -->
+        <h2>Пошаговое создание Gem</h2>
 
         <div class="accordion open-first">
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>Trigger Nodes (Триггеры)</span>
+              <span>Шаг 1: Открываем раздел Gems</span>
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
             <div class="accordion-content">
               <div class="accordion-body">
-                <p>Запускают выполнение workflow:</p>
-                <ul>
-                  <li><strong>Manual Trigger</strong> — запуск вручную для тестирования</li>
-                  <li><strong>Webhook</strong> — HTTP запросы как триггер (REST API)</li>
-                  <li><strong>Schedule Trigger</strong> — запуск по расписанию (cron-синтаксис)</li>
-                  <li><strong>Email Trigger</strong> — обработка входящих писем</li>
-                </ul>
+                <ol>
+                  <li>Откройте <strong>gemini.google.com</strong></li>
+                  <li>В левом боковом меню найдите раздел <strong>"Gems"</strong></li>
+                  <li>Нажмите <strong>"Create a Gem"</strong> (или <strong>"New Gem"</strong>)</li>
+                  <li>Откроется редактор создания персонального помощника</li>
+                </ol>
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>Processing Nodes (Обработчики)</span>
+              <span>Шаг 2: Название и описание</span>
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
             <div class="accordion-content">
               <div class="accordion-body">
-                <p>Обрабатывают и трансформируют данные:</p>
-                <ul>
-                  <li><strong>Function Node</strong> — выполнение JavaScript кода</li>
-                  <li><strong>Code Node</strong> — выполнение Python кода</li>
-                  <li><strong>Set Node</strong> — установка значений полей</li>
-                  <li><strong>IF Node</strong> — условная логика и разветвление</li>
-                </ul>
+                <div class="prompt-example">
+                  <div class="prompt-example-header">📝 Пример</div>
+                  <pre><strong>Название:</strong> Мой деловой ассистент
+
+<strong>Описание:</strong> Помогает писать профессиональные письма, планировать встречи и готовить документы для работы.</pre>
+                </div>
+                <p style="margin-top: 1rem;">Название видите только вы — выбирайте понятное для себя.</p>
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>AI/ML Nodes</span>
+              <span>Шаг 3: Instructions — инструкция для агента</span>
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
             <div class="accordion-content">
               <div class="accordion-body">
-                <p>Интеграция с AI сервисами:</p>
-                <ul>
-                  <li><strong>AI Agent Node</strong> — нативный агент с памятью, инструментами и LLM (новое в v1.x)</li>
-                  <li><strong>OpenAI</strong> — GPT-5.2, o3 для текста и анализа</li>
-                  <li><strong>Anthropic Claude</strong> — Claude Sonnet/Opus 4.6, нативная нода</li>
-                  <li><strong>Google Gemini</strong> — Gemini 2.5 Pro/Flash, нативная нода</li>
-                  <li><strong>MCP Client</strong> — подключение MCP серверов к агентам</li>
-                  <li><strong>HTTP Request</strong> — универсальный API для любых AI сервисов</li>
-                </ul>
+                <p>В поле <strong>Instructions</strong> вставляем инструкцию — та же структура, что в ChatGPT: роль, функции, принципы работы.</p>
+                <div class="code-block">
+                  <div class="code-header">
+                    <span class="code-lang">Пример Instructions</span>
+                    <button class="code-copy-btn">Копировать</button>
+                  </div>
+                  <pre><code>Ты — профессиональный деловой ассистент.
+
+ЧЕМ ПОМОГАЮ:
+- Написание деловых писем и ответов на email
+- Подготовка повесток встреч и протоколов
+- Составление кратких резюме документов
+- Планирование задач и приоритизация
+
+ПРИНЦИПЫ:
+- Пиши чётко и по делу
+- Экономь время пользователя
+- Предлагай готовые варианты, не вопросы</code></pre>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="accordion-item">
             <div class="accordion-header">
-              <span>Action Nodes (Действия)</span>
+              <span>Шаг 4: Knowledge — загружаем свои документы</span>
               <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"/>
               </svg>
             </div>
             <div class="accordion-content">
               <div class="accordion-body">
-                <p>Выполняют конечные действия:</p>
+                <p>В разделе <strong>Knowledge</strong> загружаем файлы: PDF, DOCX, TXT. Gem будет отвечать на основе ваших документов.</p>
                 <ul>
-                  <li><strong>HTTP Request</strong> — отправка HTTP запросов</li>
-                  <li><strong>Email</strong> — отправка писем</li>
-                  <li><strong>Slack</strong> — сообщения в каналы</li>
-                  <li><strong>Google Sheets</strong> — работа с таблицами</li>
+                  <li>Устав компании или регламенты</li>
+                  <li>Базы знаний и инструкции</li>
+                  <li>Шаблоны документов</li>
+                  <li>Прайс-листы и каталоги</li>
                 </ul>
+                <p style="margin-top: 0.75rem;">Gem станет экспертом именно по вашим материалам.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 5: Сохраняем и тестируем</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ol>
+                  <li>Нажмите <strong>Save</strong></li>
+                  <li>Откроется чат с вашим Gem</li>
+                  <li>Напишите первый запрос — проверьте, как он отвечает</li>
+                  <li>Если что-то не так — вернитесь в редактор и исправьте Instructions</li>
+                </ol>
+                <div class="alert alert-success" style="margin-top: 1rem;">
+                  <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                  <div>Готово! Ваш Gem появится в списке слева и будет доступен всегда.</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Installation -->
-        <h2 style="margin-top: 3rem;">Установка n8n</h2>
+        <!-- Deep Research -->
+        <h2 style="margin-top: 3rem;">Deep Research — автономный исследователь</h2>
 
-        <div class="comparison">
-          <div class="comparison-item" style="border-color: var(--primary);">
-            <div class="comparison-header" style="color: var(--primary);">Self-hosted (npm)</div>
-            <div class="code-block">
-              <pre><code># Глобальная установка
-npm install n8n -g
-
-# Запуск
-n8n start
-
-# С аутентификацией
-N8N_BASIC_AUTH_ACTIVE=true \
-N8N_BASIC_AUTH_USER=admin \
-N8N_BASIC_AUTH_PASSWORD=password \
-n8n start</code></pre>
-            </div>
-          </div>
-          <div class="comparison-item" style="border-color: var(--accent);">
-            <div class="comparison-header" style="color: var(--accent);">Docker Compose</div>
-            <div class="code-block">
-              <pre><code>version: '3.8'
-services:
-  n8n:
-    image: n8nio/n8n
-    ports:
-      - "5678:5678"
-    environment:
-      - N8N_BASIC_AUTH_ACTIVE=true
-      - N8N_BASIC_AUTH_USER=admin
-    volumes:
-      - n8n_data:/home/node/.n8n</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <div class="alert alert-success" style="margin-top: 1.5rem;">
+        <div class="alert alert-success">
           <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
             <polyline points="22 4 12 14.01 9 11.01"/>
           </svg>
           <div>
-            <strong>n8n Cloud</strong> — облачная версия. В 2025-2026 получила нативные AI Agent ноды и поддержку MCP. Регистрация: <a href="https://n8n.io" target="_blank">n8n.io</a>
+            <strong>Deep Research</strong> — уникальная функция Gemini. Вы задаёте тему, агент сам составляет план исследования, просматривает десятки источников и пишет подробный отчёт. Занимает 5–15 минут, но результат — как работа профессионального аналитика.
           </div>
         </div>
 
-        <!-- Example 1: Telegram Bot -->
-        <h2 style="margin-top: 3rem;">Пример 1: AI-бот для Telegram</h2>
+        <h3>Как использовать Deep Research</h3>
 
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">1️⃣</div>
+            <h4 class="technique-card-title">Выбираем модель</h4>
+            <p class="technique-card-desc">Выбираем <strong>Gemini 2.5 Pro</strong> с иконкой Deep Research в верхнем меню</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">2️⃣</div>
+            <h4 class="technique-card-title">Пишем запрос</h4>
+            <p class="technique-card-desc">"Исследуй [тему] и сделай отчёт с выводами и рекомендациями"</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">3️⃣</div>
+            <h4 class="technique-card-title">Подтверждаем план</h4>
+            <p class="technique-card-desc">Gemini покажет план исследования — соглашаемся или корректируем</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">4️⃣</div>
+            <h4 class="technique-card-title">Получаем отчёт</h4>
+            <p class="technique-card-desc">Через 5–15 минут — подробный отчёт со ссылками на источники</p>
+          </div>
+        </div>
+
+        <div class="prompt-example" style="margin-top: 1.5rem;">
+          <div class="prompt-example-header">💡 Примеры запросов для Deep Research</div>
+          <pre>Исследуй рынок онлайн-образования в СНГ в 2025 году: объём, тренды, ключевые игроки, прогноз на 3 года.
+
+Изучи лучшие практики внедрения AI-инструментов в малом бизнесе. Сделай отчёт с кейсами и рекомендациями.
+
+Проведи анализ конкурентов в нише [укажи нишу]: их предложения, цены, позиционирование, слабые места.</pre>
+        </div>
+
+        <!-- 5 Ready Gems -->
+        <h2 style="margin-top: 3rem;">5 готовых Gems — копируй и используй</h2>
+
+        <p>Скопируйте инструкцию и вставьте в поле Instructions при создании нового Gem.</p>
+
+        <!-- Gem 1 -->
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-automation">Workflow</span>
-            <h4>Telegram бот с GPT</h4>
+            <span class="domain-badge domain-chatgpt">Языки</span>
+            <h4>Gem 1: Переводчик и редактор</h4>
           </div>
           <div class="example-body">
-            <p><strong>Структура workflow:</strong></p>
-            <div class="code-block">
-              <pre><code>Telegram Trigger → AI Agent Node (Claude/GPT) → Telegram Send Message</code></pre>
-            </div>
+            <div class="example-prompt">
+              <h5>📝 Instructions</h5>
+              <pre>Ты — профессиональный переводчик и редактор текстов. Работаешь с русским, английским, немецким и испанским.
 
-            <p style="margin-top: 1.5rem;"><strong>Шаг 1: Telegram Trigger</strong></p>
-            <div class="code-block">
-              <div class="code-header">
-                <span class="code-lang">JSON</span>
-                <button class="code-copy-btn">Копировать</button>
-              </div>
-              <pre><code>{
-  "resource": "message",
-  "operation": "getUpdates",
-  "botToken": "YOUR_BOT_TOKEN"
-}</code></pre>
-            </div>
+ЧЕМ ПОМОГАЮ:
+- Перевод документов с сохранением стиля и тона
+- Редактура и корректура текстов
+- Адаптация текстов под разные аудитории
+- Проверка грамматики и пунктуации
+- Создание мультиязычного контента
 
-            <p style="margin-top: 1rem;"><strong>Шаг 2: AI Agent Node (рекомендуется) или OpenAI Node</strong></p>
-            <div class="code-block">
-              <div class="code-header">
-                <span class="code-lang">AI Agent Node — настройки</span>
-                <button class="code-copy-btn">Копировать</button>
-              </div>
-              <pre><code>LLM: Claude Sonnet 4.6 / GPT-5.2
-System Prompt: "Ты - полезный ассистент Telegram-бота. Отвечай кратко и по делу."
-Memory: Window Buffer (последние 10 сообщений)
-Tools: (опционально) Wikipedia, Calculator, HTTP Request</code></pre>
-            </div>
-
-            <p style="margin-top: 1rem;"><strong>Шаг 3: Telegram Send Message</strong></p>
-            <div class="code-block">
-              <div class="code-header">
-                <span class="code-lang">JSON</span>
-                <button class="code-copy-btn">Копировать</button>
-              </div>
-              <pre><code>{
-  "chatId": "{{ $json.message.chat.id }}",
-  "text": "{{ $json.choices[0].message.content }}"
-}</code></pre>
+ПРИНЦИПЫ:
+- Сохраняю смысл, не перевожу дословно
+- Указываю альтернативные варианты
+- Объясняю сложные переводческие решения</pre>
             </div>
           </div>
         </div>
 
-        <!-- Example 2: Data Analysis -->
-        <h2 style="margin-top: 3rem;">Пример 2: Автоматический анализ данных</h2>
-
+        <!-- Gem 2 -->
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-api">Analytics</span>
-            <h4>Еженедельный отчёт с AI</h4>
+            <span class="domain-badge domain-automation">Продуктивность</span>
+            <h4>Gem 2: Ассистент по Gmail и документам</h4>
           </div>
           <div class="example-body">
-            <p><strong>Структура:</strong></p>
-            <div class="code-block">
-              <pre><code>Schedule Trigger → Google Sheets → AI Agent Node (Anthropic) → Email</code></pre>
-            </div>
+            <div class="example-prompt">
+              <h5>📝 Instructions</h5>
+              <pre>Ты — личный ассистент, который помогает управлять коммуникациями и документами.
 
-            <div class="prompt-example" style="margin-top: 1.5rem;">
-              <div class="prompt-example-header">Schedule Trigger (Cron)</div>
-              <pre>0 9 * * 1  // Каждый понедельник в 9:00</pre>
-            </div>
+ЧЕМ ПОМОГАЮ:
+- Написание профессиональных email-ответов
+- Создание шаблонов писем для разных ситуаций
+- Резюмирование длинных переписок
+- Структурирование заметок и встреч
+- Составление повесток и протоколов встреч
+- Планирование задач и приоритизация
 
-            <p style="margin-top: 1rem;"><strong>OpenAI Analysis:</strong></p>
-            <div class="code-block">
-              <div class="code-header">
-                <span class="code-lang">JSON</span>
-                <button class="code-copy-btn">Копировать</button>
-              </div>
-              <pre><code>{
-  "model": "claude-sonnet-4-6",
-  "messages": [
-    {
-      "role": "system",
-      "content": "Ты - аналитик данных. Проанализируй данные и создай краткий отчет с выводами и рекомендациями."
-    },
-    {
-      "role": "user",
-      "content": "Проанализируй: {{ JSON.stringify($json) }}"
-    }
-  ]
-}</code></pre>
+СТИЛЬ: чёткий, профессиональный, экономлю ваше время</pre>
             </div>
           </div>
         </div>
 
-        <!-- Example 3: Request Processing -->
-        <h2 style="margin-top: 3rem;">Пример 3: Классификация заявок</h2>
-
+        <!-- Gem 3 -->
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-chatgpt">Support</span>
-            <h4>Автоматическая маршрутизация</h4>
+            <span class="domain-badge domain-api">Обучение</span>
+            <h4>Gem 3: Учитель по любому предмету</h4>
           </div>
           <div class="example-body">
-            <p><strong>Структура:</strong></p>
-            <div class="code-block">
-              <pre><code>Webhook → Function (Classification) → IF → Email/Slack</code></pre>
-            </div>
+            <div class="example-prompt">
+              <h5>📝 Instructions</h5>
+              <pre>Ты — универсальный педагог. Объясняешь любую тему понятно и интересно.
 
-            <p style="margin-top: 1.5rem;"><strong>Function Node (классификация):</strong></p>
-            <div class="code-block">
-              <div class="code-header">
-                <span class="code-lang">JavaScript</span>
-                <button class="code-copy-btn">Копировать</button>
-              </div>
-              <pre><code>// Анализ заявки и определение приоритета
-const request = $input.first().json;
-const keywords = request.message.toLowerCase();
+КАК РАБОТАЮ:
+1. Спрашиваю уровень знаний (начинающий / средний / продвинутый)
+2. Объясняю простым языком с аналогиями из жизни
+3. Привожу 2–3 конкретных примера
+4. Проверяю понимание контрольным вопросом
+5. Иду глубже или объясняю по-другому по необходимости
 
-let priority = 'low';
-let department = 'general';
-
-// Определение приоритета
-if (keywords.includes('срочно') || keywords.includes('критично')) {
-  priority = 'high';
-} else if (keywords.includes('важно') || keywords.includes('проблема')) {
-  priority = 'medium';
-}
-
-// Определение отдела
-if (keywords.includes('техническая') || keywords.includes('баг')) {
-  department = 'technical';
-} else if (keywords.includes('продажи') || keywords.includes('заказ')) {
-  department = 'sales';
-} else if (keywords.includes('поддержка') || keywords.includes('помощь')) {
-  department = 'support';
-}
-
-return {
-  json: {
-    ...request,
-    priority: priority,
-    department: department,
-    processed_at: new Date().toISOString()
-  }
-};</code></pre>
+ДЛЯ КАЖДОЙ ТЕМЫ ДАЮ:
+- Краткое объяснение (ELI5)
+- Развёрнутое объяснение
+- Практическое применение
+- Частые ошибки новичков</pre>
             </div>
           </div>
         </div>
 
-        <!-- Best Practices -->
-        <h2 style="margin-top: 3rem;">Лучшие практики</h2>
+        <!-- Gem 4 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-chatgpt">Бизнес</span>
+            <h4>Gem 4: Исследователь рынка</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>📝 Instructions</h5>
+              <pre>Ты — бизнес-аналитик и исследователь рынка. Используй Deep Research для глубокого анализа.
+
+ЧЕМ ПОМОГАЮ:
+- Анализ рынков и конкурентов
+- Исследование целевой аудитории
+- SWOT-анализ и оценка возможностей
+- Поиск трендов и инсайтов
+- Подготовка бизнес-отчётов с выводами
+
+КАК РАБОТАЮ:
+1. Уточняю тему и цель исследования
+2. Составляю структуру анализа
+3. Собираю данные из актуальных источников
+4. Формирую выводы и рекомендации
+
+ФОРМАТ: структурированный отчёт с данными, выводами и ссылками на источники</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gem 5 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-api">Здоровье</span>
+            <h4>Gem 5: Личный тренер и нутрициолог</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-prompt">
+              <h5>📝 Instructions</h5>
+              <pre>Ты — персональный тренер и нутрициолог. Помогаешь вести здоровый образ жизни без сложных диет.
+
+ЧЕМ ПОМОГАЮ:
+- Составление планов тренировок под цели и уровень
+- Разработка простого плана питания
+- Советы по восстановлению и режиму сна
+- Мотивация и отслеживание прогресса
+- Ответы на вопросы о здоровье и спорте
+
+КАК РАБОТАЮ:
+1. Спрашиваю цель: похудение / набор массы / здоровье
+2. Уточняю уровень подготовки и ограничения
+3. Составляю персональный план
+4. Адаптирую план по обратной связи
+
+ВАЖНО: Рекомендации носят общий характер. При серьёзных проблемах со здоровьем — консультируйся с врачом.</pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- Google Workspace Integration -->
+        <h2 style="margin-top: 3rem;">Интеграция с Google Workspace</h2>
 
         <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
           <div class="technique-card">
-            <div class="technique-card-icon">1</div>
-            <h4 class="technique-card-title">Структура</h4>
-            <p class="technique-card-desc">Понятные названия, группировка нодов, комментарии к сложным участкам</p>
+            <div class="technique-card-icon">📄</div>
+            <h4 class="technique-card-title">Google Docs</h4>
+            <p class="technique-card-desc">Gemini видит ваши документы и может их редактировать, обобщать, улучшать</p>
           </div>
           <div class="technique-card">
-            <div class="technique-card-icon">2</div>
-            <h4 class="technique-card-title">Данные</h4>
-            <p class="technique-card-desc">Set Node для структурирования, валидация входов, очистка полей</p>
+            <div class="technique-card-icon">📧</div>
+            <h4 class="technique-card-title">Gmail</h4>
+            <p class="technique-card-desc">Помогает писать ответы, обобщать переписку, создавать шаблоны писем</p>
           </div>
           <div class="technique-card">
-            <div class="technique-card-icon">3</div>
-            <h4 class="technique-card-title">Безопасность</h4>
-            <p class="technique-card-desc">Секреты в Credentials, переменные окружения, ограничение доступа</p>
+            <div class="technique-card-icon">💾</div>
+            <h4 class="technique-card-title">Google Drive</h4>
+            <p class="technique-card-desc">Gems могут работать с файлами из Drive как с базой знаний</p>
           </div>
           <div class="technique-card">
-            <div class="technique-card-icon">4</div>
-            <h4 class="technique-card-title">Тестирование</h4>
-            <p class="technique-card-desc">Manual Trigger для тестов, проверка всех сценариев</p>
+            <div class="technique-card-icon">📊</div>
+            <h4 class="technique-card-title">Google Sheets</h4>
+            <p class="technique-card-desc">Анализ таблиц, формулы, сводки данных прямо в контексте</p>
           </div>
         </div>
 
-        <!-- Error Handling -->
-        <h3 style="margin-top: 2rem;">Обработка ошибок</h3>
-
-        <div class="code-block">
-          <div class="code-header">
-            <span class="code-lang">JavaScript - Error Handler</span>
-            <button class="code-copy-btn">Копировать</button>
+        <div class="alert alert-info" style="margin-top: 1.5rem;">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            Если вы работаете в экосистеме Google — Gemini Gems будет наиболее удобным выбором. Интеграция нативная, не нужно ничего настраивать дополнительно.
           </div>
-          <pre><code>// Обработка ошибок в workflow
-const error = $input.first().json;
-
-// Формирование уведомления
-return {
-  json: {
-    error: error.message,
-    timestamp: new Date().toISOString(),
-    workflow: '{{ $workflow.name }}',
-    node: '{{ $node.name }}'
-  }
-};</code></pre>
         </div>
 
         <!-- Quiz -->
-        <div class="quiz" style="margin-top: 3rem;">
+        <div class="quiz">
           <div class="quiz-header">
             <div class="quiz-icon">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -557,23 +582,23 @@ return {
             </div>
             <h3 class="quiz-title">Проверка знаний</h3>
           </div>
-          <div class="quiz-question">Какой тип нода используется для запуска workflow по расписанию?</div>
+          <div class="quiz-question">Что делает Deep Research уникальным по сравнению с обычным поиском?</div>
           <div class="quiz-options">
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>Webhook Trigger</span>
+              <span>Это просто быстрый поиск по интернету</span>
+            </div>
+            <div class="quiz-option" data-correct="false">
+              <span class="quiz-option-marker"></span>
+              <span>Агент переводит тексты на русский язык автоматически</span>
             </div>
             <div class="quiz-option" data-correct="true">
               <span class="quiz-option-marker"></span>
-              <span>Schedule Trigger</span>
+              <span>Агент автономно исследует тему, просматривает десятки источников и пишет подробный отчёт</span>
             </div>
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>Manual Trigger</span>
-            </div>
-            <div class="quiz-option" data-correct="false">
-              <span class="quiz-option-marker"></span>
-              <span>Function Node</span>
+              <span>Deep Research — платная функция только в Google Workspace</span>
             </div>
           </div>
           <div class="quiz-feedback">
@@ -587,17 +612,16 @@ return {
         </div>
 
         <!-- Summary -->
-        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
-          <div class="card-header">Ключевые выводы</div>
+        <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
+          <div class="card-header">📝 Ключевые выводы</div>
           <div class="card-body">
             <ul>
-              <li><strong>n8n</strong> — open-source платформа для визуального создания автоматизаций</li>
-              <li><strong>Три типа нодов:</strong> Triggers (запуск), Processing (обработка), Actions (действия)</li>
-              <li><strong>AI интеграция</strong> — OpenAI, Hugging Face, кастомные API через HTTP Request</li>
-              <li><strong>Self-hosted</strong> — полный контроль над данными и безопасностью</li>
-              <li><strong>AI Agent Node</strong> (v1.x) — создавайте агентов с памятью, инструментами и LLM прямо в n8n</li>
-              <li><strong>Нативные ноды</strong> для Claude (Anthropic), GPT (OpenAI), Gemini (Google) — без кода</li>
-              <li>Комбинируйте AI с другими сервисами для создания мощных автоматизаций</li>
+              <li><strong>Gems</strong> — персональные AI-помощники в Gemini, создаются бесплатно за 10–15 минут</li>
+              <li><strong>Deep Research</strong> — уникальная функция: агент сам исследует тему и пишет аналитический отчёт</li>
+              <li><strong>Интеграция с Google</strong> — нативная работа с Docs, Gmail, Drive, Sheets без лишних настроек</li>
+              <li><strong>Knowledge</strong> — загружайте свои документы, Gem станет экспертом по вашим материалам</li>
+              <li>Структура Instructions та же, что в ChatGPT: роль → функции → принципы → формат</li>
+              <li>Лучший выбор для тех, кто уже работает в экосистеме Google</li>
             </ul>
           </div>
         </div>
@@ -605,7 +629,7 @@ return {
         <!-- Mark Complete Button -->
         <div style="text-align: center; margin: 2rem 0;">
           <button class="btn btn-primary mark-complete-btn" data-lesson="3">
-            Отметить урок как пройденный
+            Отметить урок как пройденный ✓
           </button>
         </div>
 
@@ -615,13 +639,13 @@ return {
             <span>←</span>
             <div>
               <div class="nav-arrow-label">Назад</div>
-              <div class="nav-arrow-title">ChatGPT & Claude Agents</div>
+              <div class="nav-arrow-title">Grok агенты</div>
             </div>
           </a>
           <a href="lesson-4.html" class="nav-arrow nav-arrow-next">
             <div>
               <div class="nav-arrow-label">Далее</div>
-              <div class="nav-arrow-title">Альтернативные платформы</div>
+              <div class="nav-arrow-title">Coze агент</div>
             </div>
             <span>→</span>
           </a>

@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Урок 2: ChatGPT & Claude Agents | Модуль 6</title>
+  <title>Урок 2: Grok агенты | Модуль 6</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="app-container">
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="sidebar-logo">
@@ -20,17 +19,12 @@
           PromptMaster
         </div>
       </div>
-
       <div class="progress-container">
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 0%"></div>
-        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
         <div class="progress-text">0 из 6 уроков</div>
       </div>
-
       <nav class="sidebar-nav">
         <div class="nav-section">Модуль 6</div>
-
         <a href="index.html" class="nav-item">
           <span class="nav-item-number">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -40,37 +34,30 @@
           </span>
           Главная
         </a>
-
         <a href="lesson-1.html" class="nav-item" data-lesson="1">
           <span class="nav-item-number">1</span>
-          Концепция AI агентов
+          ChatGPT GPTs
         </a>
-
         <a href="lesson-2.html" class="nav-item active" data-lesson="2">
           <span class="nav-item-number">2</span>
-          ChatGPT & Claude Agents
+          Grok агенты
         </a>
-
         <a href="lesson-3.html" class="nav-item" data-lesson="3">
           <span class="nav-item-number">3</span>
-          n8n Автоматизация
+          Gemini Gems
         </a>
-
         <a href="lesson-4.html" class="nav-item" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Альтернативные платформы
+          Coze агент
         </a>
-
         <a href="lesson-5.html" class="nav-item" data-lesson="5">
           <span class="nav-item-number">5</span>
-          Практика: Создание агента
+          Практика
         </a>
-
         <a href="project.html" class="nav-item" data-lesson="6">
           <span class="nav-item-number">P</span>
           Домашнее задание
         </a>
-
         <a href="../../index.html" class="nav-item exit-btn">
           <span class="nav-item-number">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -83,23 +70,15 @@
         </a>
       </nav>
     </aside>
-
     <div class="overlay"></div>
-
     <main class="main-content">
       <header class="header">
-        <button class="mobile-menu-btn" aria-label="Меню">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
         <div class="breadcrumb">
           <a href="index.html">Модуль 6</a>
           <span class="breadcrumb-separator">/</span>
           <span>Урок 2</span>
         </div>
-
         <div class="header-actions">
           <div class="mode-toggle" title="Переключить режим">
             <div class="mode-toggle-switch"></div>
@@ -107,22 +86,22 @@
           </div>
         </div>
       </header>
-
       <div class="content">
+
         <!-- Lesson Header -->
         <div class="lesson-header">
           <div class="lesson-meta">
             <span class="lesson-number">Урок 2</span>
-            <span class="lesson-duration">⏱ 45 минут</span>
+            <span class="lesson-duration">⏱ 40 минут</span>
           </div>
-          <h1 class="lesson-title">ChatGPT Custom GPTs & Claude Projects</h1>
+          <h1 class="lesson-title">Создаём агента в Grok (xAI)</h1>
           <div class="lesson-objectives">
             <h4>Цели урока:</h4>
             <ul>
-              <li>Научиться создавать Custom GPTs в ChatGPT</li>
-              <li>Освоить работу с Claude Projects</li>
-              <li>Понять различия между платформами</li>
-              <li>Создать первого специализированного агента</li>
+              <li>Понять, чем Grok отличается от других AI-помощников</li>
+              <li>Зарегистрироваться и настроить Grok как персонального агента</li>
+              <li>Научиться использовать поиск в реальном времени и Aurora</li>
+              <li>Разобрать 5 практических сценариев применения Grok в работе</li>
             </ul>
           </div>
         </div>
@@ -137,14 +116,14 @@
             Заметка для преподавателя
           </div>
           <div class="teacher-note-content">
-            <p><strong>Время:</strong> 45 минут (15 мин Custom GPTs + 15 мин Claude Projects + 15 мин практика)</p>
-            <p><strong>Подготовка:</strong> Убедитесь, что у всех есть доступ к ChatGPT Plus и Claude Pro.</p>
-            <p><strong>Демо:</strong> Создайте маркетингового агента в реальном времени, показывая каждый шаг.</p>
+            <p><strong>Время:</strong> 40 минут — 10 мин теория + 25 мин практика + 5 мин обсуждение</p>
+            <p><strong>Регистрация:</strong> Все студенты регистрируются на <strong>grok.x.ai</strong> — это бесплатно. Нужен email или аккаунт X (Twitter). Занимает 2-3 минуты.</p>
+            <p><strong>Акценты урока:</strong> Показать уникальные возможности — реальное время (свежие новости прямо в ответе), Aurora (генерация изображений бесплатно), DeepSearch (глубокий анализ с источниками). Это то, за что платят в ChatGPT Plus.</p>
           </div>
         </div>
 
-        <!-- Custom GPTs Section -->
-        <h2>ChatGPT Custom GPTs</h2>
+        <!-- What is Grok -->
+        <h2>Что такое Grok?</h2>
 
         <div class="alert alert-info">
           <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -153,298 +132,12 @@
             <path d="M12 8h.01"/>
           </svg>
           <div>
-            <strong>Custom GPTs</strong> — это персонализированные версии ChatGPT с собственными инструкциями, знаниями и возможностями. Создаются без программирования. В 2025-2026 ChatGPT также получил <strong>Operator</strong> — агента, управляющего браузером и приложениями.
+            <strong>Grok от xAI (Elon Musk)</strong> — мощный AI с доступом к интернету в реальном времени, генерацией изображений через Aurora и видеоконтента. Базовый доступ бесплатный. Особенность: Grok подключён к платформе X (Twitter), что даёт уникальный доступ к актуальным трендам и общественному мнению прямо сейчас.
           </div>
         </div>
 
-        <h3>Преимущества Custom GPTs</h3>
-
-        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
-          <div class="technique-card">
-            <div class="technique-card-icon">🎯</div>
-            <h4 class="technique-card-title">Простота</h4>
-            <p class="technique-card-desc">Интуитивный интерфейс без кода</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🔧</div>
-            <h4 class="technique-card-title">Инструменты</h4>
-            <p class="technique-card-desc">Поиск, Image Gen, Code Interpreter, Operator</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">📚</div>
-            <h4 class="technique-card-title">Знания</h4>
-            <p class="technique-card-desc">Загрузка файлов и документов</p>
-          </div>
-          <div class="technique-card">
-            <div class="technique-card-icon">🌐</div>
-            <h4 class="technique-card-title">Публикация</h4>
-            <p class="technique-card-desc">Делитесь с другими пользователями</p>
-          </div>
-        </div>
-
-        <!-- Step by Step Custom GPT -->
-        <h3>Пошаговое создание Custom GPT</h3>
-
-        <div class="accordion open-first">
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Шаг 1: Создание нового GPT</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <ol>
-                  <li>Откройте <a href="https://chatgpt.com" target="_blank">ChatGPT</a></li>
-                  <li>В левом меню нажмите <strong>"Explore GPTs"</strong></li>
-                  <li>Нажмите <strong>"Create"</strong> в правом верхнем углу</li>
-                  <li>Выберите <strong>"Configure"</strong> для детальной настройки</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Шаг 2: Базовая информация</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <div class="prompt-example">
-                  <div class="prompt-example-header">📝 Пример настройки</div>
-                  <pre><strong>Название:</strong> Маркетинговый ассистент
-
-<strong>Описание:</strong> Эксперт по маркетингу, который помогает создавать контент для социальных сетей, планировать кампании и анализировать эффективность.
-
-<strong>Conversation starters:</strong>
-• Создай контент-план на неделю для LinkedIn
-• Напиши email-рассылку для привлечения клиентов
-• Проанализируй тренды в маркетинге
-• Создай рекламное объявление для Facebook</pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Шаг 3: Инструкции (Instructions)</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <div class="code-block">
-                  <div class="code-header">
-                    <span class="code-lang">Instructions</span>
-                    <button class="code-copy-btn">Копировать</button>
-                  </div>
-                  <pre><code>Ты - опытный маркетолог с 10+ летним стажем в digital-маркетинге.
-
-Твоя задача - помогать создавать эффективный контент и стратегии.
-
-ТВОИ ФУНКЦИИ:
-1. Создание контента для социальных сетей (LinkedIn, Facebook, Instagram)
-2. Разработка email-кампаний и рассылок
-3. Планирование контент-стратегий
-4. Анализ трендов и конкурентов
-5. Создание рекламных текстов
-
-ПРИНЦИПЫ РАБОТЫ:
-- Всегда учитывай целевую аудиторию
-- Адаптируй тон и стиль под платформу
-- Предлагай конкретные решения
-- Используй данные для обоснования
-- Следи за актуальными трендами
-
-ФОРМАТ ОТВЕТОВ:
-- Структурированные и легко читаемые
-- С конкретными примерами
-- С практическими советами
-- С метриками для измерения</code></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Шаг 4: Настройка возможностей</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p><strong>Capabilities (Возможности):</strong></p>
-                <ul class="checklist">
-                  <li class="checklist-item">
-                    <span class="checklist-checkbox checked"></span>
-                    <span class="checklist-text"><strong>Web Browsing</strong> — поиск актуальной информации</span>
-                  </li>
-                  <li class="checklist-item">
-                    <span class="checklist-checkbox checked"></span>
-                    <span class="checklist-text"><strong>Code Interpreter</strong> — анализ данных, работа с файлами</span>
-                  </li>
-                  <li class="checklist-item">
-                    <span class="checklist-checkbox checked"></span>
-                    <span class="checklist-text"><strong>Image Generation</strong> — генерация изображений (GPT-4o native)</span>
-                  </li>
-                </ul>
-                <p style="margin-top: 1rem;"><strong>Knowledge (Знания):</strong></p>
-                <p>Загрузите файлы с примерами успешных кампаний, шаблонами контента, гайдлайнами бренда.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Claude Projects Section -->
-        <h2 style="margin-top: 3rem;">Claude Projects</h2>
-
-        <div class="alert alert-success">
-          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-            <polyline points="22 4 12 14.01 9 11.01"/>
-          </svg>
-          <div>
-            <strong>Claude Projects</strong> — функция для создания долгосрочных проектов с расширенным контекстом до 1M токенов, веб-поиском, генерацией изображений и управлением файлами. Claude поддерживает <strong>MCP</strong> (Model Context Protocol) для подключения внешних инструментов — GitHub, Notion, базы данных и тысячи других сервисов.
-          </div>
-        </div>
-
-        <h3>Преимущества Claude Projects</h3>
-
-        <div class="comparison">
-          <div class="comparison-item good">
-            <div class="comparison-header">✅ Сильные стороны</div>
-            <ul>
-              <li>Долгосрочная память между сессиями</li>
-              <li>Огромный контекст (1M токенов)</li>
-              <li>Работа с большими документами</li>
-              <li>Организация по проектам</li>
-            </ul>
-          </div>
-          <div class="comparison-item" style="border-color: var(--primary);">
-            <div class="comparison-header" style="color: var(--primary);">📁 Поддерживаемые форматы</div>
-            <ul>
-              <li>Текст: .txt, .md, .csv</li>
-              <li>Документы: .pdf, .docx, .pptx</li>
-              <li>Данные: .xlsx, .json, .xml</li>
-              <li>Код: .py, .js, .html, .css</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Step by Step Claude Project -->
-        <h3>Создание Claude Project</h3>
-
-        <div class="accordion open-first">
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Шаг 1: Создание проекта</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <ol>
-                  <li>Откройте <a href="https://claude.ai" target="_blank">Claude.ai</a></li>
-                  <li>Нажмите на иконку Projects в левом меню</li>
-                  <li>Нажмите <strong>"New Project"</strong></li>
-                  <li>Введите название и описание проекта</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Шаг 2: Настройка проекта</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <div class="prompt-example">
-                  <div class="prompt-example-header">📝 Пример настройки</div>
-                  <pre><strong>Название:</strong> Аналитический ассистент для e-commerce
-
-<strong>Описание:</strong> Проект для анализа данных интернет-магазина, создания отчетов и рекомендаций по оптимизации продаж.</pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Шаг 3: Project Instructions</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <div class="code-block">
-                  <div class="code-header">
-                    <span class="code-lang">Project Instructions</span>
-                    <button class="code-copy-btn">Копировать</button>
-                  </div>
-                  <pre><code>Ты - эксперт по аналитике e-commerce с опытом работы в различных интернет-магазинах.
-
-ТВОИ ФУНКЦИИ:
-1. Анализ данных о продажах и трафике
-2. Создание отчетов и дашбордов
-3. Выявление трендов и паттернов
-4. Рекомендации по оптимизации
-5. Прогнозирование и планирование
-
-ПРИНЦИПЫ РАБОТЫ:
-- Используй конкретные данные и метрики
-- Предлагай практические рекомендации
-- Учитывай специфику e-commerce
-- Фокусируйся на ROI и конверсии
-
-ФОРМАТ ОТЧЕТОВ:
-- Executive Summary (краткие выводы)
-- Ключевые метрики (с визуализацией)
-- Анализ трендов (сравнение периодов)
-- Рекомендации (приоритизированные)
-- План действий (конкретные шаги)</code></pre>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="accordion-item">
-            <div class="accordion-header">
-              <span>Шаг 4: Загрузка данных</span>
-              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"/>
-              </svg>
-            </div>
-            <div class="accordion-content">
-              <div class="accordion-body">
-                <p>Загрузите файлы в раздел <strong>Project Knowledge</strong>:</p>
-                <ul>
-                  <li><code>sales_data_2024.xlsx</code> — данные о продажах</li>
-                  <li><code>traffic_analytics.csv</code> — аналитика трафика</li>
-                  <li><code>customer_feedback.pdf</code> — отзывы клиентов</li>
-                  <li><code>marketing_campaigns.json</code> — данные о кампаниях</li>
-                </ul>
-                <p style="margin-top: 1rem;">Claude будет использовать эти файлы как контекст для всех ответов в проекте.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Platform Comparison -->
-        <h2 style="margin-top: 3rem;">Сравнение платформ</h2>
+        <!-- Comparison Table -->
+        <h2>Grok vs ChatGPT: что выбрать?</h2>
 
         <div class="card">
           <div class="card-body">
@@ -452,151 +145,437 @@
               <thead>
                 <tr>
                   <th>Критерий</th>
-                  <th>Custom GPTs</th>
-                  <th>Claude Projects</th>
+                  <th>ChatGPT GPTs</th>
+                  <th>Grok</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Простота создания</strong></td>
-                  <td>⭐⭐⭐⭐⭐</td>
-                  <td>⭐⭐⭐⭐</td>
+                  <td><strong>Доступ к интернету</strong></td>
+                  <td>Платный (Plus, $20/мес)</td>
+                  <td style="color: var(--accent); font-weight: 600;">Бесплатно</td>
                 </tr>
                 <tr>
-                  <td><strong>Гибкость настройки</strong></td>
-                  <td>⭐⭐⭐</td>
-                  <td>⭐⭐⭐⭐⭐</td>
+                  <td><strong>Генерация изображений</strong></td>
+                  <td>Платный (DALL-E)</td>
+                  <td style="color: var(--accent); font-weight: 600;">Бесплатно (Aurora)</td>
                 </tr>
                 <tr>
-                  <td><strong>Работа с файлами</strong></td>
-                  <td>⭐⭐⭐</td>
-                  <td>⭐⭐⭐⭐⭐</td>
+                  <td><strong>Актуальные новости</strong></td>
+                  <td>Ограничено</td>
+                  <td style="color: var(--accent); font-weight: 600;">Да (X/Twitter в реальном времени)</td>
+                </tr>
+                <tr>
+                  <td><strong>Создание агентов</strong></td>
+                  <td>Custom GPTs (сохраняются)</td>
+                  <td>Кастомные инструкции в сессии</td>
                 </tr>
                 <tr>
                   <td><strong>Долгосрочная память</strong></td>
-                  <td>⭐⭐</td>
-                  <td>⭐⭐⭐⭐⭐</td>
+                  <td>Есть (Memory)</td>
+                  <td>SuperGrok Memory</td>
                 </tr>
                 <tr>
-                  <td><strong>API интеграции</strong></td>
-                  <td>⭐⭐⭐⭐ (Actions + Operator)</td>
-                  <td>⭐⭐⭐⭐⭐ (MCP)</td>
-                </tr>
-                <tr>
-                  <td><strong>Публикация</strong></td>
-                  <td>⭐⭐⭐⭐⭐</td>
-                  <td>⭐⭐</td>
+                  <td><strong>Цена базового доступа</strong></td>
+                  <td>Бесплатно (без поиска)</td>
+                  <td style="color: var(--accent); font-weight: 600;">Бесплатно (с поиском!)</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <!-- Claude Code -->
-        <h3>Claude Code — агент для разработчиков</h3>
+        <!-- What you need -->
+        <h2>Что нужно для начала</h2>
 
-        <div class="alert alert-info">
-          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M12 16v-4"/>
-            <path d="M12 8h.01"/>
-          </svg>
-          <div>
-            <strong>Claude Code</strong> (2025) — терминальный AI агент от Anthropic, который читает файлы, запускает команды, пишет и тестирует код. Работает прямо в вашем проекте через CLI. Поддерживает MCP для подключения баз данных и внешних инструментов.
+        <ul class="checklist">
+          <li class="checklist-item">
+            <span class="checklist-checkbox" data-id="l2-account"></span>
+            <span class="checklist-text">Аккаунт на <strong>grok.x.ai</strong> — регистрация бесплатная, нужен email</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-checkbox" data-id="l2-email"></span>
+            <span class="checklist-text">Email для регистрации (или аккаунт X / Twitter)</span>
+          </li>
+          <li class="checklist-item">
+            <span class="checklist-checkbox" data-id="l2-idea"></span>
+            <span class="checklist-text">Идея задачи с актуальными данными — именно здесь Grok сильнее всего</span>
+          </li>
+        </ul>
+
+        <!-- Setup steps -->
+        <h2>Настраиваем Grok как агента: пошагово</h2>
+
+        <div class="accordion open-first">
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 1: Регистрируемся и выбираем модель</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <ol style="margin-left: 1.2rem; margin-top: 0.5rem;">
+                  <li style="margin-bottom: 0.5rem;">Заходим на <strong>grok.x.ai</strong></li>
+                  <li style="margin-bottom: 0.5rem;">Нажимаем "Sign up" — регистрируемся через email или X аккаунт</li>
+                  <li style="margin-bottom: 0.5rem;">После входа выбираем модель <strong>Grok 3</strong> — самая мощная версия</li>
+                  <li style="margin-bottom: 0.5rem;">Обратите внимание на кнопки режимов: обычный чат, <strong>DeepSearch</strong> (глубокий поиск) и <strong>Think</strong> (режим рассуждений)</li>
+                  <li>По умолчанию Grok уже умеет искать в интернете — кнопка поиска активна</li>
+                </ol>
+                <div class="alert alert-info" style="margin-top: 1rem;">
+                  <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                  <div><strong>Важно:</strong> В отличие от Custom GPTs, Grok не сохраняет агентов как отдельные боты. Вместо этого вы задаёте роль в начале каждой сессии системным промптом. Это чуть менее удобно, но зато бесплатно и с реальным интернетом.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 2: Задаём роль агента через системный промпт</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>В самом начале диалога вставляем промпт с ролью агента. Grok запомнит этот контекст на всю сессию и будет работать строго в рамках заданной роли.</p>
+                <p style="margin-top: 1rem;"><strong>Шаблон системного промпта:</strong></p>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                  <div class="code-header">
+                    <span class="code-lang">Промпт</span>
+                    <button class="code-copy-btn">Копировать</button>
+                  </div>
+                  <pre><code>Ты — [роль агента]. Сегодня работаем над задачей: [опишите задачу].
+
+Твои принципы:
+1. [Принцип 1]
+2. [Принцип 2]
+3. Используй поиск в реальном времени для актуальных данных
+
+Начни с уточняющего вопроса: [что нужно уточнить у пользователя]</code></pre>
+                </div>
+                <div class="alert alert-info" style="margin-top: 1rem;">
+                  <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 16v-4"/>
+                    <path d="M12 8h.01"/>
+                  </svg>
+                  <div><strong>Лайфхак:</strong> Сохраните любимые системные промпты в текстовый файл или заметки. Так вы сможете быстро "активировать" нужного агента в начале любой сессии.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 3: Настраиваем долгосрочную память (Memory)</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>SuperGrok Memory позволяет Grok запомнить информацию о вас между сессиями — как личный помощник, который вас знает.</p>
+                <p style="margin-top: 1rem;"><strong>Что рассказать Grok о себе:</strong></p>
+                <div class="code-block" style="margin-top: 0.5rem;">
+                  <div class="code-header">
+                    <span class="code-lang">Промпт для памяти</span>
+                    <button class="code-copy-btn">Копировать</button>
+                  </div>
+                  <pre><code>Запомни информацию обо мне:
+- Кто я: [должность, сфера деятельности]
+- Компания: [название, чем занимается]
+- Целевая аудитория: [кто мои клиенты]
+- Стиль общения: [формальный / дружелюбный / экспертный]
+- Главные задачи, с которыми я обращаюсь: [список]
+- Что мне НЕ нужно: [например, "не нужны длинные вступления"]</code></pre>
+                </div>
+                <p style="margin-top: 1rem;">После этого Grok будет учитывать ваш контекст автоматически в каждом следующем диалоге.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>Шаг 4: Активируем поиск и DeepSearch</span>
+              <svg class="accordion-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </div>
+            <div class="accordion-content">
+              <div class="accordion-body">
+                <p>У Grok два режима работы с актуальной информацией:</p>
+                <div class="comparison">
+                  <div class="comparison-item good" style="border-color: var(--accent);">
+                    <div class="comparison-header" style="color: var(--accent);">Обычный поиск (Search)</div>
+                    <ul>
+                      <li>Быстрый доступ к актуальным данным</li>
+                      <li>Новости, курсы валют, погода</li>
+                      <li>Результаты за секунды</li>
+                      <li>Подходит для большинства задач</li>
+                    </ul>
+                  </div>
+                  <div class="comparison-item good" style="border-color: var(--primary);">
+                    <div class="comparison-header" style="color: var(--primary);">DeepSearch</div>
+                    <ul>
+                      <li>Глубокий анализ нескольких источников</li>
+                      <li>Синтез информации с указанием ссылок</li>
+                      <li>Занимает 30–60 секунд</li>
+                      <li>Идеален для серьёзных исследований</li>
+                    </ul>
+                  </div>
+                </div>
+                <p style="margin-top: 1rem;">Для активации DeepSearch нажмите кнопку <strong>"DeepSearch"</strong> перед отправкой сообщения. Grok проведёт развёрнутое исследование и предоставит отчёт со ссылками на источники.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- What Grok does best -->
+        <h2>Что умеет Grok лучше других</h2>
+
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">⚡</div>
+            <h4 class="technique-card-title">Реальное время</h4>
+            <p class="technique-card-desc">Актуальные новости, курсы валют, цены акций, события прямо сейчас. Не нужна подписка — работает бесплатно.</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🎨</div>
+            <h4 class="technique-card-title">Aurora: изображения</h4>
+            <p class="technique-card-desc">Фотореалистичная генерация изображений по описанию — бесплатно. В ChatGPT за это нужен Plus за $20/мес.</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">📊</div>
+            <h4 class="technique-card-title">X/Twitter анализ</h4>
+            <p class="technique-card-desc">Анализ трендов и общественного мнения прямо из X в реальном времени. Уникальная возможность — ни у кого больше нет.</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🔬</div>
+            <h4 class="technique-card-title">DeepSearch</h4>
+            <p class="technique-card-desc">Глубокий веб-поиск с анализом множества источников. Выдаёт структурированный отчёт со ссылками.</p>
           </div>
         </div>
 
-        <!-- When to Use -->
-        <h3>Когда использовать?</h3>
+        <!-- 5 scenarios -->
+        <h2>5 сценариев использования Grok как агента</h2>
 
-        <div class="comparison">
-          <div class="comparison-item" style="border-color: var(--accent);">
-            <div class="comparison-header" style="color: var(--accent);">🎯 Custom GPTs</div>
-            <ul>
-              <li>Простые задачи с чёткими инструкциями</li>
-              <li>Публичные агенты для широкой аудитории</li>
-              <li>Быстрое прототипирование</li>
-              <li>Нужны встроенные инструменты (DALL-E, поиск)</li>
-            </ul>
-          </div>
-          <div class="comparison-item" style="border-color: var(--primary);">
-            <div class="comparison-header" style="color: var(--primary);">📚 Claude Projects + MCP</div>
-            <ul>
-              <li>Сложные аналитические задачи</li>
-              <li>Работа с большими объёмами данных</li>
-              <li>Долгосрочные проекты</li>
-              <li>Нужен глубокий контекст</li>
-              <li>Подключение внешних инструментов через MCP</li>
-            </ul>
-          </div>
-        </div>
+        <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Скопируйте промпт, вставьте в начало сессии с Grok — и ваш агент готов к работе.</p>
 
-        <!-- Practical Examples -->
-        <h2 style="margin-top: 3rem;">Примеры специализированных агентов</h2>
-
+        <!-- Scenario 1 -->
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-chatgpt">HR</span>
-            <h4>HR-ассистент</h4>
+            <span class="domain-badge domain-automation">Маркетинг</span>
+            <h4>Исследование рынка в реальном времени</h4>
           </div>
           <div class="example-body">
-            <div class="example-prompt">
-              <h5>📝 Instructions</h5>
-              <pre>Ты - HR-специалист с опытом работы в IT-сфере.
-
-ЗАДАЧИ:
-- Создание описаний вакансий
-- Анализ резюме кандидатов
-- Генерация вопросов для интервью
-- Оценка соответствия требованиям
-- Создание планов адаптации
-
-СТИЛЬ: Профессиональный, дружелюбный</pre>
+            <div class="example-task" style="flex: 1;">
+              <h5>Когда использовать</h5>
+              <ul>
+                <li>Нужны актуальные тренды рынка</li>
+                <li>Хотите знать, что делают конкуренты сейчас</li>
+                <li>Ищете свежие боли аудитории</li>
+                <li>Нужны идеи контента на основе событий</li>
+              </ul>
+            </div>
+            <div class="example-result" style="flex: 2;">
+              <h5>Промпт для старта сессии:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Промпт</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — маркетинговый аналитик. Сегодня исследуем рынок [моя ниша].
+Задачи:
+1. Найди актуальные тренды прямо сейчас
+2. Проанализируй активность конкурентов в сети
+3. Выяви боли целевой аудитории
+4. Предложи контент-идеи на основе актуальных событий
+Начни с: "Что именно ты продаёшь и кому?"</code></pre>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Scenario 2 -->
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-api">Аналитика</span>
-            <h4>Data Analyst Assistant</h4>
+            <span class="domain-badge domain-chatgpt">Контент</span>
+            <h4>Создание контента с актуальными данными</h4>
           </div>
           <div class="example-body">
-            <div class="example-prompt">
-              <h5>📝 Instructions</h5>
-              <pre>Ты - аналитик данных с опытом в различных отраслях.
-
-ЗАДАЧИ:
-- Анализ данных и выявление трендов
-- Создание визуализаций
-- Интерпретация статистических показателей
-- Формулирование выводов
-- Создание отчётов для руководства
-
-ФОРМАТ: Структурированный, с графиками</pre>
+            <div class="example-task" style="flex: 1;">
+              <h5>Когда использовать</h5>
+              <ul>
+                <li>Посты с реальными цифрами и фактами</li>
+                <li>Статьи со свежими примерами</li>
+                <li>Материалы, ссылающиеся на события</li>
+                <li>Контент, вызывающий доверие</li>
+              </ul>
+            </div>
+            <div class="example-result" style="flex: 2;">
+              <h5>Промпт для старта сессии:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Промпт</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — копирайтер, который умеет встраивать актуальные события
+в контент.
+При написании любого материала:
+- Найди свежие новости по теме (за последние 7 дней)
+- Используй реальные цифры и факты
+- Добавь актуальные примеры из практики
+- Укажи источники
+Мой контекст: [опиши свой бизнес]</code></pre>
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- Scenario 3 -->
         <div class="example-card">
           <div class="example-header">
-            <span class="domain-badge domain-automation">Копирайтинг</span>
-            <h4>Копирайтер-профи</h4>
+            <span class="domain-badge domain-n8n">Дизайн</span>
+            <h4>Генерация изображений через Aurora</h4>
           </div>
           <div class="example-body">
-            <div class="example-prompt">
-              <h5>📝 Instructions</h5>
-              <pre>Ты - профессиональный копирайтер в digital-маркетинге.
-
-СОЗДАЁШЬ:
-- Продающие тексты и лендинги
-- Рекламные объявления для всех платформ
-- Email-рассылки и последовательности
-- Контент для социальных сетей
-- Сценарии для видео
-
-СТИЛЬ: Адаптируется под бренд</pre>
+            <div class="example-task" style="flex: 1;">
+              <h5>Когда использовать</h5>
+              <ul>
+                <li>Иллюстрации для постов и статей</li>
+                <li>Концепт-арты и мокапы</li>
+                <li>Корпоративные фото-иллюстрации</li>
+                <li>Визуализация идей без дизайнера</li>
+              </ul>
             </div>
+            <div class="example-result" style="flex: 2;">
+              <h5>Пример запроса к Aurora:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Промпт</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Создай изображение: профессиональная фотография команды
+юридической фирмы, 4 человека в деловых костюмах,
+современный офис со стеклянными стенами, тёплый свет,
+уверенные улыбки, стиль корпоративного портрета</code></pre>
+              </div>
+              <div class="alert alert-info" style="margin-top: 0.75rem;">
+                <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 16v-4"/>
+                  <path d="M12 8h.01"/>
+                </svg>
+                <div><strong>Секрет хорошего результата:</strong> Описывайте как фотограф — освещение, ракурс, стиль, атмосферу. Чем детальнее — тем лучше изображение.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scenario 4 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-api">PR</span>
+            <h4>Мониторинг упоминаний и репутации</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task" style="flex: 1;">
+              <h5>Когда использовать</h5>
+              <ul>
+                <li>Отслеживание упоминаний бренда</li>
+                <li>Анализ тональности отзывов</li>
+                <li>Реакция на кризисные ситуации</li>
+                <li>Сравнение с конкурентами</li>
+              </ul>
+            </div>
+            <div class="example-result" style="flex: 2;">
+              <h5>Промпт для старта сессии:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Промпт</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — PR-менеджер. Помогаешь мониторить репутацию в интернете.
+Компания/бренд: [название]
+Задачи:
+1. Найди свежие упоминания бренда в сети
+2. Оцени тональность: позитив / негатив / нейтрально
+3. Выдели топ-3 темы, о которых говорят
+4. Предложи реакцию на негативные отзывы
+Используй DeepSearch для полного анализа.</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scenario 5 -->
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-groq">Бизнес</span>
+            <h4>Конкурентная разведка в реальном времени</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task" style="flex: 1;">
+              <h5>Когда использовать</h5>
+              <ul>
+                <li>Что конкуренты запустили недавно</li>
+                <li>Какие у них цены и акции сейчас</li>
+                <li>Что о них пишут клиенты</li>
+                <li>Где они выигрывают / проигрывают</li>
+              </ul>
+            </div>
+            <div class="example-result" style="flex: 2;">
+              <h5>Промпт для старта сессии:</h5>
+              <div class="code-block" style="margin-top: 0.5rem;">
+                <div class="code-header">
+                  <span class="code-lang">Промпт</span>
+                  <button class="code-copy-btn">Копировать</button>
+                </div>
+                <pre><code>Ты — аналитик конкурентной разведки. Исследуем рынок [ниша].
+Мои главные конкуренты: [перечислите 2-3 конкурента]
+Найди актуальную информацию:
+1. Последние новости и активность конкурентов
+2. Отзывы их клиентов (что хвалят, что критикуют)
+3. Их текущие маркетинговые акции и офферы
+4. Незакрытые потребности их аудитории
+Составь таблицу сравнения и укажи наши возможности.</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lifehacks -->
+        <h2>Лайфхаки с Grok</h2>
+
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">🧠</div>
+            <h4 class="technique-card-title">Начни с контекста</h4>
+            <p class="technique-card-desc">В начале сессии расскажи: кто ты, чем занимаешься, что нужно сегодня. Grok адаптирует ответы под ваш контекст мгновенно.</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🔗</div>
+            <h4 class="technique-card-title">Проси источники</h4>
+            <p class="technique-card-desc">Добавьте "укажи ссылки на источники" — Grok предоставит прямые URL. Это критично для профессиональных материалов и отчётов.</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🖼</div>
+            <h4 class="technique-card-title">Детали для Aurora</h4>
+            <p class="technique-card-desc">Описывайте освещение, стиль, настроение, ракурс. Чем детальнее описание — тем точнее и красивее результат Aurora.</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🔬</div>
+            <h4 class="technique-card-title">DeepSearch для исследований</h4>
+            <p class="technique-card-desc">Для серьёзных исследований нажмите кнопку DeepSearch. Займёт дольше, но даст глубокий анализ с несколькими источниками.</p>
           </div>
         </div>
 
@@ -612,23 +591,23 @@
             </div>
             <h3 class="quiz-title">Проверка знаний</h3>
           </div>
-          <div class="quiz-question">Какая платформа лучше подходит для работы с большими документами и долгосрочными проектами?</div>
+          <div class="quiz-question">Что делает Grok уникальным среди бесплатных AI-инструментов?</div>
           <div class="quiz-options">
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>ChatGPT Custom GPTs</span>
+              <span>Самая большая база знаний среди всех AI</span>
             </div>
             <div class="quiz-option" data-correct="true">
               <span class="quiz-option-marker"></span>
-              <span>Claude Projects</span>
+              <span>Доступ к интернету в реальном времени и генерация изображений — бесплатно</span>
             </div>
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>Обе платформы одинаково подходят</span>
+              <span>Возможность создавать сохраняемых Custom Agents</span>
             </div>
             <div class="quiz-option" data-correct="false">
               <span class="quiz-option-marker"></span>
-              <span>Ни одна из них</span>
+              <span>Поддержка загрузки файлов PDF и DOCX</span>
             </div>
           </div>
           <div class="quiz-feedback">
@@ -643,21 +622,20 @@
 
         <!-- Summary -->
         <div class="card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);">
-          <div class="card-header">📝 Ключевые выводы</div>
+          <div class="card-header">Ключевые выводы</div>
           <div class="card-body">
             <ul>
-              <li><strong>Custom GPTs</strong> — идеальны для быстрого создания публичных агентов с встроенными инструментами</li>
-              <li><strong>Claude Projects</strong> — лучше для сложных аналитических задач с большими документами</li>
-              <li><strong>Instructions</strong> — ключевой элемент настройки: роль, задачи, принципы, формат</li>
-              <li><strong>Knowledge</strong> — загружайте релевантные файлы для улучшения ответов</li>
-              <li>Выбор платформы зависит от конкретных задач и требований проекта</li>
-              <li><strong>MCP</strong> превращает Claude в мощный агент с доступом к GitHub, Notion, базам данных и сотням других инструментов</li>
-              <li><strong>ChatGPT Operator</strong> (2025) — агент, управляющий браузером и веб-приложениями без участия человека</li>
+              <li><strong>Grok бесплатно даёт</strong> то, за что ChatGPT берёт $20/мес: поиск в интернете и генерацию изображений.</li>
+              <li><strong>Системный промпт в начале сессии</strong> — главный способ превратить Grok в специализированного агента.</li>
+              <li><strong>Memory</strong> позволяет рассказать Grok о себе — он запомнит контекст для следующих сессий.</li>
+              <li><strong>Aurora</strong> создаёт фотореалистичные изображения — описывайте детально для лучшего результата.</li>
+              <li><strong>DeepSearch</strong> — для серьёзных исследований: анализирует несколько источников, указывает ссылки.</li>
+              <li><strong>Уникальное преимущество:</strong> доступ к X/Twitter — анализ трендов и общественного мнения в реальном времени.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Mark Complete Button -->
+        <!-- Mark Complete -->
         <div style="text-align: center; margin: 2rem 0;">
           <button class="btn btn-primary mark-complete-btn" data-lesson="2">
             Отметить урок как пройденный ✓
@@ -670,17 +648,18 @@
             <span>←</span>
             <div>
               <div class="nav-arrow-label">Назад</div>
-              <div class="nav-arrow-title">Концепция AI агентов</div>
+              <div class="nav-arrow-title">ChatGPT GPTs</div>
             </div>
           </a>
           <a href="lesson-3.html" class="nav-arrow nav-arrow-next">
             <div>
               <div class="nav-arrow-label">Далее</div>
-              <div class="nav-arrow-title">n8n Автоматизация</div>
+              <div class="nav-arrow-title">Gemini Gems</div>
             </div>
             <span>→</span>
           </a>
         </div>
+
       </div>
     </main>
   </div>
