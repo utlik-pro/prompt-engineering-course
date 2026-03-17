@@ -153,7 +153,7 @@
             <path d="M12 8h.01"/>
           </svg>
           <div>
-            <strong>n8n</strong> — open-source платформа для автоматизации workflows. Позволяет соединять различные сервисы и API без программирования через визуальный drag-and-drop интерфейс.
+            <strong>n8n</strong> — open-source платформа для автоматизации workflows. Позволяет соединять различные сервисы и API без программирования через визуальный drag-and-drop интерфейс. В версии 1.x появились нативные <strong>AI Agent ноды</strong> — создавайте полноценных агентов с памятью и инструментами прямо в n8n, без кода.
           </div>
         </div>
 
@@ -267,8 +267,11 @@
               <div class="accordion-body">
                 <p>Интеграция с AI сервисами:</p>
                 <ul>
-                  <li><strong>OpenAI</strong> — GPT модели для текста, DALL-E для изображений</li>
-                  <li><strong>Hugging Face</strong> — доступ к различным ML моделям</li>
+                  <li><strong>AI Agent Node</strong> — нативный агент с памятью, инструментами и LLM (новое в v1.x)</li>
+                  <li><strong>OpenAI</strong> — GPT-5.2, o3 для текста и анализа</li>
+                  <li><strong>Anthropic Claude</strong> — Claude Sonnet/Opus 4.6, нативная нода</li>
+                  <li><strong>Google Gemini</strong> — Gemini 2.5 Pro/Flash, нативная нода</li>
+                  <li><strong>MCP Client</strong> — подключение MCP серверов к агентам</li>
                   <li><strong>HTTP Request</strong> — универсальный API для любых AI сервисов</li>
                 </ul>
               </div>
@@ -340,7 +343,7 @@ services:
             <polyline points="22 4 12 14.01 9 11.01"/>
           </svg>
           <div>
-            <strong>n8n Cloud</strong> — облачная версия с бесплатным планом: 5 активных workflows, 1000 выполнений/месяц. Регистрация: <a href="https://n8n.io" target="_blank">n8n.io</a>
+            <strong>n8n Cloud</strong> — облачная версия. В 2025-2026 получила нативные AI Agent ноды и поддержку MCP. Регистрация: <a href="https://n8n.io" target="_blank">n8n.io</a>
           </div>
         </div>
 
@@ -355,7 +358,7 @@ services:
           <div class="example-body">
             <p><strong>Структура workflow:</strong></p>
             <div class="code-block">
-              <pre><code>Telegram Trigger → OpenAI → Telegram Send Message</code></pre>
+              <pre><code>Telegram Trigger → AI Agent Node (Claude/GPT) → Telegram Send Message</code></pre>
             </div>
 
             <p style="margin-top: 1.5rem;"><strong>Шаг 1: Telegram Trigger</strong></p>
@@ -371,25 +374,16 @@ services:
 }</code></pre>
             </div>
 
-            <p style="margin-top: 1rem;"><strong>Шаг 2: OpenAI Node</strong></p>
+            <p style="margin-top: 1rem;"><strong>Шаг 2: AI Agent Node (рекомендуется) или OpenAI Node</strong></p>
             <div class="code-block">
               <div class="code-header">
-                <span class="code-lang">JSON</span>
+                <span class="code-lang">AI Agent Node — настройки</span>
                 <button class="code-copy-btn">Копировать</button>
               </div>
-              <pre><code>{
-  "model": "gpt-5.2",
-  "messages": [
-    {
-      "role": "system",
-      "content": "Ты - полезный ассистент. Отвечай кратко и по делу."
-    },
-    {
-      "role": "user",
-      "content": "{{ $json.message.text }}"
-    }
-  ]
-}</code></pre>
+              <pre><code>LLM: Claude Sonnet 4.6 / GPT-5.2
+System Prompt: "Ты - полезный ассистент Telegram-бота. Отвечай кратко и по делу."
+Memory: Window Buffer (последние 10 сообщений)
+Tools: (опционально) Wikipedia, Calculator, HTTP Request</code></pre>
             </div>
 
             <p style="margin-top: 1rem;"><strong>Шаг 3: Telegram Send Message</strong></p>
@@ -417,7 +411,7 @@ services:
           <div class="example-body">
             <p><strong>Структура:</strong></p>
             <div class="code-block">
-              <pre><code>Schedule Trigger → Google Sheets → OpenAI → Email</code></pre>
+              <pre><code>Schedule Trigger → Google Sheets → AI Agent Node (Anthropic) → Email</code></pre>
             </div>
 
             <div class="prompt-example" style="margin-top: 1.5rem;">
@@ -432,7 +426,7 @@ services:
                 <button class="code-copy-btn">Копировать</button>
               </div>
               <pre><code>{
-  "model": "gpt-5.2",
+  "model": "claude-sonnet-4-6",
   "messages": [
     {
       "role": "system",
@@ -601,6 +595,8 @@ return {
               <li><strong>Три типа нодов:</strong> Triggers (запуск), Processing (обработка), Actions (действия)</li>
               <li><strong>AI интеграция</strong> — OpenAI, Hugging Face, кастомные API через HTTP Request</li>
               <li><strong>Self-hosted</strong> — полный контроль над данными и безопасностью</li>
+              <li><strong>AI Agent Node</strong> (v1.x) — создавайте агентов с памятью, инструментами и LLM прямо в n8n</li>
+              <li><strong>Нативные ноды</strong> для Claude (Anthropic), GPT (OpenAI), Gemini (Google) — без кода</li>
               <li>Комбинируйте AI с другими сервисами для создания мощных автоматизаций</li>
             </ul>
           </div>

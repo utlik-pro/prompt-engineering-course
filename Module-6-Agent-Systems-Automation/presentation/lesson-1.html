@@ -327,6 +327,11 @@
             <h4 class="technique-card-title">API</h4>
             <p class="technique-card-desc">Интеграция с внешними сервисами</p>
           </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🔌</div>
+            <h4 class="technique-card-title">MCP</h4>
+            <p class="technique-card-desc">Model Context Protocol — стандарт подключения инструментов к AI агентам</p>
+          </div>
         </div>
 
         <!-- Function Calling Example -->
@@ -370,6 +375,40 @@
 5. Формирует ответ для пользователя
 
 Агент: "В Минске сейчас 5°C, облачно."</pre>
+        </div>
+
+        <!-- MCP Section -->
+        <h2>Model Context Protocol (MCP)</h2>
+
+        <div class="alert alert-success">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <div>
+            <strong>MCP</strong> — открытый стандарт от Anthropic (2024), который стал индустриальным стандартом подключения AI агентов к инструментам, базам данных и сервисам. Поддерживается Claude, ChatGPT, Cursor, n8n и сотнями других платформ.
+          </div>
+        </div>
+
+        <div class="comparison">
+          <div class="comparison-item bad">
+            <div class="comparison-header">❌ До MCP</div>
+            <ul>
+              <li>Каждая платформа — своя интеграция</li>
+              <li>Сложная настройка API</li>
+              <li>Нет единого стандарта</li>
+              <li>Сложно переключаться между AI</li>
+            </ul>
+          </div>
+          <div class="comparison-item good">
+            <div class="comparison-header">✅ С MCP</div>
+            <ul>
+              <li>Один сервер — все AI клиенты</li>
+              <li>Plug-and-play подключение</li>
+              <li>1000+ готовых MCP серверов</li>
+              <li>GitHub, Notion, Slack, БД — из коробки</li>
+            </ul>
+          </div>
         </div>
 
         <!-- Components Deep Dive -->
@@ -458,6 +497,60 @@
 
         <!-- Use Cases -->
         <h2>Примеры применения агентов</h2>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-api">Программирование</span>
+            <h4>Claude Code / Cursor Agent</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task">
+              <h5>📋 Задачи агента</h5>
+              <ul>
+                <li>Чтение и редактирование файлов проекта</li>
+                <li>Запуск тестов и исправление ошибок</li>
+                <li>Написание и рефакторинг кода</li>
+                <li>Работа с Git (коммиты, PR)</li>
+              </ul>
+            </div>
+            <div class="example-result">
+              <h5>🛠 Инструменты</h5>
+              <ul>
+                <li>Файловая система (MCP)</li>
+                <li>Терминал / Shell</li>
+                <li>Браузер (web search)</li>
+                <li>Git интеграция</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <div class="example-header">
+            <span class="domain-badge domain-automation">Автоматизация</span>
+            <h4>Computer Use агент (Operator)</h4>
+          </div>
+          <div class="example-body">
+            <div class="example-task">
+              <h5>📋 Задачи агента</h5>
+              <ul>
+                <li>Управление браузером и приложениями</li>
+                <li>Заполнение форм, бронирование</li>
+                <li>Сбор данных с сайтов</li>
+                <li>Выполнение задач в интерфейсе</li>
+              </ul>
+            </div>
+            <div class="example-result">
+              <h5>🛠 Инструменты</h5>
+              <ul>
+                <li>Браузер (Computer Use)</li>
+                <li>Скриншоты и клики</li>
+                <li>Клавиатура и мышь</li>
+                <li>OpenAI Operator API</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
         <div class="example-card">
           <div class="example-header">
@@ -591,6 +684,8 @@
               <li><strong>Компоненты:</strong> восприятие, обработка (LLM + память), действие</li>
               <li><strong>Tool Use</strong> позволяет агентам выходить за рамки текстовой генерации</li>
               <li><strong>Function Calling</strong> — механизм вызова внешних функций</li>
+              <li><strong>MCP</strong> — единый стандарт подключения инструментов к любому AI агенту (2024+)</li>
+              <li><strong>Тренд 2026:</strong> multi-agent системы и Computer Use — агенты управляют браузером и приложениями</li>
             </ul>
           </div>
         </div>

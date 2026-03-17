@@ -191,7 +191,7 @@
             <polyline points="22 4 12 14.01 9 11.01"/>
           </svg>
           <div>
-            <strong>Groq</strong> использует специализированные процессоры (LPU) для генерации до 300 токенов/секунду — в 10-30 раз быстрее обычных GPU.
+            <strong>Groq</strong> использует специализированные процессоры (LPU) для генерации до 800+ токенов/секунду — в 10-30 раз быстрее обычных GPU. В 2025-2026 добавил поддержку Llama 4, DeepSeek-R2 и Qwen2.5.
           </div>
         </div>
 
@@ -253,7 +253,7 @@ def run_agent(user_message: str):
     ]
 
     response = client.chat.completions.create(
-        model="llama-3.1-70b-versatile",
+        model="llama-4-maverick",  # или deepseek-r2, qwen-2.5-72b
         messages=messages,
         tools=tools,
         tool_choice="auto"
@@ -267,7 +267,7 @@ print(result)</code></pre>
         </div>
 
         <!-- Gemini Section -->
-        <h2 style="margin-top: 3rem;">Google Gemini — Мультимодальные агенты</h2>
+        <h2 style="margin-top: 3rem;">Google Gemini 2.5 — Мультимодальные агенты</h2>
 
         <div class="alert alert-info">
           <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -276,7 +276,7 @@ print(result)</code></pre>
             <path d="M12 8h.01"/>
           </svg>
           <div>
-            <strong>Gemini</strong> — семейство мультимодальных моделей от Google, способных работать с текстом, изображениями, аудио и видео. Контекст до 1M токенов.
+            <strong>Gemini 2.5</strong> — семейство мультимодальных моделей от Google с нативным reasoning. Работает с текстом, изображениями, аудио, видео и кодом. Контекст до 1M токенов. Gemini 2.5 Pro — лучший в кодинге и аналитике по бенчмаркам 2026 года.
           </div>
         </div>
 
@@ -294,18 +294,18 @@ print(result)</code></pre>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>Gemini 3 Flash</strong></td>
-                  <td>Быстрая модель для повседневных задач</td>
+                  <td><strong>Gemini 2.5 Flash</strong></td>
+                  <td>Быстрая и дешёвая для высоких нагрузок</td>
                   <td>1M токенов</td>
                 </tr>
                 <tr>
-                  <td><strong>Gemini 3 Pro</strong></td>
-                  <td>Мультимодальная (текст, изображения, видео, аудио)</td>
+                  <td><strong>Gemini 2.5 Pro</strong></td>
+                  <td>Лучший в кодинге и аналитике, нативный reasoning</td>
                   <td>1M токенов</td>
                 </tr>
                 <tr>
-                  <td><strong>Gemini 3 Deep Think</strong></td>
-                  <td>Специализированный режим для сложных рассуждений</td>
+                  <td><strong>Gemini 2.5 Deep Research</strong></td>
+                  <td>Автономный исследователь — сам ищет и анализирует</td>
                   <td>1M токенов</td>
                 </tr>
               </tbody>
@@ -328,10 +328,10 @@ genai.configure(api_key="your-api-key")
 def multimodal_agent(text: str, image_path: str = None):
     if image_path:
         img = PIL.Image.open(image_path)
-        model = genai.GenerativeModel("gemini-3-pro")
+        model = genai.GenerativeModel("gemini-2.5-pro")
         response = model.generate_content([text, img])
     else:
-        model = genai.GenerativeModel("gemini-3-flash")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         response = model.generate_content(text)
 
     return response.text
@@ -379,6 +379,43 @@ print(result)</code></pre>
             <div class="technique-card-icon">🌐</div>
             <h4 class="technique-card-title">Публикация</h4>
             <p class="technique-card-desc">Легкое распространение</p>
+          </div>
+        </div>
+
+        <!-- Grok Section -->
+        <h2 style="margin-top: 3rem;">Grok (xAI) — Агент с интернетом в реальном времени</h2>
+
+        <div class="alert alert-info">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Grok</strong> от Elon Musk's xAI — мощный мультимодальный агент с доступом к X (Twitter) в реальном времени, генерацией изображений (Aurora) и видео (Veo3 через DeepMind). Grok 3 в 2025 году вошёл в топ-3 по бенчмаркам.
+          </div>
+        </div>
+
+        <div class="lesson-cards" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+          <div class="technique-card">
+            <div class="technique-card-icon">🌐</div>
+            <h4 class="technique-card-title">Реальное время</h4>
+            <p class="technique-card-desc">Доступ к X/Twitter и актуальным новостям</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🖼</div>
+            <h4 class="technique-card-title">Aurora</h4>
+            <p class="technique-card-desc">Фотореалистичная генерация изображений</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🎬</div>
+            <h4 class="technique-card-title">Veo3</h4>
+            <p class="technique-card-desc">Генерация видео из текста</p>
+          </div>
+          <div class="technique-card">
+            <div class="technique-card-icon">🆓</div>
+            <h4 class="technique-card-title">Бесплатно</h4>
+            <p class="technique-card-desc">Базовый доступ через grok.x.ai</p>
           </div>
         </div>
 
@@ -471,6 +508,19 @@ print(result)</code></pre>
           </div>
         </div>
 
+        <!-- Make.com -->
+        <h2 style="margin-top: 3rem;">Make.com — Визуальная автоматизация</h2>
+
+        <div class="alert alert-success">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+          <div>
+            <strong>Make.com</strong> (бывший Integromat) — мощная альтернатива n8n с интуитивным визуальным редактором. 1000+ интеграций, AI модули для Claude и GPT, бесплатный план 1000 операций/месяц.
+          </div>
+        </div>
+
         <!-- Comparison Table -->
         <h2 style="margin-top: 3rem;">Сравнительная таблица</h2>
 
@@ -536,6 +586,20 @@ print(result)</code></pre>
                   <td>Нет</td>
                   <td>Да</td>
                 </tr>
+                <tr>
+                  <td><strong>Grok (xAI)</strong></td>
+                  <td>No-code + API</td>
+                  <td>Да</td>
+                  <td>Да</td>
+                  <td>Да</td>
+                </tr>
+                <tr>
+                  <td><strong>Make.com</strong></td>
+                  <td>No-code</td>
+                  <td>Частично</td>
+                  <td>Да</td>
+                  <td>Зависит от модуля</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -556,9 +620,10 @@ print(result)</code></pre>
           <div class="comparison-item" style="border-color: var(--accent);">
             <div class="comparison-header" style="color: var(--accent);">Для разработчиков (API)</div>
             <ul>
-              <li><strong>Groq</strong> — быстрая генерация</li>
-              <li><strong>Gemini</strong> — мультимодальность</li>
-              <li><strong>OpenRouter</strong> — разные модели</li>
+              <li><strong>Groq</strong> — сверхбыстрая генерация (Llama 4)</li>
+              <li><strong>Gemini 2.5 Pro</strong> — reasoning + мультимодальность</li>
+              <li><strong>OpenRouter</strong> — доступ к 100+ моделям</li>
+              <li><strong>Grok API</strong> — реальное время + Aurora</li>
             </ul>
           </div>
         </div>
@@ -612,7 +677,9 @@ print(result)</code></pre>
               <li><strong>Groq</strong> — сверхбыстрая генерация (300 токенов/сек), бесплатный tier</li>
               <li><strong>Gemini</strong> — мультимодальность (текст, изображения, видео), длинный контекст</li>
               <li><strong>Coze</strong> — полностью бесплатная no-code платформа с плагинами</li>
-              <li><strong>OpenRouter</strong> — единый API для доступа к разным моделям</li>
+              <li><strong>Grok</strong> — реальное время, Aurora (изображения), Veo3 (видео)</li>
+              <li><strong>Make.com</strong> — визуальная автоматизация, альтернатива n8n</li>
+              <li><strong>Gemini 2.5 Pro</strong> — лидер в кодинге и аналитике 2026</li>
               <li>Выбор платформы зависит от задач: скорость, мультимодальность, или простота</li>
             </ul>
           </div>
