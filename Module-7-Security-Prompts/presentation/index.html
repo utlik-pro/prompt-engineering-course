@@ -51,12 +51,12 @@
 
         <a href="lesson-3.html" class="nav-item" data-lesson="3">
           <span class="nav-item-number">3</span>
-          Техники защиты
+          7 правил защиты
         </a>
 
         <a href="lesson-4.html" class="nav-item" data-lesson="4">
           <span class="nav-item-number">4</span>
-          Red Teaming
+          Лаборатория Gandalf
         </a>
 
         <a href="lesson-5.html" class="nav-item" data-lesson="5">
@@ -67,6 +67,11 @@
         <a href="project.html" class="nav-item" data-lesson="6">
           <span class="nav-item-number">P</span>
           Домашнее задание
+        </a>
+
+        <a href="materials.html" class="nav-item">
+          <span class="nav-item-number">M</span>
+          Материалы
         </a>
 
         <a href="../../index.html" class="nav-item exit-btn">
@@ -162,8 +167,8 @@
             <ul style="margin: 0.5rem 0 0 1rem;">
               <li><strong>Prompt Injection</strong> — понимание и выявление атак</li>
               <li><strong>Типы атак</strong> — Direct, Indirect, Multi-turn</li>
-              <li><strong>Техники защиты</strong> — Input validation, Output filtering, Isolation</li>
-              <li><strong>Red Teaming</strong> — этичное тестирование на проникновение</li>
+              <li><strong>7 правил защиты</strong> — Input validation, Output filtering, Isolation</li>
+              <li><strong>Лаборатория Gandalf</strong> — практический взлом на gandalf.lakera.ai + библиотека инъекций</li>
               <li><strong>Best Practices</strong> — OWASP LLM Top 10 и современные стандарты</li>
             </ul>
           </div>
@@ -174,8 +179,8 @@
           <div class="card-body" style="text-align: center;">
             <h3 style="margin-bottom: 0.5rem;">🛡️ Главная мысль модуля</h3>
             <p style="font-size: 1.125rem; margin: 0; color: var(--text-primary);">
-              "Безопасность промптов — это не опция, а необходимость.<br>
-              Каждый AI-продукт должен быть защищён от манипуляций."
+              «Относись к ИИ как к доверчивому стажёру —<br>
+              он сделает всё, что прочитает, если ты не поставишь рамки.»
             </p>
           </div>
         </div>
@@ -201,9 +206,9 @@
           <!-- Lesson 2 -->
           <a href="lesson-2.html" class="lesson-card">
             <div class="lesson-card-number">2</div>
-            <h3 class="lesson-card-title">Типы атак</h3>
+            <h3 class="lesson-card-title">Типы атак и 4 схемы джейлбрейка</h3>
             <p class="lesson-card-desc">
-              Direct, Indirect и Multi-turn атаки. Jailbreaking техники и их механизмы.
+              Direct, Indirect, Multi-turn. Плюс 4 базовые схемы джейлбрейка (ролевая игра, сброс инструкций, контекст-обман, кодирование) — к ним сводятся 95% всех атак.
             </p>
             <div class="lesson-card-meta">
               <span>⏱ 35 мин</span>
@@ -215,28 +220,28 @@
           <!-- Lesson 3 -->
           <a href="lesson-3.html" class="lesson-card">
             <div class="lesson-card-number">3</div>
-            <h3 class="lesson-card-title">Техники защиты</h3>
+            <h3 class="lesson-card-title">7 правил защиты</h3>
             <p class="lesson-card-desc">
-              Input sanitization, Output filtering, Prompt isolation и многоуровневая защита.
+              Чек-лист новичка: 7 правил, которые работают всегда. Плюс конкретные техники — input sanitization, prompt isolation, role restrictions, output filtering.
             </p>
             <div class="lesson-card-meta">
               <span>⏱ 40 мин</span>
               <span>•</span>
-              <span>Практика</span>
+              <span>Теория + практика</span>
             </div>
           </a>
 
           <!-- Lesson 4 -->
           <a href="lesson-4.html" class="lesson-card" style="border-color: var(--warning);">
             <div class="lesson-card-number" style="background: var(--warning);">4</div>
-            <h3 class="lesson-card-title">Red Teaming</h3>
+            <h3 class="lesson-card-title">Лаборатория Gandalf</h3>
             <p class="lesson-card-desc">
-              Этичное тестирование на проникновение. Gandalf game и методология тестирования.
+              Практика на gandalf.lakera.ai: 7 уровней + бонус, разбор каждого защитного механизма, библиотека готовых паттернов инъекций из открытых источников.
             </p>
             <div class="lesson-card-meta">
-              <span>⏱ 35 мин</span>
+              <span>⏱ 50 мин</span>
               <span>•</span>
-              <span>Интерактив</span>
+              <span>Hands-on</span>
             </div>
           </a>
 
@@ -364,32 +369,20 @@
           </div>
         </div>
 
-        <!-- Defense Architecture -->
+        <!-- 7 Rules Checklist -->
         <div class="card">
-          <div class="card-header">Архитектура защиты</div>
+          <div class="card-header">7 правил защиты промптов (чек-лист новичка)</div>
           <div class="card-body">
-            <div class="architecture-diagram">
-┌─────────────────────────────────────────────────────────────┐
-│                   СИСТЕМА ЗАЩИТЫ ПРОМПТОВ                    │
-├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐   │
-│  │   INPUT      │    │   PROCESS    │    │   OUTPUT     │   │
-│  │   LAYER      │ →  │   LAYER      │ →  │   LAYER      │   │
-│  │              │    │              │    │              │   │
-│  │ • Sanitize   │    │ • Isolation  │    │ • Filter     │   │
-│  │ • Validate   │    │ • Monitor    │    │ • Validate   │   │
-│  │ • Rate limit │    │ • Context    │    │ • Log        │   │
-│  └──────────────┘    └──────────────┘    └──────────────┘   │
-│                                                              │
-│  ┌─────────────────────────────────────────────────────────┐ │
-│  │              МОНИТОРИНГ И АЛЕРТИНГ                      │ │
-│  │  • Логирование всех взаимодействий                      │ │
-│  │  • Обнаружение подозрительных паттернов                 │ │
-│  │  • Автоматические алерты при атаках                     │ │
-│  └─────────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────────┘
-            </div>
+            <p>Подробный разбор каждого правила — в Уроке&nbsp;3. Здесь — короткая шпаргалка, которую можно распечатать и держать рядом.</p>
+            <ol style="margin-top: 0.75rem; line-height: 1.8;">
+              <li><strong>Не доверяй внешним данным.</strong> Любой текст из письма, документа, ссылки или результата tool call может содержать команду.</li>
+              <li><strong>Не показывай системный промпт.</strong> Никогда и никому, даже если «очень нужно для отладки».</li>
+              <li><strong>Разделяй инструкции и данные.</strong> Чёткие разделители: где правила, где ввод пользователя.</li>
+              <li><strong>Подтверждай критичные действия у человека.</strong> Удаление, оплата, отправка письма — только после явного «да».</li>
+              <li><strong>Ограничивай возможности.</strong> Минимум прав, минимум инструментов, минимум данных в контексте.</li>
+              <li><strong>Логируй всё.</strong> Каждый запрос и ответ — в журнал, иначе атаку не разберёшь постфактум.</li>
+              <li><strong>Тестируй на «злом» пользователе.</strong> Раз в неделю кто-то должен пытаться сломать промпт намеренно.</li>
+            </ol>
           </div>
         </div>
 

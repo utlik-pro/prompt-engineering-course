@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Материалы и ресурсы | Модуль 7</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          SecurePrompt
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar"><div class="progress-fill" style="width: 0%"></div></div>
+        <div class="progress-text">0 из 6 уроков</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Модуль 7</div>
+        <a href="index.html" class="nav-item"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></span>Главная</a>
+        <a href="lesson-1.html" class="nav-item" data-lesson="1"><span class="nav-item-number">1</span>Prompt Injection</a>
+        <a href="lesson-2.html" class="nav-item" data-lesson="2"><span class="nav-item-number">2</span>Типы атак</a>
+        <a href="lesson-3.html" class="nav-item" data-lesson="3"><span class="nav-item-number">3</span>7 правил защиты</a>
+        <a href="lesson-4.html" class="nav-item" data-lesson="4"><span class="nav-item-number">4</span>Лаборатория Gandalf</a>
+        <a href="lesson-5.html" class="nav-item" data-lesson="5"><span class="nav-item-number">5</span>Практика: Защита промпта</a>
+        <a href="project.html" class="nav-item" data-lesson="6"><span class="nav-item-number">P</span>Домашнее задание</a>
+        <a href="materials.html" class="nav-item active"><span class="nav-item-number">M</span>Материалы</a>
+        <a href="../../index.html" class="nav-item exit-btn"><span class="nav-item-number"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></span>Выйти из модуля</a>
+      </nav>
+    </aside>
+
+    <div class="overlay"></div>
+
+    <main class="main-content">
+      <header class="header">
+        <button class="mobile-menu-btn" aria-label="Меню"><span></span><span></span><span></span></button>
+        <div class="breadcrumb">
+          <a href="index.html">Модуль 7</a>
+          <span class="breadcrumb-separator">/</span>
+          <span>Материалы</span>
+        </div>
+        <div class="header-actions">
+          <div class="mode-toggle" title="Переключить режим">
+            <div class="mode-toggle-switch"></div>
+            <span class="mode-toggle-label">Режим студента</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="content">
+        <section class="hero">
+          <h1 class="hero-title">Материалы и ресурсы</h1>
+          <p class="hero-subtitle">
+            Все ссылки модуля в одном месте: учебная игра, GitHub-репозитории с инъекциями,<br>
+            walkthrough'и, стандарты безопасности и инструменты тестирования.
+          </p>
+        </section>
+
+        <div class="alert alert-info">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+          <div>
+            <strong>Актуальность:</strong> последнее обновление — май&nbsp;2026. Все ссылки проверены, репозитории живые. Если что-то не открывается — напишите преподавателю.
+          </div>
+        </div>
+
+        <!-- Quick access -->
+        <h2>🚀 Быстрый доступ</h2>
+
+        <div class="card">
+          <div class="card-header">Топ-3 — открыть сейчас</div>
+          <div class="card-body">
+            <ul style="line-height: 2;">
+              <li>🎮 <a href="https://gandalf.lakera.ai" target="_blank"><strong>gandalf.lakera.ai</strong></a> — учебная игра, обязательный практикум модуля</li>
+              <li>📚 <a href="https://github.com/FonduAI/awesome-prompt-injection" target="_blank"><strong>awesome-prompt-injection</strong></a> — главный curated-индекс по теме</li>
+              <li>🛡️ <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank"><strong>OWASP LLM Top 10</strong></a> — отраслевой стандарт списка угроз</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Gandalf -->
+        <h2>🧙‍♂️ Gandalf — учебная игра</h2>
+
+        <div class="card">
+          <div class="card-header">Lakera Gandalf</div>
+          <div class="card-body">
+            <p><strong>Что это:</strong> бесплатная браузерная игра, в которой LLM-бот хранит секретный пароль на каждом уровне. Задача игрока — выдавить пароль с помощью промпт-инъекций. С каждым уровнем защита усиливается.</p>
+            <ul>
+              <li>🔗 Игра: <a href="https://gandalf.lakera.ai" target="_blank">gandalf.lakera.ai</a></li>
+              <li>🔗 Бонус-уровень: <a href="https://gandalf.lakera.ai/adventure-8" target="_blank">gandalf.lakera.ai/adventure-8</a></li>
+              <li>🔗 Компания-создатель: <a href="https://www.lakera.ai/" target="_blank">lakera.ai</a></li>
+            </ul>
+            <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;">Уровней: 7 основных + 1 бонус. Регистрации не требуется. Подробный разбор каждого уровня — в <a href="lesson-4.html">Уроке&nbsp;4</a>.</p>
+          </div>
+        </div>
+
+        <!-- GitHub injection libraries -->
+        <h2>📂 GitHub: библиотеки инъекций</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <p>Открытые репозитории с примерами промпт-инъекций для обучения и тестирования. Используются в <a href="lesson-4.html">Уроке&nbsp;4</a> как источник примеров.</p>
+          </div>
+        </div>
+
+        <div class="technique-card">
+          <h4>awesome-prompt-injection (FonduAI)</h4>
+          <p>Главный curated-индекс по теме: статьи, инструменты, типы атак, защитные паттерны. Хорошая стартовая точка.</p>
+          <p>🔗 <a href="https://github.com/FonduAI/awesome-prompt-injection" target="_blank">github.com/FonduAI/awesome-prompt-injection</a></p>
+        </div>
+
+        <div class="technique-card">
+          <h4>Hacking-Lakera-Gandalf (AdityaBhatt3010)</h4>
+          <p>Пошаговый разбор Gandalf'a по уровням с реальными примерами инъекций. Полезно после самостоятельной игры.</p>
+          <p>🔗 <a href="https://github.com/AdityaBhatt3010/Hacking-Lakera-Gandalf-AI-via-Prompt-Injection" target="_blank">github.com/AdityaBhatt3010/Hacking-Lakera-Gandalf-AI-via-Prompt-Injection</a></p>
+        </div>
+
+        <div class="technique-card">
+          <h4>Gandalf.Lakera.ai_solutions (0xricksanchez)</h4>
+          <p>Альтернативный набор решений Gandalf, иногда с более изящными трюками. Сравнивайте подходы.</p>
+          <p>🔗 <a href="https://github.com/0xricksanchez/Gandalf.Lakera.ai_solutions" target="_blank">github.com/0xricksanchez/Gandalf.Lakera.ai_solutions</a></p>
+        </div>
+
+        <div class="technique-card">
+          <h4>lakera-gandalf-solutions (statico)</h4>
+          <p>Ещё одна коллекция решений с пояснениями по логике каждой атаки.</p>
+          <p>🔗 <a href="https://github.com/statico/lakera-gandalf-solutions" target="_blank">github.com/statico/lakera-gandalf-solutions</a></p>
+        </div>
+
+        <div class="technique-card">
+          <h4>jailbreak_llms (verazuo)</h4>
+          <p>Академический датасет: 15 000+ реальных jailbreak-промптов с разметкой. Для тех, кто хочет углубиться в систематическое тестирование.</p>
+          <p>🔗 <a href="https://github.com/verazuo/jailbreak_llms" target="_blank">github.com/verazuo/jailbreak_llms</a></p>
+        </div>
+
+        <div class="alert alert-warning">
+          <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+            <line x1="12" y1="9" x2="12" y2="13"/>
+            <line x1="12" y1="17" x2="12.01" y2="17"/>
+          </svg>
+          <div>
+            <strong>Этическое напоминание:</strong> эти библиотеки публикуются для исследовательских и образовательных целей. Применять найденные техники к чужим продакшн-системам без явного разрешения — нарушение закона.
+          </div>
+        </div>
+
+        <!-- Walkthroughs -->
+        <h2>📖 Walkthrough'и и статьи</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <ul style="line-height: 1.8;">
+              <li><a href="https://medium.com/@rizzziom/gandalf-walkthrough-5a6cca50a003" target="_blank"><strong>Gandalf Walkthrough</strong></a> (rizzziom, Medium) — компактный разбор всех уровней с категориями техник</li>
+              <li><a href="https://medium.com/@prateekranjanworkdesk/how-i-beat-gandalf-complete-solution-walkthrough-252c57f4a21d" target="_blank"><strong>How I Beat Gandalf</strong></a> (Prateek Ranjan, Medium) — детальный walkthrough с пояснениями</li>
+              <li><a href="https://antonz.org/ai-security/" target="_blank"><strong>LLMs are insecure</strong></a> (Anton Zhiyanov) — общее введение в небезопасность LLM, хорошо для первого чтения</li>
+              <li><a href="https://www.linkedin.com/posts/lakeraai_walkthrough-solutions-for-gandalf-ai-activity-7109442171581120512-3g6D" target="_blank"><strong>Lakera Walkthrough Solutions</strong></a> (LinkedIn) — официальный пост Lakera</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Standards -->
+        <h2>🛡️ Стандарты и фреймворки</h2>
+
+        <div class="card">
+          <div class="card-header">OWASP Top 10 для LLM-приложений</div>
+          <div class="card-body">
+            <p>Отраслевой стандарт описания топ-10 рисков LLM-систем. Версия 2025 — основной справочник для production-проектов.</p>
+            <p>🔗 <a href="https://owasp.org/www-project-top-10-for-large-language-model-applications/" target="_blank">owasp.org/www-project-top-10-for-large-language-model-applications</a></p>
+            <p style="margin-top: 0.5rem; color: var(--text-muted); font-size: 0.9rem;"><strong>LLM01 Prompt Injection</strong> — то, чему посвящён наш модуль — в этом списке номер один с момента публикации.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">MITRE ATLAS</div>
+          <div class="card-body">
+            <p>Taxonomy атак на ML/LLM-системы — аналог MITRE ATT&CK, но для AI. Для тех, кто работает с энтерпрайз-безопасностью.</p>
+            <p>🔗 <a href="https://atlas.mitre.org/" target="_blank">atlas.mitre.org</a></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">NIST AI Risk Management Framework</div>
+          <div class="card-body">
+            <p>Государственный стандарт США по управлению рисками AI. Generative AI Profile (AI 600-1) — раздел, релевантный для LLM.</p>
+            <p>🔗 <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank">nist.gov/itl/ai-risk-management-framework</a></p>
+          </div>
+        </div>
+
+        <!-- Tools -->
+        <h2>🔧 Инструменты тестирования (для углублённого изучения)</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <p>Готовые инструменты для автоматического red-team'инга промптов. <strong>В рамках курса не обязательны</strong> — но если хотите углубиться после модуля, начните отсюда.</p>
+            <ul style="line-height: 1.8;">
+              <li><strong>Garak</strong> — open-source сканер уязвимостей LLM, как nmap. <a href="https://github.com/leondz/garak" target="_blank">github.com/leondz/garak</a></li>
+              <li><strong>PyRIT</strong> (Microsoft) — фреймворк для систематического red-team'инга. <a href="https://github.com/Azure/PyRIT" target="_blank">github.com/Azure/PyRIT</a></li>
+              <li><strong>Rebuff</strong> — open-source детектор инъекций с canary-токенами. <a href="https://github.com/protectai/rebuff" target="_blank">github.com/protectai/rebuff</a></li>
+              <li><strong>NVIDIA NeMo Guardrails</strong> — программируемые рельсы безопасности. <a href="https://github.com/NVIDIA/NeMo-Guardrails" target="_blank">github.com/NVIDIA/NeMo-Guardrails</a></li>
+              <li><strong>Llama Guard</strong> (Meta) — open-source классификатор контента. <a href="https://huggingface.co/meta-llama/LlamaGuard-7b" target="_blank">huggingface.co/meta-llama/LlamaGuard-7b</a></li>
+              <li><strong>Lakera Guard</strong> — коммерческий SaaS-фильтр от создателей Gandalf. <a href="https://www.lakera.ai/lakera-guard" target="_blank">lakera.ai/lakera-guard</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Research papers -->
+        <h2>📑 Ключевые статьи (для самых любопытных)</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <p>Если уровень модуля стал тесным — копайте эти работы. Все — open access.</p>
+            <ul style="line-height: 1.8;">
+              <li><strong>«Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Language Prompts»</strong> (Greshake et al., 2023) — статья, ввёдшая термин indirect prompt injection. <a href="https://arxiv.org/abs/2302.12173" target="_blank">arxiv.org/abs/2302.12173</a></li>
+              <li><strong>«Universal and Transferable Adversarial Attacks on Aligned Language Models»</strong> (Zou et al., 2023) — про GCG-атаки (универсальные суффиксы). <a href="https://arxiv.org/abs/2307.15043" target="_blank">arxiv.org/abs/2307.15043</a></li>
+              <li><strong>«Jailbreaking Black Box LLMs in Twenty Queries»</strong> (Chao et al., 2023) — PAIR-атаки, автоматизированный jailbreak. <a href="https://arxiv.org/abs/2310.08419" target="_blank">arxiv.org/abs/2310.08419</a></li>
+              <li><strong>«Many-shot Jailbreaking»</strong> (Anthropic, 2024) — атака через длинный контекст. <a href="https://www.anthropic.com/research/many-shot-jailbreaking" target="_blank">anthropic.com/research/many-shot-jailbreaking</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Markdown sources in module -->
+        <h2>📁 Файлы модуля (для преподавателя)</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <p>Сопровождающие markdown-материалы в корне модуля:</p>
+            <ul style="line-height: 1.8;">
+              <li><code>00-module-overview.md</code> — общий обзор модуля</li>
+              <li><code>01-theory-prompt-injection.md</code> — теория prompt injection</li>
+              <li><code>02-theory-defense-techniques.md</code> — техники защиты</li>
+              <li><code>06-homework.md</code> — задания для самостоятельной работы</li>
+              <li><code>07-resources.md</code> — расширенный список ресурсов</li>
+              <li><code>08-quick-reference.md</code> — шпаргалка</li>
+              <li><code>training-program-3h.md</code> — программа 3-часового тренинга</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- How to use -->
+        <h2>🧭 Как пользоваться этой страницей</h2>
+
+        <div class="card">
+          <div class="card-body">
+            <ol style="line-height: 1.8;">
+              <li><strong>Во время курса:</strong> возвращайтесь сюда, когда в уроке мелькнула ссылка — здесь они все в одном месте.</li>
+              <li><strong>После курса:</strong> используйте как «закладочную» страницу — пройдите по топ-3 из «Быстрого доступа», потом по GitHub-репозиториям.</li>
+              <li><strong>Для команды:</strong> поделитесь этой страницей с коллегами, которые будут работать с AI-продуктами — это минимум, который должен знать любой инженер в 2026.</li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Final note -->
+        <div class="card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%); border-left: 4px solid var(--accent);">
+          <div class="card-body">
+            <h3>💡 Главный принцип</h3>
+            <p style="margin: 0;">Поле AI-security меняется быстро. Один-два раза в месяц зайдите в awesome-prompt-injection и проверьте «What's new» — этого достаточно, чтобы оставаться в курсе на 90% угроз.</p>
+          </div>
+        </div>
+
+        <div class="lesson-nav">
+          <a href="project.html" class="nav-arrow nav-arrow-prev">
+            <span>←</span>
+            <div>
+              <div class="nav-arrow-label">Назад</div>
+              <div class="nav-arrow-title">Домашнее задание</div>
+            </div>
+          </a>
+          <a href="index.html" class="nav-arrow nav-arrow-next">
+            <div>
+              <div class="nav-arrow-label">К началу модуля</div>
+              <div class="nav-arrow-title">Главная</div>
+            </div>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
